@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cthf-blocks/header",
+  "title": "Header Builder(Pro)",
+  "description": "",
+  "category": "widgets",
+  "attributes": {
+    "cover": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "enableOptions": {
+      "type": "object",
+      "default": {
+        "topBar": true,
+        "bottomBar": true
+      }
+    },
+    "stickyHeader": {
+      "type": "object",
+      "default": {
+        "topBar": false,
+        "bottomBar": true
+      }
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "color": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "bg": ""
+      }
+    }
+  },
+  "editorScript": [
+    "cthf-blocks--header"
+  ],
+  "editorStyle": [
+    "cthf-blocks--header--editor-style"
+  ],
+  "style": [
+    "cthf-blocks--header--style"
+  ],
+  "render": "file:./render.php"
+}
