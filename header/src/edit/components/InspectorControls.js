@@ -10,36 +10,35 @@ import { memo } from "@wordpress/element";
 import { Settings } from "./Settings.js";
 import { Styles } from "./Styles.js";
 
-export const CozyBlockControls = memo(({ attributes, setAttributes }) => {
+export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 	return (
 		<>
 			<InspectorControls>
 				<TabPanel
+					className="cthf__tab-panel"
 					tabs={[
 						{
-							title: __("Settings", "cozy-addons"),
-							name: "cozy-tab__one",
+							title: __("Settings", "ct-header-footer-blocks"),
+							name: "cthf__tab-one",
 							icon: cog,
-							className: "cozy-block__tab-control",
 						},
 						{
-						title: __("Styles", "cozy-addons"),
-							name: "cozy-tab__two",
+							title: __("Styles", "ct-header-footer-blocks"),
+							name: "cthf__tab-two",
 							icon: styles,
-							className: "cozy-block__tab-control",
 						},
 					]}
 				>
 					{(tab) => (
 						<>
-							{tab.name === "cozy-tab__one" && (
+							{tab.name === "cthf__tab-one" && (
 								<Settings
 									attributes={attributes}
 									setAttributes={setAttributes}
 								/>
 							)}
 
-							{tab.name === "cozy-tab__two" && (
+							{tab.name === "cthf__tab-two" && (
 								<Styles attributes={attributes} setAttributes={setAttributes} />
 							)}
 						</>
