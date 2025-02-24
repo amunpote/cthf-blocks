@@ -21,6 +21,7 @@ import {
 	freeHeaderPattern2,
 	freeHeaderPattern3,
 	freeHeaderPattern4,
+	freeHeaderPattern5,
 } from "./utils.js";
 
 const HeaderBuilder = memo(
@@ -183,7 +184,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						<figure className="cthf-header__pattern">
 							<span className="pattern__overlay"></span>
 							<img src={`${cthfAssets.img}header-5.png`} />
-							<div className="pattern__import-btn">
+							<div
+								className="pattern__import-btn"
+								onClick={() => handlePatternImport(freeHeaderPattern5)}
+							>
 								{__("Import Pattern", "ct-header-footer-blocks")}
 							</div>
 						</figure>
