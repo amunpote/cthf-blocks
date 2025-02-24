@@ -18,12 +18,12 @@ import { renderBlockStyles } from "./style.js";
 import { blankTemplate } from "./utils.js";
 import { PatternModal } from "./components/PatternModal.js";
 
-const HeaderBuilder = memo(
-	({ blockID, attributes, startBlank, headerContent }) => {
+const FooterBuilder = memo(
+	({ blockID, attributes, startBlank, footerContent }) => {
 		return (
 			<>
 				<div id={blockID} className="cthf-block__header">
-					{!startBlank && <InnerBlocks template={headerContent} />}
+					{!startBlank && <InnerBlocks template={footerContent} />}
 
 					{startBlank && <InnerBlocks template={blankTemplate} />}
 				</div>
@@ -49,9 +49,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const [startBlank, setStartBlank] = useState(false);
 
-	const [headerContent, setHeaderContent] = useState([]);
+	const [footerContent, setFooterContent] = useState([]);
 	function handlePatternImport(blocks) {
-		setHeaderContent(blocks);
+		setFooterContent(blocks);
 		handleCloseModal();
 	}
 
@@ -61,7 +61,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		setInnerBlocks(content);
 
 		if (content.length <= 0) {
-			setHeaderContent([]);
+			setFooterContent([]);
 			setStartBlank(false);
 		}
 	}, [innerBlocks, select(blockEditorStore).getBlock(clientId)]);
@@ -75,11 +75,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					}}
 				/>
 
-				<HeaderBuilder
+				<FooterBuilder
 					blockID={blockID}
 					attributes={attributes}
 					startBlank={startBlank}
-					headerContent={headerContent}
+					footerContent={footerContent}
 				/>
 			</div>
 
@@ -88,20 +88,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				setAttributes={setAttributes}
 			/>
 
-			{innerBlocks.length <= 0 && headerContent.length <= 0 && !startBlank && (
+			{innerBlocks.length <= 0 && footerContent.length <= 0 && !startBlank && (
 				<>
 					<div className="cthf__starter-wrap">
 						<div className="cthf__starter-header">
 							<figure className="starter__img">
-								<img src={`${cthfAssets.img}header-starter.png`} />
+								<img src={`${cthfAssets.img}footer-starter.png`} />
 							</figure>
 							<h4 className="starter__title">
-								{__("Header", "ct-header-footer-blocks")}
+								{__("Footer", "ct-header-footer-blocks")}
 							</h4>
 						</div>
 						<p className="cthf__starter-content">
 							{__(
-								"Quickly start your site with pre-designed header patterns.",
+								"Quickly start your site with pre-designed footer patterns.",
 								"ct-header-footer-blocks",
 							)}
 						</p>

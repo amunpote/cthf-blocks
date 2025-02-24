@@ -2,8 +2,8 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
     "name": "cthf-blocks/header",
-    "title": "Header Builder(Pro)",
-    "description": "",
+    "title": "Header Builder",
+    "description": "The Header Block lets you create a fully customizable, responsive site header with options for sticky behavior, transparent backgrounds, and flexible layouts.",
     "category": "widgets",
     "attributes": {
         "cover": {

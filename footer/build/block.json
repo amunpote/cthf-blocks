@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cthf-blocks/footer",
+  "title": "Footer Builder",
+  "description": "The Footer Block allows you to design a fully customizable, responsive site footer with flexible layouts, widget areas, and styling options for a polished, professional finish.",
+  "category": "widgets",
+  "attributes": {
+    "cover": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": [
+    "cthf-blocks--footer"
+  ],
+  "editorStyle": [
+    "cthf-blocks--footer--editor-style"
+  ],
+  "style": [
+    "cthf-blocks--footer--style"
+  ],
+  "render": "file:./render.php"
+}

@@ -4,9 +4,6 @@ import { __ } from "@wordpress/i18n";
 
 import "./style.scss";
 
-import "./top-bar/index.js";
-import "./bottom-bar/index.js";
-
 import Edit from "./edit/index.js";
 import Save from "./save.js";
 import metadata from "./block.json";

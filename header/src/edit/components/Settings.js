@@ -12,7 +12,7 @@ import { memo } from "@wordpress/element";
 export const Settings = memo(({ attributes, setAttributes }) => {
 	return (
 		<>
-			<div key="cozy-block-setting">
+			<div key="cthf-block__setting">
 				
 			</div>
 		</>
