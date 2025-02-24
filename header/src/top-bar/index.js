@@ -11,6 +11,17 @@ registerBlockType("cthf-blocks/header-top-bar", {
 
 	category: "widgets",
 
+	attributes: {
+		cover: {
+			type: "string",
+			default: "",
+		},
+		clientId: {
+			type: "string",
+			default: "",
+		},
+	},
+
 	parent: ["cthf-blocks/header"],
 
 	edit: Edit,

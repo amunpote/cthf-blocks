@@ -21,18 +21,6 @@
                 "bottomBar": true
             }
         },
-        "topBarHTML": {
-            "type": "string",
-            "default": ""
-        },
-        "mainHTML": {
-            "type": "string",
-            "default": ""
-        },
-        "bottomBarHTML": {
-            "type": "string",
-            "default": ""
-        },
         "stickyHeader": {
             "type": "object",
             "default": {
