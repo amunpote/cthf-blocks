@@ -4,7 +4,7 @@
     "name": "cthf-blocks/footer",
     "title": "Footer Builder",
     "description": "The Footer Block allows you to design a fully customizable, responsive site footer with flexible layouts, widget areas, and styling options for a polished, professional finish.",
-    "category": "widgets",
+    "category": "ct-header-footer",
     "attributes": {
         "cover": {
             "type": "string",

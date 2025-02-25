@@ -6,17 +6,22 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	store as blockEditorStore,
+	BlockControls,
 } from "@wordpress/block-editor";
-import { Button } from "@wordpress/components";
+import { Button, ToolbarGroup, ToolbarButton } from "@wordpress/components";
+
+import { createBlocksFromInnerBlocksTemplate } from "@wordpress/blocks";
 
 import { memo, useState, useEffect } from "@wordpress/element";
 
-import { select } from "@wordpress/data";
+import { select, dispatch } from "@wordpress/data";
 
 import { CTHFBlockControls } from "./components/InspectorControls.js";
 import { renderBlockStyles } from "./style.js";
 import { blankTemplate } from "./utils.js";
 import { PatternModal } from "./components/PatternModal.js";
+
+import { replace } from "@wordpress/icons";
 
 const FooterBuilder = memo(
 	({ blockID, attributes, startBlank, footerContent }) => {
@@ -49,12 +54,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const [startBlank, setStartBlank] = useState(false);
 
-	const [footerContent, setFooterContent] = useState([]);
-	function handlePatternImport(blocks) {
-		setFooterContent(blocks);
-		handleCloseModal();
-	}
-
 	const [innerBlocks, setInnerBlocks] = useState([]);
 	useEffect(() => {
 		const content = select(blockEditorStore).getBlock(clientId).innerBlocks;
@@ -66,8 +65,39 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		}
 	}, [innerBlocks, select(blockEditorStore).getBlock(clientId)]);
 
+	const [footerContent, setFooterContent] = useState([]);
+	function handlePatternImport(blocks) {
+		if (innerBlocks.length <= 0) {
+			setFooterContent(blocks);
+		} else {
+			dispatch(blockEditorStore).replaceInnerBlocks(
+				clientId,
+				createBlocksFromInnerBlocksTemplate(blocks),
+			);
+		}
+
+		handleCloseModal();
+	}
+
 	return (
 		<>
+			{innerBlocks.length > 0 && (
+				<>
+					<BlockControls>
+						<ToolbarGroup>
+							<ToolbarButton
+								icon={replace}
+								onClick={() => {
+									setOpenModal(true);
+								}}
+							>
+								{__("Replace Layout", "ct-header-footer-blocks")}
+							</ToolbarButton>
+						</ToolbarGroup>
+					</BlockControls>
+				</>
+			)}
+
 			<div {...blockProps}>
 				<style
 					dangerouslySetInnerHTML={{
