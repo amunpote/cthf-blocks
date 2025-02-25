@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 
-import { Modal } from "@wordpress/components";
+import { Modal, Spinner } from "@wordpress/components";
 
 import { memo } from "@wordpress/element";
 
@@ -13,11 +13,11 @@ import {
 } from "../utils.js";
 
 export const PatternModal = memo(
-	({ handleCloseModal, handlePatternImport }) => {
+	({ handleCloseModal, handlePatternImport, patternLoader }) => {
 		return (
 			<>
 				<Modal
-					title={__("Choose Header Pattern", "ct-header-footer-blocks")}
+					title={__("Choose Header Pattern", "rootblox")}
 					onRequestClose={handleCloseModal}
 					size="large"
 					className="cthf__pattern-modal"
@@ -34,9 +34,16 @@ export const PatternModal = memo(
 							<img src={`${cthfAssets.img}header.png`} />
 							<div
 								className="pattern__import-btn"
-								onClick={() => handlePatternImport(freeHeaderPattern)}
+								onClick={() => {
+									if (patternLoader) {
+										return;
+									}
+
+									handlePatternImport(freeHeaderPattern);
+								}}
 							>
-								{__("Import Pattern", "ct-header-footer-blocks")}
+								{patternLoader && <Spinner />}
+								{!patternLoader && __("Import Pattern", "rootblox")}
 							</div>
 						</figure>
 
@@ -45,9 +52,16 @@ export const PatternModal = memo(
 							<img src={`${cthfAssets.img}header-2.png`} />
 							<div
 								className="pattern__import-btn"
-								onClick={() => handlePatternImport(freeHeaderPattern2)}
+								onClick={() => {
+									if (patternLoader) {
+										return;
+									}
+
+									handlePatternImport(freeHeaderPattern2);
+								}}
 							>
-								{__("Import Pattern", "ct-header-footer-blocks")}
+								{patternLoader && <Spinner />}
+								{!patternLoader && __("Import Pattern", "rootblox")}
 							</div>
 						</figure>
 
@@ -56,9 +70,16 @@ export const PatternModal = memo(
 							<img src={`${cthfAssets.img}header-3.png`} />
 							<div
 								className="pattern__import-btn"
-								onClick={() => handlePatternImport(freeHeaderPattern3)}
+								onClick={() => {
+									if (patternLoader) {
+										return;
+									}
+
+									handlePatternImport(freeHeaderPattern3);
+								}}
 							>
-								{__("Import Pattern", "ct-header-footer-blocks")}
+								{patternLoader && <Spinner />}
+								{!patternLoader && __("Import Pattern", "rootblox")}
 							</div>
 						</figure>
 
@@ -67,9 +88,16 @@ export const PatternModal = memo(
 							<img src={`${cthfAssets.img}header-4.png`} />
 							<div
 								className="pattern__import-btn"
-								onClick={() => handlePatternImport(freeHeaderPattern4)}
+								onClick={() => {
+									if (patternLoader) {
+										return;
+									}
+
+									handlePatternImport(freeHeaderPattern4);
+								}}
 							>
-								{__("Import Pattern", "ct-header-footer-blocks")}
+								{patternLoader && <Spinner />}
+								{!patternLoader && __("Import Pattern", "rootblox")}
 							</div>
 						</figure>
 
@@ -78,9 +106,16 @@ export const PatternModal = memo(
 							<img src={`${cthfAssets.img}header-5.png`} />
 							<div
 								className="pattern__import-btn"
-								onClick={() => handlePatternImport(freeHeaderPattern5)}
+								onClick={() => {
+									if (patternLoader) {
+										return;
+									}
+
+									handlePatternImport(freeHeaderPattern5);
+								}}
 							>
-								{__("Import Pattern", "ct-header-footer-blocks")}
+								{patternLoader && <Spinner />}
+								{!patternLoader && __("Import Pattern", "rootblox")}
 							</div>
 						</figure>
 					</div>

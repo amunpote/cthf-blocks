@@ -18,12 +18,12 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 					className="cthf__tab-panel"
 					tabs={[
 						{
-							title: __("Settings", "ct-header-footer-blocks"),
+							title: __("Settings", "rootblox"),
 							name: "cthf__tab-one",
 							icon: cog,
 						},
 						{
-							title: __("Styles", "ct-header-footer-blocks"),
+							title: __("Styles", "rootblox"),
 							name: "cthf__tab-two",
 							icon: styles,
 						},

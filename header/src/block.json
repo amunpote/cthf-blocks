@@ -4,7 +4,7 @@
     "name": "cthf-blocks/header",
     "title": "Header Builder",
     "description": "The Header Block lets you create a fully customizable, responsive site header with options for sticky behavior, transparent backgrounds, and flexible layouts.",
-    "category": "ct-header-footer",
+    "category": "rootblox",
     "attributes": {
         "cover": {
             "type": "string",

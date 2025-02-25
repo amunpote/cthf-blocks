@@ -12,9 +12,9 @@ import blockIcon from "./icon.js";
 import "../../../resources/components/utility.js";
 
 registerBlockType(metadata.name, {
-	title: __(metadata.title, "ct-header-footer-blocks"),
+	title: __(metadata.title, "rootblox"),
 
-	description: __(metadata.description, "ct-header-footer-blocks"),
+	description: __(metadata.description, "rootblox"),
 
 	icon: {
 		src: blockIcon,

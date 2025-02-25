@@ -34,7 +34,7 @@ const HeaderBuilder = memo(
 				</div>
 			</>
 		);
-	},
+	}
 );
 
 export default function Edit({ attributes, setAttributes, clientId }) {
@@ -54,6 +54,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const [startBlank, setStartBlank] = useState(false);
 
+	const [patternLoader, setPatternLoader] = useState(false);
+
 	const [innerBlocks, setInnerBlocks] = useState([]);
 	useEffect(() => {
 		const content = select(blockEditorStore).getBlock(clientId).innerBlocks;
@@ -67,16 +69,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const [headerContent, setHeaderContent] = useState([]);
 	function handlePatternImport(blocks) {
+		setPatternLoader(true);
+
 		if (innerBlocks.length <= 0) {
 			setHeaderContent(blocks);
 		} else {
 			dispatch(blockEditorStore).replaceInnerBlocks(
 				clientId,
-				createBlocksFromInnerBlocksTemplate(blocks),
+				createBlocksFromInnerBlocksTemplate(blocks)
 			);
 		}
 
 		handleCloseModal();
+		setPatternLoader(false);
 	}
 
 	return (
@@ -91,7 +96,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									setOpenModal(true);
 								}}
 							>
-								{__("Replace Layout", "ct-header-footer-blocks")}
+								{__("Replace Layout", "rootblox")}
 							</ToolbarButton>
 						</ToolbarGroup>
 					</BlockControls>
@@ -125,23 +130,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							<figure className="starter__img">
 								<img src={`${cthfAssets.img}header-starter.png`} />
 							</figure>
-							<h4 className="starter__title">
-								{__("Header", "ct-header-footer-blocks")}
-							</h4>
+							<h4 className="starter__title">{__("Header", "rootblox")}</h4>
 						</div>
 						<p className="cthf__starter-content">
 							{__(
 								"Quickly start your site with pre-designed header patterns.",
-								"ct-header-footer-blocks",
+								"rootblox"
 							)}
 						</p>
 						<div className="cthf__starter-btn-wrap">
 							<Button variant="secondary" onClick={handleOpenModal}>
-								{__("Add a Pattern", "ct-header-footer-blocks")}
+								{__("Add a Pattern", "rootblox")}
 							</Button>
 
 							<Button variant="secondary" onClick={() => setStartBlank(true)}>
-								{__("Start Blank", "ct-header-footer-blocks")}
+								{__("Start Blank", "rootblox")}
 							</Button>
 						</div>
 					</div>
@@ -152,6 +155,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				<PatternModal
 					handleCloseModal={handleCloseModal}
 					handlePatternImport={handlePatternImport}
+					patternLoader={patternLoader}
 				/>
 			)}
 		</>
