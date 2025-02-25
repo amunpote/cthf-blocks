@@ -1020,7 +1020,6 @@ export const freeHeaderPattern5 = [
 					[
 						"core/navigation",
 						{
-							ref: 2425,
 							customTextColor: "#fffffe",
 							customOverlayTextColor: "#333333",
 							style: {
