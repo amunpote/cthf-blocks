@@ -8,8 +8,8 @@ export default (
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M26 2H2V21H26V2ZM0 0V23H28V0H0Z"
 				fill="#0C50FF"
 			/>
@@ -31,14 +31,14 @@ export default (
 				fill="#0C50FF"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M24 5.22722H22H20V4.18176H24V5.22722Z"
 				fill="#0C50FF"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M24 6.79545H22H20V5.75H24V6.79545Z"
 				fill="#0C50FF"
 			/>

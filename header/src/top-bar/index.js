@@ -10,7 +10,7 @@ registerBlockType("cthf-blocks/header-top-bar", {
 	title: __("Top Bar", "ct-header-footer-blocks"),
 	description: __("Top bar element.", "ct-header-footer-blocks"),
 
-	category: "widgets",
+	category: "ct-header-footer",
 
 	icon: {
 		src: blockIcon,
