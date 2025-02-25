@@ -17,7 +17,6 @@ import { __ } from "@wordpress/i18n";
 export const blankTemplate = [
 	["cthf-blocks/header-top-bar"],
 	["core/group"],
-	["cthf-blocks/header-bottom-bar"],
 ];
 
 export const freeHeaderPattern = [
