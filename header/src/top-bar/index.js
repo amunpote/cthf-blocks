@@ -8,7 +8,7 @@ import blockIcon from "./icon.js";
 
 registerBlockType("cthf-blocks/header-top-bar", {
 	title: __("Top Bar", "ct-header-footer-blocks"),
-	description: __("Top bar element.", "ct-header-footer-blocks"),
+	description: __("Top bar element for Header block.", "ct-header-footer-blocks"),
 
 	category: "ct-header-footer",
 
