@@ -34,7 +34,7 @@ const HeaderBuilder = memo(
 				</div>
 			</>
 		);
-	}
+	},
 );
 
 export default function Edit({ attributes, setAttributes, clientId }) {
@@ -76,7 +76,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		} else {
 			dispatch(blockEditorStore).replaceInnerBlocks(
 				clientId,
-				createBlocksFromInnerBlocksTemplate(blocks)
+				createBlocksFromInnerBlocksTemplate(blocks),
 			);
 		}
 
@@ -135,7 +135,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						<p className="cthf__starter-content">
 							{__(
 								"Quickly start your site with pre-designed header patterns.",
-								"rootblox"
+								"rootblox",
 							)}
 						</p>
 						<div className="cthf__starter-btn-wrap">

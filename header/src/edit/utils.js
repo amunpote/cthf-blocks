@@ -14,10 +14,7 @@ import { __ } from "@wordpress/i18n";
 // 	return fontOptions;
 // }
 
-export const blankTemplate = [
-	["cthf-blocks/header-top-bar"],
-	["core/group"],
-];
+export const blankTemplate = [["cthf-blocks/header-top-bar"], ["core/group"]];
 
 export const freeHeaderPattern = [
 	[
@@ -1116,6 +1113,561 @@ export const freeHeaderPattern5 = [
 							["core/social-link", { url: "#", service: "instagram" }],
 							["core/social-link", { url: "#", service: "youtube" }],
 						],
+					],
+				],
+			],
+		],
+	],
+];
+
+/* Pro Patterns */
+export const proHeaderPattern = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								top: "12px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						color: { background: "#fffffe" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									padding: { bottom: "14px" },
+								},
+								border: {
+									bottom: { color: "#03082124", style: "solid", width: "1px" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `<strong><mark style="background-color:rgba(0, 0, 0, 0);color:#030821" class="has-inline-color">Biggest Sale Ever!</mark></strong> 70% Off Storewide – Hurry In!`,
+									style: {
+										color: { text: "#44464e" },
+										elements: { link: { color: { text: "#44464e" } } },
+										typography: { fontSize: "14px" },
+									},
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "16px" } },
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/social-links",
+										{
+											customIconColor: "#030821",
+											iconColorValue: "#030821",
+											customIconBackgroundColor: "#fffffe00",
+											iconBackgroundColorValue: "#fffffe00",
+											size: "has-normal-icon-size",
+											className: "cthf__has-border",
+											style: {
+												spacing: { blockGap: { top: "6px", left: "6px" } },
+											},
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "youtube" }],
+											["core/social-link", { url: "#", service: "whatsapp" }],
+											["core/social-link", { url: "#", service: "telegram" }],
+										],
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												border: { left: { color: "#03082142", width: "3px" } },
+												spacing: { padding: { left: "19px" } },
+												typography: {
+													fontSize: "16px",
+													fontStyle: "normal",
+													fontWeight: "500",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Subscribe",
+													style: {
+														color: { background: "#030821", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														border: { radius: "100px" },
+														spacing: {
+															padding: {
+																left: "42px",
+																right: "42px",
+																top: "14px",
+																bottom: "14px",
+															},
+														},
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "12px", bottom: "26px" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: { spacing: { blockGap: "26px" } },
+							layout: { type: "flex", flexWrap: "nowrap" },
+						},
+						[
+							["core/site-logo", { width: 100 }],
+							[
+								"core/navigation",
+								{
+									customTextColor: "#44464e",
+									style: { typography: { fontSize: "16px" } },
+								},
+							],
+						],
+					],
+					[
+						"core/search",
+						{
+							label: "Search",
+							showLabel: false,
+							buttonText: "Search",
+							buttonPosition: "button-only",
+							buttonUseIcon: true,
+							isSearchFieldHidden: true,
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+								},
+								color: { background: "#fffffe00", text: "#030821" },
+								elements: { link: { color: { text: "#030821" } } },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern2 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								top: "12px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						color: { background: "#fffffe" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									padding: { bottom: "14px" },
+								},
+								border: {
+									bottom: { color: "#03082124", style: "solid", width: "1px" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo", { width: 100 }],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									placeholder: "Search for Products...",
+									width: 100,
+									widthUnit: "%",
+									buttonText: "Search",
+									buttonPosition: "button-inside",
+									buttonUseIcon: true,
+									className: "cthf-pro-2",
+									style: {
+										spacing: {
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+										color: { text: "#030821", background: "#fffffe00" },
+										elements: { link: { color: { text: "#030821" } } },
+										border: { radius: "8px" },
+									},
+								},
+							],
+							[
+								"core/buttons",
+								{
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+											textDecoration: "none",
+										},
+									},
+								},
+								[
+									[
+										"core/button",
+										{
+											text: "Subscribe",
+											style: {
+												color: { background: "#ae0bff", text: "#fffffe" },
+												elements: { link: { color: { text: "#fffffe" } } },
+												border: { radius: "8px" },
+												spacing: {
+													padding: {
+														left: "42px",
+														right: "42px",
+														top: "14px",
+														bottom: "14px",
+													},
+												},
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "12px", bottom: "26px" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#44464e",
+							style: { typography: { fontSize: "16px" } },
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#fffffe",
+							iconColorValue: "#fffffe",
+							customIconBackgroundColor: "#030821",
+							iconBackgroundColorValue: "#030821",
+							size: "has-normal-icon-size",
+							className: "cthf-pro-2",
+							style: { spacing: { blockGap: { top: "6px", left: "6px" } } },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "youtube" }],
+							["core/social-link", { url: "#", service: "whatsapp" }],
+							["core/social-link", { url: "#", service: "telegram" }],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern3 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#030821", text: "#fffffe" },
+						elements: { link: { color: { text: "#fffffe" } } },
+						spacing: {
+							blockGap: "0",
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "10px",
+								bottom: "10px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/group",
+								{
+									style: {
+										spacing: { blockGap: "16px" },
+										typography: { fontSize: "14px" },
+									},
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									["core/paragraph", { content: `<a href="#">News World</a>` }],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Latest News</a>`,
+											style: {
+												border: {
+													left: {
+														color: "#ffffff7a",
+														style: "solid",
+														width: "1px",
+													},
+												},
+												spacing: { padding: { left: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Contact</a>`,
+											style: {
+												border: {
+													left: {
+														color: "#ffffff7a",
+														style: "solid",
+														width: "1px",
+													},
+												},
+												spacing: { padding: { left: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Buy Now</a>`,
+											style: {
+												border: {
+													left: {
+														color: "#ffffff7a",
+														style: "solid",
+														width: "1px",
+													},
+												},
+												spacing: { padding: { left: "16px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									size: "has-normal-icon-size",
+									style: {
+										spacing: {
+											blockGap: { top: "4px", left: "4px" },
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "linkedin" }],
+									["core/social-link", { url: "#", service: "pinterest" }],
+									["core/social-link", { url: "#", service: "telegram" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#1a1e30", text: "#fffffe" },
+				elements: { link: { color: { text: "#fffffe" } } },
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "34px", bottom: "34px" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: { spacing: { blockGap: "26px" } },
+							layout: { type: "flex", flexWrap: "nowrap" },
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/navigation",
+								{
+									customTextColor: "#fffffe",
+									customOverlayTextColor: "#333333",
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/search",
+						{
+							label: "Search",
+							showLabel: false,
+							width: 100,
+							widthUnit: "%",
+							buttonText: "Search",
+							buttonPosition: "button-only",
+							buttonUseIcon: true,
+							isSearchFieldHidden: true,
+							style: {
+								elements: { link: { color: { text: "#fffffe" } } },
+								color: { background: "#fffffe00", text: "#fffffe" },
+								spacing: {
+									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+								},
+								layout: { selfStretch: "fit", flexSize: null },
+								typography: { fontSize: "14px" },
+							},
+						},
 					],
 				],
 			],
