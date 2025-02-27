@@ -1365,7 +1365,7 @@ export const proHeaderPattern2 = [
 									buttonText: "Search",
 									buttonPosition: "button-inside",
 									buttonUseIcon: true,
-									className: "cthf-pro-2",
+									className: "cthf-pro__layout-1",
 									style: {
 										spacing: {
 											margin: { top: "0", bottom: "0", left: "0", right: "0" },
@@ -1454,7 +1454,7 @@ export const proHeaderPattern2 = [
 							customIconBackgroundColor: "#030821",
 							iconBackgroundColorValue: "#030821",
 							size: "has-normal-icon-size",
-							className: "cthf-pro-2",
+							className: "cthf-pro__layout-1",
 							style: { spacing: { blockGap: { top: "6px", left: "6px" } } },
 						},
 						[
@@ -1666,6 +1666,397 @@ export const proHeaderPattern3 = [
 								},
 								layout: { selfStretch: "fit", flexSize: null },
 								typography: { fontSize: "14px" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern4 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+							padding: {
+								top: "14px",
+								bottom: "14px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						color: {
+							gradient:
+								"linear-gradient(135deg,rgb(52,80,230) 0%,rgb(174,11,255) 100%)",
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe1f",
+									iconBackgroundColorValue: "#fffffe1f",
+									size: "has-normal-icon-size",
+									style: { spacing: { blockGap: { top: "6px", left: "6px" } } },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+									["core/social-link", { url: "#", service: "whatsapp" }],
+									["core/social-link", { url: "#", service: "telegram" }],
+								],
+							],
+							["core/site-logo"],
+							[
+								"core/buttons",
+								{
+									style: {
+										typography: {
+											fontSize: "14px",
+											fontStyle: "normal",
+											fontWeight: "500",
+											textDecoration: "none",
+										},
+									},
+								},
+								[
+									[
+										"core/button",
+										{
+											text: "Subscribe",
+											style: {
+												color: { background: "#ffffff40", text: "#fffffe" },
+												elements: { link: { color: { text: "#fffffe" } } },
+												spacing: {
+													padding: {
+														left: "36px",
+														right: "36px",
+														top: "12px",
+														bottom: "12px",
+													},
+												},
+												border: { radius: "8px" },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "10px", bottom: "10px" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+						verticalAlignment: "center",
+					},
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#030821",
+							overlayMenu: "always",
+							style: {
+								typography: {
+									fontSize: "16px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+					[
+						"core/navigation",
+						{
+							customTextColor: "#030821",
+							overlayMenu: "never",
+							style: {
+								typography: {
+									fontSize: "16px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+					[
+						"core/search",
+						{
+							label: "Search",
+							showLabel: false,
+							width: 100,
+							widthUnit: "%",
+							buttonText: "Search",
+							buttonPosition: "button-only",
+							buttonUseIcon: true,
+							isSearchFieldHidden: true,
+							style: {
+								elements: { link: { color: { text: "#030821" } } },
+								color: { background: "#fffffe00", text: "#030821" },
+								spacing: {
+									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+								},
+								layout: { selfStretch: "fit", flexSize: null },
+								typography: { fontSize: "14px" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern5 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								top: "0px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						color: { background: "#fffffe" },
+						shadow: "var:preset|shadow|natural",
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									padding: { right: "0", left: "0", top: "0", bottom: "0" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/group",
+								{
+									style: {
+										color: { text: "#4b4b4b" },
+										elements: { link: { color: { text: "#4b4b4b" } } },
+										typography: { fontSize: "14px" },
+										spacing: { blockGap: "16px" },
+									},
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/post-date",
+										{ format: "l, j F Y", className: "cthf-date__has-icon" },
+									],
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "10px" } },
+											layout: { type: "flex", flexWrap: "wrap" },
+										},
+										[
+											[
+												"core/paragraph",
+												{
+													content: "Breaking News",
+													style: {
+														color: { background: "#3450e6", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														typography: {
+															fontSize: "16px",
+															fontStyle: "normal",
+															fontWeight: "500",
+														},
+														spacing: {
+															padding: {
+																top: "10px",
+																bottom: "10px",
+																left: "16px",
+																right: "16px",
+															},
+														},
+													},
+												},
+											],
+											[
+												"core/paragraph",
+												{
+													content:
+														"Indonesia says located black box recorders from crashed plane",
+												},
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/social-links",
+								{
+									size: "has-small-icon-size",
+									style: {
+										spacing: { blockGap: { top: "8px", left: "8px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "16px", bottom: "16px" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					["core/site-logo"],
+					[
+						"core/image",
+						{
+							url: `${cthfAssets.img}header-pro-5-1.png`,
+							lightbox: { enabled: false },
+							sizeSlug: "full",
+							linkDestination: "custom",
+						},
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "0px",
+								bottom: "0px",
+							},
+							margin: { top: "16px" },
+						},
+						color: { background: "#030821" },
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#fffffe",
+							customOverlayTextColor: "#030821",
+							className: "cthf-pro__has-current-menu-style",
+							style: {
+								typography: {
+									fontSize: "16px",
+									fontStyle: "normal",
+									fontWeight: "600",
+								},
+							},
+						},
+						[["core/home-link", { label: "Home" }]],
+					],
+					[
+						"core/search",
+						{
+							label: "Search",
+							showLabel: false,
+							buttonText: "Search",
+							buttonPosition: "button-inside",
+							buttonUseIcon: true,
+							className: "cthf-pro__layout-2",
+							style: {
+								color: { background: "#fffffe00", text: "#fffffe" },
+								elements: { link: { color: { text: "#fffffe" } } },
 							},
 						},
 					],

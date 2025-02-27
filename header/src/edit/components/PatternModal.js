@@ -13,6 +13,8 @@ import {
 	proHeaderPattern,
 	proHeaderPattern2,
 	proHeaderPattern3,
+	proHeaderPattern4,
+	proHeaderPattern5,
 } from "../utils.js";
 
 // Create an object to store the patterns
@@ -25,12 +27,14 @@ const patterns = {
 	proHeaderPattern,
 	proHeaderPattern2,
 	proHeaderPattern3,
+	proHeaderPattern4,
+	proHeaderPattern5,
 };
 
 export const PatternModal = memo(
 	({ handleCloseModal, handlePatternImport, patternLoader }) => {
 		const freePatternCount = 5;
-		const proPatternCount = 3;
+		const proPatternCount = 5;
 
 		const freePatternsList = [];
 
