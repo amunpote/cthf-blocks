@@ -25,7 +25,7 @@
             "type": "object",
             "default": {
                 "topBar": false,
-                "bottomBar": true
+                "enabled": false
             }
         },
         "padding": {
@@ -48,5 +48,6 @@
     "editorScript": ["cthf-blocks--header"],
     "editorStyle": ["cthf-blocks--header--editor-style"],
     "style": ["cthf-blocks--header--style"],
+    "script": ["cthf-blocks--header--frontend-script"],
     "render": "file:./render.php"
 }

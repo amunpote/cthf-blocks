@@ -6,7 +6,12 @@ export default function Save({ attributes }) {
 	return (
 		<>
 			<div {...useBlockProps.save()}>
-				<div id={blockID} className="cthf-block__header">
+				<div
+					id={blockID}
+					className={`cthf-block__header${
+						attributes.stickyHeader.enabled ? " is-sticky" : ""
+					}${attributes.stickyHeader.topBar ? " top-bar__is-sticky" : ""}`}
+				>
 					<InnerBlocks.Content />
 				</div>
 			</div>

@@ -233,106 +233,117 @@ export const freeHeaderPattern2 = [
 	],
 	[
 		"core/group",
-		{
-			style: {
-				spacing: {
-					padding: { top: "20px", bottom: "20px", left: "26px", right: "26px" },
-					margin: { top: "0", bottom: "0" },
-					blockGap: "0",
-				},
-				color: { background: "#fffffe" },
-			},
-			layout: { type: "constrained", contentSize: "1180px" },
-		},
+		{ layout: { type: "constrained", contentSize: "100%" } },
 		[
 			[
 				"core/group",
 				{
-					layout: {
-						type: "flex",
-						flexWrap: "wrap",
-						justifyContent: "space-between",
+					style: {
+						spacing: {
+							padding: {
+								top: "20px",
+								bottom: "20px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						color: { background: "#fffffe" },
 					},
+					layout: { type: "constrained", contentSize: "1180px" },
 				},
 				[
-					["core/site-logo", { width: 160 }],
 					[
-						"core/image",
+						"core/group",
 						{
-							url: `${cthfAssets.img}header-2-2.png`,
-							sizeSlug: "full",
-							linkDestination: "none",
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
 						},
+						[
+							["core/site-logo", { width: 160 }],
+							[
+								"core/image",
+								{
+									url: `${cthfAssets.img}header-2-2.png`,
+									sizeSlug: "full",
+									linkDestination: "none",
+								},
+							],
+						],
 					],
 				],
 			],
-		],
-	],
-	[
-		"core/group",
-		{
-			style: {
-				color: { background: "#040c36", text: "#fffffe" },
-				spacing: {
-					margin: { top: "0", bottom: "0" },
-					padding: {
-						right: "26px",
-						left: "26px",
-						top: "6px",
-						bottom: "6px",
-					},
-					blockGap: "0",
-				},
-				elements: { link: { color: { text: "#fffffe" } } },
-			},
-			layout: { type: "constrained", contentSize: "1180px" },
-		},
-		[
 			[
 				"core/group",
 				{
-					layout: {
-						type: "flex",
-						flexWrap: "wrap",
-						justifyContent: "space-between",
+					style: {
+						color: { background: "#040c36", text: "#fffffe" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "6px",
+								bottom: "6px",
+							},
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#fffffe" } } },
 					},
+					layout: { type: "constrained", contentSize: "1180px" },
 				},
 				[
 					[
-						"core/navigation",
+						"core/group",
 						{
-							customTextColor: "#fffffe",
-							customOverlayTextColor: "#333333",
-							style: {
-								typography: {
-									fontSize: "16px",
-									fontStyle: "normal",
-									fontWeight: "500",
-								},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
 							},
 						},
-					],
-					[
-						"core/search",
-						{
-							label: "Search",
-							showLabel: false,
-							width: 100,
-							widthUnit: "%",
-							buttonText: "Search",
-							buttonPosition: "button-only",
-							buttonUseIcon: true,
-							isSearchFieldHidden: true,
-							style: {
-								elements: { link: { color: { text: "#fffffe" } } },
-								color: { background: "#fffffe00", text: "#fffffe" },
-								spacing: {
-									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+						[
+							[
+								"core/navigation",
+								{
+									customTextColor: "#fffffe",
+									customOverlayTextColor: "#333333",
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
 								},
-								layout: { selfStretch: "fit", flexSize: null },
-								typography: { fontSize: "14px" },
-							},
-						},
+							],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									width: 100,
+									widthUnit: "%",
+									buttonText: "Search",
+									buttonPosition: "button-only",
+									buttonUseIcon: true,
+									isSearchFieldHidden: true,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { background: "#fffffe00", text: "#fffffe" },
+										spacing: {
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+										layout: { selfStretch: "fit", flexSize: null },
+										typography: { fontSize: "14px" },
+									},
+								},
+							],
+						],
 					],
 				],
 			],
@@ -427,209 +438,238 @@ export const freeHeaderPattern3 = [
 	],
 	[
 		"core/group",
-		{
-			style: {
-				spacing: {
-					padding: { top: "20px", bottom: "20px", left: "26px", right: "26px" },
-					margin: { top: "0", bottom: "0" },
-					blockGap: "0",
-				},
-				color: { background: "#fffffe" },
-			},
-			layout: { type: "constrained", contentSize: "1180px" },
-		},
+		{ layout: { type: "constrained", contentSize: "100%" } },
 		[
 			[
 				"core/group",
 				{
-					layout: {
-						type: "flex",
-						flexWrap: "wrap",
-						justifyContent: "space-between",
+					style: {
+						spacing: {
+							padding: {
+								top: "20px",
+								bottom: "20px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						color: { background: "#fffffe" },
 					},
+					layout: { type: "constrained", contentSize: "1180px" },
 				},
 				[
-					["core/site-logo", { width: 160 }],
 					[
 						"core/group",
 						{
-							style: {
-								spacing: {
-									blockGap: "16px",
-									margin: { top: "0", bottom: "0" },
-									padding: { right: "0", left: "0", top: "0", bottom: "0" },
-								},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
 							},
-							layout: { type: "flex", flexWrap: "wrap" },
 						},
 						[
+							["core/site-logo", { width: 160 }],
 							[
 								"core/group",
 								{
 									style: {
 										spacing: {
-											blockGap: "0",
+											blockGap: "16px",
 											margin: { top: "0", bottom: "0" },
 											padding: { right: "0", left: "0", top: "0", bottom: "0" },
 										},
 									},
-									layout: {
-										type: "flex",
-										flexWrap: "nowrap",
-										verticalAlignment: "center",
-									},
+									layout: { type: "flex", flexWrap: "wrap" },
 								},
 								[
-									[
-										"core/image",
-										{
-											url: `${cthfAssets.img}header-3-1.png`,
-											lightbox: { enabled: false },
-											width: "72px",
-											height: "72px",
-											scale: "cover",
-											sizeSlug: "full",
-											linkDestination: "custom",
-										},
-									],
 									[
 										"core/group",
 										{
-											style: { spacing: { blockGap: "0" } },
-											layout: { type: "constrained" },
-										},
-										[
-											[
-												"core/paragraph",
-												{
-													content: "Call Us",
-													style: {
-														elements: { link: { color: { text: "#333333" } } },
-														color: { text: "#333333" },
-														typography: {
-															fontSize: "14px",
-														},
-													},
-												},
-											],
-											[
-												"core/paragraph",
-												{
-													content: "(123) 456-7890",
-													style: {
-														elements: { link: { color: { text: "#333333" } } },
-														color: { text: "#333333" },
-														typography: {
-															fontSize: "16px",
-															fontStyle: "normal",
-															fontWeight: "600",
-														},
-													},
-												},
-											],
-										],
-									],
-								],
-							],
-							[
-								"core/group",
-								{
-									style: {
-										spacing: {
-											blockGap: "0",
-											margin: { top: "0", bottom: "0" },
-											padding: { right: "0", left: "0", top: "0", bottom: "0" },
-										},
-									},
-									layout: {
-										type: "flex",
-										flexWrap: "nowrap",
-										verticalAlignment: "center",
-									},
-								},
-								[
-									[
-										"core/image",
-										{
-											url: `${cthfAssets.img}header-3-2.png`,
-											lightbox: { enabled: false },
-											width: "72px",
-											height: "72px",
-											scale: "cover",
-											sizeSlug: "full",
-											linkDestination: "custom",
-										},
-									],
-									[
-										"core/group",
-										{
-											style: { spacing: { blockGap: "0" } },
-											layout: { type: "constrained" },
-										},
-										[
-											[
-												"core/paragraph",
-												{
-													content: "Location",
-													style: {
-														elements: { link: { color: { text: "#333333" } } },
-														color: { text: "#333333" },
-														typography: {
-															fontSize: "14px",
-														},
-													},
-												},
-											],
-											[
-												"core/paragraph",
-												{
-													content: "New York, NY 10011, USA",
-													style: {
-														elements: { link: { color: { text: "#333333" } } },
-														color: { text: "#333333" },
-														typography: {
-															fontSize: "16px",
-															fontStyle: "normal",
-															fontWeight: "600",
-														},
-													},
-												},
-											],
-										],
-									],
-								],
-							],
-							[
-								"core/buttons",
-								{
-									style: {
-										typography: {
-											fontSize: "16px",
-											fontStyle: "normal",
-											fontWeight: "500",
-											textDecoration: "none",
-										},
-									},
-								},
-								[
-									[
-										"core/button",
-										{
-											text: "Request Quote",
 											style: {
-												border: { radius: "100px" },
 												spacing: {
+													blockGap: "0",
+													margin: { top: "0", bottom: "0" },
 													padding: {
-														left: "34px",
-														right: "34px",
-														top: "16px",
-														bottom: "16px",
+														right: "0",
+														left: "0",
+														top: "0",
+														bottom: "0",
 													},
 												},
-												color: { background: "#3450e6", text: "#fffffe" },
-												elements: { link: { color: { text: "#fffffe" } } },
+											},
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "center",
 											},
 										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-3-1.png`,
+													lightbox: { enabled: false },
+													width: "72px",
+													height: "72px",
+													scale: "cover",
+													sizeSlug: "full",
+													linkDestination: "custom",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Call Us",
+															style: {
+																elements: {
+																	link: { color: { text: "#333333" } },
+																},
+																color: { text: "#333333" },
+																typography: {
+																	fontSize: "14px",
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "(123) 456-7890",
+															style: {
+																elements: {
+																	link: { color: { text: "#333333" } },
+																},
+																color: { text: "#333333" },
+																typography: {
+																	fontSize: "16px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: {
+												spacing: {
+													blockGap: "0",
+													margin: { top: "0", bottom: "0" },
+													padding: {
+														right: "0",
+														left: "0",
+														top: "0",
+														bottom: "0",
+													},
+												},
+											},
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "center",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-3-2.png`,
+													lightbox: { enabled: false },
+													width: "72px",
+													height: "72px",
+													scale: "cover",
+													sizeSlug: "full",
+													linkDestination: "custom",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Location",
+															style: {
+																elements: {
+																	link: { color: { text: "#333333" } },
+																},
+																color: { text: "#333333" },
+																typography: {
+																	fontSize: "14px",
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "New York, NY 10011, USA",
+															style: {
+																elements: {
+																	link: { color: { text: "#333333" } },
+																},
+																color: { text: "#333333" },
+																typography: {
+																	fontSize: "16px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "16px",
+													fontStyle: "normal",
+													fontWeight: "500",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Request Quote",
+													style: {
+														border: { radius: "100px" },
+														spacing: {
+															padding: {
+																left: "34px",
+																right: "34px",
+																top: "16px",
+																bottom: "16px",
+															},
+														},
+														color: { background: "#3450e6", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+													},
+												},
+											],
+										],
 									],
 								],
 							],
@@ -637,73 +677,73 @@ export const freeHeaderPattern3 = [
 					],
 				],
 			],
-		],
-	],
-	[
-		"core/group",
-		{
-			style: {
-				color: { text: "#fffffe", background: "#fffffe" },
-				spacing: {
-					margin: { top: "0", bottom: "0" },
-					padding: {
-						right: "26px",
-						left: "26px",
-						top: "6px",
-						bottom: "6px",
-					},
-					blockGap: "0",
-				},
-				elements: { link: { color: { text: "#fffffe" } } },
-				shadow: "var:preset|shadow|natural",
-			},
-			layout: { type: "constrained", contentSize: "1180px" },
-		},
-		[
 			[
 				"core/group",
 				{
-					layout: {
-						type: "flex",
-						flexWrap: "wrap",
-						justifyContent: "space-between",
+					style: {
+						color: { text: "#fffffe", background: "#fffffe" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "6px",
+								bottom: "6px",
+							},
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#fffffe" } } },
+						shadow: "var:preset|shadow|natural",
 					},
+					layout: { type: "constrained", contentSize: "1180px" },
 				},
 				[
 					[
-						"core/navigation",
+						"core/group",
 						{
-							customTextColor: "#4b4b4b",
-							style: {
-								typography: {
-									fontSize: "16px",
-									fontStyle: "normal",
-									fontWeight: "500",
-								},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
 							},
 						},
-					],
-					[
-						"core/search",
-						{
-							label: "Search",
-							showLabel: false,
-							width: 100,
-							widthUnit: "%",
-							buttonText: "Search",
-							buttonPosition: "button-only",
-							buttonUseIcon: true,
-							isSearchFieldHidden: true,
-							style: {
-								elements: { link: { color: { text: "#030821" } } },
-								color: { background: "#fffffe00", text: "#030821" },
-								spacing: {
-									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+						[
+							[
+								"core/navigation",
+								{
+									customTextColor: "#4b4b4b",
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
 								},
-								layout: { selfStretch: "fit", flexSize: null },
-								typography: { fontSize: "14px" },
-							},
-						},
+							],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									width: 100,
+									widthUnit: "%",
+									buttonText: "Search",
+									buttonPosition: "button-only",
+									buttonUseIcon: true,
+									isSearchFieldHidden: true,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										color: { background: "#fffffe00", text: "#030821" },
+										spacing: {
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+										layout: { selfStretch: "fit", flexSize: null },
+										typography: { fontSize: "14px" },
+									},
+								},
+							],
+						],
 					],
 				],
 			],
@@ -1978,7 +2018,7 @@ export const proHeaderPattern5 = [
 				spacing: {
 					blockGap: "0",
 					margin: { top: "0", bottom: "0" },
-					padding: { right: "26px", left: "26px", top: "16px", bottom: "16px" },
+					padding: { right: "26px", left: "26px", top: "16px", bottom: "0px" },
 				},
 				color: { background: "#fffffe" },
 			},

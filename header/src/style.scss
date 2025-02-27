@@ -1,0 +1,13 @@
+.cthf-block__header:not(.on-scroll__sticky) {
+	transition: all 0.3s ease-out;
+}
+
+.cthf-block__header.is-sticky.on-scroll__sticky:not(.top-bar__is-sticky)
+	> .wp-block-group,
+.cthf-block__header.is-sticky.on-scroll__sticky.top-bar__is-sticky {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+}

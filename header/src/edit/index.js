@@ -27,7 +27,12 @@ const HeaderBuilder = memo(
 	({ blockID, attributes, startBlank, headerContent }) => {
 		return (
 			<>
-				<div id={blockID} className="cthf-block__header">
+				<div
+					id={blockID}
+					className={`cthf-block__header${
+						attributes.stickyHeader.enabled ? " is-sticky" : ""
+					}${attributes.stickyHeader.topBar ? " top-bar__is-sticky" : ""}`}
+				>
 					{!startBlank && <InnerBlocks template={headerContent} />}
 
 					{startBlank && <InnerBlocks template={blankTemplate} />}

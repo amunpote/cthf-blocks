@@ -1,1 +1,1 @@
-
+.cthf-block__header:not(.on-scroll__sticky){transition:all .3s ease-out}.cthf-block__header.is-sticky.on-scroll__sticky.top-bar__is-sticky,.cthf-block__header.is-sticky.on-scroll__sticky:not(.top-bar__is-sticky)>.wp-block-group{position:fixed;top:0;transition:all .3s ease-in-out;width:100%;z-index:99}
