@@ -120,11 +120,7 @@ export const PatternModal = memo(
 					className="cthf__pattern-modal"
 				>
 					<div
-						style={{
-							display: "grid",
-							gridTemplateColumns: "repeat(1, 1fr)",
-							gap: "16px",
-						}}
+						className="pattern__layout-wrapper"
 					>
 						{freePatternsList}
 

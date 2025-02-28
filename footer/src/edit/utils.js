@@ -1223,3 +1223,791 @@ export const freeFooterPattern6 = [
 		],
 	],
 ];
+
+export const proFooterPattern = [
+	[
+		"core/group",
+		{
+			style: { spacing: { blockGap: "0", margin: { top: "0", bottom: "0" } } },
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#1e1f27", text: "#fffffe" },
+						elements: { link: { color: { text: "#fffffe" } } },
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "80px",
+								bottom: "100px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+						typography: { fontSize: "15px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "36px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "constrained", contentSize: "" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "About Us",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+											},
+										},
+									],
+									[
+										"core/columns",
+										{
+											verticalAlignment: "center",
+											isStackedOnMobile: false,
+											style: {
+												spacing: {
+													blockGap: { top: "0", left: "0" },
+													margin: { top: "16px", bottom: "26px" },
+												},
+											},
+										},
+										[
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "20%",
+													style: {
+														border: {
+															top: {
+																color: "#3450e6",
+																style: "solid",
+																width: "2px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "66.66%",
+													style: {
+														border: {
+															top: {
+																color: "#f2f2f278",
+																style: "solid",
+																width: "1px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											content: "Gallery",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+											},
+										},
+									],
+									[
+										"core/columns",
+										{
+											verticalAlignment: "center",
+											isStackedOnMobile: false,
+											style: {
+												spacing: {
+													blockGap: { top: "0", left: "0" },
+													margin: { top: "16px", bottom: "26px" },
+												},
+											},
+										},
+										[
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "20%",
+													style: {
+														border: {
+															top: {
+																color: "#3450e6",
+																style: "solid",
+																width: "2px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "66.66%",
+													style: {
+														border: {
+															top: {
+																color: "#f2f2f278",
+																style: "solid",
+																width: "1px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/gallery",
+										{
+											linkTo: "none",
+											style: {
+												spacing: { blockGap: { top: "2px", left: "2px" } },
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-1.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-2.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-3.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-4.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-5.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-5-6.png`,
+													sizeSlug: "large",
+													linkDestination: "none",
+												},
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "constrained", contentSize: "" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Recent Posts",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+											},
+										},
+									],
+									[
+										"core/columns",
+										{
+											verticalAlignment: "center",
+											isStackedOnMobile: false,
+											style: {
+												spacing: {
+													blockGap: { top: "0", left: "0" },
+													margin: { top: "16px", bottom: "26px" },
+												},
+											},
+										},
+										[
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "20%",
+													style: {
+														border: {
+															top: {
+																color: "#3450e6",
+																style: "solid",
+																width: "2px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "66.66%",
+													style: {
+														border: {
+															top: {
+																color: "#f2f2f278",
+																style: "solid",
+																width: "1px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/query",
+										{
+											queryId: 0,
+											query: {
+												perPage: 3,
+												pages: 0,
+												offset: 0,
+												postType: "post",
+												order: "desc",
+												orderBy: "date",
+												author: "",
+												search: "",
+												exclude: [],
+												sticky: "",
+												inherit: false,
+												taxQuery: null,
+												parents: [],
+												format: [],
+											},
+										},
+										[
+											[
+												"core/post-template",
+												{ style: { spacing: { blockGap: "15px" } } },
+												[
+													[
+														"core/post-title",
+														{
+															isLink: true,
+															linkTarget: "_blank",
+															className: "cthf__has-list-icon",
+															style: {
+																color: { text: "#d9d9d9" },
+																elements: {
+																	link: { color: { text: "#d9d9d9" } },
+																},
+																typography: {
+																	fontSize: "16px",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																	textDecoration: "none",
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "constrained", contentSize: "" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Newsletter",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+											},
+										},
+									],
+									[
+										"core/columns",
+										{
+											verticalAlignment: "center",
+											isStackedOnMobile: false,
+											style: {
+												spacing: {
+													blockGap: { top: "0", left: "0" },
+													margin: { top: "16px", bottom: "26px" },
+												},
+											},
+										},
+										[
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "20%",
+													style: {
+														border: {
+															top: {
+																color: "#3450e6",
+																style: "solid",
+																width: "2px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+											[
+												"core/column",
+												{
+													verticalAlignment: "center",
+													width: "66.66%",
+													style: {
+														border: {
+															top: {
+																color: "#f2f2f278",
+																style: "solid",
+																width: "1px",
+															},
+															right: {},
+															bottom: {},
+															left: {},
+														},
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Add the Contact Form 7 shortcode or a similar one!",
+											style: { spacing: { margin: { bottom: "16px" } } },
+										},
+									],
+									[
+										"core/group",
+										{ layout: { type: "constrained" } },
+										[["core/shortcode"]],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#000316" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "16px",
+								bottom: "16px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <strong><mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color">CozyThemes</mark></strong>`,
+							align: "center",
+							style: {
+								elements: { link: { color: { text: "#d9d9d9" } } },
+								color: { text: "#d9d9d9" },
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern2 = [
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#000316" },
+				spacing: {
+					padding: { top: "0px", bottom: "0px", left: "0px", right: "0px" },
+					margin: { top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "100px",
+								bottom: "60px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "36px" },
+								},
+								typography: { fontSize: "14px" },
+								color: { text: "#ebebeb" },
+								elements: { link: { color: { text: "#ebebeb" } } },
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									width: "33%",
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "default" },
+								},
+								[
+									["core/site-logo"],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+											style: {
+												spacing: { margin: { top: "22px", bottom: "20px" } },
+											},
+										},
+									],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#3450e6",
+											iconBackgroundColorValue: "#3450e6",
+											style: {
+												spacing: { blockGap: { top: "6px", left: "10px" } },
+											},
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											content: "Company",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									["core/paragraph", { content: "Shop All" }],
+									[
+										"core/paragraph",
+										{
+											content: "Accessories",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Men's",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Women's",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Blogs",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											content: "Quick Links",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									["core/paragraph", { content: "Dress" }],
+									[
+										"core/paragraph",
+										{
+											content: "Bottoms",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Tops",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Watches",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Jackets",
+											style: { spacing: { margin: { top: "14px" } } },
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "30%",
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "default" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Subscribe to Newsletter",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: { fontSize: "22px" },
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Add the Contact Form 7 shortcode or a similar one!",
+											style: { spacing: { margin: { bottom: "16px" } } },
+										},
+									],
+									[
+										"core/group",
+										{ layout: { type: "constrained" } },
+										[["core/shortcode"]],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								bottom: "36px",
+								top: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+						border: {
+							top: { color: "#ffffff3d", style: "solid", width: "1px" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									blockGap: "16px",
+									margin: { top: "0", bottom: "0" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `© 2024 Created with <mark style="background-color:rgba(0, 0, 0, 0);color:#3450e6" class="has-inline-color">CozyThemes</mark> |  Terms and Condition`,
+									style: {
+										color: { text: "#ebebeb" },
+										elements: { link: { color: { text: "#ebebeb" } } },
+										typography: { fontSize: "15px" },
+									},
+								},
+							],
+							[
+								"core/image",
+								{
+									lightbox: { enabled: false },
+									url: `${cthfAssets.img}footer-pro-2-1.png`,
+									sizeSlug: "full",
+									linkDestination: "custom",
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
