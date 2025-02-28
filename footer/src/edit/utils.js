@@ -1121,3 +1121,105 @@ export const freeFooterPattern5 = [
 		],
 	],
 ];
+
+export const freeFooterPattern6 = [
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#fffffe" },
+				spacing: {
+					padding: { top: "80px", bottom: "80px", left: "26px", right: "26px" },
+					margin: { top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: { spacing: { margin: { top: "0", bottom: "60px" } } },
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					["core/site-logo"],
+					[
+						"core/group",
+						{
+							style: {
+								color: { text: "#434343" },
+								elements: { link: { color: { text: "#434343" } } },
+								typography: { fontSize: "15px" },
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "nowrap",
+								justifyContent: "center",
+							},
+						},
+						[
+							["core/paragraph", { content: "Opening Hours" }],
+							["core/paragraph", { content: "Location" }],
+							["core/paragraph", { content: "Contact" }],
+						],
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#170122",
+							iconColorValue: "#170122",
+							customIconBackgroundColor: "#fffffe00",
+							iconBackgroundColorValue: "#fffffe00",
+							className: "cthf__has-light-border",
+							style: { spacing: { blockGap: { top: "6px", left: "8px" } } },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#f8f8f8", text: "#434343" },
+						border: { radius: "100px" },
+						elements: { link: { color: { text: "#434343" } } },
+						typography: { fontSize: "15px" },
+						spacing: {
+							padding: {
+								right: "32px",
+								left: "32px",
+								top: "20px",
+								bottom: "20px",
+							},
+						},
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{ content: "Proudly powered by WordPress | Theme by CozyThemes" },
+					],
+					[
+						"core/paragraph",
+						{ content: "Privacy Policy | Terms and Coditions" },
+					],
+				],
+			],
+		],
+	],
+];
