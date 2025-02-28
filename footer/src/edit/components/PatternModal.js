@@ -13,6 +13,8 @@ import {
 	freeFooterPattern6,
 	proFooterPattern,
 	proFooterPattern2,
+	proFooterPattern3,
+	proFooterPattern4,
 } from "../utils.js";
 
 const patterns = {
@@ -24,12 +26,14 @@ const patterns = {
 	freeFooterPattern6,
 	proFooterPattern,
 	proFooterPattern2,
+	proFooterPattern3,
+	proFooterPattern4,
 };
 
 export const PatternModal = memo(
 	({ handleCloseModal, handlePatternImport, patternLoader }) => {
 		const freePatternCount = 6;
-		const proPatternCount = 2;
+		const proPatternCount = 4;
 
 		const freePatternsList = [];
 		for (let i = 1; i <= freePatternCount; i++) {
@@ -113,9 +117,7 @@ export const PatternModal = memo(
 					size="large"
 					className="cthf__pattern-modal"
 				>
-					<div
-						className="pattern__layout-wrapper"
-					>
+					<div className="pattern__layout-wrapper">
 						{freePatternsList}
 
 						{proPatternsList}
