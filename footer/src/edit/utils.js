@@ -2667,3 +2667,354 @@ export const proFooterPattern4 = [
 		],
 	],
 ];
+
+export const proFooterPattern5 = [
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#040c36", text: "#e0e0e0" },
+				elements: { link: { color: { text: "#e0e0e0" } } },
+				typography: { fontSize: "14px" },
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "80px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							verticalAlignment: null,
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "36px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{ verticalAlignment: "center" },
+								[["core/site-logo"]],
+							],
+							[
+								"core/column",
+								{},
+								[
+									[
+										"core/group",
+										{ layout: { type: "constrained" } },
+										[
+											[
+												"core/heading",
+												{
+													level: 4,
+													content: "Subscribe to Newsletter",
+													style: {
+														elements: { link: { color: { text: "#fffffe" } } },
+														color: { text: "#fffffe" },
+														typography: {
+															fontSize: "22px",
+															fontStyle: "normal",
+															fontWeight: "600",
+														},
+														spacing: { margin: { bottom: "22px" } },
+													},
+												},
+											],
+											[
+												"core/paragraph",
+												{
+													content:
+														"Add the Contact Form 7 shortcode or a similar one!",
+													style: { spacing: { margin: { bottom: "16px" } } },
+												},
+											],
+											[
+												"core/group",
+												{ layout: { type: "constrained" } },
+												[["core/shortcode"]],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+					[
+						"core/columns",
+						{
+							style: {
+								border: {
+									top: { color: "#b0aeae70", style: "solid", width: "1px" },
+								},
+								spacing: {
+									padding: { top: "64px" },
+									margin: { top: "64px" },
+									blockGap: { top: "44px", left: "36px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{ width: "35%", style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											level: 4,
+											content: "About Us",
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "20px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#fffffe00",
+											iconBackgroundColorValue: "#fffffe00",
+											style: {
+												spacing: { blockGap: { top: "6px", left: "6px" } },
+											},
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "telegram" }],
+											["core/social-link", { url: "#", service: "pinterest" }],
+											["core/social-link", { url: "#", service: "youtube" }],
+											["core/social-link", { url: "#", service: "linkedin" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											level: 4,
+											content: "Services",
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "20px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Track My Order",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Homepage",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Shipping Info",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Privacy Policy",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									["core/paragraph", { content: "Size Guide" }],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											level: 4,
+											content: "Quick Shop",
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "20px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Men's",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Women's",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Shoes",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Bags",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									["core/paragraph", { content: "Hand bags" }],
+								],
+							],
+							[
+								"core/column",
+								{ width: "28%", style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											level: 4,
+											content: "Our Payment Methods",
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "20px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												spacing: { margin: { bottom: "22px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"But I must explain to you how all this mistaken idea of denouncing pleasure",
+											style: { spacing: { margin: { bottom: "26px" } } },
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-pro-2-1.png`,
+											sizeSlug: "full",
+											linkDestination: "none",
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#3450e6" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "14px",
+								bottom: "14px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							align: "center",
+							content: "Proudly powered by WordPress | Theme by CozyThemes",
+							style: {
+								elements: { link: { color: { text: "#fffffe" } } },
+								color: { text: "#fffffe" },
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
