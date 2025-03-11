@@ -47,6 +47,5 @@
     },
     "editorScript": ["cthf-blocks--header"],
     "editorStyle": ["cthf-blocks--header--editor-style"],
-    "style": ["cthf-blocks--header--style"],
-    "render": "file:./render.php"
+    "style": ["cthf-blocks--header--style"]
 }

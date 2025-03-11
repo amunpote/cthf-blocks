@@ -17,6 +17,5 @@
     },
     "editorScript": ["cthf-blocks--footer"],
     "editorStyle": ["cthf-blocks--footer--editor-style"],
-    "style": ["cthf-blocks--footer--style"],
-    "render": "file:./render.php"
+    "style": ["cthf-blocks--footer--style"]
 }

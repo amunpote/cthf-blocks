@@ -53,6 +53,5 @@
   ],
   "style": [
     "cthf-blocks--header--style"
-  ],
-  "render": "file:./render.php"
+  ]
 }
