@@ -27,7 +27,7 @@
                 "topBar": true,
                 "enabled": false,
                 "bottomScrollHide": false,
-                "bottomScrollOffset": 200,
+                "bottomScrollOffset": 500,
                 "backdropBlur": "5px"
             }
         },
