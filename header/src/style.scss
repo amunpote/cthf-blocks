@@ -19,6 +19,10 @@
 	animation: slideUp 0.32s ease-in-out forwards;
 }
 
+.cthf-block__header.is-sticky.on-scroll__sticky {
+	opacity: 0.95;
+}
+
 @keyframes slideDown {
 	from {
 		top: -100px; /* Start hidden */

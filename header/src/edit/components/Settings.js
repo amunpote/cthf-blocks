@@ -72,7 +72,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 								{cthfAssets.isPremium && (
 									<>
 										<ToggleControl
-											label={__("Hide when scrolled to bottom", "rootblox")}
+											label={__("Hide on bottom scroll", "rootblox")}
 											checked={attributes.stickyHeader.bottomScrollHide}
 											onChange={(newValue) =>
 												setAttributes({
