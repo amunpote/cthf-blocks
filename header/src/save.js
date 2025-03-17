@@ -10,7 +10,12 @@ export default function Save({ attributes }) {
 					id={blockID}
 					className={`cthf-block__header${
 						attributes.stickyHeader.enabled ? " is-sticky" : ""
-					}${attributes.stickyHeader.topBar ? " top-bar__is-sticky" : ""}`}
+					}${attributes.stickyHeader.topBar ? " top-bar__is-sticky" : ""}${
+						attributes.stickyHeader.enabled &&
+						attributes.stickyHeader.bottomScrollHide
+							? " is-bottom-scroll__hidden"
+							: ""
+					}`}
 				>
 					<InnerBlocks.Content />
 				</div>
