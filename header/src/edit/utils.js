@@ -2105,3 +2105,7 @@ export const proHeaderPattern5 = [
 		],
 	],
 ];
+
+export const proHeaderPattern6 = [
+	
+];
