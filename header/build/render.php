@@ -36,6 +36,20 @@ add_action(
 
 <div class="cthf-block__wrapper">
 	<?php
-	echo $content;
+	if ( 'off' === $attributes['mobileMenu']['status'] || 'mobile' === $attributes['mobileMenu']['status'] ) {
+		echo $content;
+	}
+
+	if ( 'mobile' === $attributes['mobileMenu']['status'] || 'always' === $attributes['mobileMenu']['status'] ) {
+		// Mobile Menu content.
+		// $args  = array(
+		// 'post_type'      => 'nav_menu',
+		// 'posts_per_page' => -1,
+		// );
+
+		$menus = wp_get_nav_menu_items( 2425 );
+
+		print_r( $menus );
+	}
 	?>
 </div>

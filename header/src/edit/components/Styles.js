@@ -38,18 +38,6 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 						enableAlpha={true}
 						colorSettings={[
 							{
-								label: __("Text", "rootblox"),
-								value: attributes.color.text,
-								onChange: (newValue) =>
-									setAttributes({
-										...attributes,
-										color: {
-											...attributes.color,
-											text: newValue,
-										},
-									}),
-							},
-							{
 								label: __("Background", "rootblox"),
 								value: attributes.color.bg,
 								onChange: (newValue) =>
@@ -66,7 +54,10 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 				</AttrWrapper>
 
 				<Panel>
-					<PanelBody title={__("Sticky Styles", "cozy-addons")}>
+					<PanelBody
+						title={__("Sticky Styles", "cozy-addons")}
+						initialOpen={false}
+					>
 						<AttrWrapper className="is-half__unit-control">
 							<UnitControl
 								label={__("Backdrop Blur", "rootblox")}
@@ -89,6 +80,41 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 						</AttrWrapper>
 					</PanelBody>
 				</Panel>
+
+				{attributes.mobileMenu.status !== "off" &&
+					(attributes.mobileMenu.status === "mobile" ||
+						attributes.mobileMenu.status === "always") && (
+						<Panel>
+							<PanelBody
+								className="cthf__light-border-bottom"
+								title={__("Mobile Menu Styles", "rootblox")}
+								initialOpen={false}
+							>
+								<PanelColorSettings
+									className="cthf__color-panel"
+									title={__("Colors", "rootblox")}
+									enableAlpha={true}
+									colorSettings={[
+										{
+											label: __("Background", "rootblox"),
+											value: attributes.mobileMenu.colors.bg,
+											onChange: (newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														colors: {
+															...attributes.mobileMenu.colors,
+															bg: newValue,
+														},
+													},
+												}),
+										},
+									]}
+								/>
+							</PanelBody>
+						</Panel>
+					)}
 			</div>
 		</>
 	);

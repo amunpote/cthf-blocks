@@ -26,6 +26,17 @@ export const proMobileLayouts = [
 	"mob-layout-pro-5",
 ];
 
+export function mapObjectIntoOptions(originalArray) {
+	const mappedArray = originalArray.map((item) => ({
+		label: item.title?.rendered, // Use optional chaining to safely access title.rendered
+		value: item.id,
+	}));
+
+	mappedArray.unshift({ label: "Select Menu", value: "", disabled: true });
+
+	return mappedArray;
+}
+
 export const freeHeaderPattern = [
 	[
 		"core/group",

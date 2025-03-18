@@ -7,19 +7,38 @@ import {
 	RangeControl,
 	Button,
 	Modal,
+	SelectControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlLabelOption,
 } from "@wordpress/components";
 
-import { memo, useState } from "@wordpress/element";
+import { memo, useState, useEffect } from "@wordpress/element";
 
 import { UpsellAttributeWrapper } from "../../../../../resources/components/utility.js";
-import { mobileLayouts, proMobileLayouts } from "../utils.js";
+import {
+	mapObjectIntoOptions,
+	mobileLayouts,
+	proMobileLayouts,
+} from "../utils.js";
+
+import apiFetch from "@wordpress/api-fetch";
 
 export const Settings = memo(({ attributes, setAttributes }) => {
 	const [mobileLayoutModal, setLayoutModal] = useState(false);
+
+	const [navMenus, setNavMenus] = useState([]);
+
+	useEffect(() => {
+		apiFetch({
+			path: "/wp/v2/navigation?context=edit&per_page=100&status[0]=publish",
+		})
+			.then((menus) => setNavMenus(menus))
+			.catch((error) => console.error("API Fetch Error:", error));
+	}, []);
+
+	const menuOptions = navMenus && mapObjectIntoOptions(navMenus);
 
 	return (
 		<>
@@ -150,6 +169,45 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 							/>
 						</ToggleGroupControl>
 
+						{attributes.mobileMenu.status === "mobile" && (
+							<>
+								{!cthfAssets.isPremium && (
+									<>
+										<UpsellAttributeWrapper>
+											<RangeControl
+												label={__("Breakpoint", "rootblox")}
+												min={768}
+												max={1440}
+												step={1}
+												value={1280}
+												disabled
+											/>
+										</UpsellAttributeWrapper>
+									</>
+								)}
+								{cthfAssets.isPremium && (
+									<>
+										<RangeControl
+											label={__("Breakpoint", "rootblox")}
+											min={768}
+											max={1440}
+											step={1}
+											value={attributes.mobileMenu.breakpoint}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														breakpoint: newValue,
+													},
+												})
+											}
+										/>
+									</>
+								)}
+							</>
+						)}
+
 						{attributes.mobileMenu.status !== "off" &&
 							(attributes.mobileMenu.status === "mobile" ||
 								attributes.mobileMenu.status === "always") && (
@@ -167,8 +225,25 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 										onClick={() => setLayoutModal(true)}
 										__next40pxDefaultSize
 									/>
+
 									{attributes.mobileMenu.layout.length > 0 && (
 										<>
+											<Button
+												className="cthf__btn-remove"
+												style={{ marginTop: "10px" }}
+												text={__("Clear Selection", "rootblox")}
+												onClick={() =>
+													setAttributes({
+														...attributes,
+														mobileMenu: {
+															...attributes.mobileMenu,
+															layout: "",
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+
 											<figure style={{ maxWidth: "100%", marginTop: "16px" }}>
 												<img
 													src={`${
@@ -196,28 +271,32 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 																}`}
 																style={{ maxWidth: "100%" }}
 															>
-																<span className="pattern__overlay" />
-
 																<img
 																	src={`${cthfAssets.img + "" + layout}.png`}
 																/>
 
-																<div
-																	className="layout__select-btn"
-																	onClick={() => {
-																		setAttributes({
-																			...attributes,
-																			mobileMenu: {
-																				...attributes.mobileMenu,
-																				layout: layout,
-																			},
-																		});
+																{attributes.mobileMenu.layout !== layout && (
+																	<>
+																		<span className="pattern__overlay" />
 
-																		setLayoutModal(false);
-																	}}
-																>
-																	{__("Select Layout", "rootblox")}
-																</div>
+																		<div
+																			className="layout__select-btn"
+																			onClick={() => {
+																				setAttributes({
+																					...attributes,
+																					mobileMenu: {
+																						...attributes.mobileMenu,
+																						layout: layout,
+																					},
+																				});
+
+																				setLayoutModal(false);
+																			}}
+																		>
+																			{__("Select Layout", "rootblox")}
+																		</div>
+																	</>
+																)}
 															</figure>
 														</>
 													);
@@ -234,36 +313,40 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 																}`}
 																style={{ maxWidth: "100%" }}
 															>
-																<span className="pattern__overlay" />
-
 																<img
 																	src={`${cthfAssets.img + "" + layout}.png`}
 																/>
 
-																<span className="pro__crown" />
+																{attributes.mobileMenu.layout !== layout && (
+																	<>
+																		<span className="pattern__overlay" />
 
-																{cthfAssets.isPremium && (
-																	<div
-																		className="layout__select-btn"
-																		onClick={() => {
-																			setAttributes({
-																				...attributes,
-																				mobileMenu: {
-																					...attributes.mobileMenu,
-																					layout: layout,
-																				},
-																			});
+																		<span className="pro__crown" />
 
-																			setLayoutModal(false);
-																		}}
-																	>
-																		{__("Select Layout", "rootblox")}
-																	</div>
-																)}
-																{!cthfAssets.isPremium && (
-																	<a className="cthf__upsell-btn">
-																		{__("Checkout Pro", "rootblox")}
-																	</a>
+																		{cthfAssets.isPremium && (
+																			<div
+																				className="layout__select-btn"
+																				onClick={() => {
+																					setAttributes({
+																						...attributes,
+																						mobileMenu: {
+																							...attributes.mobileMenu,
+																							layout: layout,
+																						},
+																					});
+
+																					setLayoutModal(false);
+																				}}
+																			>
+																				{__("Select Layout", "rootblox")}
+																			</div>
+																		)}
+																		{!cthfAssets.isPremium && (
+																			<a className="cthf__upsell-btn">
+																				{__("Checkout Pro", "rootblox")}
+																			</a>
+																		)}
+																	</>
 																)}
 															</figure>
 														</>
@@ -272,6 +355,24 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 											</div>
 										</Modal>
 									)}
+
+									<div style={{ marginTop: "16px" }}>
+										<SelectControl
+											label={__("Responsive Menu", "rootblox")}
+											options={menuOptions}
+											value={attributes.mobileMenu.menuID}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														menuID: newValue,
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</div>
 								</>
 							)}
 					</PanelBody>
