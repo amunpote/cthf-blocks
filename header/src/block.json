@@ -31,6 +31,13 @@
                 "backdropBlur": "5px"
             }
         },
+        "mobileMenu": {
+            "type": "object",
+            "default": {
+                "status": "mobile",
+                "layout": ""
+            }
+        },
         "padding": {
             "type": "object",
             "default": {

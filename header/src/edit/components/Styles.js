@@ -11,7 +11,7 @@ import {
 import { memo } from "@wordpress/element";
 import { select } from "@wordpress/data";
 
-const StyleAttrWrapper = memo(({ className = "", styles = {}, children }) => {
+const AttrWrapper = memo(({ className = "", styles = {}, children }) => {
 	return (
 		<>
 			<div
@@ -32,40 +32,42 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 	return (
 		<>
 			<div key="cthf-block__style" className="cthf__light-border-top">
-				<PanelColorSettings
-					title={__("Color", "rootblox")}
-					enableAlpha={true}
-					colorSettings={[
-						{
-							label: __("Text", "rootblox"),
-							value: attributes.color.text,
-							onChange: (newValue) =>
-								setAttributes({
-									...attributes,
-									color: {
-										...attributes.color,
-										text: newValue,
-									},
-								}),
-						},
-						{
-							label: __("Background", "rootblox"),
-							value: attributes.color.bg,
-							onChange: (newValue) =>
-								setAttributes({
-									...attributes,
-									color: {
-										...attributes.color,
-										bg: newValue,
-									},
-								}),
-						},
-					]}
-				/>
+				<AttrWrapper styles={{ marginBottom: "10px" }}>
+					<PanelColorSettings
+						title={__("Color", "rootblox")}
+						enableAlpha={true}
+						colorSettings={[
+							{
+								label: __("Text", "rootblox"),
+								value: attributes.color.text,
+								onChange: (newValue) =>
+									setAttributes({
+										...attributes,
+										color: {
+											...attributes.color,
+											text: newValue,
+										},
+									}),
+							},
+							{
+								label: __("Background", "rootblox"),
+								value: attributes.color.bg,
+								onChange: (newValue) =>
+									setAttributes({
+										...attributes,
+										color: {
+											...attributes.color,
+											bg: newValue,
+										},
+									}),
+							},
+						]}
+					/>
+				</AttrWrapper>
 
 				<Panel>
 					<PanelBody title={__("Sticky Styles", "cozy-addons")}>
-						<StyleAttrWrapper className="is-half__unit-control">
+						<AttrWrapper className="is-half__unit-control">
 							<UnitControl
 								label={__("Backdrop Blur", "rootblox")}
 								value={attributes.stickyHeader.backdropBlur}
@@ -84,7 +86,7 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 								)}
 								__next40pxDefaultSize
 							/>
-						</StyleAttrWrapper>
+						</AttrWrapper>
 					</PanelBody>
 				</Panel>
 			</div>

@@ -85,10 +85,10 @@ export const PatternModal = memo(
 
 			proPatternsList.push(
 				<figure className="cthf-block__pattern">
-					<span className="pattern__overlay"></span>
+					<span className="pattern__overlay" />
 					<img src={imgSrc} />
 
-					<span className="pro__crown"></span>
+					<span className="pro__crown" />
 					{cthfAssets.isPremium && (
 						<div
 							className="pattern__import-btn"
@@ -119,9 +119,7 @@ export const PatternModal = memo(
 					size="large"
 					className="cthf__pattern-modal"
 				>
-					<div
-						className="pattern__layout-wrapper"
-					>
+					<div className="pattern__layout-wrapper">
 						{freePatternsList}
 
 						{proPatternsList}

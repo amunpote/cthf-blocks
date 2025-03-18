@@ -16,6 +16,16 @@ import { __ } from "@wordpress/i18n";
 
 export const blankTemplate = [["cthf-blocks/header-top-bar"], ["core/group"]];
 
+export const mobileLayouts = ["mob-layout-1"];
+
+export const proMobileLayouts = [
+	"mob-layout-pro-1",
+	"mob-layout-pro-2",
+	"mob-layout-pro-3",
+	"mob-layout-pro-4",
+	"mob-layout-pro-5",
+];
+
 export const freeHeaderPattern = [
 	[
 		"core/group",
@@ -2106,6 +2116,4 @@ export const proHeaderPattern5 = [
 	],
 ];
 
-export const proHeaderPattern6 = [
-	
-];
+export const proHeaderPattern6 = [];
