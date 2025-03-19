@@ -5,6 +5,7 @@ import { PanelColorSettings } from "@wordpress/block-editor";
 import {
 	Panel,
 	PanelBody,
+	__experimentalBoxControl as BoxControl,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 
@@ -73,7 +74,7 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 								}
 								help={__(
 									"Make sure the background color of the wrapper group has opacity.",
-									"rootblox",
+									"rootblox"
 								)}
 								__next40pxDefaultSize
 							/>
@@ -90,6 +91,46 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 								title={__("Mobile Menu Styles", "rootblox")}
 								initialOpen={false}
 							>
+								<BoxControl
+									label={__("Wrapper Padding", "rootblox")}
+									resetValues={{
+										top: "0px",
+										right: "0px",
+										bottom: "0px",
+										left: "0px",
+									}}
+									values={attributes.mobileMenu.wrapperPadding}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											mobileMenu: {
+												...attributes.mobileMenu,
+												wrapperPadding: newValue,
+											},
+										})
+									}
+								/>
+
+								<AttrWrapper className="is-half__unit-control">
+									<UnitControl
+										label={__("Sidebar Width", "rootblox")}
+										value={attributes.mobileMenu.sidebar.width}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												mobileMenu: {
+													...attributes.mobileMenu,
+													sidebar: {
+														...attributes.mobileMenu.sidebar,
+														width: newValue,
+													},
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+
 								<PanelColorSettings
 									className="cthf__color-panel"
 									title={__("Colors", "rootblox")}
@@ -106,6 +147,21 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 														colors: {
 															...attributes.mobileMenu.colors,
 															bg: newValue,
+														},
+													},
+												}),
+										},
+										{
+											label: __("Sidebar Background", "rootblox"),
+											value: attributes.mobileMenu.colors.sidebarBg,
+											onChange: (newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														colors: {
+															...attributes.mobileMenu.colors,
+															sidebarBg: newValue,
 														},
 													},
 												}),

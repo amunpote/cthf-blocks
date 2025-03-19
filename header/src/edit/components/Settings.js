@@ -12,7 +12,9 @@ import {
 	__experimentalToolsPanelItem as ToolsPanelItem,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlLabelOption,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
 } from "@wordpress/components";
+import { justifyLeft, justifyRight } from "@wordpress/icons";
 
 import { memo, useState, useEffect } from "@wordpress/element";
 
@@ -220,7 +222,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 													? "Select Mobile Layout"
 													: "Replace Mobile Layout"
 											}`,
-											"rootblox",
+											"rootblox"
 										)}
 										onClick={() => setLayoutModal(true)}
 										__next40pxDefaultSize
@@ -355,6 +357,63 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 												})}
 											</div>
 										</Modal>
+									)}
+
+									{!cthfAssets.isPremium && (
+										<>
+											<UpsellAttributeWrapper>
+												<ToggleGroupControl
+													label={__("Sidebar Position", "rootblox")}
+													value="left"
+													disabled
+												>
+													<ToggleGroupControlIconOption
+														label={__("Left", "rootblox")}
+														value="left"
+														icon={justifyLeft}
+													/>
+
+													<ToggleGroupControlIconOption
+														label={__("Right", "rootblox")}
+														value="right"
+														icon={justifyRight}
+													/>
+												</ToggleGroupControl>
+											</UpsellAttributeWrapper>
+										</>
+									)}
+
+									{cthfAssets.isPremium && (
+										<>
+											<ToggleGroupControl
+												label={__("Sidebar Position", "rootblox")}
+												value={attributes.mobileMenu.sidebar.position}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														mobileMenu: {
+															...attributes.mobileMenu,
+															sidebar: {
+																...attributes.mobileMenu.sidebar,
+																position: newValue,
+															},
+														},
+													})
+												}
+											>
+												<ToggleGroupControlIconOption
+													label={__("Left", "rootblox")}
+													value="left"
+													icon={justifyLeft}
+												/>
+
+												<ToggleGroupControlIconOption
+													label={__("Right", "rootblox")}
+													value="right"
+													icon={justifyRight}
+												/>
+											</ToggleGroupControl>
+										</>
 									)}
 
 									<div style={{ marginTop: "16px" }}>

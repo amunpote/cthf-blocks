@@ -15,19 +15,33 @@ $sticky_styles = array(
 	'backdrop_blur' => isset( $attributes['stickyHeader']['backdropBlur'] ) ? sanitize_text_field( $attributes['stickyHeader']['backdropBlur'] ) : '',
 );
 
+$mm_styles = array(
+	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
+	'sidebar'         => array(
+		'width' => isset( $attributes['mobileMenu']['sidebar']['width'] ) ? $attributes['mobileMenu']['sidebar']['width'] : '',
+	),
+);
+
 $colors = array(
-	'text' => isset( $attributes['color']['text'] ) ? $attributes['color']['text'] : '',
-	'bg'   => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
+	'sidebar_bg' => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
+	'bg'         => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
 );
 
 $block_styles = "
 #$block_id {
-	color: {$colors['text']};
 	background-color: {$colors['bg']};
 }
 
 #$block_id.is-sticky.on-scroll__sticky:not(.top-bar__is-sticky) > .wp-block-group, #$block_id.is-sticky.on-scroll__sticky.top-bar__is-sticky {
 	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
+}
+
+.cthf__mobile-layout-wrapper.element-$block_id {
+	{$mm_styles['wrapper_padding']}
+}
+.cthf__mobile-layout-wrapper.element-$block_id .cthf__sidebar-panel-wrap .sidebar-panel__body {
+	width: {$mm_styles['sidebar']['width']};
+	background-color: {$colors['sidebar_bg']};
 }
 ";
 
