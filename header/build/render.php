@@ -46,17 +46,12 @@ add_action(
 	}
 
 	if ( ( 'mobile' === $attributes['mobileMenu']['status'] || 'always' === $attributes['mobileMenu']['status'] ) && ! empty( $attributes['mobileMenu']['layout'] ) ) {
-		// Mobile Menu content.
-		// $args  = array(
-		// 'post_type'      => 'nav_menu',
-		// 'posts_per_page' => -1,
-		// );
-
 		$output = apply_filters( 'rootblox_create_mobile_menu_pattern', $attributes['mobileMenu']['layout'] );
 
 		$classes   = array();
 		$classes[] = 'cthf__mobile-layout-wrapper';
 		$classes[] = 'element-' . $block_id;
+		$classes[] = 'mobile' === $attributes['mobileMenu']['status'] ? 'cthf__display-none' : '';
 		?>
 
 		<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
@@ -68,11 +63,16 @@ add_action(
 				<div class="sidebar-panel__overlay"></div>
 
 				<?php
-					$classes   = array();
-					$classes[] = 'sidebar-panel__body';
-					$classes[] = 'position-' . $attributes['mobileMenu']['navigation']['position'];
+				$classes   = array();
+				$classes[] = 'sidebar-panel__body';
+				$classes[] = 'position-' . $attributes['mobileMenu']['navigation']['position'];
 				?>
-				<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>"></div>
+				<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
+					<svg class="close__icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+						<path d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z" />
+					</svg>
+
+				</div>
 			</div>
 		</div>
 		<?php
