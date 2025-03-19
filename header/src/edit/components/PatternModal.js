@@ -15,7 +15,7 @@ import {
 	proHeaderPattern3,
 	proHeaderPattern4,
 	proHeaderPattern5,
-} from "../utils.js";
+} from "../patterns.js";
 
 // Create an object to store the patterns
 const patterns = {

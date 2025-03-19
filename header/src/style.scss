@@ -1,3 +1,7 @@
+.cthf__display-none {
+	display: none;
+}
+
 .cthf-block__header.is-sticky.on-scroll__sticky:not(.top-bar__is-sticky)
 	> .wp-block-group,
 .cthf-block__header.is-sticky.on-scroll__sticky.top-bar__is-sticky {
@@ -42,5 +46,47 @@
 	to {
 		top: -100px; /* Hide it smoothly */
 		opacity: 0;
+	}
+}
+
+/* Navigation Icon */
+.cthf__responsive-navigation {
+	display: inline-block;
+
+	& .nav__icon {
+		fill: #000;
+		display: flex;
+	}
+}
+
+/* Sidebar panel */
+.cthf__sidebar-panel-wrap {
+	& .sidebar-panel__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 99999;
+		width: 100%;
+		height: 100%;
+		background-color: #00000043;
+	}
+
+	& .sidebar-panel__body {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		background: #fff;
+		z-index: 999999;
+		width: 35%;
+		transition: all 0.35s ease-in-out;
+
+		&.position-left {
+			left: -100%;
+
+			&.show-sidebar {
+				left: 0;
+				transition: all 0.35s ease-in;
+			}
+		}
 	}
 }

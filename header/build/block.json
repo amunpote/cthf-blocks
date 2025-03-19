@@ -38,24 +38,17 @@
         "layout": "",
         "breakpoint": 1280,
         "menuID": "",
+        "navigation": {
+          "position": "left"
+        },
         "colors": {
           "bg": ""
         }
       }
     },
-    "padding": {
-      "type": "object",
-      "default": {
-        "top": "",
-        "right": "",
-        "bottom": "",
-        "left": ""
-      }
-    },
     "color": {
       "type": "object",
       "default": {
-        "text": "",
         "bg": ""
       }
     }

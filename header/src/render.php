@@ -1,4 +1,9 @@
 <?php
+// If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $client_id = isset( $attributes['clientId'] ) ? str_replace( '-', '_', sanitize_key( wp_unslash( $attributes['clientId'] ) ) ) : '';
 
 $block_id = 'cthf_' . $client_id;
@@ -40,16 +45,37 @@ add_action(
 		echo $content;
 	}
 
-	if ( 'mobile' === $attributes['mobileMenu']['status'] || 'always' === $attributes['mobileMenu']['status'] ) {
+	if ( ( 'mobile' === $attributes['mobileMenu']['status'] || 'always' === $attributes['mobileMenu']['status'] ) && ! empty( $attributes['mobileMenu']['layout'] ) ) {
 		// Mobile Menu content.
 		// $args  = array(
 		// 'post_type'      => 'nav_menu',
 		// 'posts_per_page' => -1,
 		// );
 
-		$menus = wp_get_nav_menu_items( 2425 );
+		$output = apply_filters( 'rootblox_create_mobile_menu_pattern', $attributes['mobileMenu']['layout'] );
 
-		print_r( $menus );
+		$classes   = array();
+		$classes[] = 'cthf__mobile-layout-wrapper';
+		$classes[] = 'element-' . $block_id;
+		?>
+
+		<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
+			<?php
+			echo $output;
+			?>
+
+			<div class="cthf__sidebar-panel-wrap cthf__display-none">
+				<div class="sidebar-panel__overlay"></div>
+
+				<?php
+					$classes   = array();
+					$classes[] = 'sidebar-panel__body';
+					$classes[] = 'position-' . $attributes['mobileMenu']['navigation']['position'];
+				?>
+				<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>"></div>
+			</div>
+		</div>
+		<?php
 	}
 	?>
 </div>

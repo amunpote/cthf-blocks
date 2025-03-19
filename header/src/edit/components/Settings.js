@@ -246,6 +246,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 
 											<figure style={{ maxWidth: "100%", marginTop: "16px" }}>
 												<img
+													style={{ width: "100%" }}
 													src={`${
 														cthfAssets.img + "" + attributes.mobileMenu.layout
 													}.png`}
