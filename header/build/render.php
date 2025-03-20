@@ -98,6 +98,17 @@ add_action(
 						<path d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z" />
 					</svg>
 
+					<?php
+					if ( isset( $attributes['mobileMenu']['menuID'] ) && ! empty( $attributes['mobileMenu']['menuID'] ) ) {
+						$menu_id = intval( $attributes['mobileMenu']['menuID'] );
+
+						if ( $menu_id ) {
+							echo do_blocks( '<!-- wp:navigation {"ref":' . $menu_id . ', "overlayMenu": "never"} /-->' );
+						}
+					} else {
+						echo do_blocks( '<!-- wp:navigation {"ref":' . 1 . ', "overlayMenu": "never"} /-->' );
+					}
+					?>
 				</div>
 			</div>
 		</div>

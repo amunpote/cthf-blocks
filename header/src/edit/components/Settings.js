@@ -222,7 +222,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 													? "Select Mobile Layout"
 													: "Replace Mobile Layout"
 											}`,
-											"rootblox"
+											"rootblox",
 										)}
 										onClick={() => setLayoutModal(true)}
 										__next40pxDefaultSize
@@ -384,7 +384,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 									)}
 
 									{cthfAssets.isPremium && (
-										<>
+										<div style={{ marginTop: "22px" }}>
 											<ToggleGroupControl
 												label={__("Sidebar Position", "rootblox")}
 												value={attributes.mobileMenu.sidebar.position}
@@ -413,7 +413,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 													icon={justifyRight}
 												/>
 											</ToggleGroupControl>
-										</>
+										</div>
 									)}
 
 									<div style={{ marginTop: "16px" }}>
