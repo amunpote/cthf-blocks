@@ -1823,20 +1823,6 @@ export const proHeaderPattern4 = [
 						"core/navigation",
 						{
 							customTextColor: "#030821",
-							overlayMenu: "always",
-							style: {
-								typography: {
-									fontSize: "16px",
-									fontStyle: "normal",
-									fontWeight: "500",
-								},
-							},
-						},
-					],
-					[
-						"core/navigation",
-						{
-							customTextColor: "#030821",
 							overlayMenu: "never",
 							style: {
 								typography: {

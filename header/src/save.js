@@ -15,6 +15,8 @@ export default function Save({ attributes }) {
 						attributes.stickyHeader.bottomScrollHide
 							? " is-bottom-scroll__hidden"
 							: ""
+					}${
+						attributes.mobileMenu.layout.length > 0 ? " cthf__display-none" : ""
 					}`}
 				>
 					<InnerBlocks.Content />

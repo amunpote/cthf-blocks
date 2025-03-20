@@ -38,18 +38,15 @@
                 "layout": "",
                 "breakpoint": 1280,
                 "wrapperPadding": {
-                    "top": "",
-                    "right": "",
-                    "bottom": "",
-                    "left": ""
+                    "top": "26px",
+                    "right": "26px",
+                    "bottom": "26px",
+                    "left": "26px"
                 },
                 "menuID": "",
                 "sidebar": {
                     "width": "35%",
                     "position": "left"
-                },
-                "colors": {
-                    "bg": ""
                 }
             }
         },
@@ -57,7 +54,9 @@
             "type": "object",
             "default": {
                 "bg": "",
-                "sidebarBg": "#fff"
+                "mobileBg": "#fff",
+                "sidebarBg": "#fff",
+                "sidebarCloseIcon": "#000"
             }
         }
     },

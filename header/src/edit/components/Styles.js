@@ -74,7 +74,7 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 								}
 								help={__(
 									"Make sure the background color of the wrapper group has opacity.",
-									"rootblox"
+									"rootblox",
 								)}
 								__next40pxDefaultSize
 							/>
@@ -111,7 +111,10 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 									}
 								/>
 
-								<AttrWrapper className="is-half__unit-control">
+								<AttrWrapper
+									className="is-half__unit-control"
+									styles={{ margin: "22px 0" }}
+								>
 									<UnitControl
 										label={__("Sidebar Width", "rootblox")}
 										value={attributes.mobileMenu.sidebar.width}
@@ -138,31 +141,37 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 									colorSettings={[
 										{
 											label: __("Background", "rootblox"),
-											value: attributes.mobileMenu.colors.bg,
+											value: attributes.color.mobileBg,
 											onChange: (newValue) =>
 												setAttributes({
 													...attributes,
-													mobileMenu: {
-														...attributes.mobileMenu,
-														colors: {
-															...attributes.mobileMenu.colors,
-															bg: newValue,
-														},
+													color: {
+														...attributes.color,
+														mobileBg: newValue,
 													},
 												}),
 										},
 										{
 											label: __("Sidebar Background", "rootblox"),
-											value: attributes.mobileMenu.colors.sidebarBg,
+											value: attributes.color.sidebarBg,
 											onChange: (newValue) =>
 												setAttributes({
 													...attributes,
-													mobileMenu: {
-														...attributes.mobileMenu,
-														colors: {
-															...attributes.mobileMenu.colors,
-															sidebarBg: newValue,
-														},
+													color: {
+														...attributes.color,
+														sidebarBg: newValue,
+													},
+												}),
+										},
+										{
+											label: __("Sidebar Close Icon", "rootblox"),
+											value: attributes.color.sidebarCloseIcon,
+											onChange: (newValue) =>
+												setAttributes({
+													...attributes,
+													color: {
+														...attributes.color,
+														sidebarCloseIcon: newValue,
 													},
 												}),
 										},

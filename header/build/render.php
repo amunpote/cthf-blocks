@@ -23,8 +23,10 @@ $mm_styles = array(
 );
 
 $colors = array(
-	'sidebar_bg' => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
-	'bg'         => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
+	'mobile_bg'          => isset( $attributes['color']['mobileBg'] ) ? $attributes['color']['mobileBg'] : '',
+	'sidebar_bg'         => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
+	'sidebar_close_icon' => isset( $attributes['color']['sidebarCloseIcon'] ) ? $attributes['color']['sidebarCloseIcon'] : '',
+	'bg'                 => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
 );
 
 $block_styles = "
@@ -38,10 +40,18 @@ $block_styles = "
 
 .cthf__mobile-layout-wrapper.element-$block_id {
 	{$mm_styles['wrapper_padding']}
+	background-color: {$colors['mobile_bg']};
+}
+.cthf__mobile-layout-wrapper.element-$block_id.is-sticky.on-scroll__sticky {
+	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
 }
 .cthf__mobile-layout-wrapper.element-$block_id .cthf__sidebar-panel-wrap .sidebar-panel__body {
 	width: {$mm_styles['sidebar']['width']};
 	background-color: {$colors['sidebar_bg']};
+
+	& .close__icon {
+		fill: {$colors['sidebar_close_icon']};
+	}
 }
 ";
 
@@ -66,6 +76,8 @@ add_action(
 		$classes[] = 'cthf__mobile-layout-wrapper';
 		$classes[] = 'element-' . $block_id;
 		$classes[] = 'mobile' === $attributes['mobileMenu']['status'] ? 'cthf__display-none' : '';
+		$classes[] = filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) ? 'is-sticky' : '';
+		$classes[] = filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) && filter_var( $attributes['stickyHeader']['bottomScrollHide'] ) ? 'is-bottom-scroll__hidden' : '';
 		?>
 
 		<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
@@ -79,7 +91,7 @@ add_action(
 				<?php
 				$classes   = array();
 				$classes[] = 'sidebar-panel__body';
-				$classes[] = 'position-' . $attributes['mobileMenu']['navigation']['position'];
+				$classes[] = 'position-' . $attributes['mobileMenu']['sidebar']['position'];
 				?>
 				<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
 					<svg class="close__icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
