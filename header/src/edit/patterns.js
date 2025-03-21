@@ -2074,4 +2074,1332 @@ export const proHeaderPattern5 = [
 	],
 ];
 
-export const proHeaderPattern6 = [];
+export const proHeaderPattern6 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "16px",
+								bottom: "16px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						color: { background: "#edf0ff", text: "#030821" },
+						elements: { link: { color: { text: "#030821" } } },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/group",
+								{
+									style: {
+										spacing: {
+											padding: { top: "0", bottom: "0", left: "0", right: "0" },
+											margin: { top: "0", bottom: "0" },
+											blockGap: "36px",
+										},
+									},
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "10px" } },
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-3-1.png`,
+													width: "40px",
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: {
+														spacing: {
+															margin: { top: "0", bottom: "0" },
+															padding: {
+																right: "0",
+																left: "0",
+																top: "0",
+																bottom: "0",
+															},
+															blockGap: "0",
+														},
+													},
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Call Us",
+															style: {
+																typography: { fontSize: "12px" },
+																color: { text: "#4b4b4b" },
+																elements: {
+																	link: { color: { text: "#4b4b4b" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "800‑555‑0175",
+															style: {
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "10px" } },
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-3-2.png`,
+													width: "40px",
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: {
+														spacing: {
+															margin: { top: "0", bottom: "0" },
+															padding: {
+																right: "0",
+																left: "0",
+																top: "0",
+																bottom: "0",
+															},
+															blockGap: "0",
+														},
+													},
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Location",
+															style: {
+																typography: { fontSize: "12px" },
+																color: { text: "#4b4b4b" },
+																elements: {
+																	link: { color: { text: "#4b4b4b" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "New York, NY 10011, USA",
+															style: {
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "16px",
+													textDecoration: "none",
+													fontStyle: "normal",
+													fontWeight: "500",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Request Quote",
+													style: {
+														border: { radius: "0px" },
+														color: { background: "#3450e6", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "6px", bottom: "6px" },
+					blockGap: "0",
+				},
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#4b4b4b",
+							style: {
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+					[
+						"core/search",
+						{
+							label: "Search",
+							showLabel: false,
+							width: 100,
+							widthUnit: "%",
+							buttonText: "Search",
+							buttonPosition: "button-only",
+							buttonUseIcon: true,
+							isSearchFieldHidden: true,
+							style: {
+								elements: { link: { color: { text: "#030821" } } },
+								color: { background: "#fffffe00", text: "#030821" },
+								spacing: {
+									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+								},
+								layout: { selfStretch: "fit", flexSize: null },
+								typography: { fontSize: "14px" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern7 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								top: "4px",
+								bottom: "4px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						color: { background: "#030821", text: "#fffffe" },
+						elements: { link: { color: { text: "#fffffe" } } },
+						typography: { fontSize: "13px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: { spacing: { padding: { top: "4px", bottom: "4px" } } },
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "20px" } },
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/post-date",
+										{
+											format: "l, F j, Y",
+											className: "cthf_date__has-calendar-white-icon",
+										},
+									],
+									[
+										"core/post-date",
+										{
+											format: "H:i:s",
+											className: "cthf-date__has-time-white-icon",
+										},
+									],
+								],
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									size: "has-normal-icon-size",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "8px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "36px",
+								bottom: "36px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[["core/site-logo", { width: 140, align: "center" }]],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: { right: "26px", left: "26px", top: "6px" },
+						},
+						border: {
+							top: { color: "#0308213b", style: "solid", width: "1px" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/navigation",
+								{
+									customTextColor: "#030821",
+									style: {
+										typography: {
+											fontSize: "15px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+							],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									width: 100,
+									widthUnit: "%",
+									buttonText: "Search",
+									buttonPosition: "button-only",
+									buttonUseIcon: true,
+									isSearchFieldHidden: true,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										color: { background: "#fffffe00", text: "#030821" },
+										spacing: {
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+										layout: { selfStretch: "fit", flexSize: null },
+										typography: { fontSize: "14px" },
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern8 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#f5f5f5" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									placeholder: "Search for Products",
+									width: 100,
+									widthUnit: "%",
+									buttonText: "Search",
+									buttonPosition: "button-inside",
+									buttonUseIcon: true,
+									className: "cthf__pro-header-8",
+									style: {
+										border: { color: "#ad0bfe", width: "1px", radius: "8px" },
+										color: { background: "#fffffe00", text: "#4b4b4b" },
+										elements: { link: { color: { text: "#4b4b4b" } } },
+										typography: { fontSize: "14px" },
+									},
+									namespace: "woocommerce/product-search",
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "6px" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"woocommerce/customer-account",
+										{
+											displayStyle: "icon_only",
+											iconStyle: "line",
+											iconClass: "wc-block-customer-account__account-icon",
+											style: { typography: { fontSize: "16px" } },
+										},
+									],
+									[
+										"woocommerce/mini-cart",
+										{
+											miniCartIcon: "bag-alt",
+											productCountColor: { color: "#ac0cff" },
+											className: "cthf__pro-header-8",
+											style: { typography: { fontSize: "16px" } },
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+					padding: { right: "26px", left: "26px", top: "12px", bottom: "12px" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/navigation",
+				{
+					customTextColor: "#4b4b4b",
+					style: {
+						typography: {
+							fontSize: "16px",
+							fontStyle: "normal",
+							fontWeight: "500",
+						},
+					},
+					layout: { type: "flex", justifyContent: "center" },
+				},
+			],
+		],
+	],
+];
+
+export const proHeaderPattern9 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#f5f5f5" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "16px" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"woocommerce/customer-account",
+										{
+											displayStyle: "icon_only",
+											iconStyle: "line",
+											iconClass: "wc-block-customer-account__account-icon",
+											style: { typography: { fontSize: "16px" } },
+										},
+									],
+									[
+										"core/group",
+										{
+											style: {
+												border: {
+													left: {
+														color: "#d9d9d9",
+														style: "solid",
+														width: "1px",
+													},
+												},
+												spacing: { padding: { left: "10px" } },
+											},
+											layout: { type: "constrained" },
+										},
+										[
+											[
+												"woocommerce/mini-cart",
+												{
+													miniCartIcon: "bag-alt",
+													productCountColor: { color: "#ac0cff" },
+													className: "cthf__pro-header-8",
+													style: { typography: { fontSize: "16px" } },
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+					padding: { right: "26px", left: "26px", top: "12px", bottom: "12px" },
+				},
+				color: { background: "#ac0cff" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/navigation",
+				{
+					customTextColor: "#fffffe",
+					customOverlayTextColor: "#4b4b4b",
+					style: {
+						typography: {
+							fontSize: "16px",
+							fontStyle: "normal",
+							fontWeight: "500",
+						},
+					},
+					layout: { type: "flex", justifyContent: "center" },
+				},
+			],
+		],
+	],
+];
+
+export const proHeaderPattern10 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "6px",
+								bottom: "6px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+						color: { background: "#030821", text: "#fffffe" },
+						elements: { link: { color: { text: "#fffffe" } } },
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `"Hurry! Storewide Savings of 70% — Don’t Miss Out!"`,
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+					margin: { top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#030821" },
+						border: {
+							top: { color: "#ffffff47", style: "solid", width: "1px" },
+						},
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/group",
+								{ layout: { type: "flex", flexWrap: "wrap" } },
+								[
+									[
+										"core/search",
+										{
+											label: "Search",
+											showLabel: false,
+											placeholder: "Search For Products…",
+											buttonText: "Search",
+											buttonPosition: "button-inside",
+											buttonUseIcon: true,
+											query: { post_type: "product" },
+											className: "cthf__pro-header-10",
+											namespace: "woocommerce/product-search",
+										},
+									],
+									[
+										"core/group",
+										{
+											style: {
+												spacing: { blockGap: "16px" },
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+											},
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"woocommerce/customer-account",
+												{
+													displayStyle: "icon_only",
+													iconStyle: "line",
+													iconClass: "wc-block-customer-account__account-icon",
+													style: { typography: { fontSize: "16px" } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: {
+														border: {
+															left: {
+																color: "#d9d9d9",
+																style: "solid",
+																width: "1px",
+															},
+														},
+														spacing: { padding: { left: "10px" } },
+													},
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"woocommerce/mini-cart",
+														{
+															miniCartIcon: "bag-alt",
+															productCountColor: { color: "#3450e6" },
+															className: "cthf__pro-header-8",
+															style: { typography: { fontSize: "16px" } },
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "12px",
+								bottom: "12px",
+							},
+						},
+						color: { background: "#3450e6" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "16px" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"core/group",
+										{
+											style: {
+												border: {
+													right: {
+														color: "#ffffff4f",
+														style: "solid",
+														width: "1px",
+													},
+												},
+												spacing: { padding: { right: "16px" } },
+											},
+											layout: { type: "constrained" },
+										},
+										[
+											[
+												"woocommerce/product-categories",
+												{
+													isDropdown: true,
+													isHierarchical: false,
+													className: "cthf__pro-header-10",
+												},
+											],
+										],
+									],
+									[
+										"core/navigation",
+										{
+											ref: 2425,
+											customTextColor: "#fffffe",
+											customOverlayTextColor: "#4b4b4b",
+											style: {
+												typography: {
+													fontSize: "16px",
+													fontStyle: "normal",
+													fontWeight: "500",
+												},
+											},
+											layout: { type: "flex", justifyContent: "center" },
+										},
+									],
+								],
+							],
+							[
+								"core/buttons",
+								{
+									style: {
+										typography: {
+											fontSize: "15px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+								[
+									[
+										"core/button",
+										{
+											text: "Pre-order Now",
+											style: {
+												color: { background: "#ffffff33" },
+												border: { radius: "0px" },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern11 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "6px",
+								bottom: "6px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+						color: { background: "#ac0cff", text: "#fffffe" },
+						elements: { link: { color: { text: "#fffffe" } } },
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content:
+										"Get a 30% discount on all services when you refer someone.",
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+					margin: { top: "0", bottom: "0" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						border: {
+							top: { color: "#ffffff47", style: "solid", width: "1px" },
+						},
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "26px" } },
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "8px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-11-1.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "-1px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: `Mon-Sat: 10 AM to 5 PM`,
+															style: {
+																color: { text: "#030821" },
+																elements: {
+																	link: { color: { text: "#030821" } },
+																},
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																spacing: { margin: { bottom: "0px" } },
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "Saturday Closed",
+															style: { typography: { fontSize: "13px" } },
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "8px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-11-2.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "-1px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: `B123 New York, USA`,
+															style: {
+																color: { text: "#030821" },
+																elements: {
+																	link: { color: { text: "#030821" } },
+																},
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																spacing: { margin: { bottom: "0px" } },
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "Office Address",
+															style: { typography: { fontSize: "13px" } },
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "12px",
+								bottom: "12px",
+							},
+						},
+						shadow: "var:preset|shadow|natural",
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/navigation",
+								{
+									customTextColor: "#4b4b4b",
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+									layout: { type: "flex", justifyContent: "center" },
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"core/search",
+										{
+											label: "Search",
+											showLabel: false,
+											buttonText: "Search",
+											buttonPosition: "button-only",
+											buttonUseIcon: true,
+											isSearchFieldHidden: true,
+											style: {
+												color: { background: "#fffffe00", text: "#030821" },
+												elements: { link: { color: { text: "#030821" } } },
+											},
+										},
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "15px",
+													fontStyle: "normal",
+													fontWeight: "500",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Request Quote",
+													style: {
+														color: { background: "#ac0cff", text: "#fffffe" },
+														border: { radius: "0px" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														spacing: {
+															padding: {
+																left: "26px",
+																right: "26px",
+																top: "12px",
+																bottom: "12px",
+															},
+														},
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
