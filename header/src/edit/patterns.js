@@ -4183,6 +4183,202 @@ export const proHeaderPattern15 = [
 	],
 ];
 
+export const proHeaderPattern16 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "10px",
+								bottom: "10px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						color: { background: "#f5f7fd" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content:
+										"Special Offer! Get 30% off when you introduce a friend to our services.",
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										color: { text: "#030821" },
+										typography: {
+											fontSize: "13px",
+											fontStyle: "normal",
+											fontWeight: "300",
+										},
+									},
+								},
+							],
+							[
+								"core/navigation",
+								{
+									customTextColor: "#030821",
+									overlayMenu: "never",
+									style: {
+										typography: {
+											fontStyle: "normal",
+											fontWeight: "300",
+											fontSize: "13px",
+										},
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: {
+						right: "0px",
+						left: "0px",
+						top: "0px",
+						bottom: "0px",
+					},
+					margin: { top: "0", bottom: "0" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							blockGap: "0",
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: { spacing: { blockGap: "16px" } },
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									placeholder: "Search For Products…",
+									buttonText: "Search",
+									buttonPosition: "button-inside",
+									buttonUseIcon: true,
+									query: { post_type: "product" },
+									className: "cthf__pro-header-16",
+									style: {
+										elements: { link: { color: { text: "#4b4b4b" } } },
+										color: { text: "#4b4b4b", background: "#fffffe00" },
+									},
+									namespace: "woocommerce/product-search",
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#4b4b4b",
+									iconColorValue: "#4b4b4b",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "14px",
+								bottom: "14px",
+							},
+						},
+						border: { top: { color: "#1a181838", width: "1px" } },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#4b4b4b",
+							style: {
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
 export const proHeaderPattern17 = [
 	[
 		"core/group",

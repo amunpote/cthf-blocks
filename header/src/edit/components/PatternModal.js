@@ -17,6 +17,7 @@ import {
 	proHeaderPattern13,
 	proHeaderPattern14,
 	proHeaderPattern15,
+	proHeaderPattern16,
 	proHeaderPattern17,
 	proHeaderPattern2,
 	proHeaderPattern3,
@@ -50,6 +51,7 @@ const patterns = {
 	proHeaderPattern13,
 	proHeaderPattern14,
 	proHeaderPattern15,
+	proHeaderPattern16,
 	proHeaderPattern17,
 };
 
