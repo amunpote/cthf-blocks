@@ -3403,3 +3403,848 @@ export const proHeaderPattern11 = [
 		],
 	],
 ];
+
+export const proHeaderPattern12 = [
+	[
+		"core/columns",
+		{
+			verticalAlignment: null,
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					blockGap: { top: "0", left: "0" },
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+				},
+			},
+		},
+		[
+			[
+				"core/column",
+				{
+					verticalAlignment: "center",
+					width: "20%",
+					style: {
+						color: { background: "#ac0cff" },
+						spacing: {
+							blockGap: "0",
+							padding: { right: "0", left: "0", top: "0", bottom: "0" },
+						},
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								color: { background: "#ac0cff" },
+								spacing: {
+									padding: {
+										top: "0px",
+										bottom: "0px",
+										left: "42px",
+										right: "42px",
+									},
+								},
+								dimensions: { minHeight: "167px" },
+							},
+							layout: {
+								type: "flex",
+								orientation: "vertical",
+								verticalAlignment: "center",
+								justifyContent: "center",
+							},
+						},
+						[["core/site-logo", { align: "center" }]],
+					],
+				],
+			],
+			[
+				"core/column",
+				{ width: "" },
+				[
+					[
+						"core/group",
+						{
+							style: {
+								color: { background: "#030821" },
+								spacing: {
+									padding: {
+										right: "26px",
+										left: "26px",
+										top: "28px",
+										bottom: "28px",
+									},
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/group",
+								{
+									style: {
+										spacing: { blockGap: "26px" },
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+									},
+									layout: { type: "flex", flexWrap: "wrap" },
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "8px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-11-1.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: `Mon-Sat: 10 AM to 5 PM`,
+															style: {
+																elements: {
+																	link: { color: { text: "#030821" } },
+																},
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																spacing: { margin: { bottom: "0px" } },
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "Saturday Closed",
+															style: {
+																color: { text: "#f5f5f5" },
+																typography: { fontSize: "13px" },
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "8px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-12-1.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: `+1(000)-123456`,
+															style: {
+																elements: {
+																	link: { color: { text: "#030821" } },
+																},
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																spacing: { margin: { bottom: "0px" } },
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "Contact Us",
+															style: {
+																color: { text: "#f5f5f5" },
+																typography: { fontSize: "13px" },
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "8px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-11-2.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: `B123 New York, USA`,
+															style: {
+																elements: {
+																	link: { color: { text: "#030821" } },
+																},
+																typography: {
+																	fontSize: "15px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																spacing: { margin: { bottom: "0px" } },
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "Office Address",
+															style: {
+																color: { text: "#f5f5f5" },
+																typography: { fontSize: "13px" },
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									padding: {
+										right: "26px",
+										left: "26px",
+										top: "10px",
+										bottom: "10px",
+									},
+									margin: { top: "0", bottom: "0" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/navigation",
+								{
+									customTextColor: "#4b4b4b",
+									style: {
+										typography: {
+											fontSize: "16px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+									layout: { type: "flex", justifyContent: "center" },
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"core/search",
+										{
+											label: "Search",
+											showLabel: false,
+											buttonText: "Search",
+											buttonPosition: "button-only",
+											buttonUseIcon: true,
+											isSearchFieldHidden: true,
+											style: {
+												color: { background: "#fffffe00", text: "#030821" },
+												elements: { link: { color: { text: "#030821" } } },
+											},
+										},
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "15px",
+													fontStyle: "normal",
+													fontWeight: "500",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Request Quote",
+													style: {
+														color: { background: "#ac0cff", text: "#fffffe" },
+														border: { radius: "0px" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														spacing: {
+															padding: {
+																left: "26px",
+																right: "26px",
+																top: "12px",
+																bottom: "12px",
+															},
+														},
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern13 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#fffffe" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: { right: "0", left: "0", top: "0", bottom: "0" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "100%" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									blockGap: "0",
+									padding: {
+										right: "26px",
+										left: "26px",
+										top: "30px",
+										bottom: "30px",
+									},
+								},
+							},
+							layout: { type: "constrained", contentSize: "1180px" },
+						},
+						[
+							[
+								"core/group",
+								{
+									layout: {
+										type: "flex",
+										flexWrap: "wrap",
+										justifyContent: "space-between",
+									},
+								},
+								[
+									[
+										"core/group",
+										{
+											style: {
+												color: { text: "#030821" },
+												elements: { link: { color: { text: "#030821" } } },
+												spacing: { blockGap: "0" },
+											},
+											layout: { type: "constrained" },
+										},
+										[
+											[
+												"core/post-date",
+												{
+													format: "l",
+													style: {
+														typography: {
+															fontSize: "18px",
+															fontStyle: "normal",
+															fontWeight: "600",
+															textTransform: "uppercase",
+														},
+													},
+												},
+											],
+											[
+												"core/post-date",
+												{
+													format: null,
+													style: {
+														typography: {
+															fontSize: "13px",
+															fontStyle: "normal",
+															fontWeight: "500",
+														},
+													},
+												},
+											],
+										],
+									],
+									["core/site-logo"],
+									[
+										"core/social-links",
+										{
+											style: {
+												spacing: { blockGap: { top: "10px", left: "12px" } },
+											},
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "youtube" }],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#fffffe" },
+				spacing: {
+					padding: { top: "0px", right: "26px", bottom: "0px", left: "26px" },
+					margin: { top: "0", bottom: "0" },
+				},
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						color: { background: "#030821" },
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							padding: { right: "0", left: "0", top: "14px", bottom: "14px" },
+						},
+					},
+					layout: { type: "constrained" },
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#fffffe",
+							customOverlayTextColor: "#030821",
+							style: {
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "600",
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern14 = [
+	[
+		"cthf-blocks/header-top-bar",
+		{},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "8px",
+								bottom: "8px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+						},
+						color: { background: "#f9f9f9" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									blockGap: "16px",
+									margin: { top: "0", bottom: "0" },
+									padding: { bottom: "6px" },
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/social-links",
+								{
+									customIconColor: "#030821",
+									iconColorValue: "#030821",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									size: "has-normal-icon-size",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+									["core/social-link", { url: "#", service: "pinterest" }],
+								],
+							],
+							[
+								"core/paragraph",
+								{
+									content: "Free Shipping for all order over $79",
+									style: {
+										typography: {
+											fontSize: "15px",
+											fontStyle: "normal",
+											fontWeight: "300",
+											textTransform: "uppercase",
+										},
+									},
+								},
+							],
+							[
+								"core/navigation",
+								{
+									textColor: "black",
+									overlayMenu: "never",
+									style: {
+										typography: {
+											fontSize: "14px",
+											fontStyle: "normal",
+											fontWeight: "300",
+										},
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "26px", bottom: "26px", left: "26px", right: "26px" },
+					margin: { top: "0", bottom: "0" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: { spacing: { blockGap: "26px" } },
+							layout: { type: "flex", flexWrap: "wrap" },
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/navigation",
+								{
+									customTextColor: "#030821",
+									style: {
+										typography: {
+											fontSize: "15px",
+											textTransform: "uppercase",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/group",
+						{
+							style: { spacing: { blockGap: "6px" } },
+							layout: { type: "flex", flexWrap: "nowrap" },
+						},
+						[
+							[
+								"core/search",
+								{
+									label: "Search",
+									showLabel: false,
+									placeholder: "Search products…",
+									buttonText: "Search",
+									buttonPosition: "button-only",
+									buttonUseIcon: true,
+									query: { post_type: "product" },
+									isSearchFieldHidden: true,
+									style: {
+										typography: { fontSize: "14px" },
+										color: { background: "#fffffe00", text: "#030821" },
+										elements: { link: { color: { text: "#030821" } } },
+									},
+									namespace: "woocommerce/product-search",
+								},
+							],
+							[
+								"woocommerce/customer-account",
+								{
+									displayStyle: "icon_only",
+									iconStyle: "alt",
+									iconClass: "wc-block-customer-account__account-icon",
+									backgroundColor: "transparent",
+									style: {
+										color: { text: "#030821" },
+										elements: { link: { color: { text: "#030821" } } },
+										typography: { fontSize: "18px" },
+									},
+								},
+							],
+							[
+								"woocommerce/mini-cart",
+								{
+									miniCartIcon: "bag",
+									iconColor: { color: "#030821" },
+									style: { typography: { fontSize: "18px" } },
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern15 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					padding: { right: "26px", left: "26px", top: "30px", bottom: "30px" },
+					margin: { top: "0", bottom: "0" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					["core/site-logo"],
+					[
+						"core/navigation",
+						{
+							customTextColor: "#030821",
+							overlayMenu: "always",
+							className: "cthf__pro-header-15",
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proHeaderPattern17 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					padding: { right: "26px", left: "26px", top: "24px", bottom: "24px" },
+					margin: { top: "0", bottom: "0" },
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: { spacing: { blockGap: "16px" } },
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/navigation",
+						{
+							customTextColor: "#030821",
+							overlayMenu: "never",
+							style: {
+								typography: {
+									fontSize: "15px",
+									textTransform: "uppercase",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+					[
+						"core/site-logo",
+						{ style: { spacing: { margin: { top: "18px", bottom: "10px" } } } },
+					],
+					[
+						"core/navigation",
+						{
+							customTextColor: "#030821",
+							overlayMenu: "never",
+							style: {
+								typography: {
+									fontSize: "15px",
+									textTransform: "uppercase",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
