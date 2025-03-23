@@ -1705,6 +1705,216 @@ export const freeFooterPattern8 = [
 	],
 ];
 
+export const freeFooterPattern9 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "80px", bottom: "0px", left: "26px", right: "26px" },
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							blockGap: { top: "44px", left: "26px" },
+							margin: { top: "0px", bottom: "0px" },
+						},
+						color: { text: "#040c36" },
+						elements: { link: { color: { text: "#040c36" } } },
+						typography: { fontSize: "14px" },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "328px",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "Need Help?",
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										color: { text: "#030821" },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: "+1(000)-123456",
+									align: "left",
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+										color: { text: "#ac0cff" },
+										elements: { link: { color: { text: "#ac0cff" } } },
+										typography: {
+											fontSize: "44px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{ content: "sample@example.com", align: "left" },
+							],
+							[
+								"core/paragraph",
+								{
+									content: "1234 Creative Avenue Los Angeles, CA 90001USA",
+									align: "left",
+									style: {
+										spacing: { margin: { top: "16px" } },
+										typography: {
+											fontStyle: "normal",
+											fontWeight: "500",
+											fontSize: "16px",
+										},
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+								color: { text: "#434343" },
+								elements: { link: { color: { text: "#434343" } } },
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "About Us!",
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										color: { text: "#030821" },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content:
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+									style: {
+										spacing: { margin: { top: "26px", bottom: "26px" } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.3",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content:
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: { right: "0", left: "0", top: "20px", bottom: "20px" },
+							margin: { top: "80px" },
+						},
+						border: {
+							top: { color: "#040c363b", style: "solid", width: "1px" },
+						},
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: "Proudly powered by WordPress | Theme by CozyThemes",
+							align: "left",
+							style: {
+								typography: { fontSize: "14px" },
+								color: { text: "#434343" },
+								elements: { link: { color: { text: "#434343" } } },
+							},
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#040c36",
+							iconColorValue: "#040c36",
+							customIconBackgroundColor: "#fffffe00",
+							iconBackgroundColorValue: "#fffffe00",
+							className: "cthf__footer-9",
+							style: { spacing: { blockGap: { top: "10px", left: "12px" } } },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "youtube" }],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
 export const proFooterPattern = [
 	[
 		"core/group",
