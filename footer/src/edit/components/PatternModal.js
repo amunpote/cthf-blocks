@@ -11,12 +11,14 @@ import {
 	freeFooterPattern4,
 	freeFooterPattern5,
 	freeFooterPattern6,
+	freeFooterPattern7,
+	freeFooterPattern8,
 	proFooterPattern,
 	proFooterPattern2,
 	proFooterPattern3,
 	proFooterPattern4,
 	proFooterPattern5,
-} from "../utils.js";
+} from "../patterns.js";
 
 const patterns = {
 	freeFooterPattern,
@@ -25,6 +27,8 @@ const patterns = {
 	freeFooterPattern4,
 	freeFooterPattern5,
 	freeFooterPattern6,
+	freeFooterPattern7,
+	freeFooterPattern8,
 	proFooterPattern,
 	proFooterPattern2,
 	proFooterPattern3,
@@ -34,7 +38,7 @@ const patterns = {
 
 export const PatternModal = memo(
 	({ handleCloseModal, handlePatternImport, patternLoader }) => {
-		const freePatternCount = 6;
+		const freePatternCount = 8;
 		const proPatternCount = 5;
 
 		const freePatternsList = [];
