@@ -4014,3 +4014,685 @@ export const proFooterPattern5 = [
 		],
 	],
 ];
+
+export const proFooterPattern6 = [
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#f9eeff" },
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#040c36" } } },
+						color: { text: "#040c36" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "15px" },
+							},
+							layout: { type: "constrained", contentSize: "698px" },
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "Book an Appointment!",
+									textAlign: "center",
+									style: {
+										color: { text: "#040c36" },
+										elements: { link: { color: { text: "#040c36" } } },
+										typography: {
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.2",
+											fontSize: "44px",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content:
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+									align: "center",
+									style: {
+										spacing: { margin: { top: "26px", bottom: "26px" } },
+										typography: { lineHeight: "1.8" },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/buttons",
+						{
+							style: {
+								typography: {
+									fontSize: "15px",
+									textDecoration: "none",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+						[
+							[
+								"core/button",
+								{
+									text: "Book Online",
+									style: {
+										color: { background: "#ac0cff", text: "#fffffe" },
+										elements: { link: { color: { text: "#fffffe" } } },
+										border: { radius: "0px" },
+										spacing: {
+											padding: {
+												left: "36px",
+												right: "36px",
+												top: "14px",
+												bottom: "14px",
+											},
+										},
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									blockGap: { top: "44px", left: "26px" },
+									margin: { top: "40px", bottom: "0px" },
+								},
+								typography: { fontSize: "14px" },
+								elements: { link: { color: { text: "#434343" } } },
+								color: { text: "#434343" },
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "454px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "About Us",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+											align: "left",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "150px",
+										justifyContent: "center",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Social Media",
+											textAlign: "center",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#ac0cff",
+											iconBackgroundColorValue: "#ac0cff",
+											style: {
+												spacing: {
+													blockGap: { top: "10px", left: "12px" },
+													margin: { top: "26px" },
+												},
+											},
+											layout: { type: "flex", justifyContent: "center" },
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "454px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Subscribe to my Newsletters",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Please add a 'Contact Form 7' shortcode or equivalent.",
+											align: "left",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/group",
+										{ layout: { type: "constrained" } },
+										[["core/shortcode"]],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "80px" },
+						},
+						border: {
+							top: { color: "#040c3624", style: "solid", width: "1px" },
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <mark style="background-color:rgba(0, 0, 0, 0);color:#ac0cff" class="has-inline-color">CozyThemes</mark>`,
+							align: "center",
+							style: {
+								typography: { fontSize: "14px" },
+								elements: { link: { color: { text: "#040c36" } } },
+								color: { text: "#040c36" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern7 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "80px", bottom: "0px", left: "26px", right: "26px" },
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				elements: { link: { color: { text: "#040c36" } } },
+				color: { text: "#040c36", background: "#fffffe" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							blockGap: { top: "44px", left: "30px" },
+							margin: { top: "0px", bottom: "0px" },
+						},
+						typography: { fontSize: "14px" },
+						elements: { link: { color: { text: "#434343" } } },
+						color: { text: "#434343" },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							width: "32%",
+							style: { spacing: { blockGap: "0" } },
+							layout: {
+								type: "constrained",
+								contentSize: "353px",
+								justifyContent: "left",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/paragraph",
+								{
+									content: `Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit`,
+									align: "left",
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+										typography: { fontSize: "26px" },
+									},
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#434343",
+									iconBackgroundColorValue: "#434343",
+									size: "has-small-icon-size",
+									className: "cthf__pro-footer-7",
+									style: {
+										spacing: {
+											blockGap: { top: "10px", left: "12px" },
+											margin: { top: "26px" },
+										},
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "youtube" }],
+								],
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "Quick Links",
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#040c36" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#040c36" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Introduction</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">About Us</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Our Store</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Contact Us</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "Important Links",
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#040c36" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#040c36" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Privacy Policy</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Terms & Conditions</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Shipping Details</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Media Kits</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							width: "28%",
+							style: { spacing: { blockGap: "0" } },
+							layout: {
+								type: "constrained",
+								contentSize: "311px",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Let’s talk about bringing you the best plants and succulents!`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#040c36" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.4",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#040c36" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+									align: "left",
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { margin: { top: "36px" } } },
+									layout: { type: "constrained" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Quick Links",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Introduction</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">About Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Our Store</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Contact Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "0px",
+								left: "0px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "80px" },
+						},
+						border: {
+							top: { color: "#040c3624", style: "solid", width: "1px" },
+						},
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by CozyThemes`,
+							style: {
+								typography: { fontSize: "14px" },
+								elements: { link: { color: { text: "#040c36" } } },
+								color: { text: "#040c36" },
+							},
+						},
+					],
+					[
+						"core/paragraph",
+						{
+							content: "Terms and Conditions",
+							style: {
+								typography: { fontSize: "14px" },
+								elements: { link: { color: { text: "#040c36" } } },
+								color: { text: "#040c36" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
