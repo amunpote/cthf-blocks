@@ -6,6 +6,7 @@ import { memo } from "@wordpress/element";
 
 import {
 	freeFooterPattern,
+	freeFooterPattern10,
 	freeFooterPattern2,
 	freeFooterPattern3,
 	freeFooterPattern4,
@@ -31,6 +32,7 @@ const patterns = {
 	freeFooterPattern7,
 	freeFooterPattern8,
 	freeFooterPattern9,
+	freeFooterPattern10,
 	proFooterPattern,
 	proFooterPattern2,
 	proFooterPattern3,
@@ -40,7 +42,7 @@ const patterns = {
 
 export const PatternModal = memo(
 	({ handleCloseModal, handlePatternImport, patternLoader }) => {
-		const freePatternCount = 9;
+		const freePatternCount = 10;
 		const proPatternCount = 5;
 
 		const freePatternsList = [];
