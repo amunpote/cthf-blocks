@@ -4696,3 +4696,2186 @@ export const proFooterPattern7 = [
 		],
 	],
 ];
+
+export const proFooterPattern8 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#000316" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									blockGap: { top: "44px", left: "30px" },
+									margin: { top: "0px", bottom: "0px" },
+								},
+								typography: { fontSize: "14px" },
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									width: "35%",
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "423px",
+										justifyContent: "left",
+									},
+								},
+								[
+									["core/site-logo"],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+											align: "left",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">2345 Beach,Rd<br>Metrocity USA, HWY 1235</a>`,
+											style: {
+												typography: {
+													fontSize: "15px",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "",
+										justifyContent: "center",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Quick Links",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#fffffe" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Special Feaured</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Our Rooms</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Activity and Gallery</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Blogs and Articles</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Pages</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "46%",
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "",
+										justifyContent: "center",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Have any questions?",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#fffffe" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Please add 'Contact Form 7' shortcode or equivalent for a form.",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/group",
+										{ layout: { type: "constrained" } },
+
+										[["core/shortcode"]],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "80px" },
+						},
+						border: {
+							top: { color: "#d9d9d92e", style: "solid", width: "1px" },
+						},
+					},
+					layout: {
+						type: "constrained",
+						contentSize: "1180px",
+						justifyContent: "center",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: "Proudly powered by WordPress | Theme by CozyThemes",
+							align: "left",
+							style: {
+								typography: { fontSize: "14px" },
+								elements: { link: { color: { text: "#d9d9d9" } } },
+								color: { text: "#d9d9d9" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern9 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#e9ecfd" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "0px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#434343" } } },
+						color: { text: "#434343" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									blockGap: { top: "44px", left: "44px" },
+									margin: { top: "0px", bottom: "0px" },
+								},
+								typography: { fontSize: "14px" },
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									width: "42%",
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "398px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content:
+												"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+											align: "left",
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+												color: { text: "#040c36" },
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "20px",
+													fontStyle: "normal",
+													fontWeight: "500",
+													lineHeight: "1.7",
+												},
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "35%",
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "295px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Contact Info",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `Location: 1234 Creative Avenue Los Angeles, CA 90001USA`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `Email: sample@example.com`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `Phone: +1 (000) 012-3456`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Quick Links",
+											textAlign: "left",
+											level: 3,
+											style: {
+												elements: { link: { color: { text: "#040c36" } } },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												color: { text: "#040c36" },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Introduction</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Know More About Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Our Store</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Contact Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "80px" },
+						},
+						border: {
+							top: { color: "#040c361f", style: "solid", width: "1px" },
+							right: {},
+							bottom: {},
+							left: {},
+						},
+					},
+					layout: {
+						type: "constrained",
+						contentSize: "1180px",
+						justifyContent: "center",
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									padding: { top: "0", bottom: "0", left: "0", right: "0" },
+									margin: { top: "0", bottom: "0" },
+									blockGap: "10px",
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `Proudly powered by WordPress | Theme by CozyThemes`,
+									align: "left",
+									style: {
+										typography: { fontSize: "14px" },
+										elements: { link: { color: { text: "#040c36" } } },
+										color: { text: "#040c36" },
+									},
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#000316",
+									iconColorValue: "#000316",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "telegram" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern10 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+				},
+				color: { background: "#001064" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "40px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						elements: { link: { color: { text: "#fffffe" } } },
+						color: { text: "#fffffe" },
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "26px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#fffffe00",
+											iconBackgroundColorValue: "#fffffe00",
+											style: {
+												spacing: { blockGap: { top: "10px", left: "6px" } },
+											},
+											layout: { type: "flex", justifyContent: "center" },
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "telegram" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ width: "55%" },
+								[["core/site-logo", { align: "center" }]],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">sample@example.com</a>`,
+											align: "center",
+											style: { typography: { fontSize: "15px" } },
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "40px", bottom: "0" },
+							blockGap: "0",
+						},
+						border: {
+							top: { color: "#fffffe33", style: "solid", width: "2px" },
+						},
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color"><strong>CozyThemes</strong></mark>`,
+							align: "center",
+							style: {
+								color: { text: "#d9d9d9" },
+								elements: { link: { color: { text: "#d9d9d9" } } },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern11 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { top: "80px", bottom: "0px", left: "26px", right: "26px" },
+				},
+				color: { background: "#13151f", text: "#fffffe" },
+				typography: { fontSize: "14px" },
+				elements: { link: { color: { text: "#fffffe" } } },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: { top: "44px", left: "26px" },
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							width: "40%",
+							layout: {
+								type: "constrained",
+								contentSize: "367px",
+								justifyContent: "left",
+							},
+						},
+						[
+							["core/site-logo"],
+							[
+								"core/paragraph",
+								{
+									content: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "26px" } },
+										color: { text: "#ebebeb" },
+										elements: { link: { color: { text: "#ebebeb" } } },
+										typography: { fontSize: "15px" },
+									},
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: { blockGap: { top: "10px", left: "6px" } },
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "telegram" }],
+								],
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								elements: { link: { color: { text: "#f2f2f2" } } },
+								color: { text: "#f2f2f2" },
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Our Location`,
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "18px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.2",
+										},
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `1234 Creative Avenue Los Angeles, CA 90001USA`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "26px" } },
+									},
+								},
+							],
+							[
+								"core/group",
+								{
+									style: { spacing: { blockGap: "6px" } },
+									layout: { type: "flex", flexWrap: "nowrap" },
+								},
+								[
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-11-1.png`,
+											width: "16px",
+											sizeSlug: "full",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/paragraph",
+										{ content: `<a href="#">Get Location</a>` },
+									],
+								],
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								elements: { link: { color: { text: "#f2f2f2" } } },
+								color: { text: "#f2f2f2" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Quick Links`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Home</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">About Us</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Menu</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Testimonials</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Contact Us</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Opening Hours`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/image",
+								{
+									url: `${cthfAssets.img}footer-11-2.png`,
+									sizeSlug: "full",
+									linkDestination: "none",
+									style: {
+										spacing: { margin: { top: "26px", bottom: "10px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Monday to Friday<br>9:00 AM - 7:00 PM`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Saturday<br>10:00 AM - 05:00 PM`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "26px" } },
+									},
+								},
+							],
+							[
+								"core/buttons",
+								{
+									style: {
+										typography: {
+											fontSize: "15px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											textTransform: "uppercase",
+											textDecoration: "none",
+										},
+									},
+								},
+								[
+									[
+										"core/button",
+										{
+											text: "Reservations",
+											style: {
+												color: { background: "#fffffe00" },
+												border: {
+													radius: "0px",
+													color: "#fffffe",
+													width: "1px",
+												},
+												spacing: {
+													padding: {
+														left: "34px",
+														right: "34px",
+														top: "12px",
+														bottom: "12px",
+													},
+												},
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "80px", bottom: "0" },
+							blockGap: "16px",
+							padding: { top: "26px", bottom: "26px", left: "0", right: "0" },
+						},
+						border: {
+							top: { color: "#fffffe33", style: "solid", width: "1px" },
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color"><strong>CozyThemes</strong></mark>`,
+						},
+					],
+					["core/paragraph", { content: `Terms and Conditions` }],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern12 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { top: "80px", bottom: "0px", left: "26px", right: "26px" },
+				},
+				color: { background: "#fffffe" },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: { top: "44px", left: "26px" },
+						},
+						elements: { link: { color: { text: "#434343" } } },
+						color: { text: "#434343" },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							width: "38%",
+							layout: {
+								type: "constrained",
+								contentSize: "367px",
+								justifyContent: "left",
+							},
+						},
+						[["core/site-logo"]],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `About Us`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#030821" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Home</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">About Us</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Testimonials</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Menu</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Contact Us</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Useful Links`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#030821" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Privacy Policy</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Terms & Conditions</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Refund Policy</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">FAQs</a>`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "",
+								justifyContent: "left",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Contact Us`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#030821" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#030821" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<mark style="background-color:rgba(0, 0, 0, 0);color:#676767" class="has-inline-color">Email:</mark> sample@example.com`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<mark style="background-color:rgba(0, 0, 0, 0);color:#676767" class="has-inline-color">Phone:</mark> +1(000) 123456`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "80px", bottom: "0" },
+							blockGap: "16px",
+							padding: { top: "20px", bottom: "20px", left: "0", right: "0" },
+						},
+						border: {
+							top: { color: "#03082133", style: "solid", width: "1px" },
+						},
+						elements: { link: { color: { text: "#434343" } } },
+						color: { text: "#434343" },
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <strong>CozyThemes</strong>`,
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#fffffe",
+							iconColorValue: "#fffffe",
+							customIconBackgroundColor: "#434343",
+							iconBackgroundColorValue: "#434343",
+							className: "cthf__pro-footer-12",
+							style: { spacing: { blockGap: { top: "10px", left: "10px" } } },
+							layout: { type: "flex", justifyContent: "left" },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "linkedin" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern13 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { top: "80px", bottom: "0px", left: "26px", right: "26px" },
+				},
+				color: { background: "#13151f" },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/group",
+				{ layout: { type: "constrained", contentSize: "728px" } },
+				[
+					[
+						"core/heading",
+						{
+							content: "Sed ut perspiciatis unde omnis iste natus error",
+							textAlign: "center",
+							level: 3,
+							style: {
+								elements: { link: { color: { text: "#fffffe" } } },
+								color: { text: "#fffffe" },
+								typography: {
+									fontSize: "44px",
+									lineHeight: "1.3",
+									fontStyle: "normal",
+									fontWeight: "600",
+								},
+							},
+						},
+					],
+					[
+						"core/buttons",
+						{
+							style: {
+								typography: {
+									fontSize: "16px",
+									textDecoration: "none",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+								spacing: {
+									blockGap: { top: "26px", left: "16px" },
+									margin: { top: "36px", bottom: "60px" },
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+						[
+							[
+								"core/button",
+								{
+									text: "Contact Us",
+									style: {
+										color: { background: "#fffffe00", text: "#fffffe" },
+										border: {
+											radius: "100px",
+											color: "#fffffe",
+											style: "solid",
+											width: "1px",
+										},
+										spacing: {
+											padding: {
+												left: "42px",
+												right: "42px",
+												top: "16px",
+												bottom: "16px",
+											},
+										},
+										elements: { link: { color: { text: "#fffffe" } } },
+									},
+								},
+							],
+							[
+								"core/button",
+								{
+									text: "Learn More",
+									style: {
+										color: { background: "#3450e6", text: "#fffffe" },
+										elements: { link: { color: { text: "#fffffe" } } },
+										spacing: {
+											padding: {
+												left: "44px",
+												right: "44px",
+												top: "16px",
+												bottom: "16px",
+											},
+										},
+										border: { radius: "100px" },
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0px", bottom: "0" },
+							blockGap: { top: "44px", left: "26px" },
+							padding: { top: "44px", bottom: "26px" },
+						},
+						elements: { link: { color: { text: "#e0e0e0" } } },
+						color: { text: "#e0e0e0" },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "133px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `About Us`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Home</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Services</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">What We Do</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Blogs</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Contact Us</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "133px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Our Products`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">SaasLauncher</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Jetnews Magazine</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">FotaWP</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">WoxStore</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">PhotoLancer</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "193px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Let's Talk`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<mark style="background-color:rgba(0, 0, 0, 0);color:#ebedf0" class="has-inline-color">Email:</mark> sample@example.com`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<mark style="background-color:rgba(0, 0, 0, 0);color:#ebedf0" class="has-inline-color">Phone:</mark> +1(000) 123456`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "14px" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "133px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Legal Info`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "18px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">General Info</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Privacy Policy</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Terms & Conditions</a>`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">FAQs</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "80px", bottom: "0" },
+							blockGap: "26px",
+							padding: { top: "20px", bottom: "20px", left: "0", right: "0" },
+						},
+						border: {
+							top: { color: "#ffffff2e", style: "solid", width: "1px" },
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					["core/site-logo"],
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <strong>CozyThemes</strong>`,
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#fffffe",
+							iconColorValue: "#fffffe",
+							customIconBackgroundColor: "#fffffe00",
+							iconBackgroundColorValue: "#fffffe00",
+							className: "cthf__pro-footer-13",
+							style: { spacing: { blockGap: { top: "10px", left: "10px" } } },
+							layout: { type: "flex", justifyContent: "left" },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "linkedin" }],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern14 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					padding: { top: "0", bottom: "0", left: "0", right: "0" },
+					margin: { top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#001064" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "26px",
+								bottom: "26px",
+							},
+							margin: { top: "0px" },
+						},
+						border: {
+							bottom: { color: "#fffffe", style: "solid", width: "1px" },
+						},
+					},
+					layout: {
+						type: "constrained",
+						contentSize: "1180px",
+						justifyContent: "center",
+					},
+				},
+				[
+					[
+						"core/group",
+						{
+							style: {
+								spacing: {
+									padding: { left: "0", right: "0", top: "0px", bottom: "0px" },
+									margin: { top: "0", bottom: "0" },
+									blockGap: "20px",
+								},
+							},
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `We look forward to welcoming you!`,
+									textAlign: "left",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										typography: {
+											fontSize: "30px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+										color: { text: "#fffffe" },
+									},
+								},
+							],
+							[
+								"core/buttons",
+								{
+									style: {
+										typography: {
+											fontSize: "16px",
+											textDecoration: "none",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+										spacing: {
+											blockGap: { top: "26px", left: "16px" },
+											margin: { top: "0px", bottom: "0px" },
+										},
+									},
+									layout: { type: "flex", justifyContent: "center" },
+								},
+								[
+									[
+										"core/button",
+										{
+											text: "Contact Us",
+											style: {
+												color: { background: "#fffffe00", text: "#fffffe" },
+												border: {
+													radius: "100px",
+													color: "#fffffe",
+													style: "solid",
+													width: "1px",
+												},
+												spacing: {
+													padding: {
+														left: "42px",
+														right: "42px",
+														top: "16px",
+														bottom: "16px",
+													},
+												},
+												elements: { link: { color: { text: "#fffffe" } } },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "60px",
+								left: "26px",
+								right: "26px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						elements: { link: { color: { text: "#e0e0e0" } } },
+						color: { text: "#e0e0e0" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									blockGap: { top: "44px", left: "26px" },
+									margin: { top: "0px", bottom: "0px" },
+								},
+								typography: { fontSize: "14px" },
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									width: "45%",
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "360px",
+										justifyContent: "left",
+									},
+								},
+								[
+									["core/site-logo"],
+									[
+										"core/paragraph",
+										{
+											content: `1234 Creative Avenue Los Angeles, CA 90001USA`,
+											align: "left",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+												elements: { link: { color: { text: "#f2f2f2" } } },
+												typography: {
+													fontSize: "18px",
+													fontStyle: "normal",
+													fontWeight: "600",
+													lineHeight: "1.7",
+												},
+												color: { text: "#f2f2f2" },
+											},
+										},
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "16px",
+													textDecoration: "none",
+													fontStyle: "normal",
+													fontWeight: "500",
+												},
+												spacing: {
+													blockGap: { top: "26px", left: "16px" },
+													margin: { top: "0px", bottom: "16px" },
+												},
+											},
+											layout: { type: "flex", justifyContent: "left" },
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Get Directions",
+													style: {
+														color: { background: "#fffffe00", text: "#fffffe" },
+														border: {
+															radius: "100px",
+															color: "#fffffe",
+															style: "solid",
+															width: "1px",
+														},
+														spacing: {
+															padding: {
+																left: "28px",
+																right: "28px",
+																top: "10px",
+																bottom: "10px",
+															},
+														},
+														elements: { link: { color: { text: "#fffffe" } } },
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#fffffe00",
+											iconBackgroundColorValue: "#fffffe00",
+											style: {
+												spacing: { blockGap: { top: "10px", left: "6px" } },
+											},
+											layout: { type: "flex", justifyContent: "left" },
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "linkedin" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "15%",
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "295px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Home</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">About Us</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Services</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "",
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "295px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">SaasLauncher</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Jetnews Magazine</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">FotaWP</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									width: "",
+									style: {
+										spacing: { blockGap: "0" },
+										typography: { fontSize: "14px" },
+									},
+									layout: {
+										type: "constrained",
+										contentSize: "295px",
+										justifyContent: "left",
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Privacy Policy</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Terms & Conditions</a>`,
+											style: {
+												spacing: { margin: { top: "16px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Careers</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "0px" } },
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by CozyThemes`,
+							align: "right",
+							style: {
+								spacing: { margin: { top: "26px", bottom: "0px" } },
+								typography: { fontSize: "14px" },
+							},
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
