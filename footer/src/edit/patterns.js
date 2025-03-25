@@ -6879,3 +6879,942 @@ export const proFooterPattern14 = [
 	],
 ];
 
+export const proFooterPattern15 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "26px", left: "26px", top: "80px", bottom: "0px" },
+				},
+				color: { background: "#040c36", text: "#f2f2f2" },
+				elements: { link: { color: { text: "#f2f2f2" } } },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						typography: { fontSize: "14px" },
+						spacing: { blockGap: { top: "44px", left: "26px" } },
+					},
+				},
+				[
+					[
+						"core/column",
+						{ style: { spacing: { blockGap: "0" } } },
+						[
+							["core/paragraph", { content: `Contact Us` }],
+							[
+								"core/heading",
+								{
+									content: "Let's Talk",
+									level: 3,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "90px",
+											lineHeight: "1.2",
+											fontStyle: "normal",
+											fontWeight: "600",
+										},
+									},
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: {
+											blockGap: { top: "10px", left: "10px" },
+											margin: { top: "26px" },
+										},
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "linkedin" }],
+								],
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							width: "40%",
+							style: {
+								spacing: { blockGap: "0" },
+								typography: { fontSize: "15px" },
+							},
+							layout: { type: "constrained", contentSize: "423px" },
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `E-mail: sample@example.com`,
+									style: { spacing: { margin: { top: "0px", bottom: "0px" } } },
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Phone: +1(000) 123456`,
+									style: {
+										spacing: { margin: { top: "16px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Location: 1234 Creative Avenue Los Angeles, CA 90001USA`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "36px" } },
+									},
+								},
+							],
+							[
+								"core/heading",
+								{
+									content: "Smart, Creative Ideas to Drive Success",
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "24px",
+											lineHeight: "1.3",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+						typography: { fontSize: "14px" },
+						spacing: {
+							margin: { top: "0px", bottom: "0px" },
+							padding: { top: "120px", bottom: "20px" },
+						},
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <strong>CozyThemes`,
+						},
+					],
+					["core/paragraph", { content: "Terms & Conditions" }],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern16 = [
+	[
+		"core/cover",
+		{
+			url: `${cthfAssets.img}footer-16-1.png`,
+			dimRatio: 50,
+			customOverlayColor: "#07136d",
+			isUserOverlayColor: false,
+			style: {
+				spacing: {
+					padding: { right: "26px", left: "26px", top: "80px", bottom: "0px" },
+				},
+				elements: { link: { color: { text: "#fffffe" } } },
+				color: { text: "#fffffe" },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						typography: { fontSize: "15px" },
+						spacing: { blockGap: { top: "44px", left: "26px" } },
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							style: {
+								typography: { fontStyle: "normal", fontWeight: "600" },
+								spacing: { blockGap: "0" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "272px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: "Monday to Friday: 9:00 AM-7:00 PM",
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+							["core/paragraph", { content: "Saturday: 10:00 AM-05:00 PM" }],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								typography: { fontStyle: "normal", fontWeight: "600" },
+								spacing: { blockGap: "0" },
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: "sample@example.com",
+									align: "center",
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{ content: "+1 (000) 012-3456", align: "center" },
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: {
+								typography: { fontStyle: "normal", fontWeight: "600" },
+								spacing: { blockGap: "0" },
+							},
+							layout: {
+								type: "constrained",
+								contentSize: "187px",
+								justifyContent: "center",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: "1234 Creative Avenue Los Angeles",
+									align: "right",
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							blockGap: "0",
+							padding: { top: "40px", bottom: "40px" },
+						},
+					},
+					layout: { type: "constrained" },
+				},
+				[
+					[
+						"core/heading",
+						{
+							content: "Call Toll-Free: +1 (000) 123-4567",
+							textAlign: "center",
+							level: 4,
+							style: {
+								typography: {
+									fontSize: "22px",
+									fontStyle: "normal",
+									fontWeight: "600",
+									lineHeight: "1.2",
+								},
+							},
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#040c36",
+							iconColorValue: "#040c36",
+							customIconBackgroundColor: "#fffffe",
+							iconBackgroundColorValue: "#fffffe",
+							className: "cthf__pro-footer-17",
+							style: {
+								spacing: {
+									blockGap: { top: "10px", left: "10px" },
+									margin: { top: "26px", bottom: "0px" },
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "linkedin" }],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+						spacing: { padding: { top: "26px", bottom: "26px" } },
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							content: `Proudly powered by WordPress | Theme by <mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color">CozyThemes</mark>`,
+						},
+					],
+					["core/paragraph", { content: "Terms and Conditions" }],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern17 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					blockGap: "0",
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+				},
+				color: { background: "#13151f" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: "80px",
+								bottom: "40px",
+								left: "26px",
+								right: "26px",
+							},
+						},
+						elements: { link: { color: { text: "#fffffe" } } },
+						color: { text: "#fffffe" },
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							className: "cthf__pro-footer-17",
+							style: {
+								elements: { link: { color: { text: "#6a6a6a" } } },
+								color: { text: "#6a6a6a" },
+								typography: { fontSize: "14px" },
+								spacing: {
+									blockGap: { top: "0px", left: "0px" },
+									margin: { top: "0px", bottom: "60px" },
+									padding: { bottom: "60px" },
+								},
+								border: {
+									bottom: { color: "#ffffff21", style: "solid", width: "1px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{
+									width: "",
+									style: {
+										spacing: { padding: { top: "26px", bottom: "26px" } },
+									},
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-17-1.png`,
+													width: "26px",
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Contact Us",
+															style: {
+																spacing: {
+																	margin: { top: "0px", bottom: "-2px" },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "+1(000)-123456",
+															style: {
+																typography: {
+																	fontSize: "18px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																elements: {
+																	link: { color: { text: "#fffffe" } },
+																},
+																color: { text: "#fffffe" },
+																spacing: {
+																	margin: { top: "4px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										border: {
+											left: {
+												color: "#ffffff1c",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: {
+											padding: { left: "44px", top: "26px", bottom: "26px" },
+										},
+									},
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-17-2.png`,
+													width: "26px",
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Email Address",
+															style: {
+																spacing: {
+																	margin: { top: "0px", bottom: "-2px" },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "sample@example.com",
+															style: {
+																typography: {
+																	fontSize: "18px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																elements: {
+																	link: { color: { text: "#fffffe" } },
+																},
+																color: { text: "#fffffe" },
+																spacing: {
+																	margin: { top: "4px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										border: {
+											left: {
+												color: "#ffffff1c",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: {
+											padding: { left: "44px", top: "26px", bottom: "26px" },
+										},
+									},
+								},
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "nowrap",
+												verticalAlignment: "top",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-17-3.png`,
+													width: "26px",
+													sizeSlug: "full",
+													linkDestination: "none",
+													style: { spacing: { margin: { top: "2px" } } },
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/paragraph",
+														{
+															content: "Location",
+															style: {
+																spacing: {
+																	margin: { top: "0px", bottom: "-2px" },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: "1234 Creative Avenue Los Angeles",
+															style: {
+																typography: {
+																	fontSize: "18px",
+																	fontStyle: "normal",
+																	fontWeight: "600",
+																},
+																elements: {
+																	link: { color: { text: "#fffffe" } },
+																},
+																color: { text: "#fffffe" },
+																spacing: {
+																	margin: { top: "4px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "26px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{ width: "30%", style: { spacing: { blockGap: "0" } } },
+								[
+									["core/site-logo"],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#262626",
+											iconBackgroundColorValue: "#262626",
+											className: "cthf__pro-footer-17",
+											style: {
+												spacing: {
+													blockGap: { top: "10px", left: "10px" },
+													margin: { top: "30px" },
+												},
+											},
+											layout: { type: "flex", justifyContent: "left" },
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "linkedin" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Pricing</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Salutations</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Meet Our Team</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Features</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Customer Reviews</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Pages</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Blogs</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+								[
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Home</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">About Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Our Services</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Contact Us</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Careers</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{ width: "30%", style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/heading",
+										{
+											content: "Need Any Help?",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "30px" } },
+												typography: { fontSize: "15px" },
+											},
+										},
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "16px",
+													fontStyle: "normal",
+													fontWeight: "600",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Contact us",
+													style: {
+														color: { background: "#ac0cff", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														border: { radius: "100px" },
+														spacing: {
+															padding: {
+																left: "44px",
+																right: "44px",
+																top: "14px",
+																bottom: "14px",
+															},
+														},
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "20px",
+								bottom: "20px",
+							},
+							margin: { top: "40px", bottom: "0" },
+							blockGap: "0",
+						},
+						border: {
+							top: { color: "#ffffff33", style: "solid", width: "1px" },
+						},
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `Proudly powered by WordPress | Theme by <mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color"><strong>CozyThemes</strong></mark>`,
+									align: "center",
+									style: {
+										color: { text: "#d9d9d9" },
+										elements: { link: { color: { text: "#d9d9d9" } } },
+									},
+								},
+							],
+							[
+								"core/navigation",
+								{
+									customTextColor: "#d9d9d9",
+									overlayMenu: "never",
+									style: { typography: { fontSize: "15px" } },
+								},
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
