@@ -12857,3 +12857,425 @@ export const proFooterPattern33 = [
 		],
 	],
 ];
+
+export const proFooterPattern34 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#f4f6ff", text: "#646464" },
+				elements: { link: { color: { text: "#646464" } } },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "60px",
+								bottom: "36px",
+							},
+						},
+						border: {
+							bottom: { color: "#040c3630", style: "solid", width: "1px" },
+							top: {},
+							right: {},
+							left: {},
+						},
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{
+							style: {
+								spacing: {
+									margin: { top: "0", bottom: "0" },
+									blockGap: { top: "44px", left: "36px" },
+								},
+							},
+						},
+						[
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "wrap",
+												justifyContent: "left",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-pro-34-1.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/heading",
+														{
+															content: "Free Shipping",
+															level: 4,
+															style: {
+																typography: {
+																	fontSize: "16px",
+																	textTransform: "uppercase",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																	lineHeight: "1.2",
+																},
+																color: { text: "#040b2e" },
+																elements: {
+																	link: { color: { text: "#040b2e" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: `Order $35 or More`,
+															style: {
+																spacing: {
+																	margin: { top: "2px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "wrap",
+												justifyContent: "left",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-pro-34-2.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/heading",
+														{
+															content: "Best Deal Offers",
+															level: 4,
+															style: {
+																typography: {
+																	fontSize: "16px",
+																	textTransform: "uppercase",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																	lineHeight: "1.2",
+																},
+																color: { text: "#040b2e" },
+																elements: {
+																	link: { color: { text: "#040b2e" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: `Order $35 or More`,
+															style: {
+																spacing: {
+																	margin: { top: "2px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "wrap",
+												justifyContent: "left",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-pro-34-3.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/heading",
+														{
+															content: "100% Return Policy",
+															level: 4,
+															style: {
+																typography: {
+																	fontSize: "16px",
+																	textTransform: "uppercase",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																	lineHeight: "1.2",
+																},
+																color: { text: "#040b2e" },
+																elements: {
+																	link: { color: { text: "#040b2e" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: `Purchase with confidence`,
+															style: {
+																spacing: {
+																	margin: { top: "2px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{ style: { spacing: { blockGap: "0" } } },
+								[
+									[
+										"core/group",
+										{
+											style: { spacing: { blockGap: "16px" } },
+											layout: {
+												type: "flex",
+												flexWrap: "wrap",
+												justifyContent: "left",
+											},
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}footer-pro-34-4.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/group",
+												{
+													style: { spacing: { blockGap: "0" } },
+													layout: { type: "constrained" },
+												},
+												[
+													[
+														"core/heading",
+														{
+															content: "Support 24/7",
+															level: 4,
+															style: {
+																typography: {
+																	fontSize: "16px",
+																	textTransform: "uppercase",
+																	fontStyle: "normal",
+																	fontWeight: "500",
+																	lineHeight: "1.2",
+																},
+																color: { text: "#040b2e" },
+																elements: {
+																	link: { color: { text: "#040b2e" } },
+																},
+															},
+														},
+													],
+													[
+														"core/paragraph",
+														{
+															content: `Dedicated Support`,
+															style: {
+																spacing: {
+																	margin: { top: "2px", bottom: "0px" },
+																},
+															},
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "100px",
+								bottom: "80px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/site-logo",
+						{
+							width: 120,
+							align: "center",
+							style: { spacing: { margin: { bottom: "26px" } } },
+						},
+					],
+					[
+						"core/navigation",
+						{
+							customTextColor: "#4b4b4b",
+							overlayMenu: "never",
+							style: {
+								typography: {
+									fontSize: "15px",
+									fontStyle: "normal",
+									fontWeight: "500",
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#040c36",
+							iconColorValue: "#040c36",
+							customIconBackgroundColor: "#fffffe00",
+							iconBackgroundColorValue: "#fffffe00",
+							className: "cthf__pro-footer-24",
+							style: {
+								spacing: {
+									blockGap: { top: "12px", left: "12px" },
+									margin: { top: "26px", bottom: "0px" },
+								},
+							},
+							layout: { type: "flex", justifyContent: "center" },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "linkedin" }],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "26px" },
+							padding: { top: "26px", bottom: "26px" },
+						},
+						border: {
+							top: { color: "#040c3630", style: "solid", width: "1px" },
+							right: {},
+							bottom: {},
+							left: {},
+						},
+						elements: { link: { color: { text: "#434343" } } },
+						color: { text: "#434343" },
+					},
+					layout: { type: "constrained" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							align: "center",
+							content: `Proudly powered by WordPress | Theme by <strong>CozyThemes</strong>`,
+						},
+					],
+				],
+			],
+		],
+	],
+];
