@@ -33,7 +33,15 @@ import {
 	proFooterPattern23,
 	proFooterPattern24,
 	proFooterPattern25,
+	proFooterPattern26,
+	proFooterPattern27,
+	proFooterPattern28,
+	proFooterPattern29,
 	proFooterPattern3,
+	proFooterPattern30,
+	proFooterPattern31,
+	proFooterPattern32,
+	proFooterPattern33,
 	proFooterPattern4,
 	proFooterPattern5,
 	proFooterPattern6,
@@ -78,12 +86,20 @@ const patterns = {
 	proFooterPattern23,
 	proFooterPattern24,
 	proFooterPattern25,
+	proFooterPattern26,
+	proFooterPattern27,
+	proFooterPattern28,
+	proFooterPattern29,
+	proFooterPattern30,
+	proFooterPattern31,
+	proFooterPattern32,
+	proFooterPattern33,
 };
 
 export const PatternModal = memo(
 	({ handleCloseModal, handlePatternImport, patternLoader }) => {
 		const freePatternCount = 10;
-		const proPatternCount = 25;
+		const proPatternCount = 33;
 
 		const freePatternsList = [];
 		for (let i = 1; i <= freePatternCount; i++) {
