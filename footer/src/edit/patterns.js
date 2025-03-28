@@ -2539,7 +2539,6 @@ export const proFooterPattern = [
 									[
 										"core/query",
 										{
-											queryId: 0,
 											query: {
 												perPage: 3,
 												pages: 0,
@@ -12642,7 +12641,6 @@ export const proFooterPattern33 = [
 							[
 								"core/query",
 								{
-									queryId: 1,
 									query: {
 										perPage: 3,
 										pages: 0,
@@ -13273,6 +13271,1258 @@ export const proFooterPattern34 = [
 							align: "center",
 							content: `Proudly powered by WordPress | Theme by <strong>CozyThemes</strong>`,
 						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern35 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#000316", text: "#e9e8e8" },
+				elements: { link: { color: { text: "#e9e8e8" } } },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "80px",
+								bottom: "80px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{ style: { spacing: { blockGap: { top: "44px", left: "26px" } } } },
+						[
+							[
+								"core/column",
+								{
+									width: "33%",
+									style: { spacing: { blockGap: "0" } },
+									layout: {
+										type: "constrained",
+										contentSize: "339px",
+										justifyContent: "left",
+									},
+								},
+								[
+									["core/site-logo"],
+									[
+										"core/paragraph",
+										{
+											content:
+												"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+											style: {
+												spacing: { margin: { top: "26px", bottom: "26px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: "Follow Us",
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/social-links",
+										{
+											customIconColor: "#fffffe",
+											iconColorValue: "#fffffe",
+											customIconBackgroundColor: "#fffffe00",
+											iconBackgroundColorValue: "#fffffe00",
+											style: {
+												spacing: { blockGap: { top: "10px", left: "0px" } },
+											},
+											layout: { type: "flex", justifyContent: "left" },
+										},
+										[
+											["core/social-link", { url: "#", service: "facebook" }],
+											["core/social-link", { url: "#", service: "x" }],
+											["core/social-link", { url: "#", service: "instagram" }],
+											["core/social-link", { url: "#", service: "linkedin" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{},
+								[
+									[
+										"core/heading",
+										{
+											content: "Categories",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/categories",
+										{
+											showLabel: false,
+											className: "cthf__pro-footer-35",
+											style: {
+												typography: { fontSize: "14px" },
+												spacing: {
+													margin: {
+														top: "26px",
+														bottom: "0px",
+														left: "0px",
+														right: "0px",
+													},
+													padding: {
+														top: "0px",
+														bottom: "0px",
+														left: "0px",
+														right: "0px",
+													},
+												},
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{ width: "33%" },
+								[
+									[
+										"core/heading",
+										{
+											content: "Recent News",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/query",
+										{
+											query: {
+												perPage: 3,
+												pages: 0,
+												offset: 0,
+												postType: "post",
+												order: "desc",
+												orderBy: "date",
+												author: "",
+												search: "",
+												exclude: [],
+												sticky: "",
+												inherit: false,
+												taxQuery: null,
+												parents: [],
+												format: [],
+											},
+										},
+										[
+											[
+												"core/post-template",
+												{},
+												[
+													[
+														"core/columns",
+
+														{
+															isStackedOnMobile: false,
+															style: {
+																spacing: {
+																	blockGap: { top: "12px", left: "12px" },
+																},
+															},
+														},
+														[
+															[
+																"core/column",
+																{ width: "33.33%" },
+																[
+																	[
+																		"core/post-featured-image",
+																		{ isLink: true, width: "", height: "90px" },
+																	],
+																],
+															],
+															[
+																"core/column",
+																{
+																	width: "66.66%",
+																	style: {
+																		spacing: {
+																			blockGap: "0",
+																			padding: { top: "6px" },
+																		},
+																	},
+																},
+																[
+																	[
+																		"core/post-title",
+																		{
+																			isLink: true,
+																			style: {
+																				typography: { fontSize: "15px" },
+																				elements: {
+																					link: {
+																						color: { text: "#ebebeb" },
+																						":hover": {
+																							color: { text: "#ff9900" },
+																						},
+																					},
+																				},
+																				color: { text: "#ebebeb" },
+																				spacing: {
+																					margin: { top: "0px", bottom: "4px" },
+																				},
+																			},
+																		},
+																	],
+																	[
+																		"core/post-date",
+																		{
+																			style: {
+																				elements: {
+																					link: { color: { text: "#ebebeb" } },
+																				},
+																				color: { text: "#ebebeb" },
+																				typography: { fontSize: "14px" },
+																			},
+																		},
+																	],
+																],
+															],
+														],
+													],
+												],
+											],
+											[
+												"core/query-no-results",
+												{},
+												[
+													[
+														"core/paragraph",
+														{
+															placeholder:
+																"Add text or blocks that will display when a query returns no results.",
+															content: "No Posts Found.",
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{},
+								[
+									[
+										"core/heading",
+										{
+											content: "Popular Tags",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/categories",
+										{
+											taxonomy: "post_tag",
+											className: "cthf__pro-footer-35",
+											style: {
+												typography: { fontSize: "14px" },
+												spacing: {
+													padding: {
+														top: "0px",
+														bottom: "0px",
+														left: "0px",
+														right: "0px",
+													},
+													margin: {
+														top: "26px",
+														bottom: "0px",
+														left: "0px",
+														right: "0px",
+													},
+												},
+											},
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "60px" },
+							padding: { top: "26px", bottom: "26px" },
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { background: "#000736", text: "#d9d9d9" },
+					},
+					layout: { type: "constrained" },
+				},
+				[
+					[
+						"core/paragraph",
+						{
+							align: "center",
+							content: `Proudly powered by WordPress | Theme by <strong><mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color">CozyThemes</mark></strong>`,
+						},
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern36 = [
+	[
+		"core/group",
+		{
+			style: {
+				spacing: {
+					margin: { top: "0", bottom: "0" },
+					padding: { right: "0", left: "0", top: "0", bottom: "0" },
+					blockGap: "0",
+				},
+				color: { background: "#000316", text: "#e9e8e8" },
+				elements: { link: { color: { text: "#e9e8e8" } } },
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "100%" },
+		},
+		[
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							padding: {
+								right: "26px",
+								left: "26px",
+								top: "80px",
+								bottom: "80px",
+							},
+							margin: { top: "0", bottom: "0" },
+							blockGap: "0",
+						},
+						typography: { fontSize: "14px" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/columns",
+						{ style: { spacing: { blockGap: { top: "44px", left: "26px" } } } },
+						[
+							[
+								"core/column",
+								{
+									width: "",
+									style: { spacing: { blockGap: "0" } },
+									layout: { type: "default" },
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Quick Links",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">About Us</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Company</a>`,
+											style: {
+												spacing: { margin: { top: "0px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Services</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Our Products</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Blogs</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `<a href="#">Contact Us</a>`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "16px" } },
+											},
+										},
+									],
+								],
+							],
+							[
+								"core/column",
+								{ width: "33%" },
+								[
+									[
+										"core/heading",
+										{
+											content: "Recent News",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/query",
+										{
+											query: {
+												perPage: 2,
+												pages: 0,
+												offset: 0,
+												postType: "post",
+												order: "desc",
+												orderBy: "date",
+												author: "",
+												search: "",
+												exclude: [],
+												sticky: "",
+												inherit: false,
+												taxQuery: null,
+												parents: [],
+												format: [],
+											},
+										},
+										[
+											[
+												"core/post-template",
+												{},
+												[
+													[
+														"core/columns",
+														{
+															isStackedOnMobile: false,
+															style: {
+																spacing: {
+																	blockGap: { top: "12px", left: "12px" },
+																},
+															},
+														},
+														[
+															[
+																"core/column",
+																{ width: "33.33%" },
+																[
+																	[
+																		"core/post-featured-image",
+																		{ isLink: true, width: "", height: "90px" },
+																	],
+																],
+															],
+															[
+																"core/column",
+																{
+																	width: "66.66%",
+																	style: {
+																		spacing: {
+																			blockGap: "0",
+																			padding: { top: "6px" },
+																		},
+																	},
+																},
+																[
+																	[
+																		"core/post-title",
+																		{
+																			isLink: true,
+																			style: {
+																				typography: { fontSize: "15px" },
+																				elements: {
+																					link: {
+																						color: { text: "#ebebeb" },
+																						":hover": {
+																							color: { text: "#ff9900" },
+																						},
+																					},
+																				},
+																				color: { text: "#ebebeb" },
+																				spacing: {
+																					margin: { top: "0px", bottom: "4px" },
+																				},
+																			},
+																		},
+																	],
+																	[
+																		"core/post-date",
+																		{
+																			style: {
+																				elements: {
+																					link: { color: { text: "#ebebeb" } },
+																				},
+																				color: { text: "#ebebeb" },
+																				typography: { fontSize: "14px" },
+																			},
+																		},
+																	],
+																],
+															],
+														],
+													],
+												],
+											],
+											[
+												"core/query-no-results",
+												{},
+												[
+													[
+														"core/paragraph",
+														{
+															placeholder:
+																"Add text or blocks that will display when a query returns no results.",
+															content: "No Posts Found!",
+														},
+													],
+												],
+											],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{
+									style: {
+										elements: { link: { color: { text: "#f8f8f8" } } },
+										color: { text: "#f8f8f8" },
+										typography: {
+											fontSize: "15px",
+											fontStyle: "normal",
+											fontWeight: "500",
+										},
+									},
+								},
+								[
+									[
+										"core/heading",
+										{
+											content: "Need Help?",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/group",
+										{
+											style: {
+												spacing: {
+													blockGap: "10px",
+													margin: { top: "26px", bottom: "16px" },
+												},
+											},
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-4-3.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											[
+												"core/paragraph",
+												{ content: "2345 Beach,Rd<br>Metrocity USA, HWY 1235" },
+											],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: {
+												spacing: {
+													blockGap: "10px",
+													margin: { top: "0px", bottom: "16px" },
+												},
+											},
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-4-1.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											["core/paragraph", { content: "+1(000)-123456" }],
+										],
+									],
+									[
+										"core/group",
+										{
+											style: {
+												spacing: {
+													blockGap: "10px",
+													margin: { top: "0px", bottom: "0px" },
+												},
+											},
+											layout: { type: "flex", flexWrap: "nowrap" },
+										},
+										[
+											[
+												"core/image",
+												{
+													url: `${cthfAssets.img}header-4-2.png`,
+													sizeSlug: "full",
+													linkDestination: "none",
+												},
+											],
+											["core/paragraph", { content: "sample@example.com" }],
+										],
+									],
+								],
+							],
+							[
+								"core/column",
+								{},
+								[
+									[
+										"core/heading",
+										{
+											content: "Subscribe Our Newsletter",
+											level: 4,
+											style: {
+												elements: { link: { color: { text: "#fffffe" } } },
+												color: { text: "#fffffe" },
+												typography: {
+													fontSize: "18px",
+													lineHeight: "1.2",
+													fontStyle: "normal",
+													fontWeight: "600",
+												},
+											},
+										},
+									],
+									[
+										"core/paragraph",
+										{
+											content: `On the other hand, we denounce with righteous indignation`,
+											style: {
+												spacing: { margin: { top: "26px", bottom: "26px" } },
+											},
+										},
+									],
+									[
+										"core/buttons",
+										{
+											style: {
+												typography: {
+													fontSize: "16px",
+													textTransform: "uppercase",
+													fontStyle: "normal",
+													fontWeight: "600",
+													textDecoration: "none",
+												},
+											},
+										},
+										[
+											[
+												"core/button",
+												{
+													text: "Subscribe",
+													style: {
+														color: { background: "#3450e6", text: "#fffffe" },
+														elements: { link: { color: { text: "#fffffe" } } },
+														border: { radius: "0px" },
+														spacing: {
+															padding: {
+																left: "32px",
+																right: "32px",
+																top: "12px",
+																bottom: "12px",
+															},
+														},
+													},
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						spacing: {
+							margin: { top: "60px" },
+							padding: { top: "20px", bottom: "20px" },
+						},
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { background: "#181a24", text: "#d9d9d9" },
+					},
+					layout: { type: "constrained", contentSize: "1180px" },
+				},
+				[
+					[
+						"core/group",
+						{
+							layout: {
+								type: "flex",
+								flexWrap: "wrap",
+								justifyContent: "space-between",
+							},
+						},
+						[
+							[
+								"core/paragraph",
+								{
+									content: `Proudly powered by WordPress | Theme by <strong><mark style="background-color:rgba(0, 0, 0, 0);color:#f4f4f4" class="has-inline-color">CozyThemes</mark></strong>`,
+								},
+							],
+							[
+								"core/social-links",
+								{
+									customIconColor: "#fffffe",
+									iconColorValue: "#fffffe",
+									customIconBackgroundColor: "#fffffe00",
+									iconBackgroundColorValue: "#fffffe00",
+									style: {
+										spacing: {
+											blockGap: { top: "10px", left: "0px" },
+											margin: { top: "0", bottom: "0", left: "0", right: "0" },
+										},
+									},
+									layout: { type: "flex", justifyContent: "left" },
+								},
+								[
+									["core/social-link", { url: "#", service: "facebook" }],
+									["core/social-link", { url: "#", service: "x" }],
+									["core/social-link", { url: "#", service: "instagram" }],
+									["core/social-link", { url: "#", service: "linkedin" }],
+								],
+							],
+						],
+					],
+				],
+			],
+		],
+	],
+];
+
+export const proFooterPattern37 = [
+	[
+		"core/group",
+		{
+			style: {
+				color: { background: "#000316", text: "#cac7c7" },
+				elements: { link: { color: { text: "#cac7c7" } } },
+				spacing: {
+					padding: { right: "26px", left: "26px", top: "80px", bottom: "0px" },
+					margin: { top: "0", bottom: "0" },
+				},
+				typography: { fontSize: "14px" },
+			},
+			layout: { type: "constrained", contentSize: "1180px" },
+		},
+		[
+			[
+				"core/columns",
+				{
+					style: {
+						spacing: {
+							margin: { top: "0", bottom: "0" },
+							blockGap: { top: "44px", left: "60px" },
+						},
+					},
+				},
+				[
+					[
+						"core/column",
+						{
+							style: { spacing: { blockGap: "0" } },
+							layout: { type: "constrained", contentSize: "" },
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "About Us",
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "20px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.3",
+										},
+										border: {
+											bottom: {
+												color: "#c9c7c747",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: { padding: { bottom: "10px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "0px" } },
+										typography: { fontSize: "15px" },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: { spacing: { blockGap: "0" } },
+							layout: { type: "constrained", contentSize: "" },
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: `Quick Links`,
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "20px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.3",
+										},
+										border: {
+											bottom: {
+												color: "#c9c7c747",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: { padding: { bottom: "10px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">About Us</a>`,
+									style: {
+										spacing: { margin: { top: "26px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Services</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Blogs</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "16px" } },
+									},
+								},
+							],
+							[
+								"core/paragraph",
+								{
+									content: `<a href="#">Contact Us</a>`,
+									style: {
+										spacing: { margin: { top: "0px", bottom: "0px" } },
+									},
+								},
+							],
+						],
+					],
+					[
+						"core/column",
+						{
+							style: { spacing: { blockGap: "0" } },
+							layout: { type: "constrained", contentSize: "" },
+						},
+						[
+							[
+								"core/heading",
+								{
+									content: "Recent Posts",
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "20px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.3",
+										},
+										border: {
+											bottom: {
+												color: "#c9c7c747",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: {
+											padding: { bottom: "10px" },
+											margin: { bottom: "26px" },
+										},
+									},
+								},
+							],
+							[
+								"core/query",
+								{
+									query: {
+										perPage: 3,
+										pages: 0,
+										offset: 0,
+										postType: "post",
+										order: "desc",
+										orderBy: "date",
+										author: "",
+										search: "",
+										exclude: [],
+										sticky: "",
+										inherit: false,
+										taxQuery: null,
+										parents: [],
+										format: [],
+									},
+								},
+								[
+									[
+										"core/post-template",
+										{ style: { spacing: { blockGap: "16px" } } },
+										[
+											[
+												"core/post-title",
+												{
+													isLink: true,
+													style: {
+														color: { text: "#cac7c7" },
+														elements: {
+															link: {
+																color: { text: "#cac7c7" },
+																":hover": { color: { text: "#ff9900" } },
+															},
+														},
+														typography: {
+															fontSize: "15px",
+															fontStyle: "normal",
+															fontWeight: "600",
+														},
+													},
+												},
+											],
+											[
+												"core/post-date",
+												{
+													style: {
+														color: { text: "#cac7c7" },
+														elements: { link: { color: { text: "#cac7c7" } } },
+														typography: { fontSize: "14px" },
+													},
+												},
+											],
+										],
+									],
+									[
+										"core/query-no-results",
+										{},
+										[
+											[
+												"core/paragraph",
+												{
+													placeholder:
+														"Add text or blocks that will display when a query returns no results.",
+													content: "No Posts Found!",
+												},
+											],
+										],
+									],
+								],
+							],
+						],
+					],
+					[
+						"core/column",
+						{ style: { spacing: { blockGap: "0" } } },
+						[
+							[
+								"core/heading",
+								{
+									content: "Gallery",
+									level: 4,
+									style: {
+										elements: { link: { color: { text: "#fffffe" } } },
+										color: { text: "#fffffe" },
+										typography: {
+											fontSize: "20px",
+											fontStyle: "normal",
+											fontWeight: "600",
+											lineHeight: "1.3",
+										},
+										border: {
+											bottom: {
+												color: "#c9c7c747",
+												style: "solid",
+												width: "1px",
+											},
+										},
+										spacing: { padding: { bottom: "10px" } },
+									},
+								},
+							],
+							[
+								"core/gallery",
+								{
+									linkTo: "none",
+									style: {
+										spacing: {
+											blockGap: { top: "10px", left: "10px" },
+											margin: { top: "26px", bottom: "0px" },
+										},
+									},
+								},
+								[
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-1.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-2.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-3.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-4.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-5.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+									[
+										"core/image",
+										{
+											url: `${cthfAssets.img}footer-5-6.png`,
+											sizeSlug: "large",
+											linkDestination: "none",
+										},
+									],
+								],
+							],
+						],
+					],
+				],
+			],
+			[
+				"core/group",
+				{
+					style: {
+						elements: { link: { color: { text: "#d9d9d9" } } },
+						color: { text: "#d9d9d9" },
+						border: { top: { color: "#ffffff38", width: "1px" } },
+						spacing: {
+							margin: { top: "120px" },
+							padding: { top: "26px", bottom: "26px" },
+						},
+					},
+					layout: {
+						type: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-between",
+					},
+				},
+				[
+					[
+						"core/paragraph",
+						{ content: "Proudly powered by WordPress | Theme by CozyThemes" },
+					],
+					[
+						"core/social-links",
+						{
+							customIconColor: "#fffffe",
+							iconColorValue: "#fffffe",
+							customIconBackgroundColor: "#fffffe00",
+							iconBackgroundColorValue: "#fffffe00",
+							style: {
+								spacing: {
+									blockGap: { top: "10px", left: "0px" },
+									margin: { top: "0", bottom: "0", left: "0", right: "0" },
+								},
+							},
+							layout: { type: "flex", justifyContent: "left" },
+						},
+						[
+							["core/social-link", { url: "#", service: "facebook" }],
+							["core/social-link", { url: "#", service: "x" }],
+							["core/social-link", { url: "#", service: "instagram" }],
+							["core/social-link", { url: "#", service: "linkedin" }],
+						],
 					],
 				],
 			],
