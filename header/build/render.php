@@ -18,7 +18,8 @@ $sticky_styles = array(
 $mm_styles = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
 	'sidebar'         => array(
-		'width' => isset( $attributes['mobileMenu']['sidebar']['width'] ) ? $attributes['mobileMenu']['sidebar']['width'] : '',
+		'width'   => isset( $attributes['mobileMenu']['sidebar']['width'] ) ? $attributes['mobileMenu']['sidebar']['width'] : '',
+		'padding' => isset( $attributes['mobileMenu']['sidebar']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['sidebar']['padding'] ) : '',
 	),
 );
 
@@ -52,6 +53,7 @@ $block_styles = "
 }
 .cthf__mobile-layout-wrapper.element-$block_id .cthf__sidebar-panel-wrap .sidebar-panel__body {
 	width: {$mm_styles['sidebar']['width']};
+	{$mm_styles['sidebar']['padding']}
 	background-color: {$colors['sidebar_bg']};
 
 	& .close__icon {
@@ -107,11 +109,11 @@ add_action(
 					if ( isset( $attributes['mobileMenu']['menuID'] ) && ! empty( $attributes['mobileMenu']['menuID'] ) ) {
 						$menu_id = intval( $attributes['mobileMenu']['menuID'] );
 
-						if ( $menu_id ) {
+						if ( $menu_id && 'publish' === get_post_status( $menu_id ) ) {
 							echo do_blocks( '<!-- wp:navigation {"ref":' . $menu_id . ', "overlayMenu": "never"} /-->' );
+						} else {
+							echo do_blocks( '<!-- wp:navigation {"overlayMenu": "never"} /-->' );
 						}
-					} else {
-						echo do_blocks( '<!-- wp:navigation {"overlayMenu": "never"} /-->' );
 					}
 					?>
 				</div>

@@ -134,6 +134,29 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 									/>
 								</AttrWrapper>
 
+								<BoxControl
+									label={__("Sidebar Padding", "rootblox")}
+									resetValues={{
+										top: "0px",
+										right: "0px",
+										bottom: "0px",
+										left: "0px",
+									}}
+									values={attributes.mobileMenu.sidebar.padding}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											mobileMenu: {
+												...attributes.mobileMenu,
+												sidebar: {
+													...attributes.mobileMenu.sidebar,
+													padding: newValue,
+												},
+											},
+										})
+									}
+								/>
+
 								<PanelColorSettings
 									className="cthf__color-panel"
 									title={__("Colors", "rootblox")}

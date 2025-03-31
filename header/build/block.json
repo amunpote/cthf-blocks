@@ -46,7 +46,13 @@
         "menuID": "",
         "sidebar": {
           "width": "35%",
-          "position": "left"
+          "position": "left",
+          "padding": {
+            "top": "40px",
+            "right": "26px",
+            "bottom": "40px",
+            "left": "26px"
+          }
         }
       }
     },
