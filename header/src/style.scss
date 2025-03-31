@@ -97,6 +97,8 @@
 		background: #fff;
 		z-index: 999999;
 		width: 35%;
+		padding: 40px 26px;
+		box-sizing: border-box;
 
 		@media only screen and (width <= 1024px) {
 			& {
@@ -144,4 +146,9 @@
 	to {
 		right: 0;
 	}
+}
+
+/* Navigation Styles */
+.cthf__sidebar-panel-wrap .wp-block-navigation__container.wp-block-navigation {
+	display: block;
 }

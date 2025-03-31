@@ -55,6 +55,7 @@
       "default": {
         "bg": "",
         "mobileBg": "#fff",
+        "menuIcon": "#000",
         "sidebarBg": "#fff",
         "sidebarCloseIcon": "#000"
       }

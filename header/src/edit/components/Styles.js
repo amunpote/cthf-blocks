@@ -140,6 +140,18 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 									enableAlpha={true}
 									colorSettings={[
 										{
+											label: __("Menu Icon", "rootblox"),
+											value: attributes.color.menuIcon,
+											onChange: (newValue) =>
+												setAttributes({
+													...attributes,
+													color: {
+														...attributes.color,
+														menuIcon: newValue,
+													},
+												}),
+										},
+										{
 											label: __("Background", "rootblox"),
 											value: attributes.color.mobileBg,
 											onChange: (newValue) =>

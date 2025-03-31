@@ -24,6 +24,7 @@ $mm_styles = array(
 
 $colors = array(
 	'mobile_bg'          => isset( $attributes['color']['mobileBg'] ) ? $attributes['color']['mobileBg'] : '',
+	'menu_icon'          => isset( $attributes['color']['menuIcon'] ) ? $attributes['color']['menuIcon'] : '',
 	'sidebar_bg'         => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
 	'sidebar_close_icon' => isset( $attributes['color']['sidebarCloseIcon'] ) ? $attributes['color']['sidebarCloseIcon'] : '',
 	'bg'                 => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
@@ -41,6 +42,10 @@ $block_styles = "
 .cthf__mobile-layout-wrapper.element-$block_id {
 	{$mm_styles['wrapper_padding']}
 	background-color: {$colors['mobile_bg']};
+
+	& .nav__icon {
+		fill: {$colors['menu_icon']};
+	}
 }
 .cthf__mobile-layout-wrapper.element-$block_id.is-sticky.on-scroll__sticky {
 	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
@@ -106,7 +111,7 @@ add_action(
 							echo do_blocks( '<!-- wp:navigation {"ref":' . $menu_id . ', "overlayMenu": "never"} /-->' );
 						}
 					} else {
-						echo do_blocks( '<!-- wp:navigation {"ref":' . 1 . ', "overlayMenu": "never"} /-->' );
+						echo do_blocks( '<!-- wp:navigation {"overlayMenu": "never"} /-->' );
 					}
 					?>
 				</div>
