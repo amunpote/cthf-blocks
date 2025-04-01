@@ -12,20 +12,7 @@ import {
 import { memo } from "@wordpress/element";
 import { select } from "@wordpress/data";
 
-const AttrWrapper = memo(({ className = "", styles = {}, children }) => {
-	return (
-		<>
-			<div
-				className={`cthf__style-attr-wrapper${
-					className.length > 0 ? " " + className : ""
-				}`}
-				style={styles}
-			>
-				{children}
-			</div>
-		</>
-	);
-});
+import { AttrWrapper } from "../../../../../resources/components/utility.js";
 
 export const Styles = memo(({ attributes, setAttributes }) => {
 	const themeColorPalette = select("core/editor").getEditorSettings().colors;
@@ -54,40 +41,42 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 					/>
 				</AttrWrapper>
 
-				<Panel>
-					<PanelBody
-						title={__("Sticky Styles", "cozy-addons")}
-						initialOpen={false}
-					>
-						<AttrWrapper className="is-half__unit-control">
-							<UnitControl
-								label={__("Backdrop Blur", "rootblox")}
-								value={attributes.stickyHeader.backdropBlur}
-								onChange={(newValue) =>
-									setAttributes({
-										...attributes,
-										stickyHeader: {
-											...attributes.stickyHeader,
-											backdropBlur: newValue,
-										},
-									})
-								}
-								help={__(
-									"Make sure the background color of the wrapper group has opacity.",
-									"rootblox",
-								)}
-								__next40pxDefaultSize
-							/>
-						</AttrWrapper>
-					</PanelBody>
-				</Panel>
+				{attributes.stickyHeader.enabled && (
+					<Panel>
+						<PanelBody
+							title={__("Sticky Styles", "cozy-addons")}
+							initialOpen={false}
+						>
+							<AttrWrapper className="is-half__unit-control">
+								<UnitControl
+									label={__("Backdrop Blur", "rootblox")}
+									value={attributes.stickyHeader.backdropBlur}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											stickyHeader: {
+												...attributes.stickyHeader,
+												backdropBlur: newValue,
+											},
+										})
+									}
+									help={__(
+										"Make sure the background color of the wrapper group has opacity.",
+										"rootblox",
+									)}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+						</PanelBody>
+					</Panel>
+				)}
 
 				{attributes.mobileMenu.status !== "off" &&
 					(attributes.mobileMenu.status === "mobile" ||
 						attributes.mobileMenu.status === "always") && (
 						<Panel>
 							<PanelBody
-								className="cthf__light-border-bottom"
+								// className="cthf__light-border-bottom"
 								title={__("Mobile Menu Styles", "rootblox")}
 								initialOpen={false}
 							>
@@ -134,28 +123,30 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 									/>
 								</AttrWrapper>
 
-								<BoxControl
-									label={__("Sidebar Padding", "rootblox")}
-									resetValues={{
-										top: "0px",
-										right: "0px",
-										bottom: "0px",
-										left: "0px",
-									}}
-									values={attributes.mobileMenu.sidebar.padding}
-									onChange={(newValue) =>
-										setAttributes({
-											...attributes,
-											mobileMenu: {
-												...attributes.mobileMenu,
-												sidebar: {
-													...attributes.mobileMenu.sidebar,
-													padding: newValue,
+								<AttrWrapper>
+									<BoxControl
+										label={__("Sidebar Padding", "rootblox")}
+										resetValues={{
+											top: "0px",
+											right: "0px",
+											bottom: "0px",
+											left: "0px",
+										}}
+										values={attributes.mobileMenu.sidebar.padding}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												mobileMenu: {
+													...attributes.mobileMenu,
+													sidebar: {
+														...attributes.mobileMenu.sidebar,
+														padding: newValue,
+													},
 												},
-											},
-										})
-									}
-								/>
+											})
+										}
+									/>
+								</AttrWrapper>
 
 								<PanelColorSettings
 									className="cthf__color-panel"

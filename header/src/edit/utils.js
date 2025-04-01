@@ -19,7 +19,7 @@ export const blankTemplate = [["cthf-blocks/header-top-bar"], ["core/group"]];
 export const mobileLayouts = ["mob-layout-1", "mob-layout-2"];
 
 export const proMobileLayouts = [
-	"mob-layout-pro-1",
+	"mob-layout-pro",
 	"mob-layout-pro-2",
 	"mob-layout-pro-3",
 	"mob-layout-pro-4",

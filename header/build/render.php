@@ -77,7 +77,7 @@ add_action(
 	}
 
 	if ( ( 'mobile' === $attributes['mobileMenu']['status'] || 'always' === $attributes['mobileMenu']['status'] ) && ! empty( $attributes['mobileMenu']['layout'] ) ) {
-		$output = apply_filters( 'rootblox_create_mobile_menu_pattern', $attributes['mobileMenu']['layout'] );
+		$output = apply_filters( 'rootblox_create_mobile_menu_pattern', $attributes );
 
 		$classes   = array();
 		$classes[] = 'cthf__mobile-layout-wrapper';

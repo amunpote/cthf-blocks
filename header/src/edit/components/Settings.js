@@ -18,7 +18,10 @@ import { justifyLeft, justifyRight } from "@wordpress/icons";
 
 import { memo, useState, useEffect } from "@wordpress/element";
 
-import { UpsellAttributeWrapper } from "../../../../../resources/components/utility.js";
+import {
+	UpsellAttributeWrapper,
+	AttrWrapper,
+} from "../../../../../resources/components/utility.js";
 import {
 	mapObjectIntoOptions,
 	mobileLayouts,
@@ -320,11 +323,11 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 																	src={`${cthfAssets.img + "" + layout}.png`}
 																/>
 
+																<span className="pro__crown" />
+
 																{attributes.mobileMenu.layout !== layout && (
 																	<>
 																		<span className="pattern__overlay" />
-
-																		<span className="pro__crown" />
 
 																		{cthfAssets.isPremium && (
 																			<div
@@ -435,6 +438,44 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 									</div>
 								</>
 							)}
+
+						{cthfAssets.isPremium && (
+							<>
+							<AttrWrapper>
+								<ToggleGroupControl
+									label={__("Search Variation", "rootblox")}
+									value={attributes.mobileMenu.search.variation}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											mobileMenu: {
+												...attributes.mobileMenu,
+												search: {
+													...attributes.mobileMenu.search,
+													variation: newValue,
+												},
+											},
+										})
+									}
+									isBlock
+									__next40pxDefaultSize
+									help={__(
+										"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+										"rootblox",
+									)}
+								>
+									<ToggleGroupControlLabelOption
+										label={__("Post", "rootblox")}
+										value="post"
+									/>
+									<ToggleGroupControlLabelOption
+										label={__("Product", "rootblox")}
+										value="product"
+									/>
+								</ToggleGroupControl>
+							</AttrWrapper>
+							</>
+						)}
 					</PanelBody>
 				</Panel>
 			</div>

@@ -24,8 +24,8 @@
         "stickyHeader": {
             "type": "object",
             "default": {
-                "topBar": true,
                 "enabled": false,
+                "topBar": true,
                 "bottomScrollHide": false,
                 "bottomScrollOffset": 500,
                 "backdropBlur": "5px"
@@ -53,6 +53,9 @@
                         "bottom": "40px",
                         "left": "26px"
                     }
+                },
+                "search": {
+                    "variation": "post"
                 }
             }
         },
