@@ -20,8 +20,9 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 	return (
 		<>
 			<div key="cthf-block__style" className="cthf__light-border-top">
-				<AttrWrapper styles={{ marginBottom: "10px" }}>
+				<AttrWrapper styles={{marginTop: '10px'}}>
 					<PanelColorSettings
+						className="cthf__border-none"
 						title={__("Color", "rootblox")}
 						enableAlpha={true}
 						colorSettings={[

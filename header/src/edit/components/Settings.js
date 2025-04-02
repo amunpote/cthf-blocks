@@ -217,6 +217,19 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 							(attributes.mobileMenu.status === "mobile" ||
 								attributes.mobileMenu.status === "always") && (
 								<>
+									{attributes.mobileMenu.layout.length > 0 && (
+										<>
+											<figure style={{ maxWidth: "100%", margin: "22px 0 16px" }}>
+												<img
+													style={{ width: "100%" }}
+													src={`${
+														cthfAssets.img + "" + attributes.mobileMenu.layout
+													}.png`}
+												/>
+											</figure>
+										</>
+									)}
+
 									<Button
 										className="cthf__btn-secondary"
 										text={__(
@@ -248,15 +261,6 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 												}
 												__next40pxDefaultSize
 											/>
-
-											<figure style={{ maxWidth: "100%", marginTop: "16px" }}>
-												<img
-													style={{ width: "100%" }}
-													src={`${
-														cthfAssets.img + "" + attributes.mobileMenu.layout
-													}.png`}
-												/>
-											</figure>
 										</>
 									)}
 									{mobileLayoutModal && (
@@ -441,39 +445,39 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 
 						{cthfAssets.isPremium && (
 							<>
-							<AttrWrapper>
-								<ToggleGroupControl
-									label={__("Search Variation", "rootblox")}
-									value={attributes.mobileMenu.search.variation}
-									onChange={(newValue) =>
-										setAttributes({
-											...attributes,
-											mobileMenu: {
-												...attributes.mobileMenu,
-												search: {
-													...attributes.mobileMenu.search,
-													variation: newValue,
+								<AttrWrapper>
+									<ToggleGroupControl
+										label={__("Search Variation", "rootblox")}
+										value={attributes.mobileMenu.search.variation}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												mobileMenu: {
+													...attributes.mobileMenu,
+													search: {
+														...attributes.mobileMenu.search,
+														variation: newValue,
+													},
 												},
-											},
-										})
-									}
-									isBlock
-									__next40pxDefaultSize
-									help={__(
-										"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
-										"rootblox",
-									)}
-								>
-									<ToggleGroupControlLabelOption
-										label={__("Post", "rootblox")}
-										value="post"
-									/>
-									<ToggleGroupControlLabelOption
-										label={__("Product", "rootblox")}
-										value="product"
-									/>
-								</ToggleGroupControl>
-							</AttrWrapper>
+											})
+										}
+										isBlock
+										__next40pxDefaultSize
+										help={__(
+											"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+											"rootblox",
+										)}
+									>
+										<ToggleGroupControlLabelOption
+											label={__("Post", "rootblox")}
+											value="post"
+										/>
+										<ToggleGroupControlLabelOption
+											label={__("Product", "rootblox")}
+											value="product"
+										/>
+									</ToggleGroupControl>
+								</AttrWrapper>
 							</>
 						)}
 					</PanelBody>

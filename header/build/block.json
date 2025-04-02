@@ -62,7 +62,6 @@
     "color": {
       "type": "object",
       "default": {
-        "bg": "",
         "mobileBg": "#fff",
         "menuIcon": "#000",
         "sidebarBg": "#fff",
