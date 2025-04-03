@@ -71,11 +71,16 @@
 
 	// Icons
 	& .cthf__mob-icon {
-		width: 24px;
-		height: 24px;
+		width: 15px;
+		height: 15px;
 		fill: #000;
 		display: flex;
 		cursor: pointer;
+
+		&.nav__icon {
+			width: 22px;
+			height: 22px;
+		}
 
 		&.search__icon,
 		&.user__icon {
@@ -113,6 +118,19 @@
 				position: unset;
 				transition: max-width 0.3s ease-in-out;
 			}
+		}
+	}
+
+	/* Mini-cart Icon */
+	& .wc-block-mini-cart__button {
+		padding: 0;
+
+		& .wc-block-mini-cart__icon {
+			transform: scaleX(-1);
+		}
+
+		& .wc-block-mini-cart__badge {
+			color: #fff;
 		}
 	}
 }
@@ -168,6 +186,18 @@
 		}
 	}
 }
+.cthf__sidebar-panel-wrap.cthf__close-animation {
+	& .sidebar-panel__overlay {
+		animation: fadeOut 0.3s ease-in-out forwards;
+	}
+	& .sidebar-panel__body.position-right {
+		animation: closeTrayRight 1s ease forwards;
+	}
+
+	& .sidebar-panel__body.position-left {
+		animation: closeTrayLeft 1s ease forwards;
+	}
+}
 
 @keyframes openTrayLeft {
 	from {
@@ -184,6 +214,33 @@
 	}
 	to {
 		right: 0;
+	}
+}
+
+@keyframes closeTrayRight {
+	from {
+		right: 0;
+	}
+	to {
+		right: -100%;
+	}
+}
+
+@keyframes closeTrayLeft {
+	from {
+		left: 0;
+	}
+	to {
+		left: -100%;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
 	}
 }
 
