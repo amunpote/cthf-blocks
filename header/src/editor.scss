@@ -1,0 +1,16 @@
+.cthf__mobile-layout-picker {
+	& .flex-wrap {
+		padding: 22px 10px;
+		border: 1px solid #ebebeb;
+	}
+
+	& #clear-flex {
+		text-decoration: underline;
+		color: #cf2e2e;
+		cursor: pointer;
+	}
+}
+
+.cthf__blur {
+	opacity: 0.5;
+}

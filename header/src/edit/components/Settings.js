@@ -28,6 +28,8 @@ import {
 	proMobileLayouts,
 } from "../utils.js";
 
+import { plusCircle } from "@wordpress/icons";
+
 import apiFetch from "@wordpress/api-fetch";
 
 export const Settings = memo(({ attributes, setAttributes }) => {
@@ -217,7 +219,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 							(attributes.mobileMenu.status === "mobile" ||
 								attributes.mobileMenu.status === "always") && (
 								<>
-									{attributes.mobileMenu.layout.length > 0 && (
+									{/* {attributes.mobileMenu.layout.length > 0 && (
 										<>
 											<figure style={{ maxWidth: "100%", margin: "22px 0 16px" }}>
 												<img
@@ -364,7 +366,70 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 												})}
 											</div>
 										</Modal>
-									)}
+									)} */}
+
+									<div className="cthf__mobile-layout-picker">
+										<Button
+											className={`add__icon${
+												attributes.mobileMenu.layout.length >= 3
+													? " cthf__blur"
+													: ""
+											}`}
+											icon={plusCircle}
+											text={__("Add Flex Box", "rootblox")}
+											onClick={() => {
+												if (attributes.mobileMenu.layout.length < 3) {
+													attributes.mobileMenu.layout.push([]);
+													let newArr = attributes.mobileMenu.layout;
+
+													setAttributes({
+														...attributes,
+														mobileMenu: {
+															...attributes.mobileMenu,
+															layout: [...newArr],
+														},
+													});
+												}
+											}}
+										/>
+
+										{Array.isArray(attributes.mobileMenu.layout) &&
+											attributes.mobileMenu.layout.map((layout, index) => {
+												let layoutIndex = index + 1;
+
+												console.log(index);
+
+												return (
+													<>
+														<div
+															className={`flex-wrap flex-${layoutIndex}`}
+														></div>
+
+														{index > 0 && (
+															<span
+																id="clear-flex"
+																onClick={() => {
+																	const updatedArr =
+																		attributes.mobileMenu.layout.filter(
+																			(_, i) => i !== index,
+																		);
+
+																	setAttributes({
+																		...attributes,
+																		mobileMenu: {
+																			...attributes.mobileMenu,
+																			layout: [...updatedArr],
+																		},
+																	});
+																}}
+															>
+																Remove Flex
+															</span>
+														)}
+													</>
+												);
+											})}
+									</div>
 
 									{!cthfAssets.isPremium && (
 										<>

@@ -35,7 +35,10 @@
       "type": "object",
       "default": {
         "status": "mobile",
-        "layout": "",
+        "layout": [
+          [],
+          []
+        ],
         "breakpoint": 1280,
         "wrapperPadding": {
           "top": "26px",
