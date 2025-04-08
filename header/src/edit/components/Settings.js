@@ -8,6 +8,7 @@ import {
 	Button,
 	Modal,
 	SelectControl,
+	FormTokenField,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 	__experimentalToggleGroupControl as ToggleGroupControl,
@@ -46,6 +47,37 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 	}, []);
 
 	const menuOptions = navMenus && mapObjectIntoOptions(navMenus);
+
+	let initialMobileOptions = [];
+
+	if (cthfAssets.isPremium) {
+		initialMobileOptions = [
+			"Site Logo",
+			"Navigation",
+			"My Account",
+			"Search",
+			"Mini Cart",
+			"Button",
+		];
+	} else {
+		initialMobileOptions = [
+			"Site Logo",
+			"Navigation",
+			"My Account (Pro)",
+			"Search (Pro)",
+			"Mini Cart (Pro)",
+			"Button (Pro)",
+		];
+	}
+
+	const [mobileOptions, setMobileOptions] = useState([...initialMobileOptions]);
+	const updateMobileOptions = (newLayout) => {
+		const allSelected = newLayout.flat();
+		const availableOptions = initialMobileOptions.filter(
+			(item) => !allSelected.includes(item),
+		);
+		setMobileOptions(availableOptions);
+	};
 
 	return (
 		<>
@@ -219,155 +251,6 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 							(attributes.mobileMenu.status === "mobile" ||
 								attributes.mobileMenu.status === "always") && (
 								<>
-									{/* {attributes.mobileMenu.layout.length > 0 && (
-										<>
-											<figure style={{ maxWidth: "100%", margin: "22px 0 16px" }}>
-												<img
-													style={{ width: "100%" }}
-													src={`${
-														cthfAssets.img + "" + attributes.mobileMenu.layout
-													}.png`}
-												/>
-											</figure>
-										</>
-									)}
-
-									<Button
-										className="cthf__btn-secondary"
-										text={__(
-											`${
-												attributes.mobileMenu.layout.length <= 0
-													? "Select Mobile Layout"
-													: "Replace Mobile Layout"
-											}`,
-											"rootblox",
-										)}
-										onClick={() => setLayoutModal(true)}
-										__next40pxDefaultSize
-									/>
-
-									{attributes.mobileMenu.layout.length > 0 && (
-										<>
-											<Button
-												className="cthf__btn-remove"
-												style={{ marginTop: "10px" }}
-												text={__("Clear Selection", "rootblox")}
-												onClick={() =>
-													setAttributes({
-														...attributes,
-														mobileMenu: {
-															...attributes.mobileMenu,
-															layout: "",
-														},
-													})
-												}
-												__next40pxDefaultSize
-											/>
-										</>
-									)}
-									{mobileLayoutModal && (
-										<Modal
-											title={__("Select Mobile Layout", "rootblox")}
-											onRequestClose={() => setLayoutModal(false)}
-											className="cthf__mobile-layout-modal"
-										>
-											<div className="mobile__layouts">
-												{mobileLayouts.map((layout) => {
-													return (
-														<>
-															<figure
-																className={`layout__item${
-																	attributes.mobileMenu.layout === layout
-																		? " is-selected"
-																		: ""
-																}`}
-																style={{ maxWidth: "100%" }}
-															>
-																<img
-																	src={`${cthfAssets.img + "" + layout}.png`}
-																/>
-
-																{attributes.mobileMenu.layout !== layout && (
-																	<>
-																		<span className="pattern__overlay" />
-
-																		<div
-																			className="layout__select-btn"
-																			onClick={() => {
-																				setAttributes({
-																					...attributes,
-																					mobileMenu: {
-																						...attributes.mobileMenu,
-																						layout: layout,
-																					},
-																				});
-
-																				setLayoutModal(false);
-																			}}
-																		>
-																			{__("Select Layout", "rootblox")}
-																		</div>
-																	</>
-																)}
-															</figure>
-														</>
-													);
-												})}
-
-												{proMobileLayouts.map((layout) => {
-													return (
-														<>
-															<figure
-																className={`layout__item${
-																	attributes.mobileMenu.layout === layout
-																		? " is-selected"
-																		: ""
-																}`}
-																style={{ maxWidth: "100%" }}
-															>
-																<img
-																	src={`${cthfAssets.img + "" + layout}.png`}
-																/>
-
-																<span className="pro__crown" />
-
-																{attributes.mobileMenu.layout !== layout && (
-																	<>
-																		<span className="pattern__overlay" />
-
-																		{cthfAssets.isPremium && (
-																			<div
-																				className="layout__select-btn"
-																				onClick={() => {
-																					setAttributes({
-																						...attributes,
-																						mobileMenu: {
-																							...attributes.mobileMenu,
-																							layout: layout,
-																						},
-																					});
-
-																					setLayoutModal(false);
-																				}}
-																			>
-																				{__("Select Layout", "rootblox")}
-																			</div>
-																		)}
-																		{!cthfAssets.isPremium && (
-																			<a className="cthf__upsell-btn">
-																				{__("Checkout Pro", "rootblox")}
-																			</a>
-																		)}
-																	</>
-																)}
-															</figure>
-														</>
-													);
-												})}
-											</div>
-										</Modal>
-									)} */}
-
 									<div className="cthf__mobile-layout-picker">
 										<Button
 											className={`add__icon${
@@ -397,35 +280,74 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 											attributes.mobileMenu.layout.map((layout, index) => {
 												let layoutIndex = index + 1;
 
-												console.log(index);
-
 												return (
 													<>
-														<div
-															className={`flex-wrap flex-${layoutIndex}`}
-														></div>
-
-														{index > 0 && (
-															<span
-																id="clear-flex"
-																onClick={() => {
-																	const updatedArr =
-																		attributes.mobileMenu.layout.filter(
-																			(_, i) => i !== index,
-																		);
+														<div className={`flex-wrap flex-${layoutIndex}`}>
+															<FormTokenField
+																label={__(
+																	`Layout Box ${layoutIndex}`,
+																	"rootblox",
+																)}
+																placeholder={__(
+																	"Select Mobile Item",
+																	"rootblox",
+																)}
+																suggestions={mobileOptions}
+																value={attributes.mobileMenu.layout[index]}
+																onChange={(token) => {
+																	const updatedLayout = [
+																		...attributes.mobileMenu.layout,
+																	];
+																	updatedLayout[index] = [...token];
 
 																	setAttributes({
 																		...attributes,
 																		mobileMenu: {
 																			...attributes.mobileMenu,
-																			layout: [...updatedArr],
+																			layout: updatedLayout,
 																		},
 																	});
+
+																	updateMobileOptions(updatedLayout);
 																}}
-															>
-																Remove Flex
-															</span>
-														)}
+																__experimentalExpandOnFocus
+															/>
+
+															{index > 0 && (
+																<span
+																	id="clear-flex"
+																	onClick={() => {
+																		const updatedLayout =
+																			attributes.mobileMenu.layout.filter(
+																				(_, i) => i !== index,
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			mobileMenu: {
+																				...attributes.mobileMenu,
+																				layout: updatedLayout,
+																			},
+																		});
+
+																		updateMobileOptions(updatedLayout);
+																	}}
+																>
+																	<svg
+																		width="10"
+																		height="10"
+																		viewBox="0 0 10 10"
+																		fill="none"
+																		xmlns="http://www.w3.org/2000/svg"
+																	>
+																		<path
+																			d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
+																			fill="#cf2e2e"
+																		/>
+																	</svg>
+																</span>
+															)}
+														</div>
 													</>
 												);
 											})}

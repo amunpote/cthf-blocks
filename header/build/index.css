@@ -1,1 +1,1 @@
-.cthf__mobile-layout-picker .flex-wrap{border:1px solid #ebebeb;padding:22px 10px}.cthf__mobile-layout-picker #clear-flex{color:#cf2e2e;cursor:pointer;text-decoration:underline}.cthf__blur{opacity:.5}
+.cthf__mobile-layout-picker .flex-wrap{border:1px solid #acacac;margin-top:10px;padding:22px 10px}.cthf__mobile-layout-picker .flex-wrap:not(.flex-1){margin-top:16px;position:relative}.cthf__mobile-layout-picker #clear-flex{cursor:pointer;margin:4px 6px 0 0;position:absolute;right:0;top:0}.cthf__mobile-layout-picker #clear-flex svg{height:14px;width:14px}.cthf__blur{opacity:.5}

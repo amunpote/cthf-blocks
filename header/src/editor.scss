@@ -1,13 +1,26 @@
 .cthf__mobile-layout-picker {
 	& .flex-wrap {
 		padding: 22px 10px;
-		border: 1px solid #ebebeb;
+		border: 1px solid #acacac;
+		margin-top: 10px;
+
+		&:not(.flex-1) {
+			margin-top: 16px;
+			position: relative;
+		}
 	}
 
 	& #clear-flex {
-		text-decoration: underline;
-		color: #cf2e2e;
 		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 4px 6px 0 0;
+
+		& svg {
+			width: 14px;
+			height: 14px;
+		}
 	}
 }
 
