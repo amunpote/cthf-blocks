@@ -20,7 +20,7 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 	return (
 		<>
 			<div key="cthf-block__style" className="cthf__light-border-top">
-				<AttrWrapper styles={{marginTop: '10px'}}>
+				<AttrWrapper styles={{ marginTop: "10px" }}>
 					<PanelColorSettings
 						className="cthf__border-none"
 						title={__("Color", "rootblox")}
@@ -75,137 +75,143 @@ export const Styles = memo(({ attributes, setAttributes }) => {
 				{attributes.mobileMenu.status !== "off" &&
 					(attributes.mobileMenu.status === "mobile" ||
 						attributes.mobileMenu.status === "always") && (
-						<Panel>
-							<PanelBody
-								// className="cthf__light-border-bottom"
-								title={__("Mobile Menu Styles", "rootblox")}
-								initialOpen={false}
-							>
-								<BoxControl
-									label={__("Wrapper Padding", "rootblox")}
-									resetValues={{
-										top: "0px",
-										right: "0px",
-										bottom: "0px",
-										left: "0px",
-									}}
-									values={attributes.mobileMenu.wrapperPadding}
-									onChange={(newValue) =>
-										setAttributes({
-											...attributes,
-											mobileMenu: {
-												...attributes.mobileMenu,
-												wrapperPadding: newValue,
-											},
-										})
-									}
-								/>
-
-								<AttrWrapper
-									className="is-half__unit-control"
-									styles={{ margin: "22px 0" }}
+						<>
+							<Panel>
+								<PanelBody
+									title={__("Mobile Menu Styles", "rootblox")}
+									initialOpen={false}
 								>
-									<UnitControl
-										label={__("Sidebar Width", "rootblox")}
-										value={attributes.mobileMenu.sidebar.width}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												mobileMenu: {
-													...attributes.mobileMenu,
+									<AttrWrapper>
+										<BoxControl
+											label={__("Wrapper Padding", "rootblox")}
+											resetValues={{
+												top: "0px",
+												right: "0px",
+												bottom: "0px",
+												left: "0px",
+											}}
+											values={attributes.mobileMenu.wrapperPadding}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														wrapperPadding: newValue,
+													},
+												})
+											}
+										/>
+									</AttrWrapper>
+
+									<PanelColorSettings
+										className="cthf__color-panel"
+										title={__("Colors", "rootblox")}
+										enableAlpha={true}
+										colorSettings={[
+											{
+												label: __("Text/Icon", "rootblox"),
+												value: attributes.color.text,
+												onChange: (newValue) =>
+													setAttributes({
+														...attributes,
+														color: {
+															...attributes.color,
+															text: newValue,
+														},
+													}),
+											},
+											{
+												label: __("Background", "rootblox"),
+												value: attributes.color.mobileBg,
+												onChange: (newValue) =>
+													setAttributes({
+														...attributes,
+														color: {
+															...attributes.color,
+															mobileBg: newValue,
+														},
+													}),
+											},
+										]}
+									/>
+								</PanelBody>
+							</Panel>
+
+							<Panel>
+								<PanelBody title={__("Navigation Sidebar Styles", "rootblox")} initialOpen={false}>
+									<AttrWrapper styles={{ marginTop: "0", maxWidth: "40%" }}>
+										<UnitControl
+											label={__("Sidebar Width", "rootblox")}
+											value={attributes.sidebar.width}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
 													sidebar: {
-														...attributes.mobileMenu.sidebar,
+														...attributes.sidebar,
 														width: newValue,
 													},
-												},
-											})
-										}
-										__next40pxDefaultSize
-									/>
-								</AttrWrapper>
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</AttrWrapper>
 
-								<AttrWrapper>
-									<BoxControl
-										label={__("Sidebar Padding", "rootblox")}
-										resetValues={{
-											top: "0px",
-											right: "0px",
-											bottom: "0px",
-											left: "0px",
-										}}
-										values={attributes.mobileMenu.sidebar.padding}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												mobileMenu: {
-													...attributes.mobileMenu,
+									<AttrWrapper>
+										<BoxControl
+											label={__("Sidebar Padding", "rootblox")}
+											resetValues={{
+												top: "0px",
+												right: "0px",
+												bottom: "0px",
+												left: "0px",
+											}}
+											values={attributes.sidebar.padding}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
 													sidebar: {
-														...attributes.mobileMenu.sidebar,
+														...attributes.sidebar,
 														padding: newValue,
 													},
-												},
-											})
-										}
-									/>
-								</AttrWrapper>
+												})
+											}
+										/>
+									</AttrWrapper>
 
-								<PanelColorSettings
-									className="cthf__color-panel"
-									title={__("Colors", "rootblox")}
-									enableAlpha={true}
-									colorSettings={[
-										{
-											label: __("Menu Icon", "rootblox"),
-											value: attributes.color.menuIcon,
-											onChange: (newValue) =>
-												setAttributes({
-													...attributes,
-													color: {
-														...attributes.color,
-														menuIcon: newValue,
-													},
-												}),
-										},
-										{
-											label: __("Background", "rootblox"),
-											value: attributes.color.mobileBg,
-											onChange: (newValue) =>
-												setAttributes({
-													...attributes,
-													color: {
-														...attributes.color,
-														mobileBg: newValue,
-													},
-												}),
-										},
-										{
-											label: __("Sidebar Background", "rootblox"),
-											value: attributes.color.sidebarBg,
-											onChange: (newValue) =>
-												setAttributes({
-													...attributes,
-													color: {
-														...attributes.color,
-														sidebarBg: newValue,
-													},
-												}),
-										},
-										{
-											label: __("Sidebar Close Icon", "rootblox"),
-											value: attributes.color.sidebarCloseIcon,
-											onChange: (newValue) =>
-												setAttributes({
-													...attributes,
-													color: {
-														...attributes.color,
-														sidebarCloseIcon: newValue,
-													},
-												}),
-										},
-									]}
-								/>
-							</PanelBody>
-						</Panel>
+									<PanelColorSettings
+										className="cthf__color-panel"
+										title={__("Colors", "rootblox")}
+										enableAlpha={true}
+										colorSettings={[
+											{
+												label: __("Sidebar Background", "rootblox"),
+												value: attributes.color.sidebarBg,
+												onChange: (newValue) =>
+													setAttributes({
+														...attributes,
+														color: {
+															...attributes.color,
+															sidebarBg: newValue,
+														},
+													}),
+											},
+											{
+												label: __("Sidebar Close Icon", "rootblox"),
+												value: attributes.color.sidebarCloseIcon,
+												onChange: (newValue) =>
+													setAttributes({
+														...attributes,
+														color: {
+															...attributes.color,
+															sidebarCloseIcon: newValue,
+														},
+													}),
+											},
+										]}
+									/>
+								</PanelBody>
+							</Panel>
+						</>
 					)}
 			</div>
 		</>

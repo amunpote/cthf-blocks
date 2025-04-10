@@ -36,8 +36,12 @@
       "default": {
         "status": "mobile",
         "layout": [
-          [],
-          []
+          [
+            "Site Logo"
+          ],
+          [
+            "Navigation"
+          ]
         ],
         "breakpoint": 1280,
         "wrapperPadding": {
@@ -46,29 +50,46 @@
           "bottom": "26px",
           "left": "26px"
         },
-        "menuID": "",
-        "sidebar": {
-          "width": "35%",
-          "position": "left",
-          "padding": {
-            "top": "40px",
-            "right": "26px",
-            "bottom": "40px",
-            "left": "26px"
+        "menuID": ""
+      }
+    },
+    "sidebar": {
+      "type": "object",
+      "default": {
+        "siteLogo": true,
+        "navigation": true,
+        "button": false,
+        "btnGroup": [
+          {
+            "label": "Subscribe",
+            "link": "#",
+            "openNewTab": false,
+            "noFollow": false
           }
-        },
-        "search": {
-          "variation": "post"
+        ],
+        "width": "35%",
+        "position": "left",
+        "padding": {
+          "top": "40px",
+          "right": "26px",
+          "bottom": "40px",
+          "left": "26px"
         }
+      }
+    },
+    "search": {
+      "type": "object",
+      "default": {
+        "variation": "post"
       }
     },
     "color": {
       "type": "object",
       "default": {
         "mobileBg": "#fff",
-        "menuIcon": "#000",
+        "text": "#000",
         "sidebarBg": "#fff",
-        "sidebarCloseIcon": "#000"
+        "sidebarCloseIcon": "#9a9a9a"
       }
     }
   },

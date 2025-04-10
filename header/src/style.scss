@@ -137,6 +137,11 @@
 
 /* Sidebar panel */
 .cthf__sidebar-panel-wrap {
+	& ul {
+		margin: 0;
+		padding: 0;
+	}
+
 	& .sidebar-panel__overlay {
 		position: absolute;
 		top: 0;
@@ -184,6 +189,16 @@
 			cursor: pointer;
 			margin: 10px;
 		}
+
+		/* Button Group */
+		.cthf__cta-btn-group {
+			display: flex;
+			align-items: center;
+
+			& .cthf__cta-anchor-btn {
+				text-align: center;
+			}
+		}
 	}
 }
 .cthf__sidebar-panel-wrap.cthf__close-animation {
@@ -192,10 +207,22 @@
 	}
 	& .sidebar-panel__body.position-right {
 		animation: closeTrayRight 1s ease forwards;
+
+		@media only screen and (width <= 1024px) {
+			& {
+				animation: closeTrayRight 0.5s ease forwards;
+			}
+		}
 	}
 
 	& .sidebar-panel__body.position-left {
 		animation: closeTrayLeft 1s ease forwards;
+
+		@media only screen and (width <= 1024px) {
+			& {
+				animation: closeTrayLeft 0.5s ease forwards;
+			}
+		}
 	}
 }
 
@@ -247,15 +274,10 @@
 /* Overriding default Navigation Styles */
 .cthf__sidebar-panel-wrap nav {
 	display: block !important;
-
-	& > ul {
-		margin-bottom: 26px;
-	}
 }
 .cthf__sidebar-panel-wrap .wp-block-navigation__container.wp-block-navigation {
 	display: block;
 	list-style: none;
-	// overflow-y: scroll;
 
 	& > li:not(:first-child) {
 		margin-top: 26px;
