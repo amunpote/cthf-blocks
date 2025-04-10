@@ -15,10 +15,11 @@ import {
 	__experimentalToggleGroupControlOption as ToggleGroupControlLabelOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
 	TextControl,
+	CheckboxControl,
 } from "@wordpress/components";
 import { justifyLeft, justifyRight, sidebar, siteLogo } from "@wordpress/icons";
 
-import { memo, useState, useEffect } from "@wordpress/element";
+import { memo, useState, useEffect, useContext } from "@wordpress/element";
 
 import {
 	UpsellAttributeWrapper,
@@ -33,8 +34,20 @@ import {
 import { plusCircle } from "@wordpress/icons";
 
 import apiFetch from "@wordpress/api-fetch";
+import { CTHFBlockContext } from "./InspectorControls.js";
 
-export const Settings = memo(({ attributes, setAttributes }) => {
+export const Settings = memo(() => {
+	const {
+		attributes,
+		setAttributes,
+		initialMobileOptions,
+		mobileOptions,
+		setMobileOptions,
+		navigationSelected,
+		searchSelected,
+		btnSelected,
+	} = useContext(CTHFBlockContext);
+
 	const [mobileLayoutModal, setLayoutModal] = useState(false);
 
 	const [navMenus, setNavMenus] = useState([]);
@@ -49,25 +62,7 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 
 	const menuOptions = navMenus && mapObjectIntoOptions(navMenus);
 
-	const initialMobileOptions = [
-		"Site Logo",
-		"Navigation",
-		"My Account",
-		"Search",
-		"Mini Cart",
-		"Button",
-	];
-
 	const proMobileOptions = ["My Account", "Search", "Mini Cart", "Button"];
-
-	// Get selected items from the layout
-	const allSelected = attributes.mobileMenu.layout.flat();
-
-	// Filter the available mobile options on first render
-	const [mobileOptions, setMobileOptions] = useState(() =>
-		initialMobileOptions.filter((item) => !allSelected.includes(item)),
-	);
-	// const [mobileOptions, setMobileOptions] = useState([...initialMobileOptions]);
 	const updateMobileOptions = (newLayout) => {
 		const allSelected = newLayout.flat();
 		const availableOptions = initialMobileOptions.filter(
@@ -361,280 +356,135 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 									</div>
 								</>
 							)}
-
-						{cthfAssets.isPremium && (
-							<>
-								<AttrWrapper>
-									<ToggleGroupControl
-										label={__("Search Variation", "rootblox")}
-										value={attributes.search.variation}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												search: {
-													...attributes.search,
-													variation: newValue,
-												},
-											})
-										}
-										isBlock
-										__next40pxDefaultSize
-										help={__(
-											"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
-											"rootblox",
-										)}
-									>
-										<ToggleGroupControlLabelOption
-											label={__("Post", "rootblox")}
-											value="post"
-										/>
-										<ToggleGroupControlLabelOption
-											label={__("Product", "rootblox")}
-											value="product"
-										/>
-									</ToggleGroupControl>
-								</AttrWrapper>
-							</>
-						)}
 					</PanelBody>
 				</Panel>
 
-				<Panel>
-					<PanelBody
-						title={__("Navigation Sidebar Options", "rootblox")}
-						initialOpen={false}
-					>
-						<ToggleControl
-							label={__("Enable Site Logo", "rootblox")}
-							checked={attributes.sidebar.siteLogo}
-							onChange={(newValue) =>
-								setAttributes({
-									...attributes,
-									sidebar: {
-										...attributes.sidebar,
-										siteLogo: newValue,
-									},
-								})
-							}
-						/>
+				{navigationSelected && (
+					<Panel>
+						<PanelBody
+							title={__("Navigation Sidebar Options", "rootblox")}
+							initialOpen={false}
+						>
+							<ToggleControl
+								label={__("Enable Site Logo", "rootblox")}
+								checked={attributes.sidebar.siteLogo}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										sidebar: {
+											...attributes.sidebar,
+											siteLogo: newValue,
+										},
+									})
+								}
+							/>
 
-						<ToggleControl
-							label={__("Enable Navigation", "rootblox")}
-							checked={attributes.sidebar.navigation}
-							onChange={(newValue) =>
-								setAttributes({
-									...attributes,
-									sidebar: {
-										...attributes.sidebar,
-										navigation: newValue,
-									},
-								})
-							}
-						/>
+							<ToggleControl
+								label={__("Enable Navigation", "rootblox")}
+								checked={attributes.sidebar.navigation}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										sidebar: {
+											...attributes.sidebar,
+											navigation: newValue,
+										},
+									})
+								}
+							/>
 
-						{attributes.sidebar.navigation && (
-							<>
-								<AttrWrapper>
-									<SelectControl
-										label={__("Responsive Menu", "rootblox")}
-										options={menuOptions}
-										value={attributes.mobileMenu.menuID}
+							{attributes.sidebar.navigation && (
+								<>
+									<AttrWrapper>
+										<SelectControl
+											label={__("Responsive Menu", "rootblox")}
+											options={menuOptions}
+											value={attributes.mobileMenu.menuID}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														menuID: newValue,
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</AttrWrapper>
+								</>
+							)}
+
+							{!cthfAssets.isPremium && (
+								<>
+									<UpsellAttributeWrapper>
+										<ToggleControl
+											label={__("Enable CTA Button", "rootblox")}
+											value={false}
+											disabled
+										/>
+									</UpsellAttributeWrapper>
+								</>
+							)}
+							{cthfAssets.isPremium && (
+								<>
+									<ToggleControl
+										label={__("Enable CTA Button", "rootblox")}
+										checked={attributes.sidebar.button}
 										onChange={(newValue) =>
 											setAttributes({
 												...attributes,
-												mobileMenu: {
-													...attributes.mobileMenu,
-													menuID: newValue,
+												sidebar: {
+													...attributes.sidebar,
+													button: newValue,
 												},
 											})
 										}
-										__next40pxDefaultSize
 									/>
-								</AttrWrapper>
-							</>
-						)}
 
-						{!cthfAssets.isPremium && (
-							<>
-								<UpsellAttributeWrapper>
-									<ToggleControl
-										label={__("Enable CTA Button", "rootblox")}
-										value={false}
-										disabled
-									/>
-								</UpsellAttributeWrapper>
-							</>
-						)}
-						{cthfAssets.isPremium && (
-							<>
-								<ToggleControl
-									label={__("Enable CTA Button", "rootblox")}
-									checked={attributes.sidebar.button}
-									onChange={(newValue) =>
-										setAttributes({
-											...attributes,
-											sidebar: {
-												...attributes.sidebar,
-												button: newValue,
-											},
-										})
-									}
-								/>
+									{attributes.sidebar.button && (
+										<div className="cthf__cta-btn-group">
+											<Button
+												text={__("Add CTA Button", "rootblox")}
+												icon={plusCircle}
+												onClick={() => {
+													const addGroup = [...attributes.sidebar.btnGroup, {}];
+													setAttributes({
+														...attributes,
+														sidebar: {
+															...attributes.sidebar,
+															btnGroup: addGroup,
+														},
+													});
+												}}
+											/>
 
-								{attributes.sidebar.button && (
-									<div className="cthf__cta-btn-group">
-										<Button
-											text={__("Add Button", "rootblox")}
-											icon={plusCircle}
-											onClick={() => {
-												const addGroup = [...attributes.sidebar.btnGroup, {}];
-												setAttributes({
-													...attributes,
-													sidebar: {
-														...attributes.sidebar,
-														btnGroup: addGroup,
-													},
-												});
-											}}
-										/>
+											{Array.isArray(attributes.sidebar.btnGroup) &&
+												attributes.sidebar.btnGroup.map((btn, index) => {
+													let layoutIndex = index + 1;
 
-										{Array.isArray(attributes.sidebar.btnGroup) &&
-											attributes.sidebar.btnGroup.map((btn, index) => {
-												let layoutIndex = index + 1;
-
-												return (
-													<>
-														<div className={`flex-wrap flex-${layoutIndex}`}>
-															<TextControl
-																label={__("Label", "rootblox")}
-																placeholder={__("Add Text", "rootblox")}
-																value={btn.label}
-																onChange={(newValue) => {
-																	const updatedBtnGroup =
-																		attributes.sidebar.btnGroup.map(
-																			(item, i) => {
-																				if (i === index) {
-																					return {
-																						label: newValue,
-																						link: item.link,
-																						openNewTab: item.openNewTab,
-																						noFollow: item.noFollow,
-																					};
-																				}
-
-																				return item;
-																			},
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		sidebar: {
-																			...attributes.sidebar,
-																			btnGroup: updatedBtnGroup,
-																		},
-																	});
-																}}
-															/>
-
-															<TextControl
-																label={__("Link", "rootblox")}
-																placeholder="https://"
-																type="url"
-																value={btn.link}
-																onChange={(newValue) => {
-																	const updatedBtnGroup =
-																		attributes.sidebar.btnGroup.map(
-																			(item, i) => {
-																				if (i === index) {
-																					return {
-																						label: item.label,
-																						link: newValue,
-																						openNewTab: item.openNewTab,
-																						noFollow: item.noFollow,
-																					};
-																				}
-
-																				return item;
-																			},
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		sidebar: {
-																			...attributes.sidebar,
-																			btnGroup: updatedBtnGroup,
-																		},
-																	});
-																}}
-															/>
-
-															<ToggleControl
-																label={__("Open in New Tab", "rootblox")}
-																checked={btn.openNewTab}
-																onChange={(newValue) => {
-																	const updatedBtnGroup =
-																		attributes.sidebar.btnGroup.map(
-																			(item, i) => {
-																				if (i === index) {
-																					return {
-																						label: item.label,
-																						link: item.link,
-																						openNewTab: newValue,
-																						noFollow: item.noFollow,
-																					};
-																				}
-
-																				return item;
-																			},
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		sidebar: {
-																			...attributes.sidebar,
-																			btnGroup: updatedBtnGroup,
-																		},
-																	});
-																}}
-															/>
-
-															<ToggleControl
-																label={__("Mark as no follow", "rootblox")}
-																checked={btn.noFollow}
-																onChange={(newValue) => {
-																	const updatedBtnGroup =
-																		attributes.sidebar.btnGroup.map(
-																			(item, i) => {
-																				if (i === index) {
-																					return {
-																						label: item.label,
-																						link: item.link,
-																						openNewTab: item.openNewTab,
-																						noFollow: newValue,
-																					};
-																				}
-
-																				return item;
-																			},
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		sidebar: {
-																			...attributes.sidebar,
-																			btnGroup: updatedBtnGroup,
-																		},
-																	});
-																}}
-															/>
-
-															{index > 0 && (
-																<span
-																	id="clear-flex"
-																	onClick={() => {
+													return (
+														<>
+															<div className={`flex-wrap flex-${layoutIndex}`}>
+																<TextControl
+																	label={__("Label", "rootblox")}
+																	placeholder={__("Add Text", "rootblox")}
+																	value={btn.label}
+																	onChange={(newValue) => {
 																		const updatedBtnGroup =
-																			attributes.sidebar.btnGroup.filter(
-																				(_, i) => i !== index,
+																			attributes.sidebar.btnGroup.map(
+																				(item, i) => {
+																					if (i === index) {
+																						return {
+																							label: newValue,
+																							link: item.link,
+																							openNewTab: item.openNewTab,
+																							noFollow: item.noFollow,
+																						};
+																					}
+
+																					return item;
+																				},
 																			);
 
 																		setAttributes({
@@ -645,85 +495,342 @@ export const Settings = memo(({ attributes, setAttributes }) => {
 																			},
 																		});
 																	}}
-																>
-																	<svg
-																		width="10"
-																		height="10"
-																		viewBox="0 0 10 10"
-																		fill="none"
-																		xmlns="http://www.w3.org/2000/svg"
-																	>
-																		<path
-																			d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
-																			fill="#cf2e2e"
-																		/>
-																	</svg>
-																</span>
-															)}
-														</div>
-													</>
-												);
-											})}
-									</div>
-								)}
-							</>
-						)}
+																	__next40pxDefaultSize
+																/>
 
-						{!cthfAssets.isPremium && (
-							<>
-								<UpsellAttributeWrapper>
+																<TextControl
+																	label={__("Link", "rootblox")}
+																	placeholder="https://"
+																	type="url"
+																	value={btn.link}
+																	onChange={(newValue) => {
+																		const updatedBtnGroup =
+																			attributes.sidebar.btnGroup.map(
+																				(item, i) => {
+																					if (i === index) {
+																						return {
+																							label: item.label,
+																							link: newValue,
+																							openNewTab: item.openNewTab,
+																							noFollow: item.noFollow,
+																						};
+																					}
+
+																					return item;
+																				},
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			sidebar: {
+																				...attributes.sidebar,
+																				btnGroup: updatedBtnGroup,
+																			},
+																		});
+																	}}
+																	__next40pxDefaultSize
+																/>
+
+																<CheckboxControl
+																	label={__("Open in New Tab", "rootblox")}
+																	checked={btn.openNewTab}
+																	onChange={(newValue) => {
+																		const updatedBtnGroup =
+																			attributes.sidebar.btnGroup.map(
+																				(item, i) => {
+																					if (i === index) {
+																						return {
+																							label: item.label,
+																							link: item.link,
+																							openNewTab: newValue,
+																							noFollow: item.noFollow,
+																						};
+																					}
+
+																					return item;
+																				},
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			sidebar: {
+																				...attributes.sidebar,
+																				btnGroup: updatedBtnGroup,
+																			},
+																		});
+																	}}
+																/>
+
+																<CheckboxControl
+																	label={__("Mark as no follow", "rootblox")}
+																	checked={btn.noFollow}
+																	onChange={(newValue) => {
+																		const updatedBtnGroup =
+																			attributes.sidebar.btnGroup.map(
+																				(item, i) => {
+																					if (i === index) {
+																						return {
+																							label: item.label,
+																							link: item.link,
+																							openNewTab: item.openNewTab,
+																							noFollow: newValue,
+																						};
+																					}
+
+																					return item;
+																				},
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			sidebar: {
+																				...attributes.sidebar,
+																				btnGroup: updatedBtnGroup,
+																			},
+																		});
+																	}}
+																/>
+
+																{index > 0 && (
+																	<span
+																		id="clear-flex"
+																		onClick={() => {
+																			const updatedBtnGroup =
+																				attributes.sidebar.btnGroup.filter(
+																					(_, i) => i !== index,
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				sidebar: {
+																					...attributes.sidebar,
+																					btnGroup: updatedBtnGroup,
+																				},
+																			});
+																		}}
+																	>
+																		<svg
+																			width="10"
+																			height="10"
+																			viewBox="0 0 10 10"
+																			fill="none"
+																			xmlns="http://www.w3.org/2000/svg"
+																		>
+																			<path
+																				d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
+																				fill="#cf2e2e"
+																			/>
+																		</svg>
+																	</span>
+																)}
+															</div>
+														</>
+													);
+												})}
+										</div>
+									)}
+								</>
+							)}
+
+							{!cthfAssets.isPremium && (
+								<>
+									<UpsellAttributeWrapper>
+										<ToggleControl
+											label={__("Enable Social Icons", "rootblox")}
+											checked={false}
+											disabled
+										/>
+									</UpsellAttributeWrapper>
+								</>
+							)}
+							{cthfAssets.isPremium && (
+								<>
+									<ToggleControl
+										label={__("Enable Social Icons", "rootblox")}
+										checked={attributes.sidebar.social}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												sidebar: {
+													...attributes.sidebar,
+													social: newValue,
+												},
+											})
+										}
+									/>
+								</>
+							)}
+
+							{!cthfAssets.isPremium && (
+								<>
+									<UpsellAttributeWrapper>
+										<AttrWrapper>
+											<ToggleGroupControl
+												label={__("Sidebar Position", "rootblox")}
+												value="left"
+											>
+												<ToggleGroupControlIconOption
+													label={__("Left", "rootblox")}
+													value="left"
+													icon={justifyLeft}
+												/>
+
+												<ToggleGroupControlIconOption
+													label={__("Right", "rootblox")}
+													value="right"
+													icon={justifyRight}
+												/>
+											</ToggleGroupControl>
+										</AttrWrapper>
+									</UpsellAttributeWrapper>
+								</>
+							)}
+							{cthfAssets.isPremium && (
+								<AttrWrapper>
+									<ToggleGroupControl
+										label={__("Sidebar Position", "rootblox")}
+										value={attributes.sidebar.position}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												sidebar: {
+													...attributes.sidebar,
+													position: newValue,
+												},
+											})
+										}
+									>
+										<ToggleGroupControlIconOption
+											label={__("Left", "rootblox")}
+											value="left"
+											icon={justifyLeft}
+										/>
+
+										<ToggleGroupControlIconOption
+											label={__("Right", "rootblox")}
+											value="right"
+											icon={justifyRight}
+										/>
+									</ToggleGroupControl>
+								</AttrWrapper>
+							)}
+						</PanelBody>
+					</Panel>
+				)}
+
+				{cthfAssets.isPremium && (
+					<>
+						{searchSelected && (
+							<Panel>
+								<PanelBody
+									title={__("Search Bar Options", "rootblox")}
+									initialOpen={false}
+								>
 									<AttrWrapper>
 										<ToggleGroupControl
-											label={__("Sidebar Position", "rootblox")}
-											value="left"
+											label={__("Search Variation", "rootblox")}
+											value={attributes.search.variation}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													search: {
+														...attributes.search,
+														variation: newValue,
+													},
+												})
+											}
+											isBlock
+											__next40pxDefaultSize
+											help={__(
+												"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+												"rootblox",
+											)}
 										>
-											<ToggleGroupControlIconOption
-												label={__("Left", "rootblox")}
-												value="left"
-												icon={justifyLeft}
+											<ToggleGroupControlLabelOption
+												label={__("Post", "rootblox")}
+												value="post"
 											/>
-
-											<ToggleGroupControlIconOption
-												label={__("Right", "rootblox")}
-												value="right"
-												icon={justifyRight}
+											<ToggleGroupControlLabelOption
+												label={__("Product", "rootblox")}
+												value="product"
 											/>
 										</ToggleGroupControl>
 									</AttrWrapper>
-								</UpsellAttributeWrapper>
-							</>
+								</PanelBody>
+							</Panel>
 						)}
-						{cthfAssets.isPremium && (
-							<AttrWrapper>
-								<ToggleGroupControl
-									label={__("Sidebar Position", "rootblox")}
-									value={attributes.sidebar.position}
-									onChange={(newValue) =>
-										setAttributes({
-											...attributes,
-											sidebar: {
-												...attributes.sidebar,
-												position: newValue,
-											},
-										})
-									}
+
+						{btnSelected && (
+							<Panel>
+								<PanelBody
+									title={__("CTA Button Options", "rootblox")}
+									initialOpen={false}
 								>
-									<ToggleGroupControlIconOption
-										label={__("Left", "rootblox")}
-										value="left"
-										icon={justifyLeft}
+									<TextControl
+										label={__("Label", "rootblox")}
+										placeholder="Add Text"
+										value={attributes.ctaButton.label}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													label: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
 									/>
 
-									<ToggleGroupControlIconOption
-										label={__("Right", "rootblox")}
-										value="right"
-										icon={justifyRight}
+									<TextControl
+										label={__("Link", "rootblox")}
+										type="url"
+										placeholder="https://"
+										value={attributes.ctaButton.link}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													link: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
 									/>
-								</ToggleGroupControl>
-							</AttrWrapper>
+
+									<CheckboxControl
+										label={__("Open link in new tab", "rootblox")}
+										checked={attributes.ctaButton.openNewTab}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													openNewTab: newValue,
+												},
+											})
+										}
+									/>
+
+									<CheckboxControl
+										label={__("Mark as no follow", "rootblox")}
+										checked={attributes.ctaButton.noFollow}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													noFollow: newValue,
+												},
+											})
+										}
+									/>
+								</PanelBody>
+							</Panel>
 						)}
-					</PanelBody>
-				</Panel>
+					</>
+				)}
 			</div>
 		</>
 	);

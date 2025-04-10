@@ -67,7 +67,8 @@
             "noFollow": false
           }
         ],
-        "width": "35%",
+        "social": false,
+        "width": "450px",
         "position": "left",
         "padding": {
           "top": "40px",
@@ -77,10 +78,58 @@
         }
       }
     },
+    "siteLogo": {
+      "type": "object",
+      "default": {
+        "width": "200px"
+      }
+    },
     "search": {
       "type": "object",
       "default": {
         "variation": "post"
+      }
+    },
+    "ctaButton": {
+      "type": "object",
+      "default": {
+        "label": "Subscribe",
+        "link": "#",
+        "openNewTab": false,
+        "noFollow": false,
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "border": {
+          "style": "",
+          "width": "",
+          "color": ""
+        },
+        "radius": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "font": {
+          "size": "",
+          "weight": "",
+          "family": ""
+        },
+        "letterCase": "none",
+        "decoration": "none",
+        "lineHeight": "",
+        "letterSpacing": "",
+        "color": {
+          "text": "",
+          "textHover": "",
+          "bg": "",
+          "bgHover": "",
+          "borderHover": ""
+        }
       }
     },
     "color": {

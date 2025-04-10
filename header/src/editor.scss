@@ -24,7 +24,20 @@
 		}
 	}
 }
+.cthf__cta-btn-group {
+	margin-bottom: 22px;
+}
 
 .cthf__blur {
 	opacity: 0.5;
+}
+
+.cthf__attr-divider {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+
+	& > div {
+		width: 100%;
+	}
 }

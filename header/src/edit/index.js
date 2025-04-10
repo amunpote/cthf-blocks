@@ -27,6 +27,14 @@ const HeaderBuilder = memo(
 	({ blockID, attributes, startBlank, headerContent }) => {
 		return (
 			<>
+				{attributes.ctaButton.font.family != "" &&
+					attributes.ctaButton.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.ctaButton.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+
 				<div
 					id={blockID}
 					className={`cthf-block__header${

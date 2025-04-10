@@ -45,6 +45,23 @@
 
 /* Mobile Layout */
 .cthf__mobile-layout-wrapper {
+	/* Site Logo */
+	& .custom-logo-link {
+		display: flex;
+
+		& .custom-logo {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	/* CTA Button */
+	& .cthf__cta-anchor-btn {
+		text-align: center;
+	}
+}
+
+.cthf__mobile-layout-wrapper {
 	padding: 26px;
 	box-sizing: border-box;
 }
@@ -77,11 +94,6 @@
 		display: flex;
 		cursor: pointer;
 
-		&.nav__icon {
-			width: 22px;
-			height: 22px;
-		}
-
 		&.search__icon,
 		&.user__icon {
 			fill: none;
@@ -94,6 +106,10 @@
 		display: flex;
 		gap: 6px;
 		align-items: center;
+
+		&:has(.cthf__search.is-visible) .search__icon-wrapper {
+			margin-left: 20px;
+		}
 
 		& form {
 			margin: 0;
@@ -194,10 +210,6 @@
 		.cthf__cta-btn-group {
 			display: flex;
 			align-items: center;
-
-			& .cthf__cta-anchor-btn {
-				text-align: center;
-			}
 		}
 	}
 }

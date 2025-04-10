@@ -14,10 +14,30 @@ $sticky_styles = array(
 
 $mm_styles      = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
+	'logo_width'      => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
 );
 $sidebar_styles = array(
 	'width'   => isset( $attributes['sidebar']['width'] ) ? $attributes['sidebar']['width'] : '',
 	'padding' => isset( $attributes['sidebar']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['sidebar']['padding'] ) : '',
+);
+
+$cta_button = array(
+	'padding'        => isset( $attributes['ctaButton']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['ctaButton']['padding'] ) : '',
+	'border'         => isset( $attributes['ctaButton']['border'] ) ? rootblox_render_trbl( 'border', $attributes['ctaButton']['border'] ) : '',
+	'radius'         => isset( $attributes['ctaButton']['radius'] ) ? rootblox_render_trbl( 'radius', $attributes['ctaButton']['radius'] ) : '',
+	'font'           => array(
+		'size'   => isset( $attributes['ctaButton']['font']['size'] ) ? $attributes['ctaButton']['font']['size'] : '',
+		'family' => isset( $attributes['ctaButton']['font']['family'] ) ? $attributes['ctaButton']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['ctaButton']['lineHeight'] ) ? $attributes['ctaButton']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['ctaButton']['letterSpacing'] ) ? $attributes['ctaButton']['letterSpacing'] : '',
+	'color'          => array(
+		'text'         => isset( $attributes['ctaButton']['color']['text'] ) ? $attributes['ctaButton']['color']['text'] : '',
+		'text_hover'   => isset( $attributes['ctaButton']['color']['textHover'] ) ? $attributes['ctaButton']['color']['textHover'] : '',
+		'bg'           => isset( $attributes['ctaButton']['color']['bg'] ) ? $attributes['ctaButton']['color']['bg'] : '',
+		'bg_hover'     => isset( $attributes['ctaButton']['color']['bgHover'] ) ? $attributes['ctaButton']['color']['bgHover'] : '',
+		'border_hover' => isset( $attributes['ctaButton']['color']['borderHover'] ) ? $attributes['ctaButton']['color']['borderHover'] : '',
+	),
 );
 
 $colors = array(
@@ -44,6 +64,31 @@ $block_styles = "
 	& .nav__icon, & .wc-block-mini-cart__icon, & .search__icon, & .user__icon, & .cthf__cta-anchor-btn {
 		color: {$colors['text']};
 	}
+
+	& .custom-logo {
+		max-width: {$mm_styles['logo_width']};
+	}
+
+	& .cthf__responsive-navigation .cthf__cta-anchor-btn {
+		{$cta_button['padding']}
+		{$cta_button['border']}
+		{$cta_button['radius']}
+		font-size: {$cta_button['font']['size']};
+		font-weight: {$attributes['ctaButton']['font']['weight']};
+		font-family: {$cta_button['font']['family']};
+		text-transform: {$attributes['ctaButton']['letterCase']};
+		text-decoration: {$attributes['ctaButton']['decoration']};
+		line-height: {$cta_button['line_height']};
+		letter-spacing: {$cta_button['letter_spacing']};
+		color: {$cta_button['color']['text']};
+		background-color: {$cta_button['color']['bg']};
+
+		&:hover {
+			color: {$cta_button['color']['text_hover']};
+			background-color: {$cta_button['color']['bg_hover']};
+			border-color: {$cta_button['color']['border_hover']};
+		}
+	}
 }
 .cthf__mobile-layout-wrapper.element-$block_id.is-sticky.on-scroll__sticky {
 	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
@@ -58,6 +103,34 @@ $block_styles = "
 	}
 }
 ";
+
+$font_families = array();
+
+if ( isset( $attributes['ctaButton']['font']['family'] ) && ! empty( $attributes['ctaButton']['font']['family'] ) ) {
+	$font_families[] = $attributes['ctaButton']['font']['family'];
+}
+
+// Remove duplicate font families.
+$font_families = array_unique( $font_families );
+
+$font_query = '';
+
+// Add other fonts.
+foreach ( $font_families as $key => $family ) {
+	if ( 0 === $key ) {
+		$font_query .= 'family=' . $family . ':wght@100;200;300;400;500;600;700;800;900';
+	} else {
+		$font_query .= '&family=' . $family . ':wght@100;200;300;400;500;600;700;800;900';
+	}
+}
+
+if ( ! empty( $font_query ) ) {
+	// Generate the inline style for the Google Fonts link.
+	$google_fonts_url = 'https://fonts.googleapis.com/css2?' . rawurlencode( $font_query );
+
+	// Add the Google Fonts URL as an inline style.
+	wp_add_inline_style( 'cthf-blocks--header--style', '@import url("' . rawurldecode( esc_url( $google_fonts_url ) ) . '");' );
+}
 
 add_action(
 	'wp_enqueue_scripts',
@@ -120,7 +193,7 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 						}
 					}
 
-					if ( $attributes['sidebar']['button'] && is_array( $attributes['sidebar']['btnGroup'] ) ) {
+					if ( rootblox_is_premium() && $attributes['sidebar']['button'] && is_array( $attributes['sidebar']['btnGroup'] ) ) {
 						?>
 						<div class="cthf__cta-btn-group">
 							<?php
