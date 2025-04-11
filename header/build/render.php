@@ -12,6 +12,14 @@ $sticky_styles = array(
 	'backdrop_blur' => isset( $attributes['stickyHeader']['backdropBlur'] ) ? sanitize_text_field( $attributes['stickyHeader']['backdropBlur'] ) : '',
 );
 
+$colors = array(
+	'mobile_bg'          => isset( $attributes['color']['mobileBg'] ) ? $attributes['color']['mobileBg'] : '',
+	'text'               => isset( $attributes['color']['text'] ) ? $attributes['color']['text'] : '',
+	'sidebar_bg'         => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
+	'sidebar_close_icon' => isset( $attributes['color']['sidebarCloseIcon'] ) ? $attributes['color']['sidebarCloseIcon'] : '',
+	'bg'                 => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
+);
+
 $mm_styles      = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
 	'logo_width'      => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
@@ -19,6 +27,54 @@ $mm_styles      = array(
 $sidebar_styles = array(
 	'width'   => isset( $attributes['sidebar']['width'] ) ? $attributes['sidebar']['width'] : '',
 	'padding' => isset( $attributes['sidebar']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['sidebar']['padding'] ) : '',
+);
+
+$nav_styles = array(
+	'padding'        => isset( $attributes['navigation']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['navigation']['padding'] ) : '',
+	'margin'         => array(
+		'top'    => isset( $attributes['navigation']['margin']['top'] ) ? $attributes['navigation']['margin']['top'] : '',
+		'bottom' => isset( $attributes['navigation']['margin']['bottom'] ) ? $attributes['navigation']['margin']['bottom'] : '',
+	),
+	'border'         => isset( $attributes['navigation']['border'] ) ? rootblox_render_trbl( 'border', $attributes['navigation']['border'] ) : '',
+	'menu_gap'       => isset( $attributes['navigation']['menuGap'] ) ? $attributes['navigation']['menuGap'] : '',
+	'submenu_gap'    => isset( $attributes['navigation']['submenuGap'] ) ? $attributes['navigation']['submenuGap'] : '',
+	'font'           => array(
+		'size'   => isset( $attributes['navigation']['font']['size'] ) ? $attributes['navigation']['font']['size'] : '',
+		'family' => isset( $attributes['navigation']['font']['family'] ) ? $attributes['navigation']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['navigation']['lineHeight'] ) ? $attributes['navigation']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['navigation']['letterSpacing'] ) ? $attributes['navigation']['letterSpacing'] : '',
+	'color'          => array(
+		'icon'          => isset( $attributes['navigation']['color']['icon'] ) && ! empty( $attributes['navigation']['color']['icon'] ) ? $attributes['navigation']['color']['icon'] : $colors['text'],
+		'icon_hover'    => isset( $attributes['navigation']['color']['iconHover'] ) ? $attributes['navigation']['color']['iconHover'] : '',
+		'text'          => isset( $attributes['navigation']['color']['text'] ) && ! empty( $attributes['navigation']['color']['text'] ) ? $attributes['navigation']['color']['text'] : $colors['text'],
+		'text_hover'    => isset( $attributes['navigation']['color']['textHover'] ) ? $attributes['navigation']['color']['textHover'] : '',
+		'submenu'       => isset( $attributes['navigation']['color']['submenu'] ) && ! empty( $attributes['navigation']['color']['submenu'] ) ? $attributes['navigation']['color']['submenu'] : '',
+		'submenu_hover' => isset( $attributes['navigation']['color']['submenuHover'] ) ? $attributes['navigation']['color']['submenuHover'] : '',
+	),
+);
+
+$sidebar_cta = array(
+	'stacked'        => isset( $attributes['sidebarCTA']['stacked'] ) && filter_var( $attributes['sidebarCTA']['stacked'], FILTER_VALIDATE_BOOLEAN ) ? 'wrap' : 'nowrap',
+	'gap'            => isset( $attributes['sidebarCTA']['gap'] ) ? $attributes['sidebarCTA']['gap'] : '',
+	'row_gap'        => isset( $attributes['sidebarCTA']['rowGap'] ) ? $attributes['sidebarCTA']['rowGap'] : '',
+	'width'          => isset( $attributes['sidebarCTA']['width'] ) ? $attributes['sidebarCTA']['width'] : '',
+	'padding'        => isset( $attributes['sidebarCTA']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['sidebarCTA']['padding'] ) : '',
+	'border'         => isset( $attributes['sidebarCTA']['border'] ) ? rootblox_render_trbl( 'border', $attributes['sidebarCTA']['border'] ) : '',
+	'radius'         => isset( $attributes['sidebarCTA']['radius'] ) ? $attributes['sidebarCTA']['radius'] : '',
+	'font'           => array(
+		'size'   => isset( $attributes['sidebarCTA']['font']['size'] ) ? $attributes['sidebarCTA']['font']['size'] : '',
+		'family' => isset( $attributes['sidebarCTA']['font']['family'] ) ? $attributes['sidebarCTA']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['sidebarCTA']['lineHeight'] ) ? $attributes['sidebarCTA']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['sidebarCTA']['letterSpacing'] ) ? $attributes['sidebarCTA']['letterSpacing'] : '',
+	'color'          => array(
+		'text'         => isset( $attributes['sidebarCTA']['color']['text'] ) ? $attributes['sidebarCTA']['color']['text'] : $colors['text'],
+		'text_hover'   => isset( $attributes['sidebarCTA']['color']['textHover'] ) ? $attributes['sidebarCTA']['color']['textHover'] : '',
+		'bg'           => isset( $attributes['sidebarCTA']['color']['bg'] ) ? $attributes['sidebarCTA']['color']['bg'] : '',
+		'bg_hover'     => isset( $attributes['sidebarCTA']['color']['bgHover'] ) ? $attributes['sidebarCTA']['color']['bgHover'] : '',
+		'border_hover' => isset( $attributes['sidebarCTA']['color']['borderHover'] ) ? $attributes['sidebarCTA']['color']['borderHover'] : '',
+	),
 );
 
 $cta_button = array(
@@ -40,14 +96,6 @@ $cta_button = array(
 	),
 );
 
-$colors = array(
-	'mobile_bg'          => isset( $attributes['color']['mobileBg'] ) ? $attributes['color']['mobileBg'] : '',
-	'text'               => isset( $attributes['color']['text'] ) ? $attributes['color']['text'] : '',
-	'sidebar_bg'         => isset( $attributes['color']['sidebarBg'] ) ? $attributes['color']['sidebarBg'] : '',
-	'sidebar_close_icon' => isset( $attributes['color']['sidebarCloseIcon'] ) ? $attributes['color']['sidebarCloseIcon'] : '',
-	'bg'                 => isset( $attributes['color']['bg'] ) ? $attributes['color']['bg'] : '',
-);
-
 $block_styles = "
 #$block_id {
 	background-color: {$colors['bg']};
@@ -61,8 +109,16 @@ $block_styles = "
 	{$mm_styles['wrapper_padding']}
 	background-color: {$colors['mobile_bg']};
 
-	& .nav__icon, & .wc-block-mini-cart__icon, & .search__icon, & .user__icon, & .cthf__cta-anchor-btn {
+	& .wc-block-mini-cart__icon, & .search__icon, & .user__icon, & .cthf__cta-anchor-btn {
 		color: {$colors['text']};
+	}
+
+	& .nav__icon {
+		color: {$nav_styles['color']['icon']};
+
+		&:hover {
+			color: {$nav_styles['color']['icon_hover']};
+		}
 	}
 
 	& .custom-logo {
@@ -101,6 +157,76 @@ $block_styles = "
 	& .close__icon {
 		color: {$colors['sidebar_close_icon']};
 	}
+
+	& .wp-block-navigation__container {
+		{$nav_styles['padding']}
+		margin-top: {$nav_styles['margin']['top']};
+		margin-bottom: {$nav_styles['margin']['bottom']};
+		{$nav_styles['border']}
+		font-size: {$nav_styles['font']['size']};
+		font-weight: {$attributes['navigation']['font']['weight']};
+		font-family: {$nav_styles['font']['family']};
+		text-transform: {$attributes['navigation']['letterCase']};
+		line-height: {$nav_styles['line_height']};
+		letter-spacing: {$nav_styles['letter_spacing']};
+
+		& > li:not(:first-child) {
+  			margin-top: {$nav_styles['menu_gap']};
+		}
+		
+		& li > a, & li > svg {
+			text-decoration: {$attributes['navigation']['decoration']};
+			color: {$nav_styles['color']['text']};
+			fill: {$nav_styles['color']['text']};
+		}
+		& li a:hover, & li a:hover + button svg {
+			color: {$nav_styles['color']['text_hover']} !important;
+			fill: {$nav_styles['color']['text_hover']};
+		}
+
+		& .wp-block-navigation-item.has-child .wp-block-navigation__submenu-container a, & .wp-block-navigation-item.has-child .wp-block-navigation__submenu-container svg {
+			color: {$nav_styles['color']['submenu']};
+			fill: {$nav_styles['color']['submenu']};
+		}
+		& .wp-block-navigation-item.has-child .wp-block-navigation__submenu-container li a:hover, & .wp-block-navigation-item.has-child .wp-block-navigation__submenu-container li a:hover + button svg {
+			color: {$nav_styles['color']['submenu_hover']} !important;
+			fill: {$nav_styles['color']['submenu_hover']} !important;
+		}
+
+		& .wp-block-navigation__submenu-container {
+			margin-top: {$nav_styles['submenu_gap']} !important;
+			margin-bottom: 0 !important;
+		}
+	}
+
+	& .cthf__cta-btn-group {
+		flex-wrap: {$sidebar_cta['stacked']};
+		gap: {$sidebar_cta['gap']};
+		row-gap: {$sidebar_cta['row_gap']};
+		justify-content: {$attributes['sidebarCTA']['justification']};
+		font-size: {$sidebar_cta['font']['size']};
+		font-weight: {$attributes['sidebarCTA']['font']['weight']};
+		font-family: {$sidebar_cta['font']['family']};
+		text-transform: {$attributes['sidebarCTA']['letterCase']};
+		line-height: {$sidebar_cta['line_height']};
+		letter-spacing: {$sidebar_cta['letter_spacing']};
+		
+		& .cthf__cta-anchor-btn.sidebar-btn {
+			{$sidebar_cta['padding']}
+			{$sidebar_cta['border']}
+			width: {$sidebar_cta['width']};
+			border-radius: {$sidebar_cta['radius']};
+			color: {$sidebar_cta['color']['text']};
+			background-color: {$sidebar_cta['color']['bg']};
+			text-decoration: {$attributes['sidebarCTA']['decoration']};
+			
+			&:hover {
+				color: {$sidebar_cta['color']['text_hover']} !important;
+				background-color: {$sidebar_cta['color']['bg_hover']} !important;
+				border-color: {$sidebar_cta['color']['border_hover']};
+			}
+		}
+	}
 }
 ";
 
@@ -108,6 +234,14 @@ $font_families = array();
 
 if ( isset( $attributes['ctaButton']['font']['family'] ) && ! empty( $attributes['ctaButton']['font']['family'] ) ) {
 	$font_families[] = $attributes['ctaButton']['font']['family'];
+}
+
+if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attributes['navigation']['font']['family'] ) ) {
+	$font_families[] = $attributes['navigation']['font']['family'];
+}
+
+if ( isset( $attributes['sidebarCTA']['font']['family'] ) && ! empty( $attributes['sidebarCTA']['font']['family'] ) ) {
+	$font_families[] = $attributes['sidebarCTA']['font']['family'];
 }
 
 // Remove duplicate font families.
@@ -180,7 +314,15 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 
 					<?php
 					if ( $attributes['sidebar']['siteLogo'] ) {
-						the_custom_logo();
+						if ( rootblox_is_premium() && ! filter_var( $attributes['siteLogo']['useDefaultLogo'] ) ) {
+							?>
+							<a class="custom-logo-link" href="<?php echo esc_url( home_url() ); ?>" rel="home">
+								<img class="custom-logo" src="<?php echo esc_url( $attributes['siteLogo']['custom']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+							</a>
+							<?php
+						} else {
+							the_custom_logo();
+						}
 					}
 
 					if ( $attributes['sidebar']['navigation'] && isset( $attributes['mobileMenu']['menuID'] ) && ! empty( $attributes['mobileMenu']['menuID'] ) ) {
@@ -207,8 +349,17 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 								$btn_link  = isset( $cta_btn['link'] ) && ! empty( $cta_btn['link'] ) ? sanitize_url( $cta_btn['link'] ) : '#';
 								$new_tab   = isset( $cta_btn['openNewTab'] ) && filter_var( $cta_btn['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
 								$nofollow  = isset( $cta_btn['noFollow'] ) && filter_var( $cta_btn['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
+								$color     = array(
+									'text' => isset( $cta_btn['textColor'] ) ? $cta_btn['textColor'] : '',
+									'bg'   => isset( $cta_btn['bgColor'] ) ? $cta_btn['bgColor'] : '',
+								);
+
+								$inline_styles = "
+									color: {$color['text']};
+									background-color: {$color['bg']};
+								";
 								?>
-								<a class="<?php echo esc_html( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>" href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_attr( $new_tab ); ?>" rel="<?php echo esc_attr( $nofollow ); ?>"><?php echo esc_html( $btn_label ); ?></a>
+								<a class="<?php echo esc_html( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>" style="<?php echo esc_html( $inline_styles ); ?>" href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_attr( $new_tab ); ?>" rel="<?php echo esc_attr( $nofollow ); ?>"><?php echo esc_html( $btn_label ); ?></a>
 								<?php
 							}
 							?>

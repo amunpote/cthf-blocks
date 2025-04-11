@@ -5,12 +5,15 @@ import { PanelColorSettings } from "@wordpress/block-editor";
 import {
 	Panel,
 	PanelBody,
+	TabPanel,
 	__experimentalBoxControl as BoxControl,
 	__experimentalBorderControl as BorderControl,
+	__experimentalBorderBoxControl as BorderBoxControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
 	SelectControl,
+	ToggleControl,
 } from "@wordpress/components";
 
 import {
@@ -131,23 +134,6 @@ export const Styles = memo(() => {
 										/>
 									</AttrWrapper>
 
-									<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
-										<UnitControl
-											label={__("Site Logo Width", "rootblox")}
-											value={attributes.siteLogo.width}
-											onChange={(newValue) =>
-												setAttributes({
-													...attributes,
-													siteLogo: {
-														...attributes.siteLogo,
-														width: newValue,
-													},
-												})
-											}
-											__next40pxDefaultSize
-										/>
-									</AttrWrapper>
-
 									<PanelColorSettings
 										className="cthf__color-panel"
 										title={__("Colors", "rootblox")}
@@ -205,7 +191,7 @@ export const Styles = memo(() => {
 											/>
 										</AttrWrapper>
 
-										<AttrWrapper>
+										<AttrWrapper styles={{ marginBottom: "0" }}>
 											<BoxControl
 												label={__("Sidebar Padding", "rootblox")}
 												resetValues={{
@@ -227,11 +213,831 @@ export const Styles = memo(() => {
 											/>
 										</AttrWrapper>
 
-										<SelectControl
-											label={__("Google Fonts", "rootblox")}
-											options={googleFonts}
-											__next40pxDefaultSize
-										/>
+										<TabPanel
+											className="cthf__tab-panel"
+											tabs={[
+												{
+													title: __("Menu", "rootblox"),
+													name: "cthf__tab-1",
+													className: "cthf__tab",
+												},
+												{
+													title: __("Buttons", "rootblox"),
+													name: "cthf__tab-2",
+													className: "cthf__tab",
+												},
+												{
+													title: __("Socials", "rootblox"),
+													name: "cthf__tab-3",
+													className: "cthf__tab",
+												},
+											]}
+										>
+											{(tab) => (
+												<>
+													{tab.name === "cthf__tab-1" && (
+														<>
+															<AttrWrapper styles={{ marginBottom: "0" }}>
+																<BoxControl
+																	label={__("Padding", "rootblox")}
+																	resetValues={[
+																		{
+																			top: "0px",
+																			right: "0px",
+																			bottom: "0px",
+																			left: "0px",
+																		},
+																	]}
+																	values={attributes.navigation.padding}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			navigation: {
+																				...attributes.navigation,
+																				padding: newValue,
+																			},
+																		})
+																	}
+																/>
+															</AttrWrapper>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Margin Top", "rootblox")}
+																		value={attributes.navigation.margin.top}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					margin: {
+																						...attributes.navigation.margin,
+																						top: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Margin Bottom", "rootblox")}
+																		value={attributes.navigation.margin.bottom}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					margin: {
+																						...attributes.navigation.margin,
+																						bottom: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<AttrWrapper styles={{ margin: "0" }}>
+																<BorderBoxControl
+																	label={__("Border", "rootblox")}
+																	enableAlpha={true}
+																	colors={themeColorPalette}
+																	value={attributes.navigation.border}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			navigation: {
+																				...attributes.navigation,
+																				border: newValue,
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</AttrWrapper>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Menu Gap", "rootblox")}
+																		value={attributes.navigation.menuGap}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					menuGap: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Submenu Gap", "rootblox")}
+																		value={attributes.navigation.submenuGap}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					submenuGap: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<SelectControl
+																label={__("Font Family", "rootblox")}
+																options={googleFonts}
+																value={attributes.navigation.font.family}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		navigation: {
+																			...attributes.navigation,
+																			font: {
+																				...attributes.navigation.font,
+																				family: newValue,
+																			},
+																		},
+																	})
+																}
+																__next40pxDefaultSize
+															/>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ margin: "0" }}>
+																	<UnitControl
+																		label={__("Font Size", "rootblox")}
+																		value={attributes.navigation.font.size}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					font: {
+																						...attributes.navigation.font,
+																						size: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<SelectControl
+																	label={__("Font Weight", "rootblox")}
+																	options={fontWeights}
+																	value={attributes.navigation.font.weight}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			navigation: {
+																				...attributes.navigation,
+																				font: {
+																					...attributes.navigation.font,
+																					weight: newValue,
+																				},
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</div>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ margin: "10px 0" }}>
+																	<ToggleGroupControl
+																		label={__("Letter Case", "rootblox")}
+																		value={attributes.navigation.letterCase}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					letterCase: newValue,
+																				},
+																			})
+																		}
+																	>
+																		<ToggleGroupControlIconOption
+																			label={__("None", "rootblox")}
+																			icon={lineSolid}
+																			value="none"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Lowercase", "rootblox")}
+																			icon={formatUppercase}
+																			value="uppercase"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Uppercase", "rootblox")}
+																			icon={formatLowercase}
+																			value="lowercase"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Capitalize", "rootblox")}
+																			icon={formatCapitalize}
+																			value="capitalize"
+																		/>
+																	</ToggleGroupControl>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ margin: "10px 0" }}>
+																	<ToggleGroupControl
+																		label={__("Decoration", "rootblox")}
+																		value={attributes.navigation.decoration}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					decoration: newValue,
+																				},
+																			})
+																		}
+																	>
+																		<ToggleGroupControlIconOption
+																			label={__("None", "rootblox")}
+																			icon={lineSolid}
+																			value="none"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Underline", "rootblox")}
+																			icon={formatUnderline}
+																			value="underline"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Strikethrough", "rootblox")}
+																			icon={formatStrikethrough}
+																			value="line-through"
+																		/>
+																	</ToggleGroupControl>
+																</AttrWrapper>
+															</div>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<UnitControl
+																		label={__("Line Height", "rootblox")}
+																		value={attributes.navigation.lineHeight}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					lineHeight: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<UnitControl
+																		label={__("Letter Spacing", "rootblox")}
+																		value={attributes.navigation.letterSpacing}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				navigation: {
+																					...attributes.navigation,
+																					letterSpacing: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<AttrWrapper styles={{ margin: "-20px 0 22px" }}>
+																<PanelColorSettings
+																	className="cthf__color-panel cthf__border-none"
+																	title={__("Menu Color Palette", "rootblox")}
+																	enableAlpha={true}
+																	colorSettings={[
+																		{
+																			label: __("Icon (Default)", "rootblox"),
+																			value: attributes.navigation.color.icon,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							icon: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Icon (Hover)", "rootblox"),
+																			value:
+																				attributes.navigation.color.iconHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							iconHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Menu (Default)", "rootblox"),
+																			value: attributes.navigation.color.text,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							text: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Menu (Hover)", "rootblox"),
+																			value:
+																				attributes.navigation.color.textHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							textHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __(
+																				"Submenu (Default)",
+																				"rootblox",
+																			),
+																			value:
+																				attributes.navigation.color.submenu,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							submenu: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Submenu (Hover)", "rootblox"),
+																			value:
+																				attributes.navigation.color
+																					.submenuHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						color: {
+																							...attributes.navigation.color,
+																							submenuHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																	]}
+																/>
+															</AttrWrapper>
+														</>
+													)}
+
+													{tab.name === "cthf__tab-2" && (
+														<>
+															<AttrWrapper styles={{ marginBottom: "0" }}>
+																<BoxControl
+																	label={__("Padding", "rootblox")}
+																	resetValues={[
+																		{
+																			top: "0px",
+																			right: "0px",
+																			bottom: "0px",
+																			left: "0px",
+																		},
+																	]}
+																	values={attributes.sidebarCTA.padding}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarCTA: {
+																				...attributes.sidebarCTA,
+																				padding: newValue,
+																			},
+																		})
+																	}
+																/>
+															</AttrWrapper>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper>
+																	<BorderControl
+																		label={__("Border", "rootblox")}
+																		enableAlpha={true}
+																		colors={themeColorPalette}
+																		value={attributes.sidebarCTA.border}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					border: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Border Radius", "rootblox")}
+																		value={attributes.sidebarCTA.radius}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					radius: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<AttrWrapper
+																styles={{ maxWidth: "40%", margin: "0" }}
+															>
+																<UnitControl
+																	label={__("Width", "rootblox")}
+																	value={attributes.sidebarCTA.width}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarCTA: {
+																				...attributes.sidebarCTA,
+																				width: newValue,
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</AttrWrapper>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("HGap", "rootblox")}
+																		value={attributes.sidebarCTA.gap}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					gap: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("VGap", "rootblox")}
+																		value={attributes.sidebarCTA.rowGap}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					rowGap: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<ToggleControl
+																label={__("Stacked", "rootblox")}
+																checked={attributes.sidebarCTA.stacked}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarCTA: {
+																			...attributes.sidebarCTA,
+																			stacked: newValue,
+																		},
+																	})
+																}
+															/>
+
+															<SelectControl
+																label={__("Font Family", "rootblox")}
+																options={googleFonts}
+																value={attributes.sidebarCTA.font.family}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarCTA: {
+																			...attributes.sidebarCTA,
+																			font: {
+																				...attributes.sidebarCTA.font,
+																				family: newValue,
+																			},
+																		},
+																	})
+																}
+																__next40pxDefaultSize
+															/>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ margin: "0" }}>
+																	<UnitControl
+																		label={__("Font Size", "rootblox")}
+																		value={attributes.sidebarCTA.font.size}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					font: {
+																						...attributes.sidebarCTA.font,
+																						size: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<SelectControl
+																	label={__("Font Weight", "rootblox")}
+																	options={fontWeights}
+																	value={attributes.sidebarCTA.font.weight}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarCTA: {
+																				...attributes.sidebarCTA,
+																				font: {
+																					...attributes.sidebarCTA.font,
+																					weight: newValue,
+																				},
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</div>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ margin: "10px 0" }}>
+																	<ToggleGroupControl
+																		label={__("Letter Case", "rootblox")}
+																		value={attributes.sidebarCTA.letterCase}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					letterCase: newValue,
+																				},
+																			})
+																		}
+																	>
+																		<ToggleGroupControlIconOption
+																			label={__("None", "rootblox")}
+																			icon={lineSolid}
+																			value="none"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Lowercase", "rootblox")}
+																			icon={formatUppercase}
+																			value="uppercase"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Uppercase", "rootblox")}
+																			icon={formatLowercase}
+																			value="lowercase"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Capitalize", "rootblox")}
+																			icon={formatCapitalize}
+																			value="capitalize"
+																		/>
+																	</ToggleGroupControl>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ margin: "10px 0" }}>
+																	<ToggleGroupControl
+																		label={__("Decoration", "rootblox")}
+																		value={attributes.sidebarCTA.decoration}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					decoration: newValue,
+																				},
+																			})
+																		}
+																	>
+																		<ToggleGroupControlIconOption
+																			label={__("None", "rootblox")}
+																			icon={lineSolid}
+																			value="none"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Underline", "rootblox")}
+																			icon={formatUnderline}
+																			value="underline"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Strikethrough", "rootblox")}
+																			icon={formatStrikethrough}
+																			value="line-through"
+																		/>
+																	</ToggleGroupControl>
+																</AttrWrapper>
+															</div>
+
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<UnitControl
+																		label={__("Line Height", "rootblox")}
+																		value={attributes.sidebarCTA.lineHeight}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					lineHeight: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<UnitControl
+																		label={__("Letter Spacing", "rootblox")}
+																		value={attributes.sidebarCTA.letterSpacing}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					letterSpacing: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<AttrWrapper styles={{ margin: "-20px 0 22px" }}>
+																<PanelColorSettings
+																	className="cthf__color-panel cthf__border-none"
+																	title={__(
+																		"Buttons Color Palette",
+																		"rootblox",
+																	)}
+																	enableAlpha={true}
+																	colorSettings={[
+																		{
+																			label: __("Text (Default)", "rootblox"),
+																			value: attributes.sidebarCTA.color.text,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarCTA: {
+																						...attributes.sidebarCTA,
+																						color: {
+																							...attributes.sidebarCTA.color,
+																							text: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Text (Hover)", "rootblox"),
+																			value:
+																				attributes.sidebarCTA.color.textHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarCTA: {
+																						...attributes.sidebarCTA,
+																						color: {
+																							...attributes.sidebarCTA.color,
+																							textHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __(
+																				"Background (Default)",
+																				"rootblox",
+																			),
+																			value: attributes.sidebarCTA.color.bg,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarCTA: {
+																						...attributes.sidebarCTA,
+																						color: {
+																							...attributes.sidebarCTA.color,
+																							bg: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __(
+																				"Background (Hover)",
+																				"rootblox",
+																			),
+																			value:
+																				attributes.sidebarCTA.color.bgHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarCTA: {
+																						...attributes.sidebarCTA,
+																						color: {
+																							...attributes.sidebarCTA.color,
+																							bgHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Border (Hover)", "rootblox"),
+																			value:
+																				attributes.sidebarCTA.color.borderHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarCTA: {
+																						...attributes.sidebarCTA,
+																						color: {
+																							...attributes.sidebarCTA.color,
+																							borderHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																	]}
+																/>
+															</AttrWrapper>
+														</>
+													)}
+
+													{tab.name === "cthf__tab-3" && <></>}
+												</>
+											)}
+										</TabPanel>
 
 										<PanelColorSettings
 											className="cthf__color-panel"
@@ -273,7 +1079,7 @@ export const Styles = memo(() => {
 									{btnSelected && (
 										<Panel>
 											<PanelBody
-												title={__("Button Styles", "rootblox")}
+												title={__("CTA Button Styles", "rootblox")}
 												initialOpen={false}
 											>
 												<AttrWrapper>
@@ -304,6 +1110,7 @@ export const Styles = memo(() => {
 												<AttrWrapper styles={{ maxWidth: "50%" }}>
 													<BorderControl
 														label={__("Border", "rootblox")}
+														enableAlpha={true}
 														colors={themeColorPalette}
 														value={attributes.ctaButton.border}
 														onChange={(newValue) =>
@@ -343,6 +1150,25 @@ export const Styles = memo(() => {
 														__next40pxDefaultSize
 													/>
 												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={attributes.ctaButton.font.family}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															ctaButton: {
+																...attributes.ctaButton,
+																font: {
+																	...attributes.ctaButton.font,
+																	family: newValue,
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
 
 												<div className="cthf__attr-divider">
 													<AttrWrapper styles={{ margin: "0" }}>
@@ -385,27 +1211,8 @@ export const Styles = memo(() => {
 													/>
 												</div>
 
-												<SelectControl
-													label={__("Font Family", "rootblox")}
-													options={googleFonts}
-													value={attributes.ctaButton.font.family}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															ctaButton: {
-																...attributes.ctaButton,
-																font: {
-																	...attributes.ctaButton.font,
-																	family: newValue,
-																},
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-
 												<div className="cthf__attr-divider">
-													<AttrWrapper>
+													<AttrWrapper styles={{ margin: "10px 0" }}>
 														<ToggleGroupControl
 															label={__("Letter Case", "rootblox")}
 															value={attributes.ctaButton.letterCase}
@@ -442,7 +1249,7 @@ export const Styles = memo(() => {
 														</ToggleGroupControl>
 													</AttrWrapper>
 
-													<AttrWrapper>
+													<AttrWrapper styles={{ margin: "10px 0" }}>
 														<ToggleGroupControl
 															label={__("Decoration", "rootblox")}
 															value={attributes.ctaButton.decoration}
@@ -476,7 +1283,7 @@ export const Styles = memo(() => {
 												</div>
 
 												<div className="cthf__attr-divider">
-													<AttrWrapper styles={{ margin: "0" }}>
+													<AttrWrapper styles={{ marginTop: "0" }}>
 														<UnitControl
 															label={__("Line Height", "rootblox")}
 															value={attributes.ctaButton.lineHeight}
@@ -493,7 +1300,7 @@ export const Styles = memo(() => {
 														/>
 													</AttrWrapper>
 
-													<AttrWrapper styles={{ margin: "0" }}>
+													<AttrWrapper styles={{ marginTop: "0" }}>
 														<UnitControl
 															label={__("Letter Spacing", "rootblox")}
 															value={attributes.ctaButton.letterSpacing}

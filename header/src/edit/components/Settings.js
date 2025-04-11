@@ -1,6 +1,12 @@
 import { __ } from "@wordpress/i18n";
 
 import {
+	PanelColorSettings,
+	MediaUpload,
+	MediaUploadCheck,
+} from "@wordpress/block-editor";
+
+import {
 	Panel,
 	PanelBody,
 	ToggleControl,
@@ -9,15 +15,19 @@ import {
 	Modal,
 	SelectControl,
 	FormTokenField,
-	__experimentalToolsPanel as ToolsPanel,
-	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalUnitControl as UnitControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlLabelOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
 	TextControl,
 	CheckboxControl,
 } from "@wordpress/components";
-import { justifyLeft, justifyRight, sidebar, siteLogo } from "@wordpress/icons";
+import {
+	justifyLeft,
+	justifyCenter,
+	justifyRight,
+	justifySpaceBetween,
+} from "@wordpress/icons";
 
 import { memo, useState, useEffect, useContext } from "@wordpress/element";
 
@@ -43,6 +53,7 @@ export const Settings = memo(() => {
 		initialMobileOptions,
 		mobileOptions,
 		setMobileOptions,
+		logoSelected,
 		navigationSelected,
 		searchSelected,
 		btnSelected,
@@ -56,7 +67,19 @@ export const Settings = memo(() => {
 		apiFetch({
 			path: "/wp/v2/navigation?context=edit&per_page=100&status[0]=publish",
 		})
-			.then((menus) => setNavMenus(menus))
+			.then((menus) => {
+				setNavMenus(menus);
+
+				if (menus.length > 0 && attributes.mobileMenu.menuID.length <= 0) {
+					setAttributes({
+						...attributes,
+						mobileMenu: {
+							...attributes.mobileMenu,
+							menuID: menus[0].id,
+						},
+					});
+				}
+			})
 			.catch((error) => console.error("API Fetch Error:", error));
 	}, []);
 
@@ -359,6 +382,151 @@ export const Settings = memo(() => {
 					</PanelBody>
 				</Panel>
 
+				{logoSelected && (
+					<Panel>
+						<PanelBody
+							title={__("Site Logo Options", "rootblox")}
+							initialOpen={false}
+						>
+							{!cthfAssets.isPremium && (
+								<>
+									<UpsellAttributeWrapper>
+										<ToggleControl
+											label={__("Use Default Logo", "rootblox")}
+											checked={true}
+											disabled
+										/>
+									</UpsellAttributeWrapper>
+								</>
+							)}
+							{cthfAssets.isPremium && (
+								<>
+									<ToggleControl
+										label={__("Default Logo", "rootblox")}
+										checked={attributes.siteLogo.useDefaultLogo}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												siteLogo: {
+													...attributes.siteLogo,
+													useDefaultLogo: newValue,
+												},
+											})
+										}
+									/>
+
+									{!attributes.siteLogo.useDefaultLogo && (
+										<>
+											{attributes.siteLogo.custom.url.length <= 0 && (
+												<>
+													<MediaUploadCheck>
+														<MediaUpload
+															onSelect={(media) =>
+																setAttributes({
+																	...attributes,
+																	siteLogo: {
+																		...attributes.siteLogo,
+																		custom: {
+																			...attributes.siteLogo.custom,
+																			id: media.id,
+																			url: media.url,
+																		},
+																	},
+																})
+															}
+															allowedTypes={["image"]}
+															value={attributes.siteLogo.custom.id}
+															render={({ open }) => (
+																<Button
+																	className="cthf__btn-secondary"
+																	onClick={open}
+																	text={__("Open Media Library")}
+																/>
+															)}
+														/>
+													</MediaUploadCheck>
+												</>
+											)}
+											{attributes.siteLogo.custom.url.length > 0 && (
+												<>
+													<figure
+														style={{ maxWidth: "100%", textAlign: "center" }}
+													>
+														<img src={attributes.siteLogo.custom.url} />
+													</figure>
+
+													<MediaUploadCheck>
+														<MediaUpload
+															onSelect={(media) =>
+																setAttributes({
+																	...attributes,
+																	siteLogo: {
+																		...attributes.siteLogo,
+																		custom: {
+																			...attributes.siteLogo.custom,
+																			id: media.id,
+																			url: media.url,
+																		},
+																	},
+																})
+															}
+															allowedTypes={["image"]}
+															value={attributes.siteLogo.custom.id}
+															render={({ open }) => (
+																<Button
+																	className="cthf__btn-secondary"
+																	style={{ margin: "0 6px 10px 0" }}
+																	onClick={open}
+																	text={__("Replace Logo")}
+																/>
+															)}
+														/>
+													</MediaUploadCheck>
+
+													<Button
+														className="cthf__btn-remove"
+														text={__("Clear Selection", "rootblox")}
+														onClick={() =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	custom: {
+																		...attributes.siteLogo.custom,
+																		id: "",
+																		url: "",
+																	},
+																},
+															})
+														}
+													/>
+												</>
+											)}
+										</>
+									)}
+								</>
+							)}
+
+							<AttrWrapper styles={{ maxWidth: "50%" }}>
+								<UnitControl
+									label={__("Site Logo Width", "rootblox")}
+									value={attributes.siteLogo.width}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											siteLogo: {
+												...attributes.siteLogo,
+												width: newValue,
+											},
+										})
+									}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+						</PanelBody>
+					</Panel>
+				)}
+
 				{navigationSelected && (
 					<Panel>
 						<PanelBody
@@ -443,161 +611,52 @@ export const Settings = memo(() => {
 									/>
 
 									{attributes.sidebar.button && (
-										<div className="cthf__cta-btn-group">
-											<Button
-												text={__("Add CTA Button", "rootblox")}
-												icon={plusCircle}
-												onClick={() => {
-													const addGroup = [...attributes.sidebar.btnGroup, {}];
-													setAttributes({
-														...attributes,
-														sidebar: {
-															...attributes.sidebar,
-															btnGroup: addGroup,
-														},
-													});
-												}}
-											/>
+										<>
+											<div className="cthf__cta-btn-group">
+												<Button
+													text={__("Add CTA Button", "rootblox")}
+													icon={plusCircle}
+													onClick={() => {
+														const addGroup = [
+															...attributes.sidebar.btnGroup,
+															{},
+														];
+														setAttributes({
+															...attributes,
+															sidebar: {
+																...attributes.sidebar,
+																btnGroup: addGroup,
+															},
+														});
+													}}
+												/>
 
-											{Array.isArray(attributes.sidebar.btnGroup) &&
-												attributes.sidebar.btnGroup.map((btn, index) => {
-													let layoutIndex = index + 1;
+												{Array.isArray(attributes.sidebar.btnGroup) &&
+													attributes.sidebar.btnGroup.map((btn, index) => {
+														let layoutIndex = index + 1;
 
-													return (
-														<>
-															<div className={`flex-wrap flex-${layoutIndex}`}>
-																<TextControl
-																	label={__("Label", "rootblox")}
-																	placeholder={__("Add Text", "rootblox")}
-																	value={btn.label}
-																	onChange={(newValue) => {
-																		const updatedBtnGroup =
-																			attributes.sidebar.btnGroup.map(
-																				(item, i) => {
-																					if (i === index) {
-																						return {
-																							label: newValue,
-																							link: item.link,
-																							openNewTab: item.openNewTab,
-																							noFollow: item.noFollow,
-																						};
-																					}
-
-																					return item;
-																				},
-																			);
-
-																		setAttributes({
-																			...attributes,
-																			sidebar: {
-																				...attributes.sidebar,
-																				btnGroup: updatedBtnGroup,
-																			},
-																		});
-																	}}
-																	__next40pxDefaultSize
-																/>
-
-																<TextControl
-																	label={__("Link", "rootblox")}
-																	placeholder="https://"
-																	type="url"
-																	value={btn.link}
-																	onChange={(newValue) => {
-																		const updatedBtnGroup =
-																			attributes.sidebar.btnGroup.map(
-																				(item, i) => {
-																					if (i === index) {
-																						return {
-																							label: item.label,
-																							link: newValue,
-																							openNewTab: item.openNewTab,
-																							noFollow: item.noFollow,
-																						};
-																					}
-
-																					return item;
-																				},
-																			);
-
-																		setAttributes({
-																			...attributes,
-																			sidebar: {
-																				...attributes.sidebar,
-																				btnGroup: updatedBtnGroup,
-																			},
-																		});
-																	}}
-																	__next40pxDefaultSize
-																/>
-
-																<CheckboxControl
-																	label={__("Open in New Tab", "rootblox")}
-																	checked={btn.openNewTab}
-																	onChange={(newValue) => {
-																		const updatedBtnGroup =
-																			attributes.sidebar.btnGroup.map(
-																				(item, i) => {
-																					if (i === index) {
-																						return {
-																							label: item.label,
-																							link: item.link,
-																							openNewTab: newValue,
-																							noFollow: item.noFollow,
-																						};
-																					}
-
-																					return item;
-																				},
-																			);
-
-																		setAttributes({
-																			...attributes,
-																			sidebar: {
-																				...attributes.sidebar,
-																				btnGroup: updatedBtnGroup,
-																			},
-																		});
-																	}}
-																/>
-
-																<CheckboxControl
-																	label={__("Mark as no follow", "rootblox")}
-																	checked={btn.noFollow}
-																	onChange={(newValue) => {
-																		const updatedBtnGroup =
-																			attributes.sidebar.btnGroup.map(
-																				(item, i) => {
-																					if (i === index) {
-																						return {
-																							label: item.label,
-																							link: item.link,
-																							openNewTab: item.openNewTab,
-																							noFollow: newValue,
-																						};
-																					}
-
-																					return item;
-																				},
-																			);
-
-																		setAttributes({
-																			...attributes,
-																			sidebar: {
-																				...attributes.sidebar,
-																				btnGroup: updatedBtnGroup,
-																			},
-																		});
-																	}}
-																/>
-
-																{index > 0 && (
-																	<span
-																		id="clear-flex"
-																		onClick={() => {
+														return (
+															<>
+																<div
+																	className={`flex-wrap flex-${layoutIndex}`}
+																>
+																	<TextControl
+																		label={__("Label", "rootblox")}
+																		placeholder={__("Add Text", "rootblox")}
+																		value={btn.label}
+																		onChange={(newValue) => {
 																			const updatedBtnGroup =
-																				attributes.sidebar.btnGroup.filter(
-																					(_, i) => i !== index,
+																				attributes.sidebar.btnGroup.map(
+																					(item, i) => {
+																						if (i === index) {
+																							return {
+																								...item,
+																								label: newValue,
+																							};
+																						}
+
+																						return item;
+																					},
 																				);
 
 																			setAttributes({
@@ -608,26 +667,233 @@ export const Settings = memo(() => {
 																				},
 																			});
 																		}}
-																	>
-																		<svg
-																			width="10"
-																			height="10"
-																			viewBox="0 0 10 10"
-																			fill="none"
-																			xmlns="http://www.w3.org/2000/svg"
+																		__next40pxDefaultSize
+																	/>
+
+																	<TextControl
+																		label={__("Link", "rootblox")}
+																		placeholder="https://"
+																		type="url"
+																		value={btn.link}
+																		onChange={(newValue) => {
+																			const updatedBtnGroup =
+																				attributes.sidebar.btnGroup.map(
+																					(item, i) => {
+																						if (i === index) {
+																							return {
+																								...item,
+																								link: newValue,
+																							};
+																						}
+
+																						return item;
+																					},
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				sidebar: {
+																					...attributes.sidebar,
+																					btnGroup: updatedBtnGroup,
+																				},
+																			});
+																		}}
+																		__next40pxDefaultSize
+																	/>
+
+																	<CheckboxControl
+																		label={__("Open in New Tab", "rootblox")}
+																		checked={btn.openNewTab}
+																		onChange={(newValue) => {
+																			const updatedBtnGroup =
+																				attributes.sidebar.btnGroup.map(
+																					(item, i) => {
+																						if (i === index) {
+																							return {
+																								...item,
+																								openNewTab: newValue,
+																							};
+																						}
+
+																						return item;
+																					},
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				sidebar: {
+																					...attributes.sidebar,
+																					btnGroup: updatedBtnGroup,
+																				},
+																			});
+																		}}
+																	/>
+
+																	<CheckboxControl
+																		label={__("Mark as no follow", "rootblox")}
+																		checked={btn.noFollow}
+																		onChange={(newValue) => {
+																			const updatedBtnGroup =
+																				attributes.sidebar.btnGroup.map(
+																					(item, i) => {
+																						if (i === index) {
+																							return {
+																								...item,
+																								noFollow: newValue,
+																							};
+																						}
+
+																						return item;
+																					},
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				sidebar: {
+																					...attributes.sidebar,
+																					btnGroup: updatedBtnGroup,
+																				},
+																			});
+																		}}
+																	/>
+
+																	<br />
+
+																	<PanelColorSettings
+																		title={__("Color", "rootblox")}
+																		className="cthf__color-panel"
+																		enableAlpha={true}
+																		colorSettings={[
+																			{
+																				label: __("Text", "rootblox"),
+																				value: btn.textColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										textColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																			{
+																				label: __("Background", "rootblox"),
+																				value: btn.bgColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										bgColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																		]}
+																	/>
+
+																	{index > 0 && (
+																		<span
+																			id="clear-flex"
+																			onClick={() => {
+																				const updatedBtnGroup =
+																					attributes.sidebar.btnGroup.filter(
+																						(_, i) => i !== index,
+																					);
+
+																				setAttributes({
+																					...attributes,
+																					sidebar: {
+																						...attributes.sidebar,
+																						btnGroup: updatedBtnGroup,
+																					},
+																				});
+																			}}
 																		>
-																			<path
-																				d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
-																				fill="#cf2e2e"
-																			/>
-																		</svg>
-																	</span>
-																)}
-															</div>
-														</>
-													);
-												})}
-										</div>
+																			<svg
+																				width="10"
+																				height="10"
+																				viewBox="0 0 10 10"
+																				fill="none"
+																				xmlns="http://www.w3.org/2000/svg"
+																			>
+																				<path
+																					d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
+																					fill="#cf2e2e"
+																				/>
+																			</svg>
+																		</span>
+																	)}
+																</div>
+															</>
+														);
+													})}
+											</div>
+
+											<ToggleGroupControl
+												label={__("Justification", "rootblox")}
+												value={attributes.sidebarCTA.justification}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarCTA: {
+															...attributes.sidebarCTA,
+															justification: newValue,
+														},
+													})
+												}
+											>
+												<ToggleGroupControlIconOption
+													label={__("Left", "rootblox")}
+													icon={justifyLeft}
+													value="left"
+												/>
+												<ToggleGroupControlIconOption
+													label={__("Center", "rootblox")}
+													icon={justifyCenter}
+													value="center"
+												/>
+												<ToggleGroupControlIconOption
+													label={__("Right", "rootblox")}
+													icon={justifyRight}
+													value="right"
+												/>
+												<ToggleGroupControlIconOption
+													label={__("Space Between", "rootblox")}
+													icon={justifySpaceBetween}
+													value="space-between"
+												/>
+											</ToggleGroupControl>
+										</>
 									)}
 								</>
 							)}

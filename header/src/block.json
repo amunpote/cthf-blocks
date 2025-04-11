@@ -59,7 +59,9 @@
                         "label": "Subscribe",
                         "link": "#",
                         "openNewTab": false,
-                        "noFollow": false
+                        "noFollow": false,
+                        "textColor": "",
+                        "bgColor": ""
                     }
                 ],
                 "social": false,
@@ -76,7 +78,89 @@
         "siteLogo": {
             "type": "object",
             "default": {
+                "useDefaultLogo": true,
+                "custom": {
+                    "id": "",
+                    "url": ""
+                },
                 "width": "200px"
+            }
+        },
+        "navigation": {
+            "type": "object",
+            "default": {
+                "menuGap": "",
+                "submenuGap": "",
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "margin": {
+                    "top": "",
+                    "bottom": ""
+                },
+                "border": {
+                    "width": "",
+                    "style": "",
+                    "color": ""
+                },
+                "font": {
+                    "size": "",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
+                "color": {
+                    "icon": "",
+                    "iconHover": "",
+                    "text": "",
+                    "textHover": "",
+                    "submenu": "",
+                    "submenuHover": ""
+                }
+            }
+        },
+        "sidebarCTA": {
+            "type": "object",
+            "default": {
+                "stacked": true,
+                "gap": "",
+                "rowGap": "",
+                "width": "",
+                "justification": "center",
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "border": {
+                    "width": "",
+                    "style": "",
+                    "color": ""
+                },
+                "radius": "6px",
+                "font": {
+                    "size": "",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
+                "color": {
+                    "text": "",
+                    "textHover": "",
+                    "bg": "",
+                    "bgHover": "",
+                    "borderHover": ""
+                }
             }
         },
         "search": {

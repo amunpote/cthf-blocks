@@ -30,11 +30,19 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 		initialMobileOptions.filter((item) => !allSelected.includes(item)),
 	);
 
+	const [logoSelected, setLogoSelected] = useState(false);
 	const [navigationSelected, setNavigationSelected] = useState(false);
 	const [searchSelected, setSearchSelected] = useState(false);
 	const [btnSelected, setBtnSelected] = useState(false);
 	useEffect(() => {
 		const remainingOptions = mobileOptions.flat();
+
+		if (!remainingOptions.includes("Site Logo")) {
+			setLogoSelected(true);
+		} else {
+			setLogoSelected(false);
+		}
+
 		if (!remainingOptions.includes("Navigation")) {
 			setNavigationSelected(true);
 		} else {
@@ -83,6 +91,7 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 									initialMobileOptions,
 									mobileOptions,
 									setMobileOptions,
+									logoSelected,
 									navigationSelected,
 									searchSelected,
 									btnSelected,
