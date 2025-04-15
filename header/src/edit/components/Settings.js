@@ -27,6 +27,9 @@ import {
 	justifyCenter,
 	justifyRight,
 	justifySpaceBetween,
+	alignLeft,
+	alignCenter,
+	alignRight,
 } from "@wordpress/icons";
 
 import { memo, useState, useEffect, useContext } from "@wordpress/element";
@@ -860,7 +863,7 @@ export const Settings = memo(() => {
 											</div>
 
 											<ToggleGroupControl
-												label={__("Justification", "rootblox")}
+												label={__("CTA Button Justification", "rootblox")}
 												value={attributes.sidebarCTA.justification}
 												onChange={(newValue) =>
 													setAttributes({
@@ -924,6 +927,220 @@ export const Settings = memo(() => {
 											})
 										}
 									/>
+
+									{attributes.sidebar.social && (
+										<>
+											<FormTokenField
+												label={__("Add Social Links", "rootblox")}
+												placeholder={__("Select Social Media", "rootblox")}
+												suggestions={[
+													"Facebook",
+													"Instagram",
+													"Linkedin",
+													"Whatsapp",
+													"X",
+													"Pinterest",
+													"Spotify",
+													"Medium",
+													"Reddit",
+													"RSS",
+													"Tiktok",
+													"Telegram",
+													"Snapchat",
+													"VK",
+													"Tumblr",
+													"Youtube",
+													"Twitch",
+													"Yelp",
+													"Etsy",
+													"Dribble",
+													"Behance",
+												]}
+												value={attributes.sidebarSocial.elements}
+												onChange={(token) => {
+													// Add missing tokens
+													token.forEach((social) => {
+														if (
+															!attributes.sidebarSocial.links.find(
+																(item) => item.label === social,
+															)
+														) {
+															attributes.sidebarSocial.links.push({
+																label: social,
+																url: "",
+															});
+														}
+													});
+
+													// Remove items not in token
+													const socialLinks =
+														attributes.sidebarSocial.links.filter((item) =>
+															token.includes(item.label),
+														);
+
+													setAttributes({
+														...attributes,
+														sidebarSocial: {
+															...attributes.sidebarSocial,
+															elements: token,
+															links: socialLinks,
+														},
+													});
+												}}
+												__experimentalExpandOnFocus
+												__next40pxDefaultSize
+											/>
+
+											<ToggleControl
+												label={__("Stack Layout", "rootblox")}
+												checked={attributes.sidebarSocial.stackLayout}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarSocial: {
+															...attributes.sidebarSocial,
+															stackLayout: newValue,
+														},
+													})
+												}
+											/>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper
+													styles={{ marginTop: "0", maxWidth: "50%" }}
+												>
+													<UnitControl
+														label={__("HGap", "rootblox")}
+														value={attributes.sidebarSocial.gap}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebarSocial: {
+																	...attributes.sidebarSocial,
+																	gap: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												{attributes.sidebarSocial.stackLayout && (
+													<>
+														<AttrWrapper styles={{ marginTop: "0" }}>
+															<UnitControl
+																label={__("VGap", "rootblox")}
+																value={attributes.sidebarSocial.rowGap}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarSocial: {
+																			...attributes.sidebarSocial,
+																			rowGap: newValue,
+																		},
+																	})
+																}
+																__next40pxDefaultSize
+															/>
+														</AttrWrapper>
+													</>
+												)}
+											</div>
+
+											<ToggleGroupControl
+												label={__("Icon Justification", "rootblox")}
+												value={attributes.sidebarSocial.justification}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarSocial: {
+															...attributes.sidebarSocial,
+															justification: newValue,
+														},
+													})
+												}
+											>
+												<ToggleGroupControlIconOption
+													label={__("Left", "rootblox")}
+													icon={justifyLeft}
+													value="left"
+												/>
+												<ToggleGroupControlIconOption
+													label={__("Center", "rootblox")}
+													icon={justifyCenter}
+													value="center"
+												/>
+												<ToggleGroupControlIconOption
+													label={__("Right", "rootblox")}
+													icon={justifyRight}
+													value="right"
+												/>
+											</ToggleGroupControl>
+
+											<CheckboxControl
+												label={__("Open Link in new tab", "rootblox")}
+												checked={attributes.sidebarSocial.openNewTab}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarSocial: {
+															...attributes.sidebarSocial,
+															openNewTab: newValue,
+														},
+													})
+												}
+											/>
+
+											<CheckboxControl
+												label={__("Mark as no follow", "rootblox")}
+												checked={attributes.sidebarSocial.noFollow}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarSocial: {
+															...attributes.sidebarSocial,
+															noFollow: newValue,
+														},
+													})
+												}
+											/>
+
+											{attributes.sidebarSocial.links.length > 0 && (
+												<>
+													{attributes.sidebarSocial.links.map((social) => {
+														return (
+															<>
+																<TextControl
+																	label={social.label}
+																	type="url"
+																	placeholder="https://"
+																	value={social.url}
+																	onChange={(newValue) => {
+																		const updatedLinks =
+																			attributes.sidebarSocial.links.map(
+																				(item) =>
+																					item.label === social.label
+																						? { ...item, url: newValue }
+																						: item,
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			sidebarSocial: {
+																				...attributes.sidebarSocial,
+																				links: updatedLinks,
+																			},
+																		});
+																	}}
+																	__next40pxDefaultSize
+																/>
+															</>
+														);
+													})}
+												</>
+											)}
+										</>
+									)}
 								</>
 							)}
 
@@ -980,6 +1197,36 @@ export const Settings = memo(() => {
 									</ToggleGroupControl>
 								</AttrWrapper>
 							)}
+
+							<ToggleGroupControl
+								label={__("Content Alignment", "rootblox")}
+								value={attributes.sidebar.contentAlign}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										sidebar: {
+											...attributes.sidebar,
+											contentAlign: newValue,
+										},
+									})
+								}
+							>
+								<ToggleGroupControlIconOption
+									label={__("Left", "rootblox")}
+									icon={alignLeft}
+									value="left"
+								/>
+								<ToggleGroupControlIconOption
+									label={__("Center", "rootblox")}
+									icon={alignCenter}
+									value="center"
+								/>
+								<ToggleGroupControlIconOption
+									label={__("Right", "rootblox")}
+									icon={alignRight}
+									value="right"
+								/>
+							</ToggleGroupControl>
 						</PanelBody>
 					</Panel>
 				)}

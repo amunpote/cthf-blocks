@@ -12,8 +12,10 @@ import {
 	__experimentalUnitControl as UnitControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	SelectControl,
 	ToggleControl,
+	CheckboxControl,
 } from "@wordpress/components";
 
 import {
@@ -214,24 +216,25 @@ export const Styles = memo(() => {
 										</AttrWrapper>
 
 										<TabPanel
-											className="cthf__tab-panel"
+											className="cthf__tab-panel attr-panel"
 											tabs={[
 												{
 													title: __("Menu", "rootblox"),
 													name: "cthf__tab-1",
-													className: "cthf__tab",
+													className: "cthf__tab attr-tab",
 												},
 												{
 													title: __("Buttons", "rootblox"),
 													name: "cthf__tab-2",
-													className: "cthf__tab",
+													className: "cthf__tab attr-tab",
 												},
 												{
 													title: __("Socials", "rootblox"),
 													name: "cthf__tab-3",
-													className: "cthf__tab",
+													className: "cthf__tab attr-tab",
 												},
 											]}
+											activeClass="attr-active"
 										>
 											{(tab) => (
 												<>
@@ -662,6 +665,48 @@ export const Styles = memo(() => {
 															</AttrWrapper>
 
 															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ marginBottom: "0" }}>
+																	<UnitControl
+																		label={__("Margin Top", "rootblox")}
+																		value={attributes.sidebarCTA.margin.top}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					margin: {
+																						...attributes.sidebarCTA.margin,
+																						top: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ marginBottom: "0" }}>
+																	<UnitControl
+																		label={__("Margin Bottom", "rootblox")}
+																		value={attributes.sidebarCTA.margin.bottom}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					margin: {
+																						...attributes.sidebarCTA.margin,
+																						bottom: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<div className="cthf__attr-divider">
 																<AttrWrapper>
 																	<BorderControl
 																		label={__("Border", "rootblox")}
@@ -1034,7 +1079,371 @@ export const Styles = memo(() => {
 														</>
 													)}
 
-													{tab.name === "cthf__tab-3" && <></>}
+													{tab.name === "cthf__tab-3" && (
+														<>
+															<div className="cthf__attr-divider">
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Margin Top", "rootblox")}
+																		value={attributes.sidebarSocial.margin.top}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarSocial: {
+																					...attributes.sidebarSocial,
+																					margin: {
+																						...attributes.sidebarSocial.margin,
+																						top: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper>
+																	<UnitControl
+																		label={__("Margin Bottom", "rootblox")}
+																		value={
+																			attributes.sidebarSocial.margin.bottom
+																		}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarSocial: {
+																					...attributes.sidebarSocial,
+																					margin: {
+																						...attributes.sidebarSocial.margin,
+																						bottom: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</div>
+
+															<ToggleGroupControl
+																label={__("Icon View", "rootblox")}
+																value={attributes.sidebarSocial.view}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarSocial: {
+																			...attributes.sidebarSocial,
+																			view: newValue,
+																		},
+																	})
+																}
+																isBlock
+																__next40pxDefaultSize
+															>
+																<ToggleGroupControlOption
+																	label={__("Default", "rootblox")}
+																	value="default"
+																/>
+																<ToggleGroupControlOption
+																	label={__("Stacked", "rootblox")}
+																	value="stacked"
+																/>
+															</ToggleGroupControl>
+
+															<AttrWrapper styles={{ maxWidth: "50%" }}>
+																<UnitControl
+																	label={__("Icon Size", "rootblox")}
+																	value={attributes.sidebarSocial.size}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarSocial: {
+																				...attributes.sidebarSocial,
+																				size: newValue,
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</AttrWrapper>
+
+															{attributes.sidebarSocial.view === "stacked" && (
+																<>
+																	<div className="cthf__attr-divider">
+																		<AttrWrapper styles={{ margin: "0" }}>
+																			<UnitControl
+																				label={__("Box Width", "rootblox")}
+																				value={
+																					attributes.sidebarSocial.boxWidth
+																				}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							boxWidth: newValue,
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+
+																		<AttrWrapper styles={{ margin: "0" }}>
+																			<UnitControl
+																				label={__("Box Height", "rootblox")}
+																				value={
+																					attributes.sidebarSocial.boxHeight
+																				}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							boxHeight: newValue,
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+																	</div>
+
+																	<div className="cthf__attr-divider">
+																		<AttrWrapper>
+																			<BorderControl
+																				label={__("Border", "rootblox")}
+																				enableAlpha={true}
+																				colors={themeColorPalette}
+																				value={attributes.sidebarSocial.border}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							border: newValue,
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+
+																		<AttrWrapper>
+																			<UnitControl
+																				label={__("Border Radius", "rootblox")}
+																				value={attributes.sidebarSocial.radius}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							radius: newValue,
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+																	</div>
+																</>
+															)}
+
+															<CheckboxControl
+																label={__("Use Brand Color", "rootblox")}
+																checked={attributes.sidebarSocial.useBrandColor}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarSocial: {
+																			...attributes.sidebarSocial,
+																			useBrandColor: newValue,
+																		},
+																	})
+																}
+															/>
+
+															{attributes.sidebarSocial.useBrandColor && (
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<PanelColorSettings
+																		className="cthf__color-panel cthf__border-none"
+																		enableAlpha={true}
+																		title={__(
+																			"Socials Color Palette",
+																			"rootblox",
+																		)}
+																		colorSettings={[
+																			{
+																				label: __("Icon (Hover)", "rootblox"),
+																				value:
+																					attributes.sidebarSocial.color
+																						.iconHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								iconHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __(
+																					"Background (Hover)",
+																					"rootblox",
+																				),
+																				value:
+																					attributes.sidebarSocial.color
+																						.bgHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								bgHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __("Border (Hover)", "rootblox"),
+																				value:
+																					attributes.sidebarSocial.color
+																						.borderHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								borderHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																		]}
+																	/>
+																</AttrWrapper>
+															)}
+															{!attributes.sidebarSocial.useBrandColor && (
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<PanelColorSettings
+																		className="cthf__color-panel cthf__border-none"
+																		enableAlpha={true}
+																		title={__(
+																			"Socials Color Palette",
+																			"rootblox",
+																		)}
+																		colorSettings={[
+																			{
+																				label: __("Icon (Default)", "rootblox"),
+																				value:
+																					attributes.sidebarSocial.color.icon,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								icon: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __("Icon (Hover)", "rootblox"),
+																				value:
+																					attributes.sidebarSocial.color
+																						.iconHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								iconHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __(
+																					"Background (Default)",
+																					"rootblox",
+																				),
+																				value:
+																					attributes.sidebarSocial.color.bg,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								bg: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __(
+																					"Background (Hover)",
+																					"rootblox",
+																				),
+																				value:
+																					attributes.sidebarSocial.color
+																						.bgHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								bgHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																			{
+																				label: __("Border (Hover)", "rootblox"),
+																				value:
+																					attributes.sidebarSocial.color
+																						.borderHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSocial: {
+																							...attributes.sidebarSocial,
+																							color: {
+																								...attributes.sidebarSocial
+																									.color,
+																								borderHover: newValue,
+																							},
+																						},
+																					}),
+																			},
+																		]}
+																	/>
+																</AttrWrapper>
+															)}
+														</>
+													)}
 												</>
 											)}
 										</TabPanel>

@@ -70,6 +70,7 @@
           }
         ],
         "social": false,
+        "contentAlign": "center",
         "width": "450px",
         "position": "left",
         "padding": {
@@ -103,8 +104,8 @@
           "left": ""
         },
         "margin": {
-          "top": "",
-          "bottom": ""
+          "top": "26px",
+          "bottom": "26px"
         },
         "border": {
           "width": "",
@@ -138,11 +139,15 @@
         "rowGap": "",
         "width": "",
         "justification": "center",
-        "padding": {
+        "margin": {
           "top": "",
-          "right": "",
-          "bottom": "",
-          "left": ""
+          "bottom": "26px"
+        },
+        "padding": {
+          "top": "14px",
+          "right": "36px",
+          "bottom": "14px",
+          "left": "36px"
         },
         "border": {
           "width": "",
@@ -160,8 +165,43 @@
         "lineHeight": "",
         "letterSpacing": "",
         "color": {
-          "text": "",
+          "text": "#fff",
           "textHover": "",
+          "bg": "#5144ff",
+          "bgHover": "#f90",
+          "borderHover": ""
+        }
+      }
+    },
+    "sidebarSocial": {
+      "type": "object",
+      "default": {
+        "elements": [],
+        "links": [],
+        "stackLayout": true,
+        "gap": "10px",
+        "rowGap": "10px",
+        "justification": "center",
+        "useBrandColor": true,
+        "openNewTab": true,
+        "noFollow": false,
+        "view": "stacked",
+        "margin": {
+          "top": "",
+          "bottom": ""
+        },
+        "boxWidth": "36px",
+        "boxHeight": "36px",
+        "border": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
+        "radius": "100px",
+        "size": "20px",
+        "color": {
+          "icon": "",
+          "iconHover": "",
           "bg": "",
           "bgHover": "",
           "borderHover": ""
@@ -182,10 +222,10 @@
         "openNewTab": false,
         "noFollow": false,
         "padding": {
-          "top": "",
-          "right": "",
-          "bottom": "",
-          "left": ""
+          "top": "14px",
+          "right": "36px",
+          "bottom": "14px",
+          "left": "36px"
         },
         "border": {
           "style": "",
@@ -208,10 +248,10 @@
         "lineHeight": "",
         "letterSpacing": "",
         "color": {
-          "text": "",
+          "text": "#fff",
           "textHover": "",
-          "bg": "",
-          "bgHover": "",
+          "bg": "#5144ff",
+          "bgHover": "#f90",
           "borderHover": ""
         }
       }
