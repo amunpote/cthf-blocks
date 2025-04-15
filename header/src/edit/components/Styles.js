@@ -306,7 +306,7 @@ export const Styles = memo(() => {
 																</AttrWrapper>
 															</div>
 
-															<AttrWrapper styles={{ margin: "0" }}>
+															<AttrWrapper styles={{ marginTop: "0" }}>
 																<BorderBoxControl
 																	label={__("Border", "rootblox")}
 																	enableAlpha={true}
@@ -324,42 +324,6 @@ export const Styles = memo(() => {
 																	__next40pxDefaultSize
 																/>
 															</AttrWrapper>
-
-															<div className="cthf__attr-divider">
-																<AttrWrapper>
-																	<UnitControl
-																		label={__("Menu Gap", "rootblox")}
-																		value={attributes.navigation.menuGap}
-																		onChange={(newValue) =>
-																			setAttributes({
-																				...attributes,
-																				navigation: {
-																					...attributes.navigation,
-																					menuGap: newValue,
-																				},
-																			})
-																		}
-																		__next40pxDefaultSize
-																	/>
-																</AttrWrapper>
-
-																<AttrWrapper>
-																	<UnitControl
-																		label={__("Submenu Gap", "rootblox")}
-																		value={attributes.navigation.submenuGap}
-																		onChange={(newValue) =>
-																			setAttributes({
-																				...attributes,
-																				navigation: {
-																					...attributes.navigation,
-																					submenuGap: newValue,
-																				},
-																			})
-																		}
-																		__next40pxDefaultSize
-																	/>
-																</AttrWrapper>
-															</div>
 
 															<SelectControl
 																label={__("Font Family", "rootblox")}

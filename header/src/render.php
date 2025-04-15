@@ -23,6 +23,20 @@ $colors = array(
 $mm_styles      = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
 	'logo_width'      => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
+	'layout_attr'     => array(
+		'0' => array(
+			'gap'       => isset( $attributes['mobileMenu']['layoutAttr'][0]['gap'] ) ? $attributes['mobileMenu']['layoutAttr'][0]['gap'] : '',
+			'flex_wrap' => isset( $attributes['mobileMenu']['layoutAttr'][0]['stackLayout'] ) && filter_Var( $attributes['mobileMenu']['layoutAttr'][0]['stackLayout'], FILTER_VALIDATE_BOOLEAN ) ? 'wrap' : 'nowrap',
+		),
+		'1' => array(
+			'gap'       => isset( $attributes['mobileMenu']['layoutAttr'][1]['gap'] ) ? $attributes['mobileMenu']['layoutAttr'][1]['gap'] : '',
+			'flex_wrap' => isset( $attributes['mobileMenu']['layoutAttr'][1]['stackLayout'] ) && filter_Var( $attributes['mobileMenu']['layoutAttr'][1]['stackLayout'], FILTER_VALIDATE_BOOLEAN ) ? 'wrap' : 'nowrap',
+		),
+		'2' => array(
+			'gap'       => isset( $attributes['mobileMenu']['layoutAttr'][2]['gap'] ) ? $attributes['mobileMenu']['layoutAttr'][2]['gap'] : '',
+			'flex_wrap' => isset( $attributes['mobileMenu']['layoutAttr'][2]['stackLayout'] ) && filter_Var( $attributes['mobileMenu']['layoutAttr'][2]['stackLayout'], FILTER_VALIDATE_BOOLEAN ) ? 'wrap' : 'nowrap',
+		),
+	),
 );
 $sidebar_styles = array(
 	'width'   => isset( $attributes['sidebar']['width'] ) ? $attributes['sidebar']['width'] : '',
@@ -145,6 +159,19 @@ $block_styles = "
 		&:hover {
 			color: {$nav_styles['color']['icon_hover']};
 		}
+	}
+
+	& .cthf__responsive-navigation.layout-wrap-1 {
+		gap: {$mm_styles['layout_attr']['0']['gap']};
+		flex-wrap: {$mm_styles['layout_attr']['0']['flex_wrap']};
+	}
+	& .cthf__responsive-navigation.layout-wrap-2 {
+		gap: {$mm_styles['layout_attr']['1']['gap']};
+		flex-wrap: {$mm_styles['layout_attr']['1']['flex_wrap']};
+	}
+	& .cthf__responsive-navigation.layout-wrap-3 {
+		gap: {$mm_styles['layout_attr']['2']['gap']};
+		flex-wrap: {$mm_styles['layout_attr']['2']['flex_wrap']};
 	}
 
 	& .custom-logo {

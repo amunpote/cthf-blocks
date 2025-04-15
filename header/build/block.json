@@ -43,6 +43,20 @@
             "Navigation"
           ]
         ],
+        "layoutAttr": [
+          {
+            "stackLayout": true,
+            "gap": "10px"
+          },
+          {
+            "stackLayout": true,
+            "gap": "10px"
+          },
+          {
+            "stackLayout": true,
+            "gap": "10px"
+          }
+        ],
         "breakpoint": 1280,
         "wrapperPadding": {
           "top": "26px",
@@ -95,8 +109,8 @@
     "navigation": {
       "type": "object",
       "default": {
-        "menuGap": "",
-        "submenuGap": "",
+        "menuGap": "16px",
+        "submenuGap": "6px",
         "padding": {
           "top": "",
           "right": "",

@@ -341,6 +341,62 @@ export const Settings = memo(() => {
 																__experimentalExpandOnFocus
 															/>
 
+															<AttrWrapper
+																styles={{
+																	maxWidth: "50%",
+																}}
+															>
+																<UnitControl
+																	label={__("Gap", "rootblox")}
+																	value={
+																		attributes.mobileMenu.layoutAttr[index].gap
+																	}
+																	onChange={(newValue) => {
+																		const updatedValue =
+																			attributes.mobileMenu.layoutAttr.map(
+																				(item, i) =>
+																					i === index
+																						? { ...item, gap: newValue }
+																						: item,
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			mobileMenu: {
+																				...attributes.mobileMenu,
+																				layoutAttr: updatedValue,
+																			},
+																		});
+																	}}
+																	__next40pxDefaultSize
+																/>
+															</AttrWrapper>
+
+															<ToggleControl
+																label={__("Stack Layout", "rootblox")}
+																checked={
+																	attributes.mobileMenu.layoutAttr[index]
+																		.stackLayout
+																}
+																onChange={(newValue) => {
+																	const updatedValue =
+																		attributes.mobileMenu.layoutAttr.map(
+																			(item, i) =>
+																				i === index
+																					? { ...item, stackLayout: newValue }
+																					: item,
+																		);
+
+																	setAttributes({
+																		...attributes,
+																		mobileMenu: {
+																			...attributes.mobileMenu,
+																			layoutAttr: updatedValue,
+																		},
+																	});
+																}}
+															/>
+
 															{index > 0 && (
 																<span
 																	id="clear-flex"
@@ -566,7 +622,7 @@ export const Settings = memo(() => {
 
 							{attributes.sidebar.navigation && (
 								<>
-									<AttrWrapper>
+									<AttrWrapper styles={{ marginBottom: "0" }}>
 										<SelectControl
 											label={__("Responsive Menu", "rootblox")}
 											options={menuOptions}
@@ -583,6 +639,42 @@ export const Settings = memo(() => {
 											__next40pxDefaultSize
 										/>
 									</AttrWrapper>
+
+									<div className="cthf__attr-divider">
+										<AttrWrapper styles={{marginTop: '10px'}}>
+											<UnitControl
+												label={__("Menu Gap", "rootblox")}
+												value={attributes.navigation.menuGap}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														navigation: {
+															...attributes.navigation,
+															menuGap: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
+										<AttrWrapper styles={{marginTop: '10px'}}>
+											<UnitControl
+												label={__("Submenu Gap", "rootblox")}
+												value={attributes.navigation.submenuGap}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														navigation: {
+															...attributes.navigation,
+															submenuGap: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+									</div>
 								</>
 							)}
 
