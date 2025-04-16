@@ -50,7 +50,7 @@
                         "gap": "10px"
                     }
                 ],
-                "breakpoint": 1280,
+                "breakpoint": 980,
                 "wrapperPadding": {
                     "top": "26px",
                     "right": "26px",
@@ -73,7 +73,11 @@
                         "openNewTab": false,
                         "noFollow": false,
                         "textColor": "",
-                        "bgColor": ""
+                        "textHoverColor": "",
+                        "bgColor": "",
+                        "bgHoverColor": "",
+                        "borderColor": "",
+                        "borderHoverColor": ""
                     }
                 ],
                 "social": false,
@@ -142,8 +146,8 @@
             "type": "object",
             "default": {
                 "stacked": true,
-                "gap": "",
-                "rowGap": "",
+                "gap": "12px",
+                "rowGap": "12px",
                 "width": "",
                 "justification": "center",
                 "margin": {
@@ -218,7 +222,17 @@
         "search": {
             "type": "object",
             "default": {
-                "variation": "post"
+                "variation": "post",
+                "color": {
+                    "icon": "",
+                    "iconHover": "",
+                    "text": "",
+                    "overlay": "",
+                    "close": "",
+                    "closeHover": "",
+                    "closeBg": "",
+                    "closeBgHover": ""
+                }
             }
         },
         "ctaButton": {
@@ -268,6 +282,7 @@
             "default": {
                 "mobileBg": "#fff",
                 "text": "#000",
+                "iconHover": "#f90",
                 "sidebarBg": "#fff",
                 "sidebarCloseIcon": "#9a9a9a"
             }

@@ -586,10 +586,125 @@ export const Settings = memo(() => {
 					</Panel>
 				)}
 
+				{cthfAssets.isPremium && (
+					<>
+						{searchSelected && (
+							<Panel>
+								<PanelBody
+									title={__("Search Bar Options", "rootblox")}
+									initialOpen={false}
+								>
+									<AttrWrapper>
+										<ToggleGroupControl
+											label={__("Search Variation", "rootblox")}
+											value={attributes.search.variation}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													search: {
+														...attributes.search,
+														variation: newValue,
+													},
+												})
+											}
+											isBlock
+											__next40pxDefaultSize
+											help={__(
+												"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+												"rootblox",
+											)}
+										>
+											<ToggleGroupControlLabelOption
+												label={__("Post", "rootblox")}
+												value="post"
+											/>
+											<ToggleGroupControlLabelOption
+												label={__("Product", "rootblox")}
+												value="product"
+											/>
+										</ToggleGroupControl>
+									</AttrWrapper>
+								</PanelBody>
+							</Panel>
+						)}
+
+						{btnSelected && (
+							<Panel>
+								<PanelBody
+									title={__("CTA Button Options", "rootblox")}
+									initialOpen={false}
+								>
+									<TextControl
+										label={__("Label", "rootblox")}
+										placeholder="Add Text"
+										value={attributes.ctaButton.label}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													label: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+
+									<TextControl
+										label={__("Link", "rootblox")}
+										type="url"
+										placeholder="https://"
+										value={attributes.ctaButton.link}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													link: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+
+									<CheckboxControl
+										label={__("Open link in new tab", "rootblox")}
+										checked={attributes.ctaButton.openNewTab}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													openNewTab: newValue,
+												},
+											})
+										}
+									/>
+
+									<CheckboxControl
+										label={__("Mark as no follow", "rootblox")}
+										checked={attributes.ctaButton.noFollow}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												ctaButton: {
+													...attributes.ctaButton,
+													noFollow: newValue,
+												},
+											})
+										}
+									/>
+								</PanelBody>
+							</Panel>
+						)}
+					</>
+				)}
+
 				{navigationSelected && (
 					<Panel>
 						<PanelBody
-							title={__("Navigation Sidebar Options", "rootblox")}
+							className="cthf__light-border-bottom"
+							title={__("Sidebar Panel Settings", "rootblox")}
 							initialOpen={false}
 						>
 							<ToggleControl
@@ -641,7 +756,7 @@ export const Settings = memo(() => {
 									</AttrWrapper>
 
 									<div className="cthf__attr-divider">
-										<AttrWrapper styles={{marginTop: '10px'}}>
+										<AttrWrapper styles={{ marginTop: "10px" }}>
 											<UnitControl
 												label={__("Menu Gap", "rootblox")}
 												value={attributes.navigation.menuGap}
@@ -658,7 +773,7 @@ export const Settings = memo(() => {
 											/>
 										</AttrWrapper>
 
-										<AttrWrapper styles={{marginTop: '10px'}}>
+										<AttrWrapper styles={{ marginTop: "10px" }}>
 											<UnitControl
 												label={__("Submenu Gap", "rootblox")}
 												value={attributes.navigation.submenuGap}
@@ -860,7 +975,7 @@ export const Settings = memo(() => {
 																		enableAlpha={true}
 																		colorSettings={[
 																			{
-																				label: __("Text", "rootblox"),
+																				label: __("Text (Default)", "rootblox"),
 																				value: btn.textColor,
 																				onChange: (newValue) => {
 																					const updatedBtnGroup =
@@ -887,7 +1002,37 @@ export const Settings = memo(() => {
 																				},
 																			},
 																			{
-																				label: __("Background", "rootblox"),
+																				label: __("Text (Hover)", "rootblox"),
+																				value: btn.textHoverColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										textHoverColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																			{
+																				label: __(
+																					"Background (Default)",
+																					"rootblox",
+																				),
 																				value: btn.bgColor,
 																				onChange: (newValue) => {
 																					const updatedBtnGroup =
@@ -897,6 +1042,93 @@ export const Settings = memo(() => {
 																									return {
 																										...item,
 																										bgColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																			{
+																				label: __(
+																					"Background (Hover)",
+																					"rootblox",
+																				),
+																				value: btn.bgHoverColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										bgHoverColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																			{
+																				label: __(
+																					"Border (Default)",
+																					"rootblox",
+																				),
+																				value: btn.borderColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										borderColor: newValue,
+																									};
+																								}
+
+																								return item;
+																							},
+																						);
+
+																					setAttributes({
+																						...attributes,
+																						sidebar: {
+																							...attributes.sidebar,
+																							btnGroup: updatedBtnGroup,
+																						},
+																					});
+																				},
+																			},
+																			{
+																				label: __("Border (Hover)", "rootblox"),
+																				value: btn.borderHoverColor,
+																				onChange: (newValue) => {
+																					const updatedBtnGroup =
+																						attributes.sidebar.btnGroup.map(
+																							(item, i) => {
+																								if (i === index) {
+																									return {
+																										...item,
+																										borderHoverColor: newValue,
 																									};
 																								}
 
@@ -953,6 +1185,73 @@ export const Settings = memo(() => {
 														);
 													})}
 											</div>
+
+											<AttrWrapper styles={{ maxWidth: "40%", margin: "0" }}>
+												<UnitControl
+													label={__("Width", "rootblox")}
+													value={attributes.sidebarCTA.width}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															sidebarCTA: {
+																...attributes.sidebarCTA,
+																width: newValue,
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper>
+													<UnitControl
+														label={__("HGap", "rootblox")}
+														value={attributes.sidebarCTA.gap}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebarCTA: {
+																	...attributes.sidebarCTA,
+																	gap: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper>
+													<UnitControl
+														label={__("VGap", "rootblox")}
+														value={attributes.sidebarCTA.rowGap}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebarCTA: {
+																	...attributes.sidebarCTA,
+																	rowGap: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+
+											<ToggleControl
+												label={__("Stack Layout", "rootblox")}
+												checked={attributes.sidebarCTA.stacked}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														sidebarCTA: {
+															...attributes.sidebarCTA,
+															stacked: newValue,
+														},
+													})
+												}
+											/>
 
 											<ToggleGroupControl
 												label={__("CTA Button Justification", "rootblox")}
@@ -1321,120 +1620,6 @@ export const Settings = memo(() => {
 							</ToggleGroupControl>
 						</PanelBody>
 					</Panel>
-				)}
-
-				{cthfAssets.isPremium && (
-					<>
-						{searchSelected && (
-							<Panel>
-								<PanelBody
-									title={__("Search Bar Options", "rootblox")}
-									initialOpen={false}
-								>
-									<AttrWrapper>
-										<ToggleGroupControl
-											label={__("Search Variation", "rootblox")}
-											value={attributes.search.variation}
-											onChange={(newValue) =>
-												setAttributes({
-													...attributes,
-													search: {
-														...attributes.search,
-														variation: newValue,
-													},
-												})
-											}
-											isBlock
-											__next40pxDefaultSize
-											help={__(
-												"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
-												"rootblox",
-											)}
-										>
-											<ToggleGroupControlLabelOption
-												label={__("Post", "rootblox")}
-												value="post"
-											/>
-											<ToggleGroupControlLabelOption
-												label={__("Product", "rootblox")}
-												value="product"
-											/>
-										</ToggleGroupControl>
-									</AttrWrapper>
-								</PanelBody>
-							</Panel>
-						)}
-
-						{btnSelected && (
-							<Panel>
-								<PanelBody
-									title={__("CTA Button Options", "rootblox")}
-									initialOpen={false}
-								>
-									<TextControl
-										label={__("Label", "rootblox")}
-										placeholder="Add Text"
-										value={attributes.ctaButton.label}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												ctaButton: {
-													...attributes.ctaButton,
-													label: newValue,
-												},
-											})
-										}
-										__next40pxDefaultSize
-									/>
-
-									<TextControl
-										label={__("Link", "rootblox")}
-										type="url"
-										placeholder="https://"
-										value={attributes.ctaButton.link}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												ctaButton: {
-													...attributes.ctaButton,
-													link: newValue,
-												},
-											})
-										}
-										__next40pxDefaultSize
-									/>
-
-									<CheckboxControl
-										label={__("Open link in new tab", "rootblox")}
-										checked={attributes.ctaButton.openNewTab}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												ctaButton: {
-													...attributes.ctaButton,
-													openNewTab: newValue,
-												},
-											})
-										}
-									/>
-
-									<CheckboxControl
-										label={__("Mark as no follow", "rootblox")}
-										checked={attributes.ctaButton.noFollow}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												ctaButton: {
-													...attributes.ctaButton,
-													noFollow: newValue,
-												},
-											})
-										}
-									/>
-								</PanelBody>
-							</Panel>
-						)}
-					</>
 				)}
 			</div>
 		</>
