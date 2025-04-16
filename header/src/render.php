@@ -150,6 +150,22 @@ $search_styles = array(
 	),
 );
 
+$minicart_styles = array(
+	'color' => array(
+		'icon'       => isset( $attributes['miniCart']['color']['icon'] ) && ! empty( $attributes['miniCart']['color']['icon'] ) ? $attributes['miniCart']['color']['icon'] : $colors['text'],
+		'icon_hover' => isset( $attributes['miniCart']['color']['iconHover'] ) ? $attributes['miniCart']['color']['iconHover'] : '',
+		'text'       => isset( $attributes['miniCart']['color']['text'] ) && ! empty( $attributes['miniCart']['color']['text'] ) ? $attributes['miniCart']['color']['text'] : $colors['text'],
+		'text_bg'    => isset( $attributes['miniCart']['color']['textBg'] ) ? $attributes['miniCart']['color']['textBg'] : '',
+	),
+);
+
+$acc_styles = array(
+	'color' => array(
+		'icon'       => isset( $attributes['acc']['color']['icon'] ) && ! empty( $attributes['acc']['color']['icon'] ) ? $attributes['acc']['color']['icon'] : $colors['text'],
+		'icon_hover' => isset( $attributes['acc']['color']['iconHover'] ) ? $attributes['acc']['color']['iconHover'] : '',
+	),
+);
+
 $block_styles = "
 #$block_id {
 	background-color: {$colors['bg']};
@@ -163,8 +179,12 @@ $block_styles = "
 	{$mm_styles['wrapper_padding']}
 	background-color: {$colors['mobile_bg']};
 
-	& .wc-block-mini-cart__icon, & .search__icon, & .user__icon, & .cthf__cta-anchor-btn {
+	& .wc-block-mini-cart__icon, & .cthf__mob-icon, & .cthf__cta-anchor-btn {
 		color: {$colors['text']};
+
+		&:hover {
+			color: {$colors['icon_hover']};
+		}
 	}
 
 	& .nav__icon {
@@ -172,6 +192,26 @@ $block_styles = "
 
 		&:hover {
 			color: {$nav_styles['color']['icon_hover']};
+		}
+	}
+
+	& .wc-block-mini-cart__icon {
+		color: {$minicart_styles['color']['icon']};
+
+		&:hover {
+			color: {$minicart_styles['color']['icon_hover']};
+		}
+	}
+	& .wc-block-mini-cart__badge {
+		color: {$minicart_styles['color']['text']};
+		background: {$minicart_styles['color']['text_bg']};
+	}
+
+	& .user__icon {
+		color: {$acc_styles['color']['icon']};
+
+		&:hover {
+			color: {$acc_styles['color']['icon_hover']};
 		}
 	}
 

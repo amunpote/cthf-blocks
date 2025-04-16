@@ -34,6 +34,8 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 	const [navigationSelected, setNavigationSelected] = useState(false);
 	const [searchSelected, setSearchSelected] = useState(false);
 	const [btnSelected, setBtnSelected] = useState(false);
+	const [miniCartSelected, setMiniCartSelected] = useState(false);
+	const [accSelected, setAccSelected] = useState(false);
 	useEffect(() => {
 		const remainingOptions = mobileOptions.flat();
 
@@ -59,6 +61,18 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 			setBtnSelected(true);
 		} else {
 			setBtnSelected(false);
+		}
+
+		if (!remainingOptions.includes("Mini Cart")) {
+			setMiniCartSelected(true);
+		} else {
+			setMiniCartSelected(false);
+		}
+
+		if (!remainingOptions.includes("My Account")) {
+			setAccSelected(true);
+		} else {
+			setAccSelected(false);
 		}
 	}, [mobileOptions]);
 
@@ -95,6 +109,8 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 									navigationSelected,
 									searchSelected,
 									btnSelected,
+									miniCartSelected,
+									accSelected,
 								}}
 							>
 								{tab.name === "cthf__tab-one" && <Settings />}

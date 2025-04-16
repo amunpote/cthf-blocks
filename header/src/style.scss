@@ -270,15 +270,7 @@
 	& .cthf__mob-icon {
 		width: 15px;
 		height: 15px;
-		fill: #000;
-		display: flex;
 		cursor: pointer;
-
-		&.search__icon,
-		&.user__icon {
-			fill: none;
-			stroke: #000;
-		}
 	}
 
 	// Search Icon
@@ -286,6 +278,10 @@
 		display: flex;
 		gap: 6px;
 		align-items: center;
+
+		& .search__icon-wrapper {
+			display: flex;
+		}
 
 		& .cthf__search-modal {
 			width: 100vw;
@@ -361,6 +357,11 @@
 		& .wc-block-mini-cart__badge {
 			color: #fff;
 		}
+	}
+
+	/* My Account Icon */
+	& .cthf__my-account-wrap {
+		display: flex;
 	}
 }
 

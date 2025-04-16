@@ -106,6 +106,7 @@
         "navigation": {
             "type": "object",
             "default": {
+                "icon": "variation-1",
                 "menuGap": "16px",
                 "submenuGap": "6px",
                 "padding": {
@@ -229,9 +230,9 @@
                     "text": "",
                     "overlay": "",
                     "close": "",
-                    "closeHover": "",
+                    "closeHover": "#fff",
                     "closeBg": "",
-                    "closeBgHover": ""
+                    "closeBgHover": "#f90"
                 }
             }
         },
@@ -274,6 +275,28 @@
                     "bg": "#5144ff",
                     "bgHover": "#f90",
                     "borderHover": ""
+                }
+            }
+        },
+        "miniCart": {
+            "type": "object",
+            "default": {
+                "icon": "variation-3",
+                "color": {
+                    "icon": "",
+                    "iconHover": "",
+                    "text": "#fff",
+                    "textBg": "#ac0cff"
+                }
+            }
+        },
+        "acc": {
+            "type": "object",
+            "default": {
+                "icon": "variation-1",
+                "color": {
+                    "icon": "",
+                    "iconHover": ""
                 }
             }
         },

@@ -38,11 +38,7 @@ import {
 	UpsellAttributeWrapper,
 	AttrWrapper,
 } from "../../../../../resources/components/utility.js";
-import {
-	mapObjectIntoOptions,
-	mobileLayouts,
-	proMobileLayouts,
-} from "../utils.js";
+import { mapObjectIntoOptions } from "../utils.js";
 
 import { plusCircle } from "@wordpress/icons";
 
@@ -62,7 +58,11 @@ export const Settings = memo(() => {
 		btnSelected,
 	} = useContext(CTHFBlockContext);
 
-	const [mobileLayoutModal, setLayoutModal] = useState(false);
+	const [openPanel, setOpenPanel] = useState(null);
+
+	const togglePanel = (panelName) => {
+		setOpenPanel((current) => (current === panelName ? null : panelName));
+	};
 
 	const [navMenus, setNavMenus] = useState([]);
 
@@ -196,7 +196,11 @@ export const Settings = memo(() => {
 				</Panel>
 
 				<Panel>
-					<PanelBody title={__("Mobile Menu", "rootblox")}>
+					<PanelBody
+						title={__("Mobile Menu", "rootblox")}
+						opened={openPanel === "mobile-menu"}
+						onToggle={() => togglePanel("mobile-menu")}
+					>
 						<ToggleGroupControl
 							label={__("Overlay Menu", "rootblox")}
 							value={attributes.mobileMenu.status}
@@ -444,8 +448,10 @@ export const Settings = memo(() => {
 				{logoSelected && (
 					<Panel>
 						<PanelBody
-							title={__("Site Logo Options", "rootblox")}
+							title={__("Site Logo Settings", "rootblox")}
 							initialOpen={false}
+							opened={openPanel === "site-logo-settings"}
+							onToggle={() => togglePanel("site-logo-settings")}
 						>
 							{!cthfAssets.isPremium && (
 								<>
@@ -591,8 +597,9 @@ export const Settings = memo(() => {
 						{searchSelected && (
 							<Panel>
 								<PanelBody
-									title={__("Search Bar Options", "rootblox")}
-									initialOpen={false}
+									title={__("Search Bar Settings", "rootblox")}
+									opened={openPanel === "search-bar-settings"}
+									onToggle={() => togglePanel("search-bar-settings")}
 								>
 									<AttrWrapper>
 										<ToggleGroupControl
@@ -631,8 +638,9 @@ export const Settings = memo(() => {
 						{btnSelected && (
 							<Panel>
 								<PanelBody
-									title={__("CTA Button Options", "rootblox")}
-									initialOpen={false}
+									title={__("CTA Button Settings", "rootblox")}
+									opened={openPanel === "cta-button-settings"}
+									onToggle={() => togglePanel("cta-button-settings")}
 								>
 									<TextControl
 										label={__("Label", "rootblox")}
@@ -705,7 +713,8 @@ export const Settings = memo(() => {
 						<PanelBody
 							className="cthf__light-border-bottom"
 							title={__("Sidebar Panel Settings", "rootblox")}
-							initialOpen={false}
+							opened={openPanel === "sidebar-panel-settings"}
+							onToggle={() => togglePanel("sidebar-panel-settings")}
 						>
 							<ToggleControl
 								label={__("Enable Site Logo", "rootblox")}
