@@ -46,15 +46,15 @@
         "layoutAttr": [
           {
             "stackLayout": true,
-            "gap": "10px"
+            "gap": "20px"
           },
           {
             "stackLayout": true,
-            "gap": "10px"
+            "gap": "20px"
           },
           {
             "stackLayout": true,
-            "gap": "10px"
+            "gap": "20px"
           }
         ],
         "breakpoint": 980,
@@ -64,7 +64,8 @@
           "bottom": "26px",
           "left": "26px"
         },
-        "menuID": ""
+        "menuID": "",
+        "iconSize": ""
       }
     },
     "sidebar": {
@@ -88,7 +89,7 @@
           }
         ],
         "social": false,
-        "contentAlign": "center",
+        "contentAlign": "left",
         "width": "450px",
         "position": "left",
         "padding": {
@@ -113,6 +114,7 @@
     "navigation": {
       "type": "object",
       "default": {
+        "iconSize": "",
         "icon": "variation-1",
         "menuGap": "16px",
         "submenuGap": "6px",
@@ -230,6 +232,7 @@
     "search": {
       "type": "object",
       "default": {
+        "iconSize": "",
         "variation": "post",
         "color": {
           "icon": "",
@@ -288,7 +291,13 @@
     "miniCart": {
       "type": "object",
       "default": {
+        "iconSize": "",
         "icon": "variation-3",
+        "font": {
+          "size": "14px",
+          "weight": "",
+          "family": ""
+        },
         "color": {
           "icon": "",
           "iconHover": "",
@@ -300,6 +309,7 @@
     "acc": {
       "type": "object",
       "default": {
+        "iconSize": "",
         "icon": "variation-1",
         "color": {
           "icon": "",

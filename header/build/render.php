@@ -38,6 +38,7 @@ $mm_styles      = array(
 			'flex_wrap' => isset( $attributes['mobileMenu']['layoutAttr'][2]['stackLayout'] ) && filter_Var( $attributes['mobileMenu']['layoutAttr'][2]['stackLayout'], FILTER_VALIDATE_BOOLEAN ) ? 'wrap' : 'nowrap',
 		),
 	),
+	'icon_size'       => isset( $attributes['mobileMenu']['iconSize'] ) ? $attributes['mobileMenu']['iconSize'] : '',
 );
 $sidebar_styles = array(
 	'width'   => isset( $attributes['sidebar']['width'] ) ? $attributes['sidebar']['width'] : '',
@@ -67,6 +68,7 @@ $nav_styles = array(
 		'submenu'       => isset( $attributes['navigation']['color']['submenu'] ) && ! empty( $attributes['navigation']['color']['submenu'] ) ? $attributes['navigation']['color']['submenu'] : '',
 		'submenu_hover' => isset( $attributes['navigation']['color']['submenuHover'] ) ? $attributes['navigation']['color']['submenuHover'] : '',
 	),
+	'icon_size'      => isset( $attributes['navigation']['iconSize'] ) && ! empty( $attributes['navigation']['iconSize'] ) ? $attributes['navigation']['iconSize'] : $mm_styles['icon_size'],
 );
 
 $sidebar_cta = array(
@@ -138,7 +140,7 @@ $cta_button = array(
 );
 
 $search_styles = array(
-	'color' => array(
+	'color'     => array(
 		'icon'           => isset( $attributes['search']['color']['icon'] ) && ! empty( $attributes['search']['color']['icon'] ) ? $attributes['search']['color']['icon'] : $colors['text'],
 		'icon_hover'     => isset( $attributes['search']['color']['iconHover'] ) && ! empty( $attributes['search']['color']['iconHover'] ) ? $attributes['search']['color']['iconHover'] : $colors['icon_hover'],
 		'text'           => isset( $attributes['search']['color']['text'] ) && ! empty( $attributes['search']['color']['text'] ) ? $attributes['search']['color']['text'] : $colors['text'],
@@ -148,22 +150,29 @@ $search_styles = array(
 		'close_bg'       => isset( $attributes['search']['color']['closeBg'] ) ? $attributes['search']['color']['closeBg'] : '',
 		'close_bg_hover' => isset( $attributes['search']['color']['closeBgHover'] ) ? $attributes['search']['color']['closeBgHover'] : '',
 	),
+	'icon_size' => isset( $attributes['search']['iconSize'] ) && ! empty( $attributes['search']['iconSize'] ) ? $attributes['search']['iconSize'] : $mm_styles['icon_size'],
 );
 
 $minicart_styles = array(
-	'color' => array(
+	'font'      => array(
+		'size'   => isset( $attributes['miniCart']['font']['size'] ) ? $attributes['miniCart']['font']['size'] : '',
+		'family' => isset( $attributes['miniCart']['font']['family'] ) ? $attributes['miniCart']['font']['family'] : '',
+	),
+	'color'     => array(
 		'icon'       => isset( $attributes['miniCart']['color']['icon'] ) && ! empty( $attributes['miniCart']['color']['icon'] ) ? $attributes['miniCart']['color']['icon'] : $colors['text'],
 		'icon_hover' => isset( $attributes['miniCart']['color']['iconHover'] ) ? $attributes['miniCart']['color']['iconHover'] : '',
 		'text'       => isset( $attributes['miniCart']['color']['text'] ) && ! empty( $attributes['miniCart']['color']['text'] ) ? $attributes['miniCart']['color']['text'] : $colors['text'],
 		'text_bg'    => isset( $attributes['miniCart']['color']['textBg'] ) ? $attributes['miniCart']['color']['textBg'] : '',
 	),
+	'icon_size' => isset( $attributes['miniCart']['iconSize'] ) && ! empty( $attributes['miniCart']['iconSize'] ) ? $attributes['miniCart']['iconSize'] : $mm_styles['icon_size'],
 );
 
 $acc_styles = array(
-	'color' => array(
+	'color'     => array(
 		'icon'       => isset( $attributes['acc']['color']['icon'] ) && ! empty( $attributes['acc']['color']['icon'] ) ? $attributes['acc']['color']['icon'] : $colors['text'],
 		'icon_hover' => isset( $attributes['acc']['color']['iconHover'] ) ? $attributes['acc']['color']['iconHover'] : '',
 	),
+	'icon_size' => isset( $attributes['acc']['iconSize'] ) && ! empty( $attributes['acc']['iconSize'] ) ? $attributes['acc']['iconSize'] : $mm_styles['icon_size'],
 );
 
 $block_styles = "
@@ -187,15 +196,29 @@ $block_styles = "
 		}
 	}
 
-	& .nav__icon {
+	& .cthf__mob-icon.nav__icon {
 		color: {$nav_styles['color']['icon']};
+		width: {$nav_styles['icon_size']};
+		height: {$nav_styles['icon_size']};
 
 		&:hover {
 			color: {$nav_styles['color']['icon_hover']};
 		}
 	}
 
+	& .cthf__mob-icon.search__icon {
+		width: {$search_styles['icon_size']};
+		height: {$search_styles['icon_size']};
+	}
+
+	& .cthf__mob-icon.user__icon {
+		width: {$acc_styles['icon_size']};
+		height: {$acc_styles['icon_size']};
+	}
+
 	& .wc-block-mini-cart__icon {
+		width: {$minicart_styles['icon_size']};
+		height: {$minicart_styles['icon_size']};
 		color: {$minicart_styles['color']['icon']};
 
 		&:hover {
@@ -203,6 +226,9 @@ $block_styles = "
 		}
 	}
 	& .wc-block-mini-cart__badge {
+		font-size: {$minicart_styles['font']['size']};
+		font-weight: {$attributes['miniCart']['font']['weight']};
+		font-family: {$minicart_styles['font']['family']};
 		color: {$minicart_styles['color']['text']};
 		background: {$minicart_styles['color']['text_bg']};
 	}
@@ -433,6 +459,10 @@ if ( isset( $attributes['ctaButton']['font']['family'] ) && ! empty( $attributes
 	$font_families[] = $attributes['ctaButton']['font']['family'];
 }
 
+if ( isset( $attributes['miniCart']['font']['family'] ) && ! empty( $attributes['miniCart']['font']['family'] ) ) {
+	$font_families[] = $attributes['miniCart']['font']['family'];
+}
+
 if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attributes['navigation']['font']['family'] ) ) {
 	$font_families[] = $attributes['navigation']['font']['family'];
 }
@@ -440,6 +470,7 @@ if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attribute
 if ( isset( $attributes['sidebarCTA']['font']['family'] ) && ! empty( $attributes['sidebarCTA']['font']['family'] ) ) {
 	$font_families[] = $attributes['sidebarCTA']['font']['family'];
 }
+
 
 // Remove duplicate font families.
 $font_families = array_unique( $font_families );

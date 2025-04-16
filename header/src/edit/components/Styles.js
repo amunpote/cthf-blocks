@@ -294,6 +294,23 @@ export const Styles = memo(() => {
 										/>
 									</AttrWrapper>
 
+									<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+										<UnitControl
+											label={__("Icon Size", "rootblox")}
+											value={attributes.mobileMenu.iconSize}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														iconSize: newValue,
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</AttrWrapper>
+
 									<PanelColorSettings
 										className="cthf__color-panel"
 										title={__("Colors", "rootblox")}
@@ -680,6 +697,23 @@ export const Styles = memo(() => {
 										opened={openPanel === "search-styles"}
 										onToggle={() => togglePanel("search-styles")}
 									>
+										<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+											<UnitControl
+												label={__("Icon Size", "rootblox")}
+												value={attributes.search.iconSize}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														search: {
+															...attributes.search,
+															iconSize: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
 										<PanelColorSettings
 											className="cthf__color-panel cthf__border-none"
 											enableAlpha={true}
@@ -858,6 +892,83 @@ export const Styles = memo(() => {
 											</ToggleGroupControl>
 										</AttrWrapper>
 
+										<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+											<UnitControl
+												label={__("Icon Size", "rootblox")}
+												value={attributes.miniCart.iconSize}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														miniCart: {
+															...attributes.miniCart,
+															iconSize: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
+										<SelectControl
+											label={__("Font Family", "rootblox")}
+											options={googleFonts}
+											value={attributes.miniCart.font.family}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													miniCart: {
+														...attributes.miniCart,
+														font: {
+															...attributes.miniCart.font,
+															family: newValue,
+														},
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+
+										<div className="cthf__attr-divider">
+											<AttrWrapper styles={{ marginTop: "0" }}>
+												<UnitControl
+													label={__("Font Size", "rootblox")}
+													value={attributes.miniCart.font.size}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															miniCart: {
+																...attributes.miniCart,
+																font: {
+																	...attributes.miniCart.font,
+																	size: newValue,
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<SelectControl
+												label={__("Font Weight", "rootblox")}
+												options={fontWeights}
+												value={attributes.miniCart.font.weight}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														miniCart: {
+															...attributes.miniCart,
+															font: {
+																...attributes.miniCart.font,
+																weight: newValue,
+															},
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</div>
+
 										<PanelColorSettings
 											className="cthf__color-panel"
 											enableAlpha={true}
@@ -970,6 +1081,23 @@ export const Styles = memo(() => {
 											</ToggleGroupControl>
 										</AttrWrapper>
 
+										<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+											<UnitControl
+												label={__("Icon Size", "rootblox")}
+												value={attributes.acc.iconSize}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														acc: {
+															...attributes.acc,
+															iconSize: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
 										<PanelColorSettings
 											className="cthf__color-panel"
 											enableAlpha={true}
@@ -1051,6 +1179,23 @@ export const Styles = memo(() => {
 														value="variation-3"
 													/>
 												</ToggleGroupControl>
+											</AttrWrapper>
+
+											<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+												<UnitControl
+													label={__("Icon Size", "rootblox")}
+													value={attributes.navigation.iconSize}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															navigation: {
+																...attributes.navigation,
+																iconSize: newValue,
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
 											</AttrWrapper>
 
 											<PanelColorSettings
