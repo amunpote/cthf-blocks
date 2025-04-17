@@ -214,6 +214,11 @@ $block_styles = "
 	& .cthf__mob-icon.user__icon {
 		width: {$acc_styles['icon_size']};
 		height: {$acc_styles['icon_size']};
+		color: {$acc_styles['color']['icon']};
+
+		&:hover {
+			color: {$acc_styles['color']['icon_hover']};
+		}
 	}
 
 	& .wc-block-mini-cart__icon {
@@ -231,14 +236,6 @@ $block_styles = "
 		font-family: {$minicart_styles['font']['family']};
 		color: {$minicart_styles['color']['text']};
 		background: {$minicart_styles['color']['text_bg']};
-	}
-
-	& .user__icon {
-		color: {$acc_styles['color']['icon']};
-
-		&:hover {
-			color: {$acc_styles['color']['icon_hover']};
-		}
 	}
 
 	& .cthf__responsive-navigation.layout-wrap-1 {
@@ -438,17 +435,9 @@ if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'
 			wp_die( 'Not allowed!' );
 		}
 
-		$redirection_post_type = $attributes['search']['variation'];
-
-		$all_plugins = get_plugins();
-
-		if ( ( ! isset( $all_plugins['woocommerce/woocommerce.php'] ) || ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) && 'product' === $redirection_post_type ) {
-			$redirection_post_type = 'post';
-		}
-
 		$site_url = get_site_url();
 
-		header( 'Location: ' . $site_url . '/?s=' . urlencode( $search_keyword ) . '&post_type=' . $redirection_post_type );
+		header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) );
 		exit;
 	}
 }
