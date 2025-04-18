@@ -19,6 +19,11 @@ export function renderBlockStyles(blockID, attributes) {
           }
         }
 
+        & .wc-block-mini-cart__icon, & .cthf__mob-icon {
+          width: ${attributes.mobileMenu.iconSize};
+          height: ${attributes.mobileMenu.iconSize};
+        }
+
         & .cthf__mob-icon.nav__icon {
           color: ${attributes.navigation.color.icon};
           width: ${attributes.navigation.iconSize};
@@ -49,6 +54,10 @@ export function renderBlockStyles(blockID, attributes) {
           }
         }
 
+        & .mini-cart__wrapper {
+          width: ${attributes.miniCart.iconSize};
+          height: ${attributes.miniCart.iconSize};
+        }
         & .wc-block-mini-cart__icon {
           width: calc(${attributes.miniCart.iconSize} - 10px);
           height: calc(${attributes.miniCart.iconSize} - 10px);

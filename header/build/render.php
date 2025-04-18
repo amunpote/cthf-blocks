@@ -437,7 +437,18 @@ if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'
 
 		$site_url = get_site_url();
 
-		header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) );
+		$redirection_post_type = $attributes['search']['variation'];
+
+		$all_plugins = get_plugins();
+		if ( ( ! isset( $all_plugins['woocommerce/woocommerce.php'] ) || ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) && 'product' === $redirection_post_type ) {
+			$redirection_post_type = 'post';
+		}
+
+		if ( empty( $redirection_post_type ) ) {
+			header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) );
+		} else {
+			header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) . '&post_type=' . rawurlencode( $redirection_post_type ) );
+		}
 		exit;
 	}
 }

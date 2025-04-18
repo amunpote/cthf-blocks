@@ -592,6 +592,160 @@ export const Settings = memo(() => {
 					</Panel>
 				)}
 
+				{cthfAssets.isPremium && (
+					<>
+						{searchSelected && (
+							<Panel>
+								<PanelBody
+									title={__("Search Bar Settings", "rootblox")}
+									initialOpen={false}
+									opened={openPanel === "search-bar-settings"}
+									onToggle={() => togglePanel("search-bar-settings")}
+								>
+									<AttrWrapper styles={{ marginTop: "0" }}>
+										<ToggleGroupControl
+											label={__("Search Variation", "rootblox")}
+											value={attributes.search.variation}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+
+													search: {
+														...attributes.search,
+
+														variation: newValue,
+													},
+												})
+											}
+											isBlock
+											__next40pxDefaultSize
+											help={__(
+												"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+												"rootblox",
+											)}
+										>
+											<ToggleGroupControlLabelOption
+												label={__("Default", "rootblox")}
+												value="default"
+											/>
+											<ToggleGroupControlLabelOption
+												label={__("Post", "rootblox")}
+												value="post"
+											/>
+											<ToggleGroupControlLabelOption
+												label={__("Product", "rootblox")}
+												value="product"
+											/>
+										</ToggleGroupControl>
+									</AttrWrapper>
+
+									{attributes.search.variation !== "default" && (
+										<>
+											<ToggleControl
+												label={__("Enable Ajax Search", "rootblox")}
+												checked={attributes.search.ajax.enabled}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														search: {
+															...attributes.search,
+															ajax: {
+																...attributes.search.ajax,
+																enabled: newValue,
+															},
+														},
+													})
+												}
+											/>
+										</>
+									)}
+								</PanelBody>
+							</Panel>
+						)}
+
+						{btnSelected && (
+							<Panel>
+								<PanelBody
+									title={__("CTA Button Options", "rootblox")}
+									initialOpen={false}
+									title={__("CTA Button Settings", "rootblox")}
+									opened={openPanel === "cta-button-settings"}
+									onToggle={() => togglePanel("cta-button-settings")}
+								>
+									<TextControl
+										label={__("Label", "rootblox")}
+										placeholder="Add Text"
+										value={attributes.ctaButton.label}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+
+												ctaButton: {
+													...attributes.ctaButton,
+
+													label: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+
+									<TextControl
+										label={__("Link", "rootblox")}
+										type="url"
+										placeholder="https://"
+										value={attributes.ctaButton.link}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+
+												ctaButton: {
+													...attributes.ctaButton,
+
+													link: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+
+									<CheckboxControl
+										label={__("Open link in new tab", "rootblox")}
+										checked={attributes.ctaButton.openNewTab}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+
+												ctaButton: {
+													...attributes.ctaButton,
+
+													openNewTab: newValue,
+												},
+											})
+										}
+									/>
+
+									<CheckboxControl
+										label={__("Mark as no follow", "rootblox")}
+										checked={attributes.ctaButton.noFollow}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+
+												ctaButton: {
+													...attributes.ctaButton,
+
+													noFollow: newValue,
+												},
+											})
+										}
+									/>
+								</PanelBody>
+							</Panel>
+						)}
+					</>
+				)}
+
 				{navigationSelected && (
 					<Panel>
 						<PanelBody

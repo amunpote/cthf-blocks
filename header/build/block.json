@@ -65,7 +65,7 @@
           "left": "26px"
         },
         "menuID": "",
-        "iconSize": ""
+        "iconSize": "20px"
       }
     },
     "sidebar": {
@@ -233,13 +233,16 @@
       "type": "object",
       "default": {
         "iconSize": "",
-        "variation": "post",
+        "variation": "default",
+        "ajax": {
+          "enabled": false
+        },
         "color": {
           "icon": "",
           "iconHover": "",
           "text": "",
-          "overlay": "",
-          "close": "",
+          "overlay": "#fff",
+          "close": "#acacac",
           "closeHover": "#fff",
           "closeBg": "",
           "closeBgHover": "#f90"
@@ -291,7 +294,7 @@
     "miniCart": {
       "type": "object",
       "default": {
-        "iconSize": "",
+        "iconSize": "30px",
         "icon": "variation-3",
         "font": {
           "size": "14px",
