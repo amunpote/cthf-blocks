@@ -24,12 +24,7 @@ import { PatternModal } from "./components/PatternModal.js";
 import { replace } from "@wordpress/icons";
 
 const HeaderBuilder = memo(
-	({ blockID, attributes, startBlank, headerContent }) => {
-		const deviceType = useSelect(
-			(select) => select("core/editor").getDeviceType(),
-			[],
-		);
-
+	({ blockID, attributes, startBlank, headerContent, deviceType }) => {
 		return (
 			<>
 				{attributes.ctaButton.font.family != "" &&
@@ -410,6 +405,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		setPatternLoader(false);
 	}
 
+	const deviceType = useSelect(
+		(select) => select("core/editor").getDeviceType(),
+		[],
+	);
+
 	return (
 		<>
 			{innerBlocks.length > 0 && (
@@ -441,12 +441,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					attributes={attributes}
 					startBlank={startBlank}
 					headerContent={headerContent}
+					deviceType={deviceType}
 				/>
 			</div>
 
 			<CTHFBlockControls
 				attributes={attributes}
 				setAttributes={setAttributes}
+				deviceType={deviceType}
 			/>
 
 			{innerBlocks.length <= 0 && headerContent.length <= 0 && !startBlank && (

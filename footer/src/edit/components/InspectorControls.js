@@ -6,11 +6,14 @@ import { TabPanel } from "@wordpress/components";
 
 import { cog, styles } from "@wordpress/icons";
 
-import { memo } from "@wordpress/element";
+import { memo, createContext } from "@wordpress/element";
 import { Settings } from "./Settings.js";
 import { Styles } from "./Styles.js";
 
+export const CTHFBlockContext = createContext(null);
+
 export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
+
 	return (
 		<>
 			<InspectorControls>
@@ -33,16 +36,16 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 				>
 					{(tab) => (
 						<>
-							{tab.name === "cthf__tab-one" && (
-								<Settings
-									attributes={attributes}
-									setAttributes={setAttributes}
-								/>
-							)}
+							<CTHFBlockContext.Provider
+								value={{
+									attributes,
+									setAttributes,
+								}}
+							>
+								{tab.name === "cthf__tab-one" && <Settings />}
 
-							{tab.name === "cthf__tab-two" && (
-								<Styles attributes={attributes} setAttributes={setAttributes} />
-							)}
+								{tab.name === "cthf__tab-two" && <Styles />}
+							</CTHFBlockContext.Provider>
 						</>
 					)}
 				</TabPanel>

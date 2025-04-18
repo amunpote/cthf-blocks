@@ -13,6 +13,35 @@
     "clientId": {
       "type": "string",
       "default": ""
+    },
+    "backToTop": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "position": "right",
+        "boxWidth": "60px",
+        "boxHeight": "60px",
+        "iconSize": "26px",
+        "margin": {
+          "top": "",
+          "right": "16px",
+          "bottom": "16px",
+          "left": ""
+        },
+        "border": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
+        "radius": "100px",
+        "color": {
+          "icon": "",
+          "iconHover": "",
+          "bg": "",
+          "bgHover": "#f90",
+          "borderHover": ""
+        }
+      }
     }
   },
   "editorScript": [
@@ -23,6 +52,9 @@
   ],
   "style": [
     "cthf-blocks--footer--style"
+  ],
+  "viewScript": [
+    "cthf-blocks--footer--frontend-script"
   ],
   "render": "file:./render.php"
 }

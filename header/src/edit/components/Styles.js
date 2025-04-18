@@ -189,6 +189,7 @@ export const Styles = memo(() => {
 	const {
 		attributes,
 		setAttributes,
+		deviceType,
 		navigationSelected,
 		searchSelected,
 		btnSelected,
@@ -264,7 +265,8 @@ export const Styles = memo(() => {
 
 				{attributes.mobileMenu.status !== "off" &&
 					(attributes.mobileMenu.status === "mobile" ||
-						attributes.mobileMenu.status === "always") && (
+						attributes.mobileMenu.status === "always") &&
+					(deviceType === "Tablet" || deviceType === "Mobile") && (
 						<>
 							<Panel>
 								<PanelBody

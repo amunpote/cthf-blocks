@@ -1,0 +1,39 @@
+.cthf-block__wrapper.footer__wrap {
+	position: relative;
+}
+
+.cthf__back-to-top-wrapper {
+	width: 16px;
+	height: 16px;
+	border-radius: 100px;
+	background-color: #5100ff;
+	color: #fff;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.5s ease;
+	}
+
+	&.position-left {
+		left: 0;
+	}
+	&.position-right {
+		right: 0;
+	}
+
+	& .cthf__back-to-top {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

@@ -32,9 +32,33 @@ const FooterBuilder = memo(
 
 					{startBlank && <InnerBlocks template={blankTemplate} />}
 				</div>
+
+				{attributes.backToTop.enabled && (
+					<>
+						<div
+							className={`cthf__back-to-top-wrapper position-${attributes.backToTop.position} element-${blockID}`}
+						>
+							<svg
+								className="cthf__back-to-top"
+								width="8"
+								height="18"
+								viewBox="0 0 8 18"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									fillRule="evenodd"
+									clipRule="evenodd"
+									d="M0.142488 3.23847L3.23847 0.142488C3.42845 -0.0474959 3.73648 -0.0474959 3.92646 0.142488L7.02245 3.23847C7.21243 3.42845 7.21243 3.73648 7.02245 3.92646C6.83246 4.11645 6.52444 4.11645 6.33445 3.92646L4.06895 1.66097L4.06895 18L3.09598 18L3.09598 1.66097L0.830484 3.92647C0.640499 4.11645 0.332473 4.11645 0.142488 3.92647C-0.0474968 3.73648 -0.0474968 3.42845 0.142488 3.23847Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</div>
+					</>
+				)}
 			</>
 		);
-	}
+	},
 );
 
 export default function Edit({ attributes, setAttributes, clientId }) {
@@ -46,7 +70,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const blockID = `cthf_${clientId.replace(/-/gi, "_")}`;
 
-	const blockProps = useBlockProps({ className: "cthf-block__wrapper" });
+	const blockProps = useBlockProps({
+		className: "cthf-block__wrapper footer__wrap",
+	});
 
 	const [openModal, setOpenModal] = useState(false);
 	const handleOpenModal = () => setOpenModal(true);
@@ -76,7 +102,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		} else {
 			dispatch(blockEditorStore).replaceInnerBlocks(
 				clientId,
-				createBlocksFromInnerBlocksTemplate(blocks)
+				createBlocksFromInnerBlocksTemplate(blocks),
 			);
 		}
 
@@ -135,7 +161,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						<p className="cthf__starter-content">
 							{__(
 								"Quickly start your site with pre-designed footer patterns.",
-								"rootblox"
+								"rootblox",
 							)}
 						</p>
 						<div className="cthf__starter-btn-wrap">

@@ -2,7 +2,25 @@ import { renderTRBL } from "../../../../resources/components/utility.js";
 
 export function renderBlockStyles(blockID, attributes) {
 	const blockStyles = `
-      #${blockID} {
+      .cthf__back-to-top-wrapper.element-${blockID} {
+        ${renderTRBL("margin", attributes.backToTop.margin)}
+        ${renderTRBL("border", attributes.backToTop.border)}
+        border-radius: ${attributes.backToTop.radius};
+        width: ${attributes.backToTop.boxWidth};
+        height: ${attributes.backToTop.boxHeight};
+        background-color: ${attributes.backToTop.color.bg};
+        color: ${attributes.backToTop.color.icon};
+
+        & .cthf__back-to-top {
+          width: ${attributes.backToTop.iconSize};
+          height: ${attributes.backToTop.iconSize};
+        }
+
+        &:hover {
+          background-color: ${attributes.backToTop.color.bgHover};
+          color: ${attributes.backToTop.color.iconHover};
+          border-color: ${attributes.backToTop.color.borderHover};
+        }
       }
     `;
 
