@@ -2,6 +2,7 @@
 	position: relative;
 }
 
+/* Back to Top */
 .cthf__back-to-top-wrapper {
 	width: 16px;
 	height: 16px;
@@ -35,5 +36,37 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+}
+
+/* Scroll Progress Bar */
+.cthf__scroll-progress-bar {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+
+	&.position-top {
+		top: 0;
+	}
+	&.position-bottom {
+		bottom: 0;
+	}
+
+	& .progress-bar {
+		width: 0;
+		transition: all 0.3s ease;
+	}
+}
+.logged-in .cthf__scroll-progress-bar {
+	&.position-top {
+		top: 32px;
+
+		@media only screen and (max-width: 767px) {
+			top: 46px;
+		}
+
+		@media only screen and (max-width: 600px) {
+			top: 0;
+		}
 	}
 }

@@ -42,6 +42,22 @@
                     "borderHover": ""
                 }
             }
+        },
+        "scrollProgress": {
+            "type": "object",
+            "default": {
+                "enabled": true,
+                "position": "top",
+                "zIndex": "999",
+                "height": "4px",
+                "margin": {
+                    "top": "",
+                    "bottom": ""
+                },
+                "color": {
+                    "bg": "#5100ff"
+                }
+            }
         }
     },
     "editorScript": ["cthf-blocks--footer"],

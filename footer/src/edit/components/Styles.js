@@ -8,6 +8,7 @@ import {
 	__experimentalBoxControl as BoxControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalBorderControl as BorderControl,
+	TextControl,
 } from "@wordpress/components";
 
 import { memo, useContext, useState } from "@wordpress/element";
@@ -224,6 +225,98 @@ export const Styles = memo(() => {
 													color: {
 														...attributes.backToTop.color,
 														borderHover: newValue,
+													},
+												},
+											}),
+									},
+								]}
+							/>
+						</PanelBody>
+					</Panel>
+				)}
+
+				{attributes.scrollProgress.enabled && (
+					<Panel>
+						<PanelBody
+							title={__("Site Scroll Progress Styles", "rootblox")}
+							opened={openPanel === "scroll-progress-styles"}
+							onToggle={() => setOpenPanel("scroll-progress-styles")}
+						>
+							<div className="cthf__attr-divider">
+								<AttrWrapper styles={{ marginTop: "0" }}>
+									<UnitControl
+										label={__("Margin Top", "rootblox")}
+										value={attributes.scrollProgress.margin.top}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												scrollProgress: {
+													...attributes.scrollProgress,
+													margin: {
+														...attributes.scrollProgress.margin,
+														top: newValue,
+													},
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+
+								<AttrWrapper styles={{ marginTop: "0" }}>
+									<UnitControl
+										label={__("Margin Bottom", "rootblox")}
+										value={attributes.scrollProgress.margin.bottom}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												scrollProgress: {
+													...attributes.scrollProgress,
+													margin: {
+														...attributes.scrollProgress.margin,
+														bottom: newValue,
+													},
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+							</div>
+
+							<AttrWrapper styles={{ maxWidth: "50%", marginTop: "0" }}>
+								<TextControl
+									label={__("Z Index", "rootblox")}
+									value={attributes.scrollProgress.zIndex}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											scrollProgress: {
+												...attributes.scrollProgress,
+												zIndex: newValue,
+											},
+										})
+									}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+
+							<PanelColorSettings
+								className="cthf__color-panel"
+								enableAlpha={true}
+								title={__("Colors", "rootblox")}
+								colorSettings={[
+									{
+										label: __("Progress", "rootblox"),
+										value: attributes.scrollProgress.color.bg,
+										onChange: (newValue) =>
+											setAttributes({
+												...attributes,
+												scrollProgress: {
+													...attributes.scrollProgress,
+													color: {
+														...attributes.scrollProgress.color,
+														bg: newValue,
 													},
 												},
 											}),

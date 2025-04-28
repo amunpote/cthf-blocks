@@ -118,6 +118,10 @@ export function renderBlockStyles(blockID, attributes) {
 						attributes.mobileMenu.layoutAttr[2].stackLayout ? "wrap" : "nowrap"
 					};
         }
+
+        & .sidebar-panel__body {
+          max-width: ${attributes.sidebar.width};
+        }
       }
     `;
 
