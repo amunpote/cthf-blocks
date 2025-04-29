@@ -205,7 +205,7 @@ export const Settings = memo(() => {
 											__next40pxDefaultSize
 										/>
 
-										<AttrWrapper styles={{ margin: "0" }}>
+										<AttrWrapper styles={{ margin: "0", maxWidth: "50%" }}>
 											<TextControl
 												label={__("Range Separator", "rootblox")}
 												value={attributes.dynamicYear.separator}

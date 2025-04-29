@@ -117,7 +117,7 @@ export const Styles = memo(() => {
 									<BorderControl
 										label={__("Border", "rootblox")}
 										enableAlpha={true}
-										colorSettings={themeColorPalette}
+										colors={themeColorPalette}
 										value={attributes.backToTop.border}
 										onChange={(newValue) =>
 											setAttributes({

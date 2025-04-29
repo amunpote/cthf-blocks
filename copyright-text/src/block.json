@@ -31,7 +31,11 @@
                 "letterCase": "none",
                 "decoration": "none",
                 "lineHeight": "",
-                "letterSpacing": ""
+                "letterSpacing": "",
+                "color": {
+                    "text": "",
+                    "textHover": ""
+                }
             }
         },
         "dynamicYear": {
@@ -46,10 +50,9 @@
                     "weight": "",
                     "family": ""
                 },
-                "letterCase": "none",
-                "decoration": "none",
-                "lineHeight": "",
-                "letterSpacing": ""
+                "color": {
+                    "text": ""
+                }
             }
         },
         "afterText": {
@@ -65,7 +68,11 @@
                 "letterCase": "none",
                 "decoration": "none",
                 "lineHeight": "",
-                "letterSpacing": ""
+                "letterSpacing": "",
+                "color": {
+                    "text": "",
+                    "textHover": ""
+                }
             }
         },
         "padding": {
@@ -104,13 +111,12 @@
             "type": "object",
             "default": {
                 "text": "",
-                "bg": ""
+                "textHover": ""
             }
         }
     },
     "editorScript": ["cthf-blocks--copyright-text"],
     "editorStyle": ["cthf-blocks--copyright-text--editor-style"],
     "style": ["cthf-blocks--copyright-text--style"],
-    "viewScript": ["cthf-blocks--copyright-text--frontend-script"],
     "render": "file:./render.php"
 }

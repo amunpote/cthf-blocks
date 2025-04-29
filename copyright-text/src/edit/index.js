@@ -2,7 +2,7 @@ import "../editor.scss";
 
 import { __ } from "@wordpress/i18n";
 
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 import { memo, createContext, useContext } from "@wordpress/element";
 
@@ -12,7 +12,7 @@ import { CTHFBlockControls } from "./components/InspectorControls.js";
 export const CTHFBlockContext = createContext(null);
 
 const CopyrightText = memo(() => {
-	const { attributes } = useContext(CTHFBlockContext);
+	const { attributes, setAttributes } = useContext(CTHFBlockContext);
 
 	const blockID = `cthf_${attributes.clientId.replace(/-/gi, "_")}`;
 
@@ -29,11 +29,56 @@ const CopyrightText = memo(() => {
 				}}
 			/>
 
+			<style>
+				{attributes.typography.font.family != "" &&
+					attributes.typography.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.typography.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+
+				{attributes.beforeText.font.family != "" &&
+					attributes.beforeText.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.beforeText.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+
+				{attributes.dynamicYear.font.family != "" &&
+					attributes.dynamicYear.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.dynamicYear.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+
+				{attributes.afterText.font.family != "" &&
+					attributes.afterText.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.afterText.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+			</style>
+
 			<Tag id={blockID} className="cthf__copyright-text">
 				{attributes.beforeText.enabled && (
-					<span className="copyright__before-text">
-						{attributes.beforeText.content}
-					</span>
+					<RichText
+						tagName="span"
+						className="copyright__before-text"
+						value={attributes.beforeText.content}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								beforeText: {
+									...attributes.beforeText,
+									content: newValue,
+								},
+							})
+						}
+					/>
 				)}
 
 				{attributes.dynamicYear.enabled && (
@@ -49,9 +94,19 @@ const CopyrightText = memo(() => {
 				)}
 
 				{attributes.afterText.enabled && (
-					<span
+					<RichText
+						tagName="span"
 						className="copyright__after-text"
-						dangerouslySetInnerHTML={{ __html: attributes.afterText.content }}
+						value={attributes.afterText.content}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								afterText: {
+									...attributes.afterText,
+									content: newValue,
+								},
+							})
+						}
 					/>
 				)}
 			</Tag>
