@@ -1,10 +1,10 @@
-import { renderTRBL } from "../../../../resources/components/utility.js";
+import { rootbloxRenderTRBL } from "../../../../resources/components/utility.js";
 
 export function renderBlockStyles(blockID, attributes) {
 	const blockStyles = `
       .cthf__back-to-top-wrapper.element-${blockID} {
-        ${renderTRBL("margin", attributes.backToTop.margin)}
-        ${renderTRBL("border", attributes.backToTop.border)}
+        ${rootbloxRenderTRBL("margin", attributes.backToTop.margin)}
+        ${rootbloxRenderTRBL("border", attributes.backToTop.border)}
         border-radius: ${attributes.backToTop.radius};
         width: ${attributes.backToTop.boxWidth};
         height: ${attributes.backToTop.boxHeight};

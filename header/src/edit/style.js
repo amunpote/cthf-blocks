@@ -1,4 +1,4 @@
-import { renderTRBL } from "../../../../resources/components/utility.js";
+import { rootbloxRenderTRBL } from "../../../../resources/components/utility.js";
 
 export function renderBlockStyles(blockID, attributes) {
 	const blockStyles = `
@@ -8,7 +8,7 @@ export function renderBlockStyles(blockID, attributes) {
       }
 
       .cthf__mobile-layout-wrapper.element-${blockID} {
-        ${renderTRBL("padding", attributes.mobileMenu.wrapperPadding)}
+        ${rootbloxRenderTRBL("padding", attributes.mobileMenu.wrapperPadding)}
         background-color: ${attributes.color.mobileBg};
 
         & .wc-block-mini-cart__icon, & .cthf__mob-icon, & .cthf__cta-anchor-btn {
@@ -80,9 +80,9 @@ export function renderBlockStyles(blockID, attributes) {
         }
 
         & .cthf__responsive-navigation .cthf__cta-anchor-btn {
-          ${renderTRBL("padding", attributes.ctaButton.padding)}
-          ${renderTRBL("border", attributes.ctaButton.border)}
-          ${renderTRBL("radius", attributes.ctaButton.radius)}
+          ${rootbloxRenderTRBL("padding", attributes.ctaButton.padding)}
+          ${rootbloxRenderTRBL("border", attributes.ctaButton.border)}
+          ${rootbloxRenderTRBL("radius", attributes.ctaButton.radius)}
           font-size: ${attributes.ctaButton.font.size};
           font-weight: ${attributes.ctaButton.font.weight};
           font-family: ${attributes.ctaButton.font.family};

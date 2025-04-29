@@ -19,18 +19,26 @@ import {
 
 import { memo, useContext, useState } from "@wordpress/element";
 import { CTHFBlockContext } from "./InspectorControls.js";
-import { AttrWrapper } from "../../../../../resources/components/utility.js";
+import {
+	AttrWrapper,
+	UpsellAttributeWrapper,
+} from "../../../../../resources/components/utility.js";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
 
-	const [openPanel, setOpenPanel] = useState(null);
+	const [openPanel, setOpenPanel] = useState("general");
 
 	return (
 		<>
 			<div key="cthf-block__setting">
 				<Panel>
-					<PanelBody title={__("General", "rootblox")}>
+					<PanelBody
+						className="cthf__light-border-bottom"
+						title={__("General", "rootblox")}
+						opened={openPanel === "general"}
+						onToggle={() => setOpenPanel("general")}
+					>
 						<CheckboxControl
 							label={__("Add Back to top Button", "rootblox")}
 							checked={attributes.backToTop.enabled}
@@ -45,25 +53,40 @@ export const Settings = memo(() => {
 							}
 						/>
 
-						<CheckboxControl
-							label={__("Show Site Scroll Progress", "rootblox")}
-							checked={attributes.scrollProgress.enabled}
-							onChange={(newValue) =>
-								setAttributes({
-									...attributes,
-									scrollProgress: {
-										...attributes.scrollProgress,
-										enabled: newValue,
-									},
-								})
-							}
-						/>
+						{!cthfAssets.isPremium && (
+							<>
+								<UpsellAttributeWrapper>
+									<CheckboxControl
+										label={__("Show Site Scroll Progress", "rootblox")}
+										checked={false}
+										disabled
+									/>
+								</UpsellAttributeWrapper>
+							</>
+						)}
+
+						{cthfAssets.isPremium && (
+							<CheckboxControl
+								label={__("Show Site Scroll Progress", "rootblox")}
+								checked={attributes.scrollProgress.enabled}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										scrollProgress: {
+											...attributes.scrollProgress,
+											enabled: newValue,
+										},
+									})
+								}
+							/>
+						)}
 					</PanelBody>
 				</Panel>
 
 				{attributes.backToTop.enabled && (
 					<Panel>
 						<PanelBody
+							className="cthf__light-border-bottom"
 							title={__("Back To Top Button Settings", "rootblox")}
 							opened={openPanel === "back-to-top-settings"}
 							onToggle={() => setOpenPanel("back-to-top-settings")}
@@ -97,9 +120,10 @@ export const Settings = memo(() => {
 					</Panel>
 				)}
 
-				{attributes.scrollProgress.enabled && (
+				{cthfAssets.isPremium && attributes.scrollProgress.enabled && (
 					<Panel>
 						<PanelBody
+							className="cthf__light-border-bottom"
 							title={__("Scroll Progress Settings", "rootblox")}
 							opened={openPanel === "scroll-progress-settings"}
 							onToggle={() => setOpenPanel("scroll-progress-settings")}

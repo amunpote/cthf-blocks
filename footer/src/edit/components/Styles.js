@@ -29,6 +29,7 @@ export const Styles = memo(() => {
 				{attributes.backToTop.enabled && (
 					<Panel>
 						<PanelBody
+							className="cthf__light-border-bottom"
 							title={__("Back to Top Button Styles", "rootblox")}
 							opened={openPanel === "back-to-top-styles"}
 							onToggle={() => setOpenPanel("back-to-top-styles")}
@@ -235,9 +236,10 @@ export const Styles = memo(() => {
 					</Panel>
 				)}
 
-				{attributes.scrollProgress.enabled && (
+				{cthfAssets.isPremium && attributes.scrollProgress.enabled && (
 					<Panel>
 						<PanelBody
+							className="cthf__light-border-bottom"
 							title={__("Site Scroll Progress Styles", "rootblox")}
 							opened={openPanel === "scroll-progress-styles"}
 							onToggle={() => setOpenPanel("scroll-progress-styles")}

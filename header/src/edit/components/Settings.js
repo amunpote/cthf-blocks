@@ -59,11 +59,7 @@ export const Settings = memo(() => {
 		btnSelected,
 	} = useContext(CTHFBlockContext);
 
-	const [openPanel, setOpenPanel] = useState(null);
-
-	const togglePanel = (panelName) => {
-		setOpenPanel((current) => (current === panelName ? null : panelName));
-	};
+	const [openPanel, setOpenPanel] = useState("general");
 
 	const [navMenus, setNavMenus] = useState([]);
 
@@ -84,7 +80,7 @@ export const Settings = memo(() => {
 					});
 				}
 			})
-			.catch((error) => console.error("API Fetch Error:", error));
+			.catch((error) => console.log("API Fetch Error:", error));
 	}, []);
 
 	const menuOptions = navMenus && mapObjectIntoOptions(navMenus);
@@ -105,6 +101,8 @@ export const Settings = memo(() => {
 					<PanelBody
 						title={__("General", "rootblox")}
 						className="cthf__light-border-bottom"
+						opened={openPanel === "general"}
+						onToggle={() => setOpenPanel("general")}
 					>
 						<ToggleControl
 							label={__("Sticky Header", "cozy-addons")}
@@ -205,7 +203,7 @@ export const Settings = memo(() => {
 							<PanelBody
 								title={__("Mobile Menu", "rootblox")}
 								opened={openPanel === "mobile-menu"}
-								onToggle={() => togglePanel("mobile-menu")}
+								onToggle={() => setOpenPanel("mobile-menu")}
 							>
 								<ToggleGroupControl
 									label={__("Overlay Menu", "rootblox")}
@@ -465,7 +463,7 @@ export const Settings = memo(() => {
 									title={__("Site Logo Settings", "rootblox")}
 									initialOpen={false}
 									opened={openPanel === "site-logo-settings"}
-									onToggle={() => togglePanel("site-logo-settings")}
+									onToggle={() => setOpenPanel("site-logo-settings")}
 								>
 									{!cthfAssets.isPremium && (
 										<>
@@ -617,7 +615,7 @@ export const Settings = memo(() => {
 											title={__("Search Bar Settings", "rootblox")}
 											initialOpen={false}
 											opened={openPanel === "search-bar-settings"}
-											onToggle={() => togglePanel("search-bar-settings")}
+											onToggle={() => setOpenPanel("search-bar-settings")}
 										>
 											<AttrWrapper styles={{ marginTop: "0" }}>
 												<ToggleGroupControl
@@ -686,7 +684,7 @@ export const Settings = memo(() => {
 											title={__("CTA Button Settings", "rootblox")}
 											initialOpen={false}
 											opened={openPanel === "cta-button-settings"}
-											onToggle={() => togglePanel("cta-button-settings")}
+											onToggle={() => setOpenPanel("cta-button-settings")}
 										>
 											<TextControl
 												label={__("Label", "rootblox")}
@@ -768,7 +766,7 @@ export const Settings = memo(() => {
 									className="cthf__light-border-bottom"
 									title={__("Sidebar Panel Settings", "rootblox")}
 									opened={openPanel === "sidebar-panel-settings"}
-									onToggle={() => togglePanel("sidebar-panel-settings")}
+									onToggle={() => setOpenPanel("sidebar-panel-settings")}
 								>
 									<ToggleControl
 										label={__("Enable Site Logo", "rootblox")}

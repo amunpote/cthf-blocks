@@ -99,7 +99,7 @@ wp_add_inline_script( 'cthf-blocks--footer--frontend-script', 'document.addEvent
 		<?php
 	}
 
-	if ( isset( $attributes['scrollProgress']['enabled'] ) && filter_var( $attributes['scrollProgress']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
+	if ( rootblox_is_premium() && isset( $attributes['scrollProgress']['enabled'] ) && filter_var( $attributes['scrollProgress']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
 		$classes   = array();
 		$classes[] = 'cthf__scroll-progress-bar';
 		$classes[] = 'position-' . $attributes['scrollProgress']['position'];
