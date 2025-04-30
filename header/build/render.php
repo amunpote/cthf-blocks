@@ -527,7 +527,7 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 			echo $output;
 			?>
 
-			<!-- <div class="cthf__sidebar-panel-wrap cthf__display-none">
+			<div class="cthf__sidebar-panel-wrap cthf__display-none">
 				<div class="sidebar-panel__overlay"></div>
 
 				<?php
@@ -766,7 +766,7 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 					}
 					?>
 				</div>
-			</div> -->
+			</div>
 		</div>
 		<?php
 	}
