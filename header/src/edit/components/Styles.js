@@ -37,7 +37,7 @@ import {
 	fontWeights,
 	getFontOptions,
 } from "../../../../../resources/components/utility.js";
-import { CTHFBlockContext } from "./InspectorControls.js";
+import { CTHFBlockControlsContext } from "./InspectorControls.js";
 
 const navIconVariation1 = (
 	<>
@@ -195,7 +195,7 @@ export const Styles = memo(() => {
 		btnSelected,
 		miniCartSelected,
 		accSelected,
-	} = useContext(CTHFBlockContext);
+	} = useContext(CTHFBlockControlsContext);
 
 	const themeColorPalette = select("core/editor").getEditorSettings().colors;
 
@@ -236,6 +236,7 @@ export const Styles = memo(() => {
 					<Panel>
 						<PanelBody
 							title={__("Sticky Styles", "cozy-addons")}
+							className="cthf__light-border-bottom"
 							opened={openPanel === "sticky-styles"}
 							onToggle={() => togglePanel("sticky-styles")}
 						>
@@ -264,13 +265,14 @@ export const Styles = memo(() => {
 				)}
 
 				{attributes.mobileMenu.status !== "off" &&
-					(attributes.mobileMenu.status === "mobile" ||
-						attributes.mobileMenu.status === "always") &&
-					(deviceType === "Tablet" || deviceType === "Mobile") && (
+					((attributes.mobileMenu.status === "mobile" &&
+						(deviceType === "Tablet" || deviceType === "Mobile")) ||
+						attributes.mobileMenu.status === "always") && (
 						<>
 							<Panel>
 								<PanelBody
 									title={__("Mobile Menu Styles", "rootblox")}
+									className="cthf__light-border-bottom"
 									opened={openPanel === "mobile-menu-styles"}
 									onToggle={() => togglePanel("mobile-menu-styles")}
 								>

@@ -518,8 +518,8 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 		$classes[] = 'cthf__mobile-layout-wrapper';
 		$classes[] = 'element-' . $block_id;
 		$classes[] = 'mobile' === $attributes['mobileMenu']['status'] ? 'cthf__display-none' : '';
-		$classes[] = filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) ? 'is-sticky' : '';
-		$classes[] = filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) && filter_var( $attributes['stickyHeader']['bottomScrollHide'] ) ? 'is-bottom-scroll__hidden' : '';
+		$classes[] = isset( $attributes['stickyHeader']['enabled'] ) && filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) ? 'is-sticky' : '';
+		$classes[] = isset( $attributes['stickyHeader']['enabled'], $attributes['stickyHeader']['bottomScrollHide'] ) && filter_var( $attributes['stickyHeader']['enabled'], FILTER_VALIDATE_BOOLEAN ) && filter_var( $attributes['stickyHeader']['bottomScrollHide'] ) ? 'is-bottom-scroll__hidden' : '';
 		?>
 
 		<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">

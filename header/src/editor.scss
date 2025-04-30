@@ -56,3 +56,16 @@
 .cthf__sidebar-panel-wrap {
 	position: relative;
 }
+
+/* Sidebar Modal */
+.cthf__sidebar-panel-modal {
+	height: 100%;
+
+	& .components-modal__content.hide-header {
+		padding: 0 !important;
+	}
+
+	& .sidebar-panel__body {
+		width: 100%;
+	}
+}
