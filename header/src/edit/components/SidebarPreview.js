@@ -1,9 +1,14 @@
 import { __ } from "@wordpress/i18n";
 
-import { Modal } from "@wordpress/components";
+import { createBlock, serialize } from "@wordpress/blocks";
 
-import { memo, useContext } from "@wordpress/element";
+import { Modal, Spinner } from "@wordpress/components";
+
+import { memo, useContext, useState, useEffect } from "@wordpress/element";
 import { CTHFBlockContext } from "../index.js";
+
+import apiFetch from "@wordpress/api-fetch";
+import { addQueryArgs } from "@wordpress/url";
 
 export const NavSidebar = memo(() => {
 	const { blockID, attributes, setSidebarPreview } =
@@ -16,6 +21,24 @@ export const NavSidebar = memo(() => {
             }
         }
     `;
+
+	const [navigationBlock, setNavigationBlock] = useState("");
+	useEffect(() => {
+		const block = createBlock("core/navigation", {
+			ref: attributes.mobileMenu.menuID,
+			overlayMenu: "never",
+		});
+
+		apiFetch({
+			path: addQueryArgs("/rootblox/v1/parse-block", {
+				menuID: attributes.mobileMenu.menuID,
+			}),
+		})
+			.then((response) => {
+				setNavigationBlock(response);
+			})
+			.catch((error) => setNavigationBlock(""));
+	}, attributes.mobileMenu.menuID);
 
 	return (
 		<>
@@ -37,6 +60,7 @@ export const NavSidebar = memo(() => {
 							height="10"
 							viewBox="0 0 10 10"
 							xmlns="http://www.w3.org/2000/svg"
+							onClick={() => setSidebarPreview(false)}
 						>
 							<path
 								d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z"
@@ -63,7 +87,14 @@ export const NavSidebar = memo(() => {
 							</>
 						)}
 
-						{attributes.sidebar.navigation && <>Menu Contents goes in here!!</>}
+						{attributes.sidebar.navigation && (
+							<>
+								{navigationBlock.length <= 0 && <Spinner />}
+								{navigationBlock.length > 0 && (
+									<div dangerouslySetInnerHTML={{ __html: navigationBlock }} />
+								)}
+							</>
+						)}
 
 						{cthfAssets.isPremium && <></>}
 					</div>
