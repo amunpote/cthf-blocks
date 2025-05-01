@@ -14,7 +14,7 @@ import {
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	SelectControl,
-	ToggleControl,
+	Button,
 	CheckboxControl,
 } from "@wordpress/components";
 
@@ -195,6 +195,7 @@ export const Styles = memo(() => {
 		btnSelected,
 		miniCartSelected,
 		accSelected,
+		setSidebarPreview,
 	} = useContext(CTHFBlockControlsContext);
 
 	const themeColorPalette = select("core/editor").getEditorSettings().colors;
@@ -236,7 +237,6 @@ export const Styles = memo(() => {
 					<Panel>
 						<PanelBody
 							title={__("Sticky Styles", "cozy-addons")}
-							className="cthf__light-border-bottom"
 							opened={openPanel === "sticky-styles"}
 							onToggle={() => togglePanel("sticky-styles")}
 						>
@@ -272,7 +272,6 @@ export const Styles = memo(() => {
 							<Panel>
 								<PanelBody
 									title={__("Mobile Menu Styles", "rootblox")}
-									className="cthf__light-border-bottom"
 									opened={openPanel === "mobile-menu-styles"}
 									onToggle={() => togglePanel("mobile-menu-styles")}
 								>
@@ -295,6 +294,7 @@ export const Styles = memo(() => {
 													},
 												})
 											}
+											__next40pxDefaultSize
 										/>
 									</AttrWrapper>
 
@@ -1243,10 +1243,16 @@ export const Styles = memo(() => {
 
 										<PanelBody
 											title={__("Sidebar Panel Styles", "rootblox")}
-											className="cthf__light-border-bottom"
 											opened={openPanel === "sidebar-panel-styles"}
 											onToggle={() => togglePanel("sidebar-panel-styles")}
 										>
+											<Button
+												className="cthf__btn-secondary"
+												style={{ margin: "0 0 22px" }}
+												text={__("Preview Changes", "rootblox")}
+												onClick={() => setSidebarPreview(true)}
+											/>
+
 											<AttrWrapper styles={{ marginTop: "0", maxWidth: "40%" }}>
 												<UnitControl
 													label={__("Sidebar Width", "rootblox")}
@@ -1283,6 +1289,7 @@ export const Styles = memo(() => {
 															},
 														})
 													}
+													__next40pxDefaultSize
 												/>
 											</AttrWrapper>
 
@@ -1311,44 +1318,26 @@ export const Styles = memo(() => {
 													<>
 														{tab.name === "cthf__tab-1" && (
 															<>
-																<AttrWrapper styles={{ marginBottom: "0" }}>
-																	<BoxControl
-																		label={__("Padding", "rootblox")}
-																		resetValues={[
-																			{
-																				top: "0px",
-																				right: "0px",
-																				bottom: "0px",
-																				left: "0px",
-																			},
-																		]}
-																		values={attributes.navigation.padding}
-																		onChange={(newValue) =>
-																			setAttributes({
-																				...attributes,
-																				navigation: {
-																					...attributes.navigation,
-																					padding: newValue,
+																<fieldset className="cthf__attr-group">
+																	<legend>{__("Container", "rootblox")}</legend>
+																	<AttrWrapper styles={{ marginBottom: "0" }}>
+																		<BoxControl
+																			label={__("Padding", "rootblox")}
+																			resetValues={[
+																				{
+																					top: "0px",
+																					right: "0px",
+																					bottom: "0px",
+																					left: "0px",
 																				},
-																			})
-																		}
-																	/>
-																</AttrWrapper>
-
-																<div className="cthf__attr-divider">
-																	<AttrWrapper>
-																		<UnitControl
-																			label={__("Margin Top", "rootblox")}
-																			value={attributes.navigation.margin.top}
+																			]}
+																			values={attributes.navigation.padding}
 																			onChange={(newValue) =>
 																				setAttributes({
 																					...attributes,
 																					navigation: {
 																						...attributes.navigation,
-																						margin: {
-																							...attributes.navigation.margin,
-																							top: newValue,
-																						},
+																						padding: newValue,
 																					},
 																				})
 																			}
@@ -1356,47 +1345,117 @@ export const Styles = memo(() => {
 																		/>
 																	</AttrWrapper>
 
-																	<AttrWrapper>
-																		<UnitControl
-																			label={__("Margin Bottom", "rootblox")}
-																			value={
-																				attributes.navigation.margin.bottom
-																			}
+																	<div className="cthf__attr-divider">
+																		<AttrWrapper>
+																			<UnitControl
+																				label={__("Margin Top", "rootblox")}
+																				value={attributes.navigation.margin.top}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						navigation: {
+																							...attributes.navigation,
+																							margin: {
+																								...attributes.navigation.margin,
+																								top: newValue,
+																							},
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+
+																		<AttrWrapper>
+																			<UnitControl
+																				label={__("Margin Bottom", "rootblox")}
+																				value={
+																					attributes.navigation.margin.bottom
+																				}
+																				onChange={(newValue) =>
+																					setAttributes({
+																						...attributes,
+																						navigation: {
+																							...attributes.navigation,
+																							margin: {
+																								...attributes.navigation.margin,
+																								bottom: newValue,
+																							},
+																						},
+																					})
+																				}
+																				__next40pxDefaultSize
+																			/>
+																		</AttrWrapper>
+																	</div>
+
+																	<AttrWrapper styles={{ margin: "0" }}>
+																		<BorderBoxControl
+																			label={__("Border", "rootblox")}
+																			enableAlpha={true}
+																			colors={themeColorPalette}
+																			value={attributes.navigation.border}
 																			onChange={(newValue) =>
 																				setAttributes({
 																					...attributes,
 																					navigation: {
 																						...attributes.navigation,
-																						margin: {
-																							...attributes.navigation.margin,
-																							bottom: newValue,
-																						},
+																						border: newValue,
 																					},
 																				})
 																			}
 																			__next40pxDefaultSize
 																		/>
 																	</AttrWrapper>
-																</div>
+																</fieldset>
 
-																<AttrWrapper styles={{ marginTop: "0" }}>
-																	<BorderBoxControl
-																		label={__("Border", "rootblox")}
-																		enableAlpha={true}
-																		colors={themeColorPalette}
-																		value={attributes.navigation.border}
-																		onChange={(newValue) =>
-																			setAttributes({
-																				...attributes,
-																				navigation: {
-																					...attributes.navigation,
-																					border: newValue,
+																<fieldset className="cthf__attr-group">
+																	<legend>{__("Item", "rootblox")}</legend>
+
+																	<AttrWrapper>
+																		<BoxControl
+																			label={__("Padding", "rootblox")}
+																			resetValues={[
+																				{
+																					top: "0px",
+																					right: "0px",
+																					bottom: "0px",
+																					left: "0px",
 																				},
-																			})
-																		}
-																		__next40pxDefaultSize
-																	/>
-																</AttrWrapper>
+																			]}
+																			values={attributes.navigation.itemPadding}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						itemPadding: newValue,
+																					},
+																				})
+																			}
+																			__next40pxDefaultSize
+																		/>
+																	</AttrWrapper>
+
+																	<AttrWrapper styles={{ margin: "0" }}>
+																		<BorderBoxControl
+																			label={__("Border", "rootblox")}
+																			enableAlpha={true}
+																			colors={themeColorPalette}
+																			value={attributes.navigation.itemBorder}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					navigation: {
+																						...attributes.navigation,
+																						itemBorder: newValue,
+																					},
+																				})
+																			}
+																			__next40pxDefaultSize
+																		/>
+																	</AttrWrapper>
+																</fieldset>
 
 																<SelectControl
 																	label={__("Font Family", "rootblox")}
@@ -1674,6 +1733,7 @@ export const Styles = memo(() => {
 																				},
 																			})
 																		}
+																		__next40pxDefaultSize
 																	/>
 																</AttrWrapper>
 

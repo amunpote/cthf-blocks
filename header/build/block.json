@@ -133,9 +133,20 @@
           "style": "",
           "color": ""
         },
+        "itemPadding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "itemBorder": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
         "font": {
-          "size": "",
-          "weight": "",
+          "size": "16px",
+          "weight": "500",
           "family": ""
         },
         "letterCase": "none",
@@ -158,7 +169,7 @@
         "stacked": true,
         "gap": "12px",
         "rowGap": "12px",
-        "width": "",
+        "width": "100%",
         "justification": "center",
         "margin": {
           "top": "",
@@ -177,8 +188,8 @@
         },
         "radius": "6px",
         "font": {
-          "size": "",
-          "weight": "",
+          "size": "18px",
+          "weight": "500",
           "family": ""
         },
         "letterCase": "none",

@@ -101,7 +101,6 @@ export const Settings = memo(() => {
 				<Panel>
 					<PanelBody
 						title={__("General", "rootblox")}
-						className="cthf__light-border-bottom"
 						opened={openPanel === "general"}
 						onToggle={() => setOpenPanel("general")}
 					>
@@ -205,7 +204,6 @@ export const Settings = memo(() => {
 						<Panel>
 							<PanelBody
 								title={__("Mobile Menu", "rootblox")}
-								className="cthf__light-border-bottom"
 								opened={openPanel === "mobile-menu"}
 								onToggle={() => setOpenPanel("mobile-menu")}
 							>
@@ -769,13 +767,13 @@ export const Settings = memo(() => {
 								{navigationSelected && (
 									<Panel>
 										<PanelBody
-											className="cthf__light-border-bottom"
 											title={__("Sidebar Panel Settings", "rootblox")}
 											opened={openPanel === "sidebar-panel-settings"}
 											onToggle={() => setOpenPanel("sidebar-panel-settings")}
 										>
 											<Button
 												className="cthf__btn-secondary"
+												style={{ margin: "10px 0 22px" }}
 												text={__("Preview Changes", "rootblox")}
 												onClick={() => setSidebarPreview(true)}
 											/>

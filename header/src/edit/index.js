@@ -38,6 +38,20 @@ const HeaderBuilder = memo(() => {
 
 	return (
 		<>
+			{attributes.navigation.font.family != "" &&
+				attributes.navigation.font.family != undefined && (
+					<link
+						rel="stylesheet"
+						href={`https://fonts.googleapis.com/css2?family=${attributes.navigation.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+					/>
+				)}
+			{attributes.sidebarCTA.font.family != "" &&
+				attributes.sidebarCTA.font.family != undefined && (
+					<link
+						rel="stylesheet"
+						href={`https://fonts.googleapis.com/css2?family=${attributes.sidebarCTA.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+					/>
+				)}
 			{attributes.ctaButton.font.family != "" &&
 				attributes.ctaButton.font.family != undefined && (
 					<link

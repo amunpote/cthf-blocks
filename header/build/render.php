@@ -54,6 +54,8 @@ $nav_styles = array(
 	'border'         => isset( $attributes['navigation']['border'] ) ? rootblox_render_trbl( 'border', $attributes['navigation']['border'] ) : '',
 	'menu_gap'       => isset( $attributes['navigation']['menuGap'] ) ? $attributes['navigation']['menuGap'] : '',
 	'submenu_gap'    => isset( $attributes['navigation']['submenuGap'] ) ? $attributes['navigation']['submenuGap'] : '',
+	'item_padding'   => isset( $attributes['navigation']['itemPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['navigation']['itemPadding'] ) : '',
+	'item_border'    => isset( $attributes['navigation']['itemBorder'] ) ? rootblox_render_trbl( 'border', $attributes['navigation']['itemBorder'] ) : '',
 	'font'           => array(
 		'size'   => isset( $attributes['navigation']['font']['size'] ) ? $attributes['navigation']['font']['size'] : '',
 		'family' => isset( $attributes['navigation']['font']['family'] ) ? $attributes['navigation']['font']['family'] : '',
@@ -327,6 +329,11 @@ $block_styles = "
 		text-transform: {$attributes['navigation']['letterCase']};
 		line-height: {$nav_styles['line_height']};
 		letter-spacing: {$nav_styles['letter_spacing']};
+
+		& > li {
+			{$nav_styles['item_padding']}
+			{$nav_styles['item_border']}
+		}
 
 		& > li:not(:first-child) {
   			margin-top: {$nav_styles['menu_gap']};
@@ -731,7 +738,7 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 								$new_tab     = isset( $attributes['sidebarSocial']['openNewTab'] ) && filter_var( $attributes['sidebarSocial']['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
 								$nofollow    = isset( $attributes['sidebarSocial']['noFollow'] ) && filter_var( $attributes['sidebarSocial']['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
 								if ( ! in_array( $social, $valid_socials, true ) ) {
-									return;
+									continue;
 								}
 
 								foreach ( $attributes['sidebarSocial']['links'] as $item ) {

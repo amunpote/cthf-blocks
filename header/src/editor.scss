@@ -60,6 +60,7 @@
 /* Sidebar Modal */
 .cthf__sidebar-panel-modal {
 	height: 100%;
+	overflow-y: scroll;
 
 	& .components-modal__content.hide-header {
 		padding: 0 !important;
@@ -67,5 +68,58 @@
 
 	& .sidebar-panel__body {
 		width: 100%;
+		height: auto;
+
+		& .wp-block-navigation__container a {
+			pointer-events: none;
+		}
 	}
+
+	/* Site Logo */
+	& .custom-logo-link {
+		display: flex;
+		width: fit-content;
+
+		& .custom-logo {
+			width: 100%;
+			height: auto;
+		}
+	}
+	& .content-align-center .custom-logo-link {
+		margin: 0 auto;
+	}
+	& .content-align-right .custom-logo-link {
+		margin: 0 0 0 auto;
+	}
+
+	/* Navigation */
+	& .content-align-center .wp-block-navigation__container {
+		text-align: center;
+
+		& .wp-block-navigation__submenu-container {
+			width: auto !important;
+		}
+	}
+	& .content-align-right .wp-block-navigation__container {
+		text-align: right;
+
+		& .wp-block-navigation__submenu-container {
+			width: auto !important;
+		}
+	}
+}
+
+/* Field set */
+.cthf__attr-group {
+	margin: 10px 0 22px;
+	padding-bottom: 12px;
+	border-top: 1px solid #dcdcde;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.cthf__attr-group legend {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 auto;
+	color: #1e1e1e;
 }
