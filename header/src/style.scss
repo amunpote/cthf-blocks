@@ -239,7 +239,6 @@
 		}
 	}
 }
-
 .cthf__mobile-layout-wrapper {
 	padding: 26px;
 	box-sizing: border-box;
@@ -445,6 +444,13 @@
 				display: flex;
 			}
 		}
+
+		& .wp-block-navigation__submenu-icon {
+			width: 16px;
+			height: 12px;
+			float: right;
+		}
+
 		&
 			.wp-block-navigation__container
 			.wp-block-navigation-item.has-child
@@ -458,7 +464,7 @@
 				.wp-block-navigation__submenu-container.is-visible
 			)
 			> button {
-			transform: rotate(180deg);
+			transform: rotate(180deg) translateY(-4px);
 			transition: all 0.3s ease-in-out;
 		}
 
@@ -560,7 +566,7 @@
 		list-style: none;
 		opacity: 1;
 		position: initial;
-		width: 100%;
+		width: auto;
 		height: auto;
 		margin: 10px !important;
 		background-color: transparent !important;
@@ -574,6 +580,11 @@
 			display: inline-block;
 			padding: 0;
 		}
+	}
+
+	& .wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+		padding-left: 0 !important;
+		box-sizing: border-box;
 	}
 
 	& .wp-block-navigation__submenu-container li:hover {

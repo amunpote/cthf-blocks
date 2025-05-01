@@ -773,7 +773,7 @@ export const Settings = memo(() => {
 										>
 											<Button
 												className="cthf__btn-secondary"
-												style={{ margin: "10px 0 22px" }}
+												style={{ margin: "0 0 22px" }}
 												text={__("Preview Changes", "rootblox")}
 												onClick={() => setSidebarPreview(true)}
 											/>

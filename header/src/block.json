@@ -225,10 +225,10 @@
                 "radius": "100px",
                 "size": "20px",
                 "color": {
-                    "icon": "",
-                    "iconHover": "",
-                    "bg": "",
-                    "bgHover": "",
+                    "icon": "#fff",
+                    "iconHover": "#fff",
+                    "bg": "#5100ff",
+                    "bgHover": "#f90",
                     "borderHover": ""
                 }
             }
