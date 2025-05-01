@@ -12,8 +12,6 @@ import Save from "./save.js";
 import metadata from "./block.json";
 import blockIcon from "./icon.js";
 
-import "../../../resources/components/utility.js";
-
 registerBlockType(metadata.name, {
 	title: __(metadata.title, "rootblox"),
 

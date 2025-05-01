@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cthf-blocks/business-hours",
+  "title": "Business Hours",
+  "description": "Displays your business hours in a clear, concise format to show when you're available.",
+  "category": "rootblox-footer",
+  "attributes": {
+    "cover": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "startingDay": {
+      "type": "string",
+      "default": "mon"
+    },
+    "weekdays": {
+      "type": "array",
+      "default": [
+        {
+          "key": "monday",
+          "opened": true,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "tuesday",
+          "opened": true,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "wednesday",
+          "opened": true,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "thursday",
+          "opened": true,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "friday",
+          "opened": true,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "saturday",
+          "opened": false,
+          "openTime": "",
+          "closeTime": ""
+        },
+        {
+          "key": "sunday",
+          "opened": false,
+          "openTime": "",
+          "closeTime": ""
+        }
+      ]
+    }
+  },
+  "editorScript": [
+    "cthf-blocks--business-hours"
+  ],
+  "editorStyle": [
+    "cthf-blocks--business-hours--editor-style"
+  ],
+  "style": [
+    "cthf-blocks--business-hours--style"
+  ],
+  "viewScript": [
+    "cthf-blocks--business-hours--frontend-script"
+  ],
+  "render": "file:./render.php"
+}
