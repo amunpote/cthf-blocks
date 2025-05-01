@@ -112,3 +112,14 @@ wp_add_inline_script( 'cthf-blocks--footer--frontend-script', 'document.addEvent
 	}
 	?>
 </div>
+
+<?php
+if ( rootblox_is_premium() && isset( $attributes['customScript']['enabled'] ) && filter_var( $attributes['customScript']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
+	$allowed_tags = array(); // No HTML, just raw script.
+	?>
+	<script>
+		<?php echo wp_kses( $attributes['customScript']['content'], $allowed_tags ); ?>
+	</script>
+	<?php
+}
+?>

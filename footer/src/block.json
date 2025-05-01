@@ -58,6 +58,13 @@
                     "bg": "#5100ff"
                 }
             }
+        }, 
+        "customScript": {
+            "type": "object",
+            "default": {
+                "enabled": false, 
+                "content": ""
+            }
         }
     },
     "editorScript": ["cthf-blocks--footer"],
