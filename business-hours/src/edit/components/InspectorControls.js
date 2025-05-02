@@ -14,32 +14,12 @@ import { Styles } from "./Styles.js";
 export const CTHFBlockControls = memo(() => {
 	return (
 		<>
-			<InspectorControls>
-				<TabPanel
-					className="cthf__tab-panel"
-					tabs={[
-						{
-							title: __("Settings", "rootblox"),
-							name: "cthf__tab-one",
-							icon: cog,
-							className: "cthf__tab",
-						},
-						{
-							title: __("Styles", "rootblox"),
-							name: "cthf__tab-two",
-							icon: styles,
-							className: "cthf__tab",
-						},
-					]}
-				>
-					{(tab) => (
-						<>
-							{tab.name === "cthf__tab-one" && <Settings />}
+			<InspectorControls key="setting" group="settings">
+				<Settings />
+			</InspectorControls>
 
-							{tab.name === "cthf__tab-two" && <Styles />}
-						</>
-					)}
-				</TabPanel>
+			<InspectorControls key="style" group="styles">
+				<Styles />
 			</InspectorControls>
 		</>
 	);

@@ -5,6 +5,36 @@
   "title": "Business Hours",
   "description": "Displays your business hours in a clear, concise format to show when you're available.",
   "category": "rootblox-footer",
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "gradients": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    }
+  },
   "attributes": {
     "cover": {
       "type": "string",
@@ -68,6 +98,25 @@
           "closeTime": ""
         }
       ]
+    },
+    "timeStyles": {
+      "type": "object",
+      "default": {
+        "separator": " — "
+      }
+    },
+    "notification": {
+      "type": "object",
+      "default": {
+        "content": "— Closed",
+        "addTimer": false
+      }
+    },
+    "itemStyles": {
+      "type": "object",
+      "default": {
+        "gap": "6px"
+      }
     }
   },
   "editorScript": [

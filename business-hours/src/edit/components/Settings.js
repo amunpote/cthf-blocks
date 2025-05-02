@@ -6,6 +6,8 @@ import {
 	Panel,
 	PanelBody,
 	SelectControl,
+	TextareaControl,
+	TextControl,
 	TimePicker,
 	ToggleControl,
 } from "@wordpress/components";
@@ -78,7 +80,15 @@ export const Settings = memo(() => {
 							})
 						}
 					/>
+				</PanelBody>
+			</Panel>
 
+			<Panel>
+				<PanelBody
+					title={__("Availability Settings", "rootblox")}
+					opened={openPanel === "availability-settings"}
+					onToggle={() => setOpenPanel("availability-settings")}
+				>
 					{attributes.weekdays.map((day, _i) => {
 						return (
 							<>
@@ -108,6 +118,7 @@ export const Settings = memo(() => {
 												className={`cthf__time-format-only ${
 													!attributes.timeFormat ? " cthf__attr-divider" : ""
 												}`}
+												style={{ justifyContent: "left" }}
 											>
 												<TimePicker.TimeInput
 													label={__("Opening Hour", "rootblox")}
@@ -153,6 +164,57 @@ export const Settings = memo(() => {
 							</>
 						);
 					})}
+
+					<TextControl
+						label={__("Time Separator", "rootblox")}
+						value={attributes.timeStyles.separator}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								timeStyles: {
+									...attributes.timeStyles,
+									separator: newValue,
+								},
+							})
+						}
+						__next40pxDefaultSize
+					/>
+				</PanelBody>
+			</Panel>
+
+			<Panel>
+				<PanelBody
+					title={__("Notification Settings", "rootblox")}
+					opened={openPanel === "notification-settings"}
+					onToggle={() => setOpenPanel("notification-settings")}
+				>
+					<TextareaControl
+						label={__("Notification Message", "rootblox")}
+						value={attributes.notification.content}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								notification: {
+									...attributes.notification,
+									content: newValue,
+								},
+							})
+						}
+					/>
+
+					<ToggleControl
+						label={__("Enable Timer Until Open", "rootblox")}
+						checked={attributes.notification.addTimer}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								notification: {
+									...attributes.notification,
+									addTimer: newValue,
+								},
+							})
+						}
+					/>
 				</PanelBody>
 			</Panel>
 		</>
