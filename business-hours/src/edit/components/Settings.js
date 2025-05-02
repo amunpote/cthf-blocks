@@ -1,10 +1,13 @@
 import { __ } from "@wordpress/i18n";
 
 import {
+	BaseControl,
+	CheckboxControl,
 	Panel,
 	PanelBody,
 	SelectControl,
 	TimePicker,
+	ToggleControl,
 } from "@wordpress/components";
 
 import { memo, useState, useContext } from "@wordpress/element";
@@ -65,9 +68,91 @@ export const Settings = memo(() => {
 						__next40pxDefaultSize
 					/>
 
-					<fieldset>
-                        <legend></legend>
-                    </fieldset>
+					<ToggleControl
+						label={__("12 Hour Format", "rootblox")}
+						checked={attributes.timeFormat}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								timeFormat: newValue,
+							})
+						}
+					/>
+
+					{attributes.weekdays.map((day, _i) => {
+						return (
+							<>
+								<fieldset className="cthf__attr-group has-border-wrap">
+									<legend>{String(day.key)}</legend>
+
+									<CheckboxControl
+										label={__("Business Day?", "rootblox")}
+										checked={day.opened}
+										onChange={(newValue) => {
+											const updatedArr = attributes.weekdays.map((item) =>
+												item.key === day.key
+													? { ...item, opened: newValue }
+													: item,
+											);
+
+											setAttributes({
+												...attributes,
+												weekdays: updatedArr,
+											});
+										}}
+									/>
+
+									{day.opened && (
+										<>
+											<div
+												className={`cthf__time-format-only ${
+													!attributes.timeFormat ? " cthf__attr-divider" : ""
+												}`}
+											>
+												<TimePicker.TimeInput
+													label={__("Opening Hour", "rootblox")}
+													value={day.openTime}
+													onChange={(newValue) => {
+														const updatedArr = attributes.weekdays.map(
+															(item) =>
+																item.key === day.key
+																	? { ...item, openTime: { ...newValue } }
+																	: item,
+														);
+
+														setAttributes({
+															...attributes,
+															weekdays: [...updatedArr],
+														});
+													}}
+													is12Hour={attributes.timeFormat}
+												/>
+
+												<TimePicker.TimeInput
+													label={__("Closing Hour", "rootblox")}
+													value={day.closeTime}
+													onChange={(newValue) => {
+														const updatedArr = attributes.weekdays.map(
+															(item) =>
+																item.key === day.key
+																	? { ...item, closeTime: { ...newValue } }
+																	: item,
+														);
+
+														setAttributes({
+															...attributes,
+															weekdays: [...updatedArr],
+														});
+													}}
+													is12Hour={attributes.timeFormat}
+												/>
+											</div>
+										</>
+									)}
+								</fieldset>
+							</>
+						);
+					})}
 				</PanelBody>
 			</Panel>
 		</>

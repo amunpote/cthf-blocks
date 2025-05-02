@@ -1,6 +1,6 @@
 import "../editor.scss";
 
-import { __ } from "@wordpress/i18n";
+// import { __ } from "@wordpress/i18n";
 
 import {
 	useBlockProps,
@@ -55,3 +55,4 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		</>
 	);
 }
+

@@ -18,6 +18,10 @@
             "type": "string",
             "default": "mon"
         },
+        "timeFormat": {
+            "type": "boolean",
+            "default": true
+        },
         "weekdays": {
             "type": "array",
             "default": [
