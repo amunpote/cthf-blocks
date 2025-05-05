@@ -1,4 +1,4 @@
-.cthf-block__business-hours {
+.cthf-block__business-hours .business-hours__wrap {
 	list-style: none;
 
 	&,
@@ -14,7 +14,7 @@
 	& .business-hour__item {
 		display: flex;
 		gap: 4px;
-        row-gap: 2px;
+		row-gap: 2px;
 		flex-wrap: wrap;
 	}
 }

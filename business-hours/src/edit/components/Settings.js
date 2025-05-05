@@ -14,6 +14,7 @@ import {
 
 import { memo, useState, useContext } from "@wordpress/element";
 import { CTHFBlockContext } from "../index.js";
+import { AttrWrapper } from "../../../../../resources/components/utility.js";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
@@ -166,7 +167,7 @@ export const Settings = memo(() => {
 					})}
 
 					<TextControl
-						label={__("Time Separator", "rootblox")}
+						label={__("Separator", "rootblox")}
 						value={attributes.timeStyles.separator}
 						onChange={(newValue) =>
 							setAttributes({
@@ -189,21 +190,35 @@ export const Settings = memo(() => {
 					onToggle={() => setOpenPanel("notification-settings")}
 				>
 					<TextareaControl
-						label={__("Notification Message", "rootblox")}
-						value={attributes.notification.content}
+						label={__("Available Message", "rootblox")}
+						value={attributes.notification.open}
 						onChange={(newValue) =>
 							setAttributes({
 								...attributes,
 								notification: {
 									...attributes.notification,
-									content: newValue,
+									open: newValue,
+								},
+							})
+						}
+					/>
+
+					<TextareaControl
+						label={__("Away Message", "rootblox")}
+						value={attributes.notification.close}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								notification: {
+									...attributes.notification,
+									close: newValue,
 								},
 							})
 						}
 					/>
 
 					<ToggleControl
-						label={__("Enable Timer Until Open", "rootblox")}
+						label={__("Enable Timer", "rootblox")}
 						checked={attributes.notification.addTimer}
 						onChange={(newValue) =>
 							setAttributes({
@@ -214,7 +229,73 @@ export const Settings = memo(() => {
 								},
 							})
 						}
+						help={__("Sets the countdown until open/close.", "rootblox")}
 					/>
+
+					{attributes.notification.addTimer && (
+						<>
+							<AttrWrapper>
+								<div className="cthf__time-format-only">
+									<TimePicker.TimeInput
+										label={__("Difference", "rootblox")}
+										value={attributes.notification.timeDiff}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												notification: {
+													...attributes.notification,
+													timeDiff: newValue,
+												},
+											})
+										}
+										help={__("Set how soon before open/close.", "rootblox")}
+									/>
+									<span
+										className="cthf__help-text"
+										style={{ display: "block", marginTop: "-6px" }}
+									>
+										{__("Set how soon before open/close.", "rootblox")}
+									</span>
+								</div>
+							</AttrWrapper>
+
+							<TextareaControl
+								label={__("Opening Soon Message", "rootblox")}
+								value={attributes.notification.nearingOpen}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										notification: {
+											...attributes.notification,
+											nearingOpen: newValue,
+										},
+									})
+								}
+								help={__(
+									'Replaces "Available Message" when the timer shows.',
+									"rootblox",
+								)}
+							/>
+
+							<TextareaControl
+								label={__("Closing Soon Message", "rootblox")}
+								value={attributes.notification.nearingClose}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										notification: {
+											...attributes.notification,
+											nearingClose: newValue,
+										},
+									})
+								}
+								help={__(
+									'Replaces "Away Message" when the timer shows.',
+									"rootblox",
+								)}
+							/>
+						</>
+					)}
 				</PanelBody>
 			</Panel>
 		</>

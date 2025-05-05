@@ -58,44 +58,86 @@
         {
           "key": "monday",
           "opened": true,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "tuesday",
           "opened": true,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "wednesday",
           "opened": true,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "thursday",
           "opened": true,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "friday",
           "opened": true,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "saturday",
           "opened": false,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         },
         {
           "key": "sunday",
           "opened": false,
-          "openTime": "",
-          "closeTime": ""
+          "openTime": {
+            "hours": "00",
+            "minutes": "00"
+          },
+          "closeTime": {
+            "hours": "12",
+            "minutes": "00"
+          }
         }
       ]
     },
@@ -108,8 +150,15 @@
     "notification": {
       "type": "object",
       "default": {
-        "content": "— Closed",
-        "addTimer": false
+        "open": "We're open!",
+        "close": "We're closed!",
+        "addTimer": false,
+        "timeDiff": {
+          "hours": "00",
+          "minutes": "30"
+        },
+        "nearingClose": "We're closing soon!",
+        "nearingOpen": "We're opening soon!"
       }
     },
     "itemStyles": {

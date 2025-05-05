@@ -12,6 +12,10 @@ $item_styles = array(
 	'gap' => isset( $attributes['itemStyles']['gap'] ) ? $attributes['itemStyles']['gap'] : '',
 );
 
+$time_styles = array(
+	'separator' => isset( $attributes['timeStyles']['separator'] ) && ! empty( $attributes['timeStyles']['separator'] ) ? $attributes['timeStyles']['separator'] : '',
+);
+
 $block_styles = "
     #$block_id .business-hour__item:not(:first-child) {
         margin-top: {$item_styles['gap']};
@@ -33,7 +37,8 @@ $wrapper_attributes = get_block_wrapper_attributes();
 
 <div class="cthf-block__wrapper">
 	<div <?php echo $wrapper_attributes; ?>>
-		<ul id="<?php echo esc_attr( $block_id ); ?>" class="cthf-block__business-hours">
+		<div id="<?php echo esc_attr( $block_id ); ?>" class="cthf-block__business-hours">
+			<ul class="business-hours__wrap">
 			<?php
 			if ( isset( $attributes['weekdays'] ) && is_array( $attributes['weekdays'] ) && ! empty( $attributes['weekdays'] ) ) {
 				foreach ( $attributes['weekdays'] as $index => $weekday ) {
@@ -60,7 +65,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 							<?php
 						} else {
 							?>
-							<span class="closed-message"><?php echo esc_html( $attributes['notification']['content'] ); ?></span>
+							<span class="closed-message"><?php echo esc_html( $time_styles['separator'] ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
 							<?php
 						}
 						?>
@@ -69,7 +74,22 @@ $wrapper_attributes = get_block_wrapper_attributes();
 				}
 			}
 			?>
-		</ul>
+			</ul>
+
+			<?php
+			if ( rootblox_get_business_hour_status( $attributes['weekdays'] ) ) {
+				$open_msg = isset( $attributes['notification']['open'] ) && ! empty( $attributes['notification']['open'] ) ? sanitize_text_field( $attributes['notification']['open'] ) : '';
+				?>
+					<div class="open-time"> <?php echo esc_html( $open_msg ); ?> </div>
+				<?php
+			} else {
+				$close_msg = isset( $attributes['notification']['close'] ) && ! empty( $attributes['notification']['close'] ) ? sanitize_text_field( $attributes['notification']['close'] ) : '';
+				?>
+					<div class="open-time"> <?php echo esc_html( $close_msg ); ?> </div>
+				<?php
+			}
+			?>
+		</div>
 	</div>
 </div>
 
