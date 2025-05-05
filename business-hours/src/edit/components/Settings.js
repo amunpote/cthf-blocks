@@ -10,11 +10,15 @@ import {
 	TextControl,
 	TimePicker,
 	ToggleControl,
+	__experimentalUnitControl as UnitControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 } from "@wordpress/components";
 
 import { memo, useState, useContext } from "@wordpress/element";
 import { CTHFBlockContext } from "../index.js";
 import { AttrWrapper } from "../../../../../resources/components/utility.js";
+import { justifyBottom, justifyCenter, justifyTop } from "@wordpress/icons";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
@@ -78,6 +82,20 @@ export const Settings = memo(() => {
 							setAttributes({
 								...attributes,
 								timeFormat: newValue,
+							})
+						}
+					/>
+
+					<ToggleControl
+						label={__("Enable Notification", "rootblox")}
+						checked={attributes.notification.enabled}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								notification: {
+									...attributes.notification,
+									enabled: newValue,
+								},
 							})
 						}
 					/>
@@ -168,136 +186,186 @@ export const Settings = memo(() => {
 
 					<TextControl
 						label={__("Separator", "rootblox")}
-						value={attributes.timeStyles.separator}
+						value={attributes.timeSeparator}
 						onChange={(newValue) =>
 							setAttributes({
 								...attributes,
-								timeStyles: {
-									...attributes.timeStyles,
-									separator: newValue,
-								},
+								timeSeparator: newValue,
 							})
 						}
 						__next40pxDefaultSize
 					/>
-				</PanelBody>
-			</Panel>
 
-			<Panel>
-				<PanelBody
-					title={__("Notification Settings", "rootblox")}
-					opened={openPanel === "notification-settings"}
-					onToggle={() => setOpenPanel("notification-settings")}
-				>
-					<TextareaControl
-						label={__("Available Message", "rootblox")}
-						value={attributes.notification.open}
-						onChange={(newValue) =>
-							setAttributes({
-								...attributes,
-								notification: {
-									...attributes.notification,
-									open: newValue,
-								},
-							})
-						}
-					/>
-
-					<TextareaControl
-						label={__("Away Message", "rootblox")}
-						value={attributes.notification.close}
-						onChange={(newValue) =>
-							setAttributes({
-								...attributes,
-								notification: {
-									...attributes.notification,
-									close: newValue,
-								},
-							})
-						}
-					/>
-
-					<ToggleControl
-						label={__("Enable Timer", "rootblox")}
-						checked={attributes.notification.addTimer}
-						onChange={(newValue) =>
-							setAttributes({
-								...attributes,
-								notification: {
-									...attributes.notification,
-									addTimer: newValue,
-								},
-							})
-						}
-						help={__("Sets the countdown until open/close.", "rootblox")}
-					/>
-
-					{attributes.notification.addTimer && (
-						<>
-							<AttrWrapper>
-								<div className="cthf__time-format-only">
-									<TimePicker.TimeInput
-										label={__("Difference", "rootblox")}
-										value={attributes.notification.timeDiff}
-										onChange={(newValue) =>
-											setAttributes({
-												...attributes,
-												notification: {
-													...attributes.notification,
-													timeDiff: newValue,
-												},
-											})
-										}
-										help={__("Set how soon before open/close.", "rootblox")}
-									/>
-									<span
-										className="cthf__help-text"
-										style={{ display: "block", marginTop: "-6px" }}
-									>
-										{__("Set how soon before open/close.", "rootblox")}
-									</span>
-								</div>
-							</AttrWrapper>
-
-							<TextareaControl
-								label={__("Opening Soon Message", "rootblox")}
-								value={attributes.notification.nearingOpen}
+					<div className="cthf__attr-divider">
+						<AttrWrapper>
+							<ToggleGroupControl
+								label={__("Vertical Align", "rootblox")}
+								value={attributes.itemStyles.alignItems}
 								onChange={(newValue) =>
 									setAttributes({
 										...attributes,
-										notification: {
-											...attributes.notification,
-											nearingOpen: newValue,
+										itemStyles: {
+											...attributes.itemStyles,
+											alignItems: newValue,
 										},
 									})
 								}
-								help={__(
-									'Replaces "Available Message" when the timer shows.',
-									"rootblox",
-								)}
-							/>
+							>
+								<ToggleGroupControlOptionIcon
+									label={__("Top", "rootblox")}
+									icon={justifyTop}
+									value="start"
+								/>
+								<ToggleGroupControlOptionIcon
+									label={__("Middle", "rootblox")}
+									icon={justifyCenter}
+									value="center"
+								/>
+								<ToggleGroupControlOptionIcon
+									label={__("End", "rootblox")}
+									icon={justifyBottom}
+									value="end"
+								/>
+							</ToggleGroupControl>
+						</AttrWrapper>
 
-							<TextareaControl
-								label={__("Closing Soon Message", "rootblox")}
-								value={attributes.notification.nearingClose}
+						<AttrWrapper>
+							<UnitControl
+								label={__("Gap", "rootblox")}
+								value={attributes.itemStyles.gap}
 								onChange={(newValue) =>
 									setAttributes({
 										...attributes,
-										notification: {
-											...attributes.notification,
-											nearingClose: newValue,
+										itemStyles: {
+											...attributes.itemStyles,
+											gap: newValue,
 										},
 									})
 								}
-								help={__(
-									'Replaces "Away Message" when the timer shows.',
-									"rootblox",
-								)}
+								__next40pxDefaultSize
 							/>
-						</>
-					)}
+						</AttrWrapper>
+					</div>
 				</PanelBody>
 			</Panel>
+
+			{attributes.notification.enabled && (
+				<Panel>
+					<PanelBody
+						title={__("Notification Settings", "rootblox")}
+						opened={openPanel === "notification-settings"}
+						onToggle={() => setOpenPanel("notification-settings")}
+					>
+						<TextareaControl
+							label={__("Available Message", "rootblox")}
+							value={attributes.notification.open}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									notification: {
+										...attributes.notification,
+										open: newValue,
+									},
+								})
+							}
+						/>
+
+						<TextareaControl
+							label={__("Away Message", "rootblox")}
+							value={attributes.notification.close}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									notification: {
+										...attributes.notification,
+										close: newValue,
+									},
+								})
+							}
+						/>
+
+						<ToggleControl
+							label={__("Enable Timer", "rootblox")}
+							checked={attributes.notification.addTimer}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									notification: {
+										...attributes.notification,
+										addTimer: newValue,
+									},
+								})
+							}
+							help={__("Sets the countdown until open/close.", "rootblox")}
+						/>
+
+						{attributes.notification.addTimer && (
+							<>
+								<AttrWrapper>
+									<div className="cthf__time-format-only">
+										<TimePicker.TimeInput
+											label={__("Difference", "rootblox")}
+											value={attributes.notification.timeDiff}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													notification: {
+														...attributes.notification,
+														timeDiff: newValue,
+													},
+												})
+											}
+											help={__("Set how soon before open/close.", "rootblox")}
+										/>
+										<span
+											className="cthf__help-text"
+											style={{ display: "block", marginTop: "-6px" }}
+										>
+											{__("Set how soon before open/close.", "rootblox")}
+										</span>
+									</div>
+								</AttrWrapper>
+
+								<TextareaControl
+									label={__("Opening Soon Message", "rootblox")}
+									value={attributes.notification.nearingOpen}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											notification: {
+												...attributes.notification,
+												nearingOpen: newValue,
+											},
+										})
+									}
+									help={__(
+										'Replaces "Available Message" when the timer shows.',
+										"rootblox",
+									)}
+								/>
+
+								<TextareaControl
+									label={__("Closing Soon Message", "rootblox")}
+									value={attributes.notification.nearingClose}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											notification: {
+												...attributes.notification,
+												nearingClose: newValue,
+											},
+										})
+									}
+									help={__(
+										'Replaces "Away Message" when the timer shows.',
+										"rootblox",
+									)}
+								/>
+							</>
+						)}
+					</PanelBody>
+				</Panel>
+			)}
 		</>
 	);
 });

@@ -137,30 +137,108 @@
                 }
             ]
         },
-        "timeStyles": {
-            "type": "object",
-            "default": {
-                "separator": " — "
-            }
+        "timeSeparator": {
+            "type": "string",
+            "default": " — "
         },
         "notification": {
             "type": "object",
             "default": {
+                "enabled": true,
                 "open": "We're open!",
-                "close": "We're closed!",
+                "close": "We're closed for the day!",
                 "addTimer": false,
                 "timeDiff": {
                     "hours": "00",
                     "minutes": "30"
                 },
                 "nearingClose": "We're closing soon!",
-                "nearingOpen": "We're opening soon!"
+                "nearingOpen": "We're opening soon!",
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "margin": {
+                    "top": "26px",
+                    "bottom": ""
+                },
+                "border": {
+                    "width": "",
+                    "style": "",
+                    "color": ""
+                },
+                "radius": "",
+                "font": {
+                    "size": "",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
+                "timerTypography": {
+                    "font": {
+                        "size": "16px",
+                        "weight": "500",
+                        "family": ""
+                    },
+                    "letterCase": "capitalize",
+                    "decoration": "none",
+                    "lineHeight": "",
+                    "letterSpacing": ""
+                },
+                "color": {
+                    "text": "",
+                    "timer": "",
+                    "bg": ""
+                }
             }
         },
         "itemStyles": {
             "type": "object",
             "default": {
-                "gap": "6px"
+                "gap": "6px",
+                "alignItems": "end",
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "border": {
+                    "width": "",
+                    "style": "",
+                    "color": ""
+                },
+                "radius": "",
+                "font": {
+                    "size": "",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
+                "labelTypography": {
+                    "font": {
+                        "size": "16px",
+                        "weight": "500",
+                        "family": ""
+                    },
+                    "letterCase": "capitalize",
+                    "decoration": "none",
+                    "lineHeight": "",
+                    "letterSpacing": ""
+                },
+                "color": {
+                    "text": "",
+                    "label": "",
+                    "bg": ""
+                }
             }
         }
 

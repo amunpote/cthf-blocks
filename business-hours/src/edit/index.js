@@ -12,7 +12,7 @@ import {
 	useEffect,
 } from "@wordpress/element";
 import { CTHFBlockControls } from "./components/InspectorControls.js";
-import { handleTimeFormat, isBusinessOpen } from "./utils.js";
+import { handleTimeFormat, isBusinessOpen, formatTime } from "./utils.js";
 import { renderBlockStyles } from "./style.js";
 
 export const CTHFBlockContext = createContext(null);
@@ -25,13 +25,12 @@ const BusinessHours = memo(() => {
 	let minutes = 0;
 	let seconds = 0;
 
-	const [showOpening, setShowOpening] = useState(false);
-	const [showClosing, setShowClosing] = useState(false);
+	const [businessStatus, setBusinessStatus] = useState("closed");
+	const [remainingTime, setRemainingTime] = useState(null);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			const now = new Date();
-
 			const weekdayNames = [
 				"sunday",
 				"monday",
@@ -41,36 +40,34 @@ const BusinessHours = memo(() => {
 				"friday",
 				"saturday",
 			];
-
-			// Get today's day
 			const todayKey = weekdayNames[now.getDay()];
-
 			const todayConfig = attributes.weekdays.find(
 				(day) => day.key === todayKey,
 			);
 
-			if (!todayConfig || !todayConfig.opened) return null;
+			if (!todayConfig || !todayConfig.opened) {
+				setBusinessStatus("closed");
+				return;
+			}
 
-			const timeDiff = attributes.notification.timeDiff;
-
+			const { timeDiff } = attributes.notification;
 			const diffMs =
 				(parseInt(timeDiff.hours, 10) * 60 + parseInt(timeDiff.minutes, 10)) *
 				60 *
 				1000;
 
-			// const baseDate = new Date(currentTime);
 			const openTime = new Date(now);
 			openTime.setHours(
-				parseInt(todayConfig.openTime.hours),
-				parseInt(todayConfig.openTime.minutes),
+				parseInt(todayConfig.openTime.hours, 10),
+				parseInt(todayConfig.openTime.minutes, 10),
 				0,
 				0,
 			);
 
 			const closeTime = new Date(now);
 			closeTime.setHours(
-				parseInt(todayConfig.closeTime.hours),
-				parseInt(todayConfig.closeTime.minutes),
+				parseInt(todayConfig.closeTime.hours, 10),
+				parseInt(todayConfig.closeTime.minutes, 10),
 				0,
 				0,
 			);
@@ -79,23 +76,22 @@ const BusinessHours = memo(() => {
 			const untilClose = closeTime - now;
 
 			if (untilOpen > 0 && untilOpen <= diffMs) {
-				setShowOpening(true);
-				setShowClosing(false);
+				setBusinessStatus("openingSoon");
+				setRemainingTime(untilOpen);
+			} else if (untilClose > 0 && untilClose <= diffMs) {
+				setBusinessStatus("closingSoon");
+				setRemainingTime(untilClose);
+			} else if (now >= openTime && now < closeTime) {
+				setBusinessStatus("open");
+				setRemainingTime(null);
 			} else {
-				setShowOpening(false);
-			}
-
-			if (untilClose > 0 && untilClose <= diffMs) {
-				setShowClosing(true);
-				setShowOpening(false);
-			} else {
-				setShowClosing(false);
+				setBusinessStatus("closed");
+				setRemainingTime(null);
 			}
 		}, 1000);
 
 		return () => clearInterval(interval);
 	}, [attributes.notification, attributes.weekdays]);
-
 	return (
 		<>
 			<style
@@ -103,6 +99,37 @@ const BusinessHours = memo(() => {
 					__html: renderBlockStyles(blockID, attributes),
 				}}
 			/>
+
+			<style>
+				{attributes.itemStyles.font.family != "" &&
+					attributes.itemStyles.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.itemStyles.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+				{attributes.itemStyles.labelTypography.font.family != "" &&
+					attributes.itemStyles.labelTypography.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.itemStyles.labelTypography.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+				{attributes.notification.font.family != "" &&
+					attributes.notification.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.notification.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+				{attributes.notification.timerTypography.font.family != "" &&
+					attributes.notification.timerTypography.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.notification.timerTypography.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+			</style>
 
 			<div id={blockID} className="cthf-block__business-hours">
 				<ul className="business-hours__wrap">
@@ -121,7 +148,7 @@ const BusinessHours = memo(() => {
 												)}
 											</span>
 											<span className="time-separator">
-												{attributes.timeStyles.separator}
+												{attributes.timeSeparator}
 											</span>
 											<span className="closing-hour">
 												{handleTimeFormat(
@@ -136,8 +163,7 @@ const BusinessHours = memo(() => {
 									{!item.opened && (
 										<>
 											<span className="closed-label">
-												{attributes.timeStyles.separator +
-													__("Closed", "rootblox")}
+												{attributes.timeSeparator + __("Closed", "rootblox")}
 											</span>
 										</>
 									)}
@@ -147,17 +173,50 @@ const BusinessHours = memo(() => {
 					})}
 				</ul>
 
-				<div className="notification-wrap">
-					<div className="message">
-						{showOpening && !showClosing
-							? attributes.notification.nearingOpen
-							: attributes.notification.open}
+				{attributes.notification.enabled && (
+					<div className="notification">
+						{!attributes.notification.addTimer && (
+							<>
+								{isBusinessOpen(attributes.weekdays) &&
+									attributes.notification.open}
 
-						{showClosing && !showOpening
-							? attributes.notification.nearingClose
-							: attributes.notification.close}
+								{!isBusinessOpen(attributes.weekdays) &&
+									attributes.notification.close}
+							</>
+						)}
+
+						{attributes.notification.addTimer && (
+							<>
+								{businessStatus === "openingSoon" && (
+									<>
+										{attributes.notification.nearingOpen}
+										{remainingTime !== null && (
+											<div className="timer">
+												{" "}
+												({formatTime(remainingTime)})
+											</div>
+										)}
+									</>
+								)}
+
+								{businessStatus === "closingSoon" && (
+									<>
+										{attributes.notification.nearingClose}
+										{remainingTime !== null && (
+											<div className="timer">
+												{" "}
+												({formatTime(remainingTime)})
+											</div>
+										)}
+									</>
+								)}
+
+								{businessStatus === "open" && attributes.notification.open}
+								{businessStatus === "closed" && attributes.notification.close}
+							</>
+						)}
 					</div>
-				</div>
+				)}
 			</div>
 		</>
 	);
