@@ -361,6 +361,65 @@ export const Settings = memo(() => {
 										"rootblox",
 									)}
 								/>
+
+								<BaseControl>
+									<BaseControl.VisualLabel>
+										{__("Timer Labels", "rootblox")}
+									</BaseControl.VisualLabel>
+
+									<div className="cthf__attr-divider">
+										<TextControl
+											label={__("Hour", "rootblox")}
+											value={attributes.notification.timerLabel.h}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													notification: {
+														...attributes.notification,
+														timerLabel: {
+															...attributes.notification.timerLabel,
+															h: newValue,
+														},
+													},
+												})
+											}
+										/>
+
+										<TextControl
+											label={__("Hour", "rootblox")}
+											value={attributes.notification.timerLabel.m}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													notification: {
+														...attributes.notification,
+														timerLabel: {
+															...attributes.notification.timerLabel,
+															m: newValue,
+														},
+													},
+												})
+											}
+										/>
+
+										<TextControl
+											label={__("Hour", "rootblox")}
+											value={attributes.notification.timerLabel.s}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													notification: {
+														...attributes.notification,
+														timerLabel: {
+															...attributes.notification.timerLabel,
+															s: newValue,
+														},
+													},
+												})
+											}
+										/>
+									</div>
+								</BaseControl>
 							</>
 						)}
 					</PanelBody>

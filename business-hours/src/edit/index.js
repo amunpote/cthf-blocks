@@ -20,11 +20,6 @@ export const CTHFBlockContext = createContext(null);
 const BusinessHours = memo(() => {
 	const { blockID, attributes } = useContext(CTHFBlockContext);
 
-	let days = 0;
-	let hours = 0;
-	let minutes = 0;
-	let seconds = 0;
-
 	const [businessStatus, setBusinessStatus] = useState("closed");
 	const [remainingTime, setRemainingTime] = useState(null);
 
@@ -176,24 +171,26 @@ const BusinessHours = memo(() => {
 				{attributes.notification.enabled && (
 					<div className="notification">
 						{!attributes.notification.addTimer && (
-							<>
+							<div className="message">
 								{isBusinessOpen(attributes.weekdays) &&
 									attributes.notification.open}
 
 								{!isBusinessOpen(attributes.weekdays) &&
 									attributes.notification.close}
-							</>
+							</div>
 						)}
 
 						{attributes.notification.addTimer && (
 							<>
 								{businessStatus === "openingSoon" && (
 									<>
-										{attributes.notification.nearingOpen}
+										<div className="message">
+											{attributes.notification.nearingOpen}
+										</div>
 										{remainingTime !== null && (
 											<div className="timer">
 												{" "}
-												({formatTime(remainingTime)})
+												({formatTime(remainingTime, attributes.notification.timerLabel)})
 											</div>
 										)}
 									</>
@@ -201,18 +198,24 @@ const BusinessHours = memo(() => {
 
 								{businessStatus === "closingSoon" && (
 									<>
-										{attributes.notification.nearingClose}
+										<div className="message">
+											{attributes.notification.nearingClose}
+										</div>
 										{remainingTime !== null && (
 											<div className="timer">
 												{" "}
-												({formatTime(remainingTime)})
+												({formatTime(remainingTime, attributes.notification.timerLabel)})
 											</div>
 										)}
 									</>
 								)}
 
-								{businessStatus === "open" && attributes.notification.open}
-								{businessStatus === "closed" && attributes.notification.close}
+								{businessStatus === "open" && (
+									<div className="message">{attributes.notification.open}</div>
+								)}
+								{businessStatus === "closed" && (
+									<div className="message">{attributes.notification.close}</div>
+								)}
 							</>
 						)}
 					</div>

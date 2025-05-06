@@ -158,6 +158,11 @@
         },
         "nearingClose": "We're closing soon!",
         "nearingOpen": "We're opening soon!",
+        "timerLabel": {
+          "h": "h",
+          "m": "m",
+          "s": "s"
+        },
         "padding": {
           "top": "",
           "right": "",
