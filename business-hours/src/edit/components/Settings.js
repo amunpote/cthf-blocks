@@ -33,7 +33,7 @@ export const Settings = memo(() => {
 					opened={openPanel === "general"}
 					onToggle={() => setOpenPanel("general")}
 				>
-					<SelectControl
+					{/* <SelectControl
 						label={__("Starting day of Week", "rootblox")}
 						options={[
 							{
@@ -73,7 +73,66 @@ export const Settings = memo(() => {
 							})
 						}
 						__next40pxDefaultSize
+					/> */}
+
+					<ToggleControl
+						label={__("Use Default Timezone", "rootblox")}
+						checked={attributes.timezone.useDefault}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								timezone: {
+									...attributes.timezone,
+									useDefault: newValue,
+								},
+							})
+						}
+						help={__(
+							"Defaults to the user's local timezone (from their device), not WordPress' set timezone.",
+							"rootblox",
+						)}
 					/>
+
+					{!attributes.timezone.useDefault && (
+						<>
+							<ToggleControl
+								label={__("Use WordPress' Timezone", "rootblox")}
+								checked={attributes.timezone.useSystem}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										timezone: {
+											...attributes.timezone,
+											useSystem: newValue,
+										},
+									})
+								}
+								help={__(
+									"Uses the timezone configured in WordPress (Settings > General).",
+									"rootblox",
+								)}
+							/>
+
+							{!attributes.timezone.useSystem && (
+								<>
+									<SelectControl
+										label={__("Select Timezone", "rootblox")}
+										checked={attributes.timezone.timezone}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												timezone: {
+													...attributes.timezone,
+													timezone: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</>
+							)}
+						</>
+					)}
 
 					<ToggleControl
 						label={__("12 Hour Format", "rootblox")}

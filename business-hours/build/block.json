@@ -44,6 +44,14 @@
       "type": "string",
       "default": ""
     },
+    "timezone": {
+      "type": "object",
+      "default": {
+        "useDefault": true,
+        "useSystem": true,
+        "timezone": ""
+      }
+    },
     "startingDay": {
       "type": "string",
       "default": "mon"
