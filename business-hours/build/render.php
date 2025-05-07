@@ -8,6 +8,8 @@ $client_id = isset( $attributes['clientId'] ) ? str_replace( '-', '_', sanitize_
 
 $block_id = 'cthf_' . $client_id;
 
+$attributes['systemTimezone'] = wp_timezone();
+
 $item_styles = array(
 	'gap'            => isset( $attributes['itemStyles']['gap'] ) ? $attributes['itemStyles']['gap'] : '',
 	'padding'        => isset( $attributes['itemStyles']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['itemStyles']['padding'] ) : '',
@@ -167,9 +169,6 @@ if ( ! empty( $font_query ) ) {
 	wp_add_inline_style( 'cthf-blocks--copyright-text--style', '@import url("' . rawurldecode( esc_url( $google_fonts_url ) ) . '");' );
 }
 
-wp_localize_script( 'cthf-blocks--business-hours--frontend-script', $block_id, $attributes );
-wp_add_inline_script( 'cthf-blocks--business-hours--frontend-script', 'document.addEventListener("DOMContentLoaded", function(event) { window.cthfBusinessHours( "' . esc_html( $block_id ) . '" ) }) ' );
-
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
@@ -229,3 +228,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 		</div>
 	</div>
 </div>
+
+<?php
+wp_localize_script( 'cthf-blocks--business-hours--frontend-script', $block_id, $attributes );
+wp_add_inline_script( 'cthf-blocks--business-hours--frontend-script', 'document.addEventListener("DOMContentLoaded", function(event) { window.cthfBusinessHours( "' . esc_html( $block_id ) . '" ) }) ' );
