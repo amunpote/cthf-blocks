@@ -67,5 +67,20 @@ export function formatTime(ms, timerLabel) {
 
 	return `${String(hours).padStart(2, "0")}${timerLabel?.h} : ${String(
 		minutes,
-	).padStart(2, "0")}${timerLabel?.m} : ${String(seconds).padStart(2, "0")}${timerLabel?.s}`;
+	).padStart(2, "0")}${timerLabel?.m} : ${String(seconds).padStart(2, "0")}${
+		timerLabel?.s
+	}`;
+}
+
+export function handleDaysReorder(days) {
+	let options = [];
+
+	days.forEach((item) => {
+		options.push({
+			label: item.charAt(0).toUpperCase() + item.slice(1),
+			value: item,
+		});
+	});
+
+	return options;
 }

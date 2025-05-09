@@ -112,6 +112,12 @@ const BusinessHours = memo(() => {
 				setTodayAlwaysOpen(false);
 				return;
 			}
+
+			if (todayConfig.opened && todayConfig.alwaysOpen) {
+				setTodayAlwaysOpen(true);
+			} else {
+				setTodayAlwaysOpen(false);
+			}
 		} else if (attributes.scheduling.type === "group") {
 		}
 	}, [attributes.scheduling, attributes.weekdays, attributes.groupedWeekdays]);

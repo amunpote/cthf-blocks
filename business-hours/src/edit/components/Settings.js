@@ -10,26 +10,58 @@ import {
 	TextControl,
 	TimePicker,
 	ToggleControl,
+	Button,
 	__experimentalUnitControl as UnitControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 } from "@wordpress/components";
 
-import { memo, useState, useContext } from "@wordpress/element";
+import { memo, useState, useContext, useEffect } from "@wordpress/element";
 import { CTHFBlockContext } from "../index.js";
 import { AttrWrapper } from "../../../../../resources/components/utility.js";
 import {
 	justifyBottom,
 	justifyCenter,
 	justifyTop,
-	scheduled,
+	plusCircle,
 } from "@wordpress/icons";
+import { handleDaysReorder } from "../utils.js";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
 
 	const [openPanel, setOpenPanel] = useState("general");
+
+	const [daysOfWeek, setDaysOfWeek] = useState([
+		"monday",
+		"tuesday",
+		"wednesday",
+		"thursday",
+		"friday",
+		"saturday",
+		"sunday",
+	]);
+	const [availableDays, setAvailableDays] = useState([
+		"monday",
+		"tuesday",
+		"wednesday",
+		"thursday",
+		"friday",
+		"saturday",
+		"sunday",
+	]);
+
+	useEffect(() => {
+		const startIndex = daysOfWeek.indexOf(attributes.scheduling.startingDay);
+		const reordered = [
+			...daysOfWeek.slice(startIndex),
+			...daysOfWeek.slice(0, startIndex),
+		];
+		setDaysOfWeek(reordered);
+	}, [attributes.scheduling]);
+
+	const selectDayOptions = handleDaysReorder(daysOfWeek);
 
 	return (
 		<>
@@ -180,25 +212,26 @@ export const Settings = memo(() => {
 											}}
 										/>
 
-										<CheckboxControl
-											label={__("Open 24 Hours", "rootblox")}
-											checked={day.alwaysOpen}
-											onChange={(newValue) => {
-												const updatedArr = attributes.weekdays.map((item) =>
-													item.key === day.key
-														? { ...item, alwaysOpen: newValue }
-														: item,
-												);
-
-												setAttributes({
-													...attributes,
-													weekdays: updatedArr,
-												});
-											}}
-										/>
-
 										{day.opened && (
 											<>
+												<CheckboxControl
+													label={__("Open 24 Hours", "rootblox")}
+													checked={day.alwaysOpen}
+													onChange={(newValue) => {
+														const updatedArr = attributes.weekdays.map(
+															(item) =>
+																item.key === day.key
+																	? { ...item, alwaysOpen: newValue }
+																	: item,
+														);
+
+														setAttributes({
+															...attributes,
+															weekdays: updatedArr,
+														});
+													}}
+												/>
+
 												{!day.alwaysOpen && (
 													<div
 														className={`cthf__time-format-only ${
@@ -252,7 +285,7 @@ export const Settings = memo(() => {
 													<>
 														<TextareaControl
 															label={__("Label", "rootblox")}
-															checked={day.alwaysOpenLabel}
+															value={day.alwaysOpenLabel}
 															onChange={(newValue) => {
 																const updatedArr = attributes.weekdays.map(
 																	(item) =>
@@ -280,36 +313,7 @@ export const Settings = memo(() => {
 						<>
 							<SelectControl
 								label={__("Starting day of week", "rootblox")}
-								options={[
-									{
-										label: __("Monday", "rootblox"),
-										value: "monday",
-									},
-									{
-										label: __("Tuesday", "rootblox"),
-										value: "tuesday",
-									},
-									{
-										label: __("Wednesday", "rootblox"),
-										value: "wednesday",
-									},
-									{
-										label: __("Thursday", "rootblox"),
-										value: "thursday",
-									},
-									{
-										label: __("Friday", "rootblox"),
-										value: "friday",
-									},
-									{
-										label: __("Saturday", "rootblox"),
-										value: "saturday",
-									},
-									{
-										label: __("Sunday", "rootblox"),
-										value: "sunday",
-									},
-								]}
+								options={selectDayOptions}
 								value={attributes.scheduling.startingDay}
 								onChange={(newValue) =>
 									setAttributes({
@@ -322,6 +326,182 @@ export const Settings = memo(() => {
 								}
 								__next40pxDefaultSize
 							/>
+
+							{attributes.groupedWeekdays &&
+								attributes.groupedWeekdays.map((group, _i) => {
+									let groupKey = _i;
+									return (
+										<>
+											<fieldset className="cthf__attr-group has-border-wrap">
+												<legend>{__("Group ", "rootblox") + ++groupKey}</legend>
+
+												<CheckboxControl
+													label={__("Business Day", "rootblox")}
+													checked={group.opened}
+													onChange={(newValue) => {
+														const updatedArr = attributes.groupedWeekdays.map(
+															(item, itemIndex) =>
+																_i === itemIndex
+																	? { ...item, opened: newValue }
+																	: item,
+														);
+
+														console.log(updatedArr, _i);
+
+														setAttributes({
+															...attributes,
+															groupedWeekdays: updatedArr,
+														});
+													}}
+												/>
+
+												{group.opened && (
+													<>
+														<div className="cthf__attr-divider">
+															<SelectControl
+																label={__("Start Day", "rootblox")}
+																value={group.start}
+																onChange={(newValue) => {
+																	const updatedArr =
+																		attributes.groupedWeekdays.map(
+																			(item, itemIndex) =>
+																				_i === itemIndex
+																					? { ...item, start: newValue }
+																					: item,
+																		);
+
+																	setAttributes({
+																		...attributes,
+																		groupedWeekdays: updatedArr,
+																	});
+																}}
+																__next40pxDefaultSize
+															/>
+
+															<SelectControl
+																label={__("End Day", "rootblox")}
+																value={group.end}
+																onChange={(newValue) => {
+																	const updatedArr =
+																		attributes.groupedWeekdays.map(
+																			(item, itemIndex) =>
+																				_i === itemIndex
+																					? { ...item, end: newValue }
+																					: item,
+																		);
+
+																	setAttributes({
+																		...attributes,
+																		groupedWeekdays: updatedArr,
+																	});
+																}}
+																__next40pxDefaultSize
+															/>
+														</div>
+
+														<CheckboxControl
+															label={__("Open 24 Hours", "rootblox")}
+															checked={group.alwaysOpen}
+															onChange={(newValue) => {
+																const updatedArr =
+																	attributes.groupedWeekdays.map(
+																		(item, itemIndex) =>
+																			_i === itemIndex
+																				? { ...item, alwaysOpen: newValue }
+																				: item,
+																	);
+
+																setAttributes({
+																	...attributes,
+																	groupedWeekdays: updatedArr,
+																});
+															}}
+														/>
+
+														{!group.alwaysOpen && (
+															<>
+																<div
+																	className={`cthf__time-format-only ${
+																		!attributes.timeFormat
+																			? " cthf__attr-divider"
+																			: ""
+																	}`}
+																	style={{ justifyContent: "left" }}
+																>
+																	<TimePicker.TimeInput
+																		label={__("Opening Hour", "rootblox")}
+																		value={group.openTime}
+																		onChange={(newValue) => {
+																			const updatedArr =
+																				attributes.groupedWeekdays.map(
+																					(item, itemIndex) =>
+																						_i === itemIndex
+																							? { ...item, openTime: newValue }
+																							: item,
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				groupedWeekdays: updatedArr,
+																			});
+																		}}
+																		is12Hour={attributes.timeFormat}
+																	/>
+
+																	<TimePicker.TimeInput
+																		label={__("Closing Hour", "rootblox")}
+																		value={group.closeTime}
+																		onChange={(newValue) => {
+																			const updatedArr =
+																				attributes.groupedWeekdays.map(
+																					(item, itemIndex) =>
+																						_i === itemIndex
+																							? { ...item, closeTime: newValue }
+																							: item,
+																				);
+
+																			setAttributes({
+																				...attributes,
+																				groupedWeekdays: updatedArr,
+																			});
+																		}}
+																		is12Hour={attributes.timeFormat}
+																	/>
+																</div>
+															</>
+														)}
+
+														{group.alwaysOpen && (
+															<>
+																<TextareaControl
+																	label={__("Label", "rootblox")}
+																	value={group.alwaysOpenLabel}
+																	onChange={(newValue) => {
+																		const updatedArr =
+																			attributes.groupedWeekdays.map(
+																				(item, itemIndex) =>
+																					_i === itemIndex
+																						? {
+																								...item,
+																								alwaysOpenLabel: newValue,
+																						  }
+																						: item,
+																			);
+
+																		setAttributes({
+																			...attributes,
+																			groupedWeekdays: updatedArr,
+																		});
+																	}}
+																/>
+															</>
+														)}
+													</>
+												)}
+											</fieldset>
+										</>
+									);
+								})}
 						</>
 					)}
 

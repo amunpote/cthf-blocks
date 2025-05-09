@@ -207,29 +207,41 @@ $weekday_translated_labels = array(
 						}
 						?>
 						<li class="business-hour__item">
-							<span class="weekday"><?php echo esc_html( $label ); ?></span>
-
 							<?php
-							if ( isset( $weekday['opened'] ) && filter_var( $weekday['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
-								$open_time  = array(
-									'hours'   => isset( $weekday['openTime']['hours'] ) ? $weekday['openTime']['hours'] : '',
-									'minutes' => isset( $weekday['openTime']['minutes'] ) ? $weekday['openTime']['minutes'] : '',
-								);
-								$close_time = array(
-									'hours'   => isset( $weekday['closeTime']['hours'] ) ? $weekday['closeTime']['hours'] : '',
-									'minutes' => isset( $weekday['closeTime']['minutes'] ) ? $weekday['closeTime']['minutes'] : '',
-								);
+							if ( $attributes['scheduling']['type'] === 'default' ) {
 								?>
-								<div class="active-hours">
-									<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
-									<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
-									<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
-								</div>
+								<span class="weekday"><?php echo esc_html( $label ); ?></span>
 								<?php
-							} else {
-								?>
-								<span class="closed-message"><?php echo esc_html( $time_styles['separator'] ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
-								<?php
+								if ( isset( $weekday['opened'] ) && filter_var( $weekday['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
+									if ( isset( $weekday['alwaysOpen'] ) && filter_var( $weekday['alwaysOpen'], FILTER_VALIDATE_BOOLEAN ) ) {
+										$label = isset( $weekday['alwaysOpenLabel'] ) ? sanitize_text_field( $weekday['alwaysOpenLabel'] ) : '';
+										?>
+										<div class="always-open"><?php echo esc_html( $time_styles['separator'] ) . esc_html( $label ); ?></div>
+										<?php
+									} else {
+
+
+										$open_time  = array(
+											'hours'   => isset( $weekday['openTime']['hours'] ) ? $weekday['openTime']['hours'] : '',
+											'minutes' => isset( $weekday['openTime']['minutes'] ) ? $weekday['openTime']['minutes'] : '',
+										);
+										$close_time = array(
+											'hours'   => isset( $weekday['closeTime']['hours'] ) ? $weekday['closeTime']['hours'] : '',
+											'minutes' => isset( $weekday['closeTime']['minutes'] ) ? $weekday['closeTime']['minutes'] : '',
+										);
+										?>
+										<div class="active-hours">
+											<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+											<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
+											<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+										</div>
+										<?php
+									}
+								} else {
+									?>
+									<span class="closed-message"><?php echo esc_html( $time_styles['separator'] ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
+									<?php
+								}
 							}
 							?>
 						</li>
