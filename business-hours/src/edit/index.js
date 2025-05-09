@@ -23,6 +23,8 @@ const BusinessHours = memo(() => {
 	const [businessStatus, setBusinessStatus] = useState("closed");
 	const [remainingTime, setRemainingTime] = useState(null);
 
+	const [todayAlwaysOpen, setTodayAlwaysOpen] = useState(null);
+
 	useEffect(() => {
 		const interval = setInterval(() => {
 			const now = new Date();
@@ -87,6 +89,33 @@ const BusinessHours = memo(() => {
 
 		return () => clearInterval(interval);
 	}, [attributes.notification, attributes.weekdays]);
+
+	useEffect(() => {
+		/* In order to set whether to show the timer or not if its always open */
+		if (attributes.scheduling.type === "default") {
+			const now = new Date();
+			const weekdayNames = [
+				"sunday",
+				"monday",
+				"tuesday",
+				"wednesday",
+				"thursday",
+				"friday",
+				"saturday",
+			];
+			const todayKey = weekdayNames[now.getDay()];
+			const todayConfig = attributes.weekdays.find(
+				(day) => day.key === todayKey,
+			);
+
+			if (!todayConfig || !todayConfig.opened) {
+				setTodayAlwaysOpen(false);
+				return;
+			}
+		} else if (attributes.scheduling.type === "group") {
+		}
+	}, [attributes.scheduling, attributes.weekdays, attributes.groupedWeekdays]);
+
 	return (
 		<>
 			<style
@@ -129,30 +158,56 @@ const BusinessHours = memo(() => {
 			<div id={blockID} className="cthf-block__business-hours">
 				<ul className="business-hours__wrap">
 					{attributes.weekdays.map((item, _i) => {
+						let label = item.key;
+
+						if (
+							attributes.scheduling.abbr &&
+							attributes.scheduling.customAbbr
+						) {
+							label = String(item.key).slice(
+								0,
+								attributes.scheduling?.abbrLength,
+							);
+						} else if (attributes.scheduling.abbr) {
+							label = String(item.key).slice(0, 3);
+						}
+
 						return (
 							<>
 								<li className="business-hour__item">
-									<span className="weekday">{item.key}</span>
+									<span className="weekday">{label}</span>
 									{item.opened && (
-										<div className="active-hours">
-											<span className="opening-hour">
-												{handleTimeFormat(
-													item.openTime?.hours,
-													item.openTime?.minutes,
-													attributes.timeFormat,
-												)}
-											</span>
-											<span className="time-separator">
-												{attributes.timeSeparator}
-											</span>
-											<span className="closing-hour">
-												{handleTimeFormat(
-													item.closeTime?.hours,
-													item.closeTime?.minutes,
-													attributes.timeFormat,
-												)}
-											</span>
-										</div>
+										<>
+											{!item.alwaysOpen && (
+												<div className="active-hours">
+													<span className="opening-hour">
+														{handleTimeFormat(
+															item.openTime?.hours,
+															item.openTime?.minutes,
+															attributes.timeFormat,
+														)}
+													</span>
+													<span className="time-separator">
+														{attributes.timeSeparator}
+													</span>
+													<span className="closing-hour">
+														{handleTimeFormat(
+															item.closeTime?.hours,
+															item.closeTime?.minutes,
+															attributes.timeFormat,
+														)}
+													</span>
+												</div>
+											)}
+
+											{item.alwaysOpen && (
+												<>
+													<div className="always-open">
+														{attributes.timeSeparator + item.alwaysOpenLabel}
+													</div>
+												</>
+											)}
+										</>
 									)}
 
 									{!item.opened && (
@@ -190,7 +245,12 @@ const BusinessHours = memo(() => {
 										{remainingTime !== null && (
 											<div className="timer">
 												{" "}
-												({formatTime(remainingTime, attributes.notification.timerLabel)})
+												(
+												{formatTime(
+													remainingTime,
+													attributes.notification.timerLabel,
+												)}
+												)
 											</div>
 										)}
 									</>
@@ -204,7 +264,12 @@ const BusinessHours = memo(() => {
 										{remainingTime !== null && (
 											<div className="timer">
 												{" "}
-												({formatTime(remainingTime, attributes.notification.timerLabel)})
+												(
+												{formatTime(
+													remainingTime,
+													attributes.notification.timerLabel,
+												)}
+												)
 											</div>
 										)}
 									</>

@@ -47,12 +47,24 @@
             "type": "boolean",
             "default": true
         },
+        "scheduling": {
+            "type": "object",
+            "default": {
+                "type": "default",
+                "startingDay": "monday",
+                "abbr": true,
+                "customAbbr": false,
+                "abbrLength": 3
+            }
+        },
         "weekdays": {
             "type": "array",
             "default": [
                 {
                     "key": "monday",
                     "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -65,6 +77,8 @@
                 {
                     "key": "tuesday",
                     "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -77,6 +91,8 @@
                 {
                     "key": "wednesday",
                     "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -89,6 +105,8 @@
                 {
                     "key": "thursday",
                     "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -100,6 +118,8 @@
                 }, {
                     "key": "friday",
                     "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -111,6 +131,8 @@
                 }, {
                     "key": "saturday",
                     "opened": false,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
@@ -122,12 +144,48 @@
                 }, {
                     "key": "sunday",
                     "opened": false,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
                     "openTime": {
                         "hours": "00",
                         "minutes": "00"
                     },
                     "closeTime": {
                         "hours": "12",
+                        "minutes": "00"
+                    }
+                }
+            ]
+        },
+        "groupedWeekdays": {
+            "type": "array",
+            "default": [
+                {
+                    "start": "monday",
+                    "end": "fri",
+                    "opened": true,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
+                    "openTime": {
+                        "hours": "00",
+                        "minutes": "00"
+                    },
+                    "closeTime": {
+                        "hours": "00",
+                        "minutes": "00"
+                    }
+                }, {
+                    "start": "saturday",
+                    "end": "saturday",
+                    "opened": false,
+                    "alwaysOpen": false,
+                    "alwaysOpenLabel": "Open 24 Hours",
+                    "openTime": {
+                        "hours": "00",
+                        "minutes": "00"
+                    },
+                    "closeTime": {
+                        "hours": "00",
                         "minutes": "00"
                     }
                 }
@@ -247,6 +305,8 @@
     "editorScript": ["cthf-blocks--business-hours"],
     "editorStyle": ["cthf-blocks--business-hours--editor-style"],
     "style": ["cthf-blocks--business-hours--style"],
-    "viewScript": ["cthf-blocks--business-hours--frontend-script"],
+    "viewScript": [
+        "cthf-blocks--business-hours--frontend-script", "rootblox--luxon"
+    ],
     "render": "file:./render.php"
 }

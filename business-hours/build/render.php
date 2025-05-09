@@ -170,6 +170,16 @@ if ( ! empty( $font_query ) ) {
 }
 
 $wrapper_attributes = get_block_wrapper_attributes();
+
+$weekday_translated_labels = array(
+	'monday'    => __( 'Monday', 'rootblox' ),
+	'tuesday'   => __( 'Tuesday', 'rootblox' ),
+	'wednesday' => __( 'Wednesday', 'rootblox' ),
+	'thursday'  => __( 'Thursday', 'rootblox' ),
+	'friday'    => __( 'Friday', 'rootblox' ),
+	'saturday'  => __( 'Saturday', 'rootblox' ),
+	'sunday'    => __( 'Sunday', 'rootblox' ),
+);
 ?>
 
 <div class="cthf-block__wrapper">
@@ -179,9 +189,25 @@ $wrapper_attributes = get_block_wrapper_attributes();
 				<?php
 				if ( isset( $attributes['weekdays'] ) && is_array( $attributes['weekdays'] ) && ! empty( $attributes['weekdays'] ) ) {
 					foreach ( $attributes['weekdays'] as $index => $weekday ) {
+						$label = $weekday['key'];
+
+						if ( isset( $attributes['scheduling']['abbr'], $attributes['scheduling']['customAbbr'] ) && filter_var( $attributes['scheduling']['abbr'], FILTER_VALIDATE_BOOLEAN ) && filter_var( $attributes['scheduling']['customAbbr'] ) ) {
+							$abbr_len = isset( $attributes['scheduling']['abbrLength'] ) ? sanitize_text_field( $attributes['scheduling']['abbrLength'] ) : 3;
+							if ( function_exists( 'mb_substr' ) ) {
+								$label = mb_substr( $label, 0, $abbr_len, 'UTF-8' );
+							} else {
+								$label = substr( $label, 0, $abbr_len );
+							}
+						} elseif ( isset( $attributes['scheduling']['abbr'] ) && filter_var( $attributes['scheduling']['abbr'], FILTER_VALIDATE_BOOLEAN ) ) {
+							if ( function_exists( 'mb_substr' ) ) {
+								$label = mb_substr( $label, 0, 3, 'UTF-8' );
+							} else {
+								$label = substr( $label, 0, 3 );
+							}
+						}
 						?>
 						<li class="business-hour__item">
-							<span class="weekday"><?php echo esc_html( $weekday['key'] ); ?></span>
+							<span class="weekday"><?php echo esc_html( $label ); ?></span>
 
 							<?php
 							if ( isset( $weekday['opened'] ) && filter_var( $weekday['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
@@ -195,9 +221,9 @@ $wrapper_attributes = get_block_wrapper_attributes();
 								);
 								?>
 								<div class="active-hours">
-									<span class="opening-hour"><?php echo rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ); ?></span>
+									<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 									<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
-									<span class="closing-hour"><?php echo rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ); ?></span>
+									<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 								</div>
 								<?php
 							} else {
