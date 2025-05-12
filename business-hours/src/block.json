@@ -266,6 +266,7 @@
                 "enableNotice": true,
                 "message": "Different timezone detected!",
                 "enableTime": true,
+                "gap": "6px",
                 "padding": {
                     "top": "",
                     "right": "",

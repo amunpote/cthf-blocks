@@ -116,6 +116,10 @@ export function renderBlockStyles(blockID, attributes) {
 								};               
                 color: ${attributes.timezone.color.label};
             }
+
+            & .time__wrap {
+                margin-top: ${attributes.timezone.gap};
+            }
         }
 
     `;

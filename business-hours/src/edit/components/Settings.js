@@ -820,6 +820,27 @@ export const Settings = memo(() => {
 								})
 							}
 						/>
+
+						{attributes.timezone.enableTime && (
+							<>
+								<AttrWrapper styles={{ maxWidth: "50%" }}>
+									<UnitControl
+										label={__("Gap", "rootblox")}
+										value={attributes.timezone.gap}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												timezone: {
+													...attributes.timezone,
+													gap: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+							</>
+						)}
 					</PanelBody>
 				</Panel>
 			)}

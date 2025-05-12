@@ -82,6 +82,7 @@ $timezone_styles = array(
 	),
 	'border'         => isset( $attributes['timezone']['border'] ) ? rootblox_render_trbl( 'border', $attributes['timezone']['border'] ) : '',
 	'radius'         => isset( $attributes['timezone']['radius'] ) ? $attributes['timezone']['radius'] : '',
+	'gap'            => isset( $attributes['timezone']['gap'] ) ? $attributes['timezone']['gap'] : '',
 	'font'           => array(
 		'size'   => isset( $attributes['timezone']['font']['size'] ) ? $attributes['timezone']['font']['size'] : '',
 		'family' => isset( $attributes['timezone']['font']['family'] ) ? $attributes['timezone']['font']['family'] : '',
@@ -188,6 +189,9 @@ $block_styles = "
 	line-height: {$timezone_styles['label']['line_height']};
 	letter-spacing: {$timezone_styles['label']['letter_spacing']};
 	color: {$timezone_styles['color']['label']};
+}
+#$block_id .timezone__warning .time__wrap {
+	margin-top: {$timezone_styles['gap']};
 }
 ";
 
