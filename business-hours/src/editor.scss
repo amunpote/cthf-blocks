@@ -18,3 +18,13 @@
 		text-transform: capitalize;
 	}
 }
+.cthf__attr-group.has-position-relative {
+	position: relative;
+}
+.cthf-attr__remove-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	fill: #cf2e2e;
+	cursor: pointer;
+}

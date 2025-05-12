@@ -23,8 +23,6 @@ const BusinessHours = memo(() => {
 	const [businessStatus, setBusinessStatus] = useState("closed");
 	const [remainingTime, setRemainingTime] = useState(null);
 
-	const [todayAlwaysOpen, setTodayAlwaysOpen] = useState(null);
-
 	useEffect(() => {
 		const interval = setInterval(() => {
 			const now = new Date();

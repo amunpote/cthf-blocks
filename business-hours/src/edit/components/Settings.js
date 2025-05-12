@@ -15,6 +15,7 @@ import {
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
+	Icon,
 } from "@wordpress/components";
 
 import { memo, useState, useContext, useEffect } from "@wordpress/element";
@@ -24,6 +25,7 @@ import {
 	justifyBottom,
 	justifyCenter,
 	justifyTop,
+	trash,
 	plusCircle,
 } from "@wordpress/icons";
 import { createDaysOption } from "../utils.js";
@@ -352,7 +354,27 @@ export const Settings = memo(() => {
 									let groupKey = _i;
 									return (
 										<>
-											<fieldset className="cthf__attr-group has-border-wrap">
+											<fieldset
+												className={`cthf__attr-group has-border-wrap${
+													_i > 0 ? " has-position-relative" : ""
+												}`}
+											>
+												{_i > 0 && (
+													<Icon
+														className="cthf-attr__remove-icon"
+														icon={trash}
+														onClick={() => {
+															const updatedArr =
+																attributes.groupedWeekdays.splice(_i, 1);
+
+															setAttributes({
+																...attributes,
+																groupedWeekdays: updatedArr,
+															});
+														}}
+													/>
+												)}
+
 												<legend>{__("Group ", "rootblox") + ++groupKey}</legend>
 
 												<div className="cthf__attr-divider">
@@ -520,6 +542,37 @@ export const Settings = memo(() => {
 										</>
 									);
 								})}
+							<Button
+								className="cthf__btn-secondary"
+								style={{ display: "flex", marginBottom: "12px" }}
+								text={__("Add Group", "rootblox")}
+								icon={plusCircle}
+								onClick={() => {
+									attributes.groupedWeekdays.push({
+										start: "",
+										end: "",
+										opened: false,
+										alwaysOpen: false,
+										alwaysOpenLabel: "Open 24 Hours",
+										openTime: {
+											hours: "00",
+											minutes: "00",
+										},
+										closeTime: {
+											hours: "00",
+											minutes: "00",
+										},
+									});
+
+									// If you want to keep the updated array separately
+									const updatedArr = [...attributes.groupedWeekdays];
+
+									setAttributes({
+										...attributes,
+										groupedWeekdays: updatedArr,
+									});
+								}}
+							/>
 						</>
 					)}
 
