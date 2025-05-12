@@ -74,62 +74,121 @@ $notifier_styles = array(
 
 );
 
-$block_styles = "
-    #$block_id .business-hour__item:not(:first-child) {
-        margin-top: {$item_styles['gap']};
-    }
-	#$block_id .business-hour__item {
-		{$item_styles['padding']}
-		{$item_styles['border']}
-		border-radius: {$item_styles['radius']};
-		font-size: {$item_styles['font']['size']};
-		font-weight: {$attributes['itemStyles']['font']['weight']};
-		font-family: {$item_styles['font']['family']};
-		text-transform: {$attributes['itemStyles']['letterCase']};
-		text-decoration: {$attributes['itemStyles']['decoration']};
-		line-height: {$item_styles['line_height']};
-		letter-spacing: {$item_styles['letter_spacing']};
-		background-color: {$item_styles['color']['bg']};
-		color: {$item_styles['color']['text']};
-		align-items: {$attributes['itemStyles']['alignItems']};
-	}
-	#$block_id .business-hour__item .weekday {
-		font-size: {$item_styles['label']['font']['size']};
-		font-weight: {$attributes['itemStyles']['labelTypography']['font']['weight']};
-		font-family: {$item_styles['label']['font']['family']};
-		text-transform: {$attributes['itemStyles']['labelTypography']['letterCase']};
-		text-decoration: {$attributes['itemStyles']['labelTypography']['decoration']};
-		line-height: {$item_styles['label']['line_height']};
-		letter-spacing: {$item_styles['label']['letter_spacing']};
-		color: {$item_styles['color']['label']};
-	}
+$timezone_styles = array(
+	'padding'        => isset( $attributes['timezone']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['timezone']['padding'] ) : '',
+	'margin'         => array(
+		'top'    => isset( $attributes['timezone']['margin']['top'] ) ? $attributes['timezone']['margin']['top'] : '',
+		'bottom' => isset( $attributes['timezone']['margin']['bottom'] ) ? $attributes['timezone']['margin']['bottom'] : '',
+	),
+	'border'         => isset( $attributes['timezone']['border'] ) ? rootblox_render_trbl( 'border', $attributes['timezone']['border'] ) : '',
+	'radius'         => isset( $attributes['timezone']['radius'] ) ? $attributes['timezone']['radius'] : '',
+	'font'           => array(
+		'size'   => isset( $attributes['timezone']['font']['size'] ) ? $attributes['timezone']['font']['size'] : '',
+		'family' => isset( $attributes['timezone']['font']['family'] ) ? $attributes['timezone']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['timezone']['lineHeight'] ) ? $attributes['timezone']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['timezone']['letterSpacing'] ) ? $attributes['timezone']['letterSpacing'] : '',
+	'label'          => array(
+		'font'           => array(
+			'size'   => isset( $attributes['timezone']['labelTypography']['font']['size'] ) ? $attributes['timezone']['labelTypography']['font']['size'] : '',
+			'family' => isset( $attributes['timezone']['labelTypography']['font']['family'] ) ? $attributes['timezone']['labelTypography']['font']['family'] : '',
+		),
+		'line_height'    => isset( $attributes['timezone']['labelTypography']['lineHeight'] ) ? $attributes['timezone']['labelTypography']['lineHeight'] : '',
+		'letter_spacing' => isset( $attributes['timezone']['labelTypography']['letterSpacing'] ) ? $attributes['timezone']['labelTypography']['letterSpacing'] : '',
+	),
+	'color'          => array(
+		'text'  => isset( $attributes['timezone']['color']['text'] ) ? $attributes['timezone']['color']['text'] : '',
+		'label' => isset( $attributes['timezone']['color']['label'] ) ? $attributes['timezone']['color']['label'] : '',
+		'bg'    => isset( $attributes['timezone']['color']['bg'] ) ? $attributes['timezone']['color']['bg'] : '',
 
-	#$block_id .notification {
-		{$notifier_styles['padding']}
-		margin-top: {$notifier_styles['margin']['top']};
-		margin-bottom: {$notifier_styles['margin']['bottom']};
-		{$notifier_styles['border']}
-		border-radius: {$notifier_styles['radius']};
-		font-size: {$notifier_styles['font']['size']};
-		font-weight: {$attributes['notification']['font']['weight']};
-		font-family: {$notifier_styles['font']['family']};
-		text-transform: {$attributes['notification']['letterCase']};
-		text-decoration: {$attributes['notification']['decoration']};
-		line-height: {$notifier_styles['line_height']};
-		letter-spacing: {$notifier_styles['letter_spacing']};
-		background-color: {$notifier_styles['color']['bg']};
-		color: {$notifier_styles['color']['text']};
-	}
-	#$block_id .notification .timer {
-		font-size: {$notifier_styles['timer']['font']['size']};
-		font-weight: {$attributes['notification']['timerTypography']['font']['weight']};
-		font-family: {$notifier_styles['timer']['font']['family']};
-		text-transform: {$attributes['notification']['timerTypography']['letterCase']};
-		text-decoration: {$attributes['notification']['timerTypography']['decoration']};
-		line-height: {$notifier_styles['timer']['line_height']};
-		letter-spacing: {$notifier_styles['timer']['letter_spacing']};
-		color: {$notifier_styles['color']['timer']};
-	}
+	),
+
+
+);
+
+$block_styles = "
+#$block_id .business-hour__item:not(:first-child) {
+	margin-top: {$item_styles['gap']};
+}
+#$block_id .business-hour__item {
+	{$item_styles['padding']}
+	{$item_styles['border']}
+	border-radius: {$item_styles['radius']};
+	font-size: {$item_styles['font']['size']};
+	font-weight: {$attributes['itemStyles']['font']['weight']};
+	font-family: {$item_styles['font']['family']};
+	text-transform: {$attributes['itemStyles']['letterCase']};
+	text-decoration: {$attributes['itemStyles']['decoration']};
+	line-height: {$item_styles['line_height']};
+	letter-spacing: {$item_styles['letter_spacing']};
+	background-color: {$item_styles['color']['bg']};
+	color: {$item_styles['color']['text']};
+	align-items: {$attributes['itemStyles']['alignItems']};
+}
+#$block_id .business-hour__item .weekday {
+	font-size: {$item_styles['label']['font']['size']};
+	font-weight: {$attributes['itemStyles']['labelTypography']['font']['weight']};
+	font-family: {$item_styles['label']['font']['family']};
+	text-transform: {$attributes['itemStyles']['labelTypography']['letterCase']};
+	text-decoration: {$attributes['itemStyles']['labelTypography']['decoration']};
+	line-height: {$item_styles['label']['line_height']};
+	letter-spacing: {$item_styles['label']['letter_spacing']};
+	color: {$item_styles['color']['label']};
+}
+
+#$block_id .notification {
+	{$notifier_styles['padding']}
+	margin-top: {$notifier_styles['margin']['top']};
+	margin-bottom: {$notifier_styles['margin']['bottom']};
+	{$notifier_styles['border']}
+	border-radius: {$notifier_styles['radius']};
+	font-size: {$notifier_styles['font']['size']};
+	font-weight: {$attributes['notification']['font']['weight']};
+	font-family: {$notifier_styles['font']['family']};
+	text-transform: {$attributes['notification']['letterCase']};
+	text-decoration: {$attributes['notification']['decoration']};
+	line-height: {$notifier_styles['line_height']};
+	letter-spacing: {$notifier_styles['letter_spacing']};
+	background-color: {$notifier_styles['color']['bg']};
+	color: {$notifier_styles['color']['text']};
+}
+#$block_id .notification .timer {
+	font-size: {$notifier_styles['timer']['font']['size']};
+	font-weight: {$attributes['notification']['timerTypography']['font']['weight']};
+	font-family: {$notifier_styles['timer']['font']['family']};
+	text-transform: {$attributes['notification']['timerTypography']['letterCase']};
+	text-decoration: {$attributes['notification']['timerTypography']['decoration']};
+	line-height: {$notifier_styles['timer']['line_height']};
+	letter-spacing: {$notifier_styles['timer']['letter_spacing']};
+	color: {$notifier_styles['color']['timer']};
+}
+
+#$block_id .timezone__warning {
+	{$timezone_styles['padding']}
+	margin-top: {$timezone_styles['margin']['top']};
+	margin-bottom: {$timezone_styles['margin']['bottom']};
+	{$timezone_styles['border']}
+	border-radius: {$timezone_styles['radius']};
+	font-size: {$timezone_styles['font']['size']};
+	font-weight: {$attributes['timezone']['font']['weight']};
+	font-family: {$timezone_styles['font']['family']};
+	text-transform: {$attributes['timezone']['letterCase']};
+	text-decoration: {$attributes['timezone']['decoration']};
+	line-height: {$timezone_styles['line_height']};
+	letter-spacing: {$timezone_styles['letter_spacing']};
+	background-color: {$timezone_styles['color']['bg']};
+	color: {$timezone_styles['color']['text']};
+}
+#$block_id .timezone__warning .warning__message {
+	font-size: {$timezone_styles['label']['font']['size']};
+	font-weight: {$attributes['timezone']['labelTypography']['font']['weight']};
+	font-family: {$timezone_styles['label']['font']['family']};
+	text-transform: {$attributes['timezone']['labelTypography']['letterCase']};
+	text-decoration: {$attributes['timezone']['labelTypography']['decoration']};
+	line-height: {$timezone_styles['label']['line_height']};
+	letter-spacing: {$timezone_styles['label']['letter_spacing']};
+	color: {$timezone_styles['color']['label']};
+}
 ";
 
 add_action(
@@ -146,6 +205,18 @@ if ( isset( $attributes['itemStyles']['font']['family'] ) && ! empty( $attribute
 }
 if ( isset( $attributes['itemStyles']['labelTypography']['font']['family'] ) && ! empty( $attributes['itemStyles']['labelTypography']['font']['family'] ) ) {
 	$font_families[] = $attributes['itemStyles']['labelTypography']['font']['family'];
+}
+if ( isset( $attributes['notification']['font']['family'] ) && ! empty( $attributes['notification']['font']['family'] ) ) {
+	$font_families[] = $attributes['notification']['font']['family'];
+}
+if ( isset( $attributes['notification']['timerTypography']['font']['family'] ) && ! empty( $attributes['notification']['timerTypography']['font']['family'] ) ) {
+	$font_families[] = $attributes['notification']['timerTypography']['font']['family'];
+}
+if ( isset( $attributes['timezone']['font']['family'] ) && ! empty( $attributes['timezone']['font']['family'] ) ) {
+	$font_families[] = $attributes['timezone']['font']['family'];
+}
+if ( isset( $attributes['timezone']['labelTypography']['font']['family'] ) && ! empty( $attributes['timezone']['labelTypography']['font']['family'] ) ) {
+	$font_families[] = $attributes['timezone']['labelTypography']['font']['family'];
 }
 
 // Remove duplicate font families.
@@ -318,6 +389,26 @@ $weekday_translated_labels = array(
 					</div>
 
 					<div class="timer"></div>
+				</div>
+				<?php
+			}
+
+			if ( isset( $attributes['timezone']['enableNotice'] ) && filter_var( $attributes['timezone']['enableNotice'], FILTER_VALIDATE_BOOLEAN ) ) {
+				$msg = isset( $attributes['timezone']['message'] ) ? sanitize_text_field( $attributes['timezone']['message'] ) : '';
+				?>
+				<div class="timezone__warning">
+					<div class="warning__message"><?php echo esc_html( $msg ); ?></div>
+
+					<?php
+					if ( isset( $attributes['timezone']['enableTime'] ) && filter_var( $attributes['timezone']['enableTime'], FILTER_VALIDATE_BOOLEAN ) ) {
+						?>
+						<div class="time__wrap">
+							<div class="label"></div>
+							<div class="time"></div>
+						</div>
+						<?php
+					}
+					?>
 				</div>
 				<?php
 			}

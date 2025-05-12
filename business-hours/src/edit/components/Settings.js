@@ -156,6 +156,24 @@ export const Settings = memo(() => {
 							)}
 						</>
 					)}
+
+					<ToggleControl
+						label={__("Show Timezone Mismatch Warning", "rootblox")}
+						checked={attributes.timezone.enableNotice}
+						onChange={(newValue) =>
+							setAttributes({
+								...attributes,
+								timezone: {
+									...attributes.timezone,
+									enableNotice: newValue,
+								},
+							})
+						}
+						help={__(
+							"Enable to show a warning if the user's local timezone differs from the system timezone.",
+							"rootblox",
+						)}
+					/>
 				</PanelBody>
 			</Panel>
 
@@ -765,6 +783,43 @@ export const Settings = memo(() => {
 								</BaseControl>
 							</>
 						)}
+					</PanelBody>
+				</Panel>
+			)}
+
+			{attributes.timezone.enableNotice && (
+				<Panel>
+					<PanelBody
+						title={__("Timezone Notice Settings", "rootblox")}
+						opened={openPanel === "timezone-settings"}
+						onToggle={() => setOpenPanel("timezone-settings")}
+					>
+						<TextareaControl
+							label={__("Message", "rootblox")}
+							value={attributes.timezone.message}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									timezone: {
+										...attributes.timezone,
+										message: newValue,
+									},
+								})
+							}
+						/>
+
+						<ToggleControl
+							label={__("Display System Time", "rootblox")}
+							checked={(newValue) =>
+								setAttributes({
+									...attributes,
+									timezone: {
+										...attributes.timezone,
+										enableTime: newValue,
+									},
+								})
+							}
+						/>
 					</PanelBody>
 				</Panel>
 			)}

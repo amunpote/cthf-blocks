@@ -84,6 +84,40 @@ export function renderBlockStyles(blockID, attributes) {
             }
         }
 
+        #${blockID} .timezone__warning {
+            ${rootbloxRenderTRBL("padding", attributes.timezone.padding)}
+            margin-top: ${attributes.timezone.margin.top};
+            margin-bottom: ${attributes.timezone.margin.bottom};
+            ${rootbloxRenderTRBL("border", attributes.timezone.border)}
+            border-radius: ${attributes.timezone.radius};
+            font-size: ${attributes.timezone.font.size};
+            font-weight: ${attributes.timezone.font.weight};
+            font-family: ${attributes.timezone.font.family};
+            text-transform: ${attributes.timezone.letterCase};
+            text-decoration: ${attributes.timezone.decoration};
+            line-height: ${attributes.timezone.lineHeight};
+            letter-spacing: ${attributes.timezone.letterSpacing};
+            background-color: ${attributes.timezone.color.bg};
+            color: ${attributes.timezone.color.text};
+
+            & .warning__message {
+                font-size: ${attributes.timezone.labelTypography.font.size};
+                font-weight: ${attributes.timezone.labelTypography.font.weight};
+                font-family: ${attributes.timezone.labelTypography.font.family};
+                text-transform: ${
+									attributes.timezone.labelTypography.letterCase
+								};
+                text-decoration: ${
+									attributes.timezone.labelTypography.decoration
+								};
+                line-height: ${attributes.timezone.labelTypography.lineHeight};
+                letter-spacing: ${
+									attributes.timezone.labelTypography.letterSpacing
+								};               
+                color: ${attributes.timezone.color.label};
+            }
+        }
+
     `;
 
 	return blockStyles;

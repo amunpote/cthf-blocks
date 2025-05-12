@@ -40,7 +40,7 @@ export const Styles = memo(() => {
 
 	const themeColorPalette = select("core/editor").getEditorSettings().colors;
 
-	const googleFonts = getFontOptions();
+	const googleFonts = getFontOptions(cthfAssets.googleFonts);
 
 	return (
 		<>
@@ -1126,6 +1126,573 @@ export const Styles = memo(() => {
 												...attributes.notification,
 												color: {
 													...attributes.notification.color,
+													bg: newValue,
+												},
+											},
+										}),
+								},
+							]}
+						/>
+					</PanelBody>
+				</Panel>
+			)}
+
+			{attributes.timezone.enableNotice && (
+				<Panel>
+					<PanelBody
+						title={__("Timezone Notice Styles", "rootblox")}
+						opened={openPanel === "timezone-notice-styles"}
+						onToggle={() => setOpenPanel("timezone-notice-styles")}
+					>
+						<AttrWrapper>
+							<BoxControl
+								label={__("Padding", "rootblox")}
+								resetValues={[
+									{
+										top: "0px",
+										right: "0px",
+										bottom: "0px",
+										left: "0px",
+									},
+								]}
+								values={attributes.timezone.padding}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										timezone: {
+											...attributes.timezone,
+											padding: newValue,
+										},
+									})
+								}
+								__next40pxDefaultSize
+							/>
+						</AttrWrapper>
+
+						<div className="cthf__attr-divider">
+							<AttrWrapper styles={{ margin: "0" }}>
+								<UnitControl
+									label={__("Margin Top", "rootblox")}
+									value={attributes.timezone.margin.top}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											timezone: {
+												...attributes.timezone,
+												margin: {
+													...attributes.timezone.margin,
+													top: newValue,
+												},
+											},
+										})
+									}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+
+							<AttrWrapper styles={{ margin: "0" }}>
+								<UnitControl
+									label={__("Margin Bottom", "rootblox")}
+									value={attributes.timezone.margin.bottom}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											timezone: {
+												...attributes.timezone,
+												margin: {
+													...attributes.timezone.margin,
+													bottom: newValue,
+												},
+											},
+										})
+									}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+						</div>
+
+						<AttrWrapper>
+							<BorderBoxControl
+								label={__("Border", "rootblox")}
+								enableAlpha={true}
+								colors={themeColorPalette}
+								value={attributes.timezone.border}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										timezone: {
+											...attributes.timezone,
+											border: newValue,
+										},
+									})
+								}
+								__next40pxDefaultSize
+							/>
+						</AttrWrapper>
+
+						<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+							<UnitControl
+								label={__("Border Radius", "rootblox")}
+								value={attributes.timezone.radius}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										timezone: {
+											...attributes.timezone,
+											radius: newValue,
+										},
+									})
+								}
+								__next40pxDefaultSize
+							/>
+						</AttrWrapper>
+
+						<TabPanel
+							className="cthf__tab-panel attr-panel"
+							activeClass="attr-active"
+							tabs={[
+								{
+									title: __("Default", "rootblox"),
+									name: "cthf__tab-1",
+									className: "cthf__tab attr-tab",
+								},
+								{
+									title: __("Message", "rootblox"),
+									name: "cthf__tab-2",
+									className: "cthf__tab attr-tab",
+								},
+							]}
+						>
+							{(tab) => (
+								<>
+									{tab.name === "cthf__tab-1" && (
+										<>
+											<AttrWrapper styles={{ marginBottom: "0" }}>
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={attributes.timezone.font.family}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															timezone: {
+																...attributes.timezone,
+																font: {
+																	...attributes.timezone.font,
+																	family: newValue,
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "0" }}>
+													<UnitControl
+														label={__("Font Size", "rootblox")}
+														value={attributes.timezone.font.size}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	font: {
+																		...attributes.timezone.font,
+																		size: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Weight", "rootblox")}
+													options={fontWeights}
+													value={attributes.timezone.font.weight}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															timezone: {
+																...attributes.timezone,
+																font: {
+																	...attributes.timezone.font,
+																	weight: newValue,
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Letter Case", "rootblox")}
+														value={attributes.timezone.letterCase}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	letterCase: newValue,
+																},
+															})
+														}
+													>
+														<ToggleGroupControlOptionIcon
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Uppercase", "rootblox")}
+															icon={formatUppercase}
+															value="uppercase"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Lowercase", "rootblox")}
+															icon={formatLowercase}
+															value="lowercase"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Capitalize", "rootblox")}
+															icon={formatCapitalize}
+															value="capitalize"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Decoration", "rootblox")}
+														value={attributes.timezone.decoration}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	decoration: newValue,
+																},
+															})
+														}
+													>
+														<ToggleGroupControlOptionIcon
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Underline", "rootblox")}
+															icon={formatUnderline}
+															value="underline"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Strikethrough", "rootblox")}
+															icon={formatStrikethrough}
+															value="line-through"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Line Height", "rootblox")}
+														value={attributes.timezone.lineHeight}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	lineHeight: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Letter Spacing", "rootblox")}
+														value={attributes.timezone.letterSpacing}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	letterSpacing: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+										</>
+									)}
+
+									{tab.name === "cthf__tab-2" && (
+										<>
+											<AttrWrapper styles={{ marginBottom: "0" }}>
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={
+														attributes.timezone.labelTypography.font.family
+													}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															timezone: {
+																...attributes.timezone,
+																labelTypography: {
+																	...attributes.timezone.labelTypography,
+																	font: {
+																		...attributes.timezone.labelTypography.font,
+																		family: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "0" }}>
+													<UnitControl
+														label={__("Font Size", "rootblox")}
+														value={
+															attributes.timezone.labelTypography.font.size
+														}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	labelTypography: {
+																		...attributes.timezone.labelTypography,
+																		font: {
+																			...attributes.timezone.labelTypography
+																				.font,
+																			size: newValue,
+																		},
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Weight", "rootblox")}
+													options={fontWeights}
+													value={
+														attributes.timezone.labelTypography.font.weight
+													}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															timezone: {
+																...attributes.timezone,
+																labelTypography: {
+																	...attributes.timezone.labelTypography,
+																	font: {
+																		...attributes.timezone.labelTypography.font,
+																		weight: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</div>
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Letter Case", "rootblox")}
+														value={
+															attributes.timezone.labelTypography.letterCase
+														}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	labelTypography: {
+																		...attributes.timezone.labelTypography,
+																		letterCase: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlOptionIcon
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Uppercase", "rootblox")}
+															icon={formatUppercase}
+															value="uppercase"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Lowercase", "rootblox")}
+															icon={formatLowercase}
+															value="lowercase"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Capitalize", "rootblox")}
+															icon={formatCapitalize}
+															value="capitalize"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Decoration", "rootblox")}
+														value={
+															attributes.timezone.labelTypography.decoration
+														}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	labelTypography: {
+																		...attributes.timezone.labelTypography,
+																		decoration: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlOptionIcon
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Underline", "rootblox")}
+															icon={formatUnderline}
+															value="underline"
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Strikethrough", "rootblox")}
+															icon={formatStrikethrough}
+															value="line-through"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+											</div>
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Line Height", "rootblox")}
+														value={
+															attributes.timezone.labelTypography.lineHeight
+														}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	labelTypography: {
+																		...attributes.timezone.labelTypography,
+																		lineHeight: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Letter Spacing", "rootblox")}
+														value={
+															attributes.timezone.labelTypography.letterSpacing
+														}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																timezone: {
+																	...attributes.timezone,
+																	labelTypography: {
+																		...attributes.timezone.labelTypography,
+																		letterSpacing: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+										</>
+									)}
+								</>
+							)}
+						</TabPanel>
+
+						<PanelColorSettings
+							title={__("Colors", "rootblox")}
+							enableAlpha={true}
+							className="cthf__color-panel"
+							colorSettings={[
+								{
+									label: __("Text", "rootblox"),
+									value: attributes.timezone.color.text,
+									onChange: (newValue) =>
+										setAttributes({
+											...attributes,
+											timezone: {
+												...attributes.timezone,
+												color: {
+													...attributes.timezone.color,
+													text: newValue,
+												},
+											},
+										}),
+								},
+								{
+									label: __("Message", "rootblox"),
+									value: attributes.timezone.color.label,
+									onChange: (newValue) =>
+										setAttributes({
+											...attributes,
+											timezone: {
+												...attributes.timezone,
+												color: {
+													...attributes.timezone.color,
+													label: newValue,
+												},
+											},
+										}),
+								},
+								{
+									label: __("Background", "rootblox"),
+									value: attributes.timezone.color.bg,
+									onChange: (newValue) =>
+										setAttributes({
+											...attributes,
+											timezone: {
+												...attributes.timezone,
+												color: {
+													...attributes.timezone.color,
 													bg: newValue,
 												},
 											},

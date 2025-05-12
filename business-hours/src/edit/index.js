@@ -122,6 +122,16 @@ const BusinessHours = memo(() => {
 		}
 	}, [attributes.scheduling, attributes.weekdays, attributes.groupedWeekdays]);
 
+	const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const now = new Date();
+	const timeString = now.toLocaleTimeString("en-GB", {
+		hour12: attributes.timeFormat,
+		timeZone: localTimezone,
+		hour: "2-digit",
+		minute: "2-digit",
+		second: "2-digit",
+	});
+
 	return (
 		<>
 			<style
@@ -157,6 +167,20 @@ const BusinessHours = memo(() => {
 						<link
 							rel="stylesheet"
 							href={`https://fonts.googleapis.com/css2?family=${attributes.notification.timerTypography.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+				{attributes.timezone.font.family != "" &&
+					attributes.timezone.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.timezone.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+				{attributes.timezone.labelTypography.font.family != "" &&
+					attributes.timezone.labelTypography.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.timezone.labelTypography.font.family}:wght@100;200;300;400;500;600;700;800;900`}
 						/>
 					)}
 			</style>
@@ -403,6 +427,27 @@ const BusinessHours = memo(() => {
 							</>
 						)}
 					</div>
+				)}
+
+				{attributes.timezone.enableNotice && (
+					<>
+						<div className="timezone__warning">
+							<div className="warning__message">
+								{attributes.timezone.message}
+							</div>
+
+							{attributes.timezone.enableTime && (
+								<>
+									<div className="time__wrap">
+										<div className="label">
+											{__("Current Time in ", "rootblox") + localTimezone}
+										</div>
+										<div className="time">{timeString}</div>
+									</div>
+								</>
+							)}
+						</div>
+					</>
 				)}
 			</div>
 		</>

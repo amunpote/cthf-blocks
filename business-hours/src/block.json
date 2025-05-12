@@ -260,6 +260,55 @@
                 }
             }
         },
+        "timezone": {
+            "type": "object",
+            "default": {
+                "enableNotice": true,
+                "message": "Different timezone detected!",
+                "enableTime": true,
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "margin": {
+                    "top": "26px",
+                    "bottom": ""
+                },
+                "border": {
+                    "width": "",
+                    "style": "",
+                    "color": ""
+                },
+                "radius": "",
+                "font": {
+                    "size": "",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
+                "labelTypography": {
+                    "font": {
+                        "size": "",
+                        "weight": "",
+                        "family": ""
+                    },
+                    "letterCase": "none",
+                    "decoration": "none",
+                    "lineHeight": "",
+                    "letterSpacing": ""
+                },
+                "color": {
+                    "text": "",
+                    "label": "",
+                    "bg": ""
+                }
+            }
+        },
         "itemStyles": {
             "type": "object",
             "default": {
