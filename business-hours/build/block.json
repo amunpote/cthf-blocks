@@ -198,7 +198,11 @@
     },
     "timeSeparator": {
       "type": "string",
-      "default": " — "
+      "default": "—"
+    },
+    "groupSeparator": {
+      "type": "string",
+      "default": "to"
     },
     "notification": {
       "type": "object",
@@ -293,7 +297,7 @@
             "weight": "500",
             "family": ""
           },
-          "letterCase": "capitalize",
+          "letterCase": "none",
           "decoration": "none",
           "lineHeight": "",
           "letterSpacing": ""

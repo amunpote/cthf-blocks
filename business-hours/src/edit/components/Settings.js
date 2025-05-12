@@ -26,7 +26,7 @@ import {
 	justifyTop,
 	plusCircle,
 } from "@wordpress/icons";
-import { handleDaysReorder } from "../utils.js";
+import { createDaysOption } from "../utils.js";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
@@ -61,7 +61,9 @@ export const Settings = memo(() => {
 		setDaysOfWeek(reordered);
 	}, [attributes.scheduling]);
 
-	const selectDayOptions = handleDaysReorder(daysOfWeek);
+	const selectDayOptions = createDaysOption(daysOfWeek);
+
+	const availableDaysList = createDaysOption(availableDays);
 
 	return (
 		<>
@@ -335,6 +337,48 @@ export const Settings = memo(() => {
 											<fieldset className="cthf__attr-group has-border-wrap">
 												<legend>{__("Group ", "rootblox") + ++groupKey}</legend>
 
+												<div className="cthf__attr-divider">
+													<SelectControl
+														label={__("Start Day", "rootblox")}
+														options={selectDayOptions}
+														value={group.start}
+														onChange={(newValue) => {
+															const updatedArr = attributes.groupedWeekdays.map(
+																(item, itemIndex) =>
+																	_i === itemIndex
+																		? { ...item, start: newValue }
+																		: item,
+															);
+
+															setAttributes({
+																...attributes,
+																groupedWeekdays: updatedArr,
+															});
+														}}
+														__next40pxDefaultSize
+													/>
+
+													<SelectControl
+														label={__("End Day", "rootblox")}
+														options={selectDayOptions}
+														value={group.end}
+														onChange={(newValue) => {
+															const updatedArr = attributes.groupedWeekdays.map(
+																(item, itemIndex) =>
+																	_i === itemIndex
+																		? { ...item, end: newValue }
+																		: item,
+															);
+
+															setAttributes({
+																...attributes,
+																groupedWeekdays: updatedArr,
+															});
+														}}
+														__next40pxDefaultSize
+													/>
+												</div>
+
 												<CheckboxControl
 													label={__("Business Day", "rootblox")}
 													checked={group.opened}
@@ -346,8 +390,6 @@ export const Settings = memo(() => {
 																	: item,
 														);
 
-														console.log(updatedArr, _i);
-
 														setAttributes({
 															...attributes,
 															groupedWeekdays: updatedArr,
@@ -357,48 +399,6 @@ export const Settings = memo(() => {
 
 												{group.opened && (
 													<>
-														<div className="cthf__attr-divider">
-															<SelectControl
-																label={__("Start Day", "rootblox")}
-																value={group.start}
-																onChange={(newValue) => {
-																	const updatedArr =
-																		attributes.groupedWeekdays.map(
-																			(item, itemIndex) =>
-																				_i === itemIndex
-																					? { ...item, start: newValue }
-																					: item,
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		groupedWeekdays: updatedArr,
-																	});
-																}}
-																__next40pxDefaultSize
-															/>
-
-															<SelectControl
-																label={__("End Day", "rootblox")}
-																value={group.end}
-																onChange={(newValue) => {
-																	const updatedArr =
-																		attributes.groupedWeekdays.map(
-																			(item, itemIndex) =>
-																				_i === itemIndex
-																					? { ...item, end: newValue }
-																					: item,
-																		);
-
-																	setAttributes({
-																		...attributes,
-																		groupedWeekdays: updatedArr,
-																	});
-																}}
-																__next40pxDefaultSize
-															/>
-														</div>
-
 														<CheckboxControl
 															label={__("Open 24 Hours", "rootblox")}
 															checked={group.alwaysOpen}
@@ -505,19 +505,39 @@ export const Settings = memo(() => {
 						</>
 					)}
 
-					<AttrWrapper styles={{ maxWidth: "50%" }}>
-						<TextControl
-							label={__("Separator", "rootblox")}
-							value={attributes.timeSeparator}
-							onChange={(newValue) =>
-								setAttributes({
-									...attributes,
-									timeSeparator: newValue,
-								})
-							}
-							__next40pxDefaultSize
-						/>
-					</AttrWrapper>
+					<div className="cthf__attr-divider">
+						{attributes.scheduling.type === "group" && (
+							<>
+								<AttrWrapper styles={{ maxWidth: "50%" }}>
+									<TextControl
+										label={__("Group Separator", "rootblox")}
+										value={attributes.groupSeparator}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												groupSeparator: newValue,
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+							</>
+						)}
+
+						<AttrWrapper styles={{ maxWidth: "50%" }}>
+							<TextControl
+								label={__("Separator", "rootblox")}
+								value={attributes.timeSeparator}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										timeSeparator: newValue,
+									})
+								}
+								__next40pxDefaultSize
+							/>
+						</AttrWrapper>
+					</div>
 
 					<div className="cthf__attr-divider">
 						<AttrWrapper>

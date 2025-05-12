@@ -72,7 +72,7 @@ export function formatTime(ms, timerLabel) {
 	}`;
 }
 
-export function handleDaysReorder(days) {
+export function createDaysOption(days) {
 	let options = [];
 
 	days.forEach((item) => {

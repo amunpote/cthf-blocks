@@ -163,70 +163,183 @@ const BusinessHours = memo(() => {
 
 			<div id={blockID} className="cthf-block__business-hours">
 				<ul className="business-hours__wrap">
-					{attributes.weekdays.map((item, _i) => {
-						let label = item.key;
+					{attributes.scheduling.type === "default" &&
+						attributes.weekdays.map((item, _i) => {
+							let label = item.key;
 
-						if (
-							attributes.scheduling.abbr &&
-							attributes.scheduling.customAbbr
-						) {
-							label = String(item.key).slice(
-								0,
-								attributes.scheduling?.abbrLength,
-							);
-						} else if (attributes.scheduling.abbr) {
-							label = String(item.key).slice(0, 3);
-						}
+							if (
+								attributes.scheduling.abbr &&
+								attributes.scheduling.customAbbr
+							) {
+								label = String(item.key).slice(
+									0,
+									attributes.scheduling?.abbrLength,
+								);
+							} else if (attributes.scheduling.abbr) {
+								label = String(item.key).slice(0, 3);
+							}
 
-						return (
-							<>
-								<li className="business-hour__item">
-									<span className="weekday">{label}</span>
-									{item.opened && (
-										<>
-											{!item.alwaysOpen && (
-												<div className="active-hours">
-													<span className="opening-hour">
-														{handleTimeFormat(
-															item.openTime?.hours,
-															item.openTime?.minutes,
-															attributes.timeFormat,
-														)}
-													</span>
-													<span className="time-separator">
-														{attributes.timeSeparator}
-													</span>
-													<span className="closing-hour">
-														{handleTimeFormat(
-															item.closeTime?.hours,
-															item.closeTime?.minutes,
-															attributes.timeFormat,
-														)}
-													</span>
-												</div>
-											)}
+							/* Capitalize the first letter */
+							label = String(label);
 
-											{item.alwaysOpen && (
-												<>
-													<div className="always-open">
-														{attributes.timeSeparator + item.alwaysOpenLabel}
+							label = label.charAt(0).toUpperCase() + label.slice(1);
+
+							return (
+								<>
+									<li className="business-hour__item">
+										<span className="weekday">{label}</span>
+										{item.opened && (
+											<>
+												{!item.alwaysOpen && (
+													<div className="active-hours">
+														<span className="opening-hour">
+															{String(
+																handleTimeFormat(
+																	item.openTime?.hours,
+																	item.openTime?.minutes,
+																	attributes.timeFormat,
+																),
+															).trim()}
+														</span>
+														<span className="time-separator">
+															{" " +
+																String(attributes.timeSeparator).trim() +
+																" "}
+														</span>
+														<span className="closing-hour">
+															{String(
+																handleTimeFormat(
+																	item.closeTime?.hours,
+																	item.closeTime?.minutes,
+																	attributes.timeFormat,
+																),
+															).trim()}
+														</span>
 													</div>
-												</>
-											)}
-										</>
-									)}
+												)}
 
-									{!item.opened && (
-										<>
-											<span className="closed-label">
-												{attributes.timeSeparator + __("Closed", "rootblox")}
-											</span>
-										</>
-									)}
-								</li>
-							</>
-						);
-					})}
+												{item.alwaysOpen && (
+													<>
+														<div className="always-open">
+															{String(attributes.timeSeparator).trim() +
+																" " +
+																item.alwaysOpenLabel}
+														</div>
+													</>
+												)}
+											</>
+										)}
+
+										{!item.opened && (
+											<>
+												<span className="closed-label">
+													{String(attributes.timeSeparator).trim() +
+														" " +
+														__("Closed", "rootblox")}
+												</span>
+											</>
+										)}
+									</li>
+								</>
+							);
+						})}
+
+					{attributes.scheduling.type === "group" &&
+						attributes.groupedWeekdays.map((item, _i) => {
+							let startLabel = item.start;
+							let endLabel = item.end;
+
+							if (
+								attributes.scheduling.abbr &&
+								attributes.scheduling.customAbbr
+							) {
+								startLabel = String(item.start).slice(
+									0,
+									attributes.scheduling?.abbrLength,
+								);
+								endLabel = String(item.end).slice(
+									0,
+									attributes.scheduling?.abbrLength,
+								);
+							} else if (attributes.scheduling.abbr) {
+								startLabel = String(item.start).slice(0, 3);
+								endLabel = String(item.end).slice(0, 3);
+							}
+
+							/* Capitalize the first letter */
+							startLabel = String(startLabel);
+							endLabel = String(endLabel);
+
+							startLabel =
+								startLabel.charAt(0).toUpperCase() + startLabel.slice(1);
+							endLabel = endLabel.charAt(0).toUpperCase() + endLabel.slice(1);
+
+							return (
+								<>
+									<li className="business-hour__item">
+										<span className="weekday">
+											{String(startLabel).trim() +
+												" " +
+												String(attributes.groupSeparator).trim() +
+												" " +
+												String(endLabel).trim()}
+										</span>
+
+										{item.opened && (
+											<>
+												{!item.alwaysOpen && (
+													<div className="active-hours">
+														<span className="opening-hour">
+															{String(
+																handleTimeFormat(
+																	item.openTime?.hours,
+																	item.openTime?.minutes,
+																	attributes.timeFormat,
+																),
+															).trim()}
+														</span>
+														<span className="time-separator">
+															{" " +
+																String(attributes.timeSeparator).trim() +
+																" "}
+														</span>
+														<span className="closing-hour">
+															{String(
+																handleTimeFormat(
+																	item.closeTime?.hours,
+																	item.closeTime?.minutes,
+																	attributes.timeFormat,
+																),
+															).trim()}
+														</span>
+													</div>
+												)}
+
+												{item.alwaysOpen && (
+													<>
+														<div className="always-open">
+															{String(attributes.timeSeparator).trim() +
+																" " +
+																item.alwaysOpenLabel}
+														</div>
+													</>
+												)}
+											</>
+										)}
+
+										{!item.opened && (
+											<>
+												<span className="closed-label">
+													{String(attributes.timeSeparator).trim() +
+														" " +
+														__("Closed", "rootblox")}
+												</span>
+											</>
+										)}
+									</li>
+								</>
+							);
+						})}
 				</ul>
 
 				{attributes.notification.enabled && (

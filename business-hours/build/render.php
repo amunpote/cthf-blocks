@@ -9,6 +9,7 @@ $client_id = isset( $attributes['clientId'] ) ? str_replace( '-', '_', sanitize_
 $block_id = 'cthf_' . $client_id;
 
 $attributes['systemTimezone'] = wp_timezone();
+$attributes['systemLocale']   = str_replace( '_', '-', get_locale() );
 
 $item_styles = array(
 	'gap'            => isset( $attributes['itemStyles']['gap'] ) ? $attributes['itemStyles']['gap'] : '',
@@ -119,7 +120,7 @@ $block_styles = "
 		background-color: {$notifier_styles['color']['bg']};
 		color: {$notifier_styles['color']['text']};
 	}
-	#$block_id .business-hour__item .weekday {
+	#$block_id .notification .timer {
 		font-size: {$notifier_styles['timer']['font']['size']};
 		font-weight: {$attributes['notification']['timerTypography']['font']['weight']};
 		font-family: {$notifier_styles['timer']['font']['family']};
@@ -187,7 +188,7 @@ $weekday_translated_labels = array(
 		<div id="<?php echo esc_attr( $block_id ); ?>" class="cthf-block__business-hours">
 			<ul class="business-hours__wrap">
 				<?php
-				if ( isset( $attributes['weekdays'] ) && is_array( $attributes['weekdays'] ) && ! empty( $attributes['weekdays'] ) ) {
+				if ( isset( $attributes['weekdays'], $attributes['scheduling']['type'] ) && 'default' === $attributes['scheduling']['type'] && is_array( $attributes['weekdays'] ) && ! empty( $attributes['weekdays'] ) ) {
 					foreach ( $attributes['weekdays'] as $index => $weekday ) {
 						$label = $weekday['key'];
 
@@ -207,41 +208,99 @@ $weekday_translated_labels = array(
 						}
 						?>
 						<li class="business-hour__item">
+							<span class="weekday"><?php echo esc_html( ucfirst( $label ) ); ?></span>
 							<?php
-							if ( $attributes['scheduling']['type'] === 'default' ) {
-								?>
-								<span class="weekday"><?php echo esc_html( $label ); ?></span>
-								<?php
-								if ( isset( $weekday['opened'] ) && filter_var( $weekday['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
-									if ( isset( $weekday['alwaysOpen'] ) && filter_var( $weekday['alwaysOpen'], FILTER_VALIDATE_BOOLEAN ) ) {
-										$label = isset( $weekday['alwaysOpenLabel'] ) ? sanitize_text_field( $weekday['alwaysOpenLabel'] ) : '';
-										?>
-										<div class="always-open"><?php echo esc_html( $time_styles['separator'] ) . esc_html( $label ); ?></div>
-										<?php
-									} else {
-
-
-										$open_time  = array(
-											'hours'   => isset( $weekday['openTime']['hours'] ) ? $weekday['openTime']['hours'] : '',
-											'minutes' => isset( $weekday['openTime']['minutes'] ) ? $weekday['openTime']['minutes'] : '',
-										);
-										$close_time = array(
-											'hours'   => isset( $weekday['closeTime']['hours'] ) ? $weekday['closeTime']['hours'] : '',
-											'minutes' => isset( $weekday['closeTime']['minutes'] ) ? $weekday['closeTime']['minutes'] : '',
-										);
-										?>
-										<div class="active-hours">
-											<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
-											<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
-											<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
-										</div>
-										<?php
-									}
-								} else {
+							if ( isset( $weekday['opened'] ) && filter_var( $weekday['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
+								if ( isset( $weekday['alwaysOpen'] ) && filter_var( $weekday['alwaysOpen'], FILTER_VALIDATE_BOOLEAN ) ) {
+									$label = isset( $weekday['alwaysOpenLabel'] ) ? sanitize_text_field( $weekday['alwaysOpenLabel'] ) : '';
 									?>
-									<span class="closed-message"><?php echo esc_html( $time_styles['separator'] ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
+									<div class="always-open"><?php echo esc_html( trim( $time_styles['separator'] ) . ' ' ) . esc_html( trim( $label ) ); ?></div>
+									<?php
+								} else {
+
+
+									$open_time  = array(
+										'hours'   => isset( $weekday['openTime']['hours'] ) ? $weekday['openTime']['hours'] : '',
+										'minutes' => isset( $weekday['openTime']['minutes'] ) ? $weekday['openTime']['minutes'] : '',
+									);
+									$close_time = array(
+										'hours'   => isset( $weekday['closeTime']['hours'] ) ? $weekday['closeTime']['hours'] : '',
+										'minutes' => isset( $weekday['closeTime']['minutes'] ) ? $weekday['closeTime']['minutes'] : '',
+									);
+									?>
+									<div class="active-hours">
+										<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+										<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
+										<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+									</div>
 									<?php
 								}
+							} else {
+								?>
+								<span class="closed-message"><?php echo esc_html( trim( $time_styles['separator'] ) . ' ' ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
+								<?php
+							}
+							?>
+						</li>
+						<?php
+					}
+				}
+
+				if ( isset( $attributes['scheduling']['type'], $attributes['groupedWeekdays'] ) && 'group' === $attributes['scheduling']['type'] && is_array( $attributes['groupedWeekdays'] ) && ! empty( $attributes['groupedWeekdays'] ) ) {
+					$group_separator = isset( $attributes['groupSeparator'] ) ? sanitize_text_field( $attributes['groupSeparator'] ) : 'to';
+					foreach ( $attributes['groupedWeekdays'] as $index => $group ) {
+						$start_label = sanitize_text_field( $group['start'] );
+						$end_label   = sanitize_text_field( $group['end'] );
+
+						if ( isset( $attributes['scheduling']['abbr'], $attributes['scheduling']['customAbbr'] ) && filter_var( $attributes['scheduling']['abbr'], FILTER_VALIDATE_BOOLEAN ) && filter_var( $attributes['scheduling']['customAbbr'] ) ) {
+							$abbr_len = isset( $attributes['scheduling']['abbrLength'] ) ? sanitize_text_field( $attributes['scheduling']['abbrLength'] ) : 3;
+							if ( function_exists( 'mb_substr' ) ) {
+								$start_label = mb_substr( $start_label, 0, $abbr_len, 'UTF-8' );
+								$end_label   = mb_substr( $end_label, 0, $abbr_len, 'UTF-8' );
+							} else {
+								$start_label = substr( $start_label, 0, $abbr_len );
+								$end_label   = substr( $end_label, 0, $abbr_len );
+							}
+						} elseif ( isset( $attributes['scheduling']['abbr'] ) && filter_var( $attributes['scheduling']['abbr'], FILTER_VALIDATE_BOOLEAN ) ) {
+							if ( function_exists( 'mb_substr' ) ) {
+								$start_label = mb_substr( $start_label, 0, 3, 'UTF-8' );
+								$end_label   = mb_substr( $end_label, 0, 3, 'UTF-8' );
+							} else {
+								$start_label = substr( $start_label, 0, 3 );
+								$end_label   = substr( $end_label, 0, 3 );
+							}
+						}
+						?>
+						<li class="business-hour__item">
+							<span class="weekday"><?php echo esc_html( trim( ucfirst( $start_label ) ) . ' ' . trim( $group_separator ) . ' ' . trim( ucfirst( $end_label ) ) ); ?></span>
+							<?php
+							if ( isset( $group['opened'] ) && filter_var( $group['opened'], FILTER_VALIDATE_BOOLEAN ) ) {
+								if ( isset( $group['alwaysOpen'] ) && filter_var( $group['alwaysOpen'], FILTER_VALIDATE_BOOLEAN ) ) {
+									$label = isset( $group['alwaysOpenLabel'] ) ? sanitize_text_field( $group['alwaysOpenLabel'] ) : '';
+									?>
+									<div class="always-open"><?php echo esc_html( $time_styles['separator'] ) . esc_html( $label ); ?></div>
+									<?php
+								} else {
+									$open_time  = array(
+										'hours'   => isset( $group['openTime']['hours'] ) ? $group['openTime']['hours'] : '',
+										'minutes' => isset( $group['openTime']['minutes'] ) ? $group['openTime']['minutes'] : '',
+									);
+									$close_time = array(
+										'hours'   => isset( $group['closeTime']['hours'] ) ? $group['closeTime']['hours'] : '',
+										'minutes' => isset( $group['closeTime']['minutes'] ) ? $group['closeTime']['minutes'] : '',
+									);
+									?>
+									<div class="active-hours">
+										<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+										<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
+										<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+									</div>
+									<?php
+								}
+							} else {
+								?>
+								<span class="closed-message"><?php echo esc_html( trim( $time_styles['separator'] ) . ' ' ) . esc_html__( 'Closed', 'rootblox' ); ?></span>
+								<?php
 							}
 							?>
 						</li>
