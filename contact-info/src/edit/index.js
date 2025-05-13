@@ -2,7 +2,7 @@ import "../editor.scss";
 
 import { __ } from "@wordpress/i18n";
 
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 import {
 	memo,
@@ -27,7 +27,17 @@ const ContactInfo = memo(() => {
 				}}
 			/>
 
-			<div id={blockID} className="cthf-block__contact-info"></div>
+			<div id={blockID} className="cthf-block__contact-info">
+				<InnerBlocks
+					orientation="horizontal"
+					allowedBlocks={[]}
+					template={[
+						["cthf-blocks/contact-info-email"],
+						["cthf-blocks/contact-info-phone"],
+						["cthf-blocks/contact-info-location"],
+					]}
+				/>
+			</div>
 		</>
 	);
 });

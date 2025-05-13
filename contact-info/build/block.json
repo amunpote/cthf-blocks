@@ -43,7 +43,35 @@
     "clientId": {
       "type": "string",
       "default": ""
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "boxWidth": "",
+        "boxHeight": "",
+        "size": "",
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "border": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
+        "radius": "",
+        "color": {
+          "svg": "",
+          "bg": ""
+        }
+      }
     }
+  },
+  "providesContext": {
+    "icon": "icon"
   },
   "editorScript": [
     "cthf-blocks--contact-info"
