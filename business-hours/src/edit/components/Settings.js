@@ -364,8 +364,10 @@ export const Settings = memo(() => {
 														className="cthf-attr__remove-icon"
 														icon={trash}
 														onClick={() => {
-															const updatedArr =
-																attributes.groupedWeekdays.splice(_i, 1);
+															const updatedArr = [
+																...attributes.groupedWeekdays,
+															];
+															updatedArr.splice(_i, 1);
 
 															setAttributes({
 																...attributes,
