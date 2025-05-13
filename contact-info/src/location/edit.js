@@ -22,6 +22,10 @@ export default function Edit({
 				{icon && icon.enabled && <></>}
 
 				<RichText
+					placeholder={__(
+						"123 Maplewood Lane, Springfield, IL 62704, USA",
+						"rootblox",
+					)}
 					value={attributes.content}
 					onChange={(newValue) =>
 						setAttributes({

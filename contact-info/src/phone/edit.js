@@ -22,6 +22,7 @@ export default function Edit({
 				{icon && icon.enabled && <></>}
 
 				<RichText
+					placeholder={__("+1‑415‑555‑0132", "rootblox")}
 					value={attributes.content}
 					onChange={(newValue) =>
 						setAttributes({

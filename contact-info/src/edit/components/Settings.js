@@ -32,5 +32,29 @@ export const Settings = memo(() => {
 
 	const [openPanel, setOpenPanel] = useState("general");
 
-	return <></>;
+	return (
+		<>
+			<Panel>
+				<PanelBody
+					title={__("General", "rootblox")}
+					opened={openPanel === "general"}
+					onToggle={() => setOpenPanel("general")}
+				>
+					<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
+						<UnitControl
+							label={__("Gap", "rootblox")}
+							value={attributes.gap}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									gap: newValue,
+								})
+							}
+							__next40pxDefaultSize
+						/>
+					</AttrWrapper>
+				</PanelBody>
+			</Panel>
+		</>
+	);
 });

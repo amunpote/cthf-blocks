@@ -44,6 +44,10 @@
       "type": "string",
       "default": ""
     },
+    "gap": {
+      "type": "string",
+      "default": "16px"
+    },
     "icon": {
       "type": "object",
       "default": {

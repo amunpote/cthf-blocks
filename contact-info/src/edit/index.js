@@ -30,7 +30,11 @@ const ContactInfo = memo(() => {
 			<div id={blockID} className="cthf-block__contact-info">
 				<InnerBlocks
 					orientation="horizontal"
-					allowedBlocks={[]}
+					allowedBlocks={[
+						"cthf-blocks/contact-info-email",
+						"cthf-blocks/contact-info-phone",
+						"cthf-blocks/contact-info-location",
+					]}
 					template={[
 						["cthf-blocks/contact-info-email"],
 						["cthf-blocks/contact-info-phone"],
