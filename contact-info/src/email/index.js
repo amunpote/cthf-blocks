@@ -7,7 +7,10 @@ import Save from "./save.js";
 
 registerBlockType("cthf-blocks/contact-info-email", {
 	title: __("Email", "rootblox"),
-	description: __("Add your email here!", "rootblox"),
+	description: __(
+		"Display your email address with a clickable link for instant communication.",
+		"rootblox",
+	),
 
 	category: "rootblox-footer",
 
@@ -38,6 +41,26 @@ registerBlockType("cthf-blocks/contact-info-email", {
 		content: {
 			type: "string",
 			default: "",
+		},
+		icon: {
+			type: "object",
+			default: {},
+		},
+		iconVariation: {
+			type: "string",
+			default: "variation-2",
+		},
+		url: {
+			type: "string",
+			default: "",
+		},
+		openNewTab: {
+			type: "boolean",
+			default: false,
+		},
+		noFollow: {
+			type: "boolean",
+			default: false,
 		},
 	},
 

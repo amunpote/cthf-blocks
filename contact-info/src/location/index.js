@@ -7,7 +7,10 @@ import Save from "./save.js";
 
 registerBlockType("cthf-blocks/contact-info-location", {
 	title: __("Location", "rootblox"),
-	description: __("Add your location here!", "rootblox"),
+	description: __(
+		"Show your business location with a clickable address linked to Google Maps.",
+		"rootblox",
+	),
 
 	category: "rootblox-footer",
 
@@ -38,6 +41,26 @@ registerBlockType("cthf-blocks/contact-info-location", {
 		content: {
 			type: "string",
 			default: "",
+		},
+		icon: {
+			type: "object",
+			default: {},
+		},
+		iconVariation: {
+			type: "string",
+			default: "variation-1",
+		},
+		url: {
+			type: "string",
+			default: "",
+		},
+		openNewTab: {
+			type: "boolean",
+			default: false,
+		},
+		noFollow: {
+			type: "boolean",
+			default: false,
 		},
 	},
 

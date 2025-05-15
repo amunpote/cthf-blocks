@@ -7,7 +7,10 @@ import Save from "./save.js";
 
 registerBlockType("cthf-blocks/contact-info-phone", {
 	title: __("Phone", "rootblox"),
-	description: __("Add your phone here!", "rootblox"),
+	description: __(
+		"Display your phone number with a clickable link for quick and easy contact.",
+		"rootblox",
+	),
 
 	category: "rootblox-footer",
 
@@ -38,6 +41,26 @@ registerBlockType("cthf-blocks/contact-info-phone", {
 		content: {
 			type: "string",
 			default: "",
+		},
+		icon: {
+			type: "object",
+			default: {},
+		},
+		iconVariation: {
+			type: "string",
+			default: "variation-1",
+		},
+		url: {
+			type: "string",
+			default: "",
+		},
+		openNewTab: {
+			type: "boolean",
+			default: false,
+		},
+		noFollow: {
+			type: "boolean",
+			default: false,
 		},
 	},
 

@@ -48,13 +48,48 @@
       "type": "string",
       "default": "16px"
     },
+    "itemStyles": {
+      "type": "object",
+      "default": {
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "border": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
+        "radius": "",
+        "font": {
+          "size": "",
+          "weight": "",
+          "family": ""
+        },
+        "letterCase": "none",
+        "decoration": "underline",
+        "lineHeight": "",
+        "letterSpacing": "",
+        "color": {
+          "text": "",
+          "textHover": "",
+          "bg": "",
+          "bgHover": "",
+          "borderHover": ""
+        }
+      }
+    },
     "icon": {
       "type": "object",
       "default": {
         "enabled": true,
+        "gap": "6px",
+        "align": "center",
         "boxWidth": "",
         "boxHeight": "",
-        "size": "",
+        "size": "16px",
         "padding": {
           "top": "",
           "right": "",
@@ -69,7 +104,10 @@
         "radius": "",
         "color": {
           "svg": "",
-          "bg": ""
+          "svgHover": "",
+          "bg": "",
+          "bgHover": "",
+          "borderHover": ""
         }
       }
     }

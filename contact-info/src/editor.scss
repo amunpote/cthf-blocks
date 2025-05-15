@@ -4,3 +4,11 @@
 	min-width: 18px !important;
 	color: #5100ff;
 }
+
+.cthf-block__contact-info {
+	& .cthf-block__contact-info-email,
+	& .cthf-block__contact-info-location,
+	& .cthf-block__contact-info-phone {
+		display: flex;
+	}
+}

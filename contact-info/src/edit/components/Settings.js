@@ -21,9 +21,9 @@ import { memo, useState, useContext } from "@wordpress/element";
 import { CTHFBlockContext } from "../index.js";
 import { AttrWrapper } from "../../../../../resources/components/utility.js";
 import {
-	justifyBottom,
-	justifyCenter,
 	justifyTop,
+	justifyCenter,
+	justifyBottom,
 	plusCircle,
 } from "@wordpress/icons";
 
@@ -40,19 +40,75 @@ export const Settings = memo(() => {
 					opened={openPanel === "general"}
 					onToggle={() => setOpenPanel("general")}
 				>
-					<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
-						<UnitControl
-							label={__("Gap", "rootblox")}
-							value={attributes.gap}
-							onChange={(newValue) =>
-								setAttributes({
-									...attributes,
-									gap: newValue,
-								})
-							}
-							__next40pxDefaultSize
-						/>
-					</AttrWrapper>
+					<div className="cthf__attr-divider">
+						<AttrWrapper styles={{ marginTop: "0" }}>
+							<UnitControl
+								label={__("Gap", "rootblox")}
+								value={attributes.gap}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										gap: newValue,
+									})
+								}
+								__next40pxDefaultSize
+							/>
+						</AttrWrapper>
+
+						{attributes.icon.enabled && (
+							<AttrWrapper styles={{ marginTop: "0" }}>
+								<UnitControl
+									label={__("Icon Gap", "rootblox")}
+									value={attributes.icon.gap}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											icon: {
+												...attributes.icon,
+												gap: newValue,
+											},
+										})
+									}
+									__next40pxDefaultSize
+								/>
+							</AttrWrapper>
+						)}
+					</div>
+
+					{attributes.icon.enabled && (
+						<>
+							<ToggleGroupControl
+								label={__("Icon Align", "rootblox")}
+								value={attributes.icon.align}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										icon: {
+											...attributes.icon,
+											align: newValue,
+										},
+									})
+								}
+								__next40pxDefaultSize
+							>
+								<ToggleGroupControlOptionIcon
+									label={__("Left", "rootblox")}
+									icon={justifyTop}
+									value="start"
+								/>
+								<ToggleGroupControlOptionIcon
+									label={__("Ceneter", "rootblox")}
+									icon={justifyCenter}
+									value="center"
+								/>
+								<ToggleGroupControlOptionIcon
+									label={__("Bottom", "rootblox")}
+									icon={justifyBottom}
+									value="end"
+								/>
+							</ToggleGroupControl>
+						</>
+					)}
 				</PanelBody>
 			</Panel>
 		</>
