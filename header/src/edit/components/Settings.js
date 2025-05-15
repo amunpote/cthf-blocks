@@ -203,9 +203,9 @@ export const Settings = memo(() => {
 					<>
 						<Panel>
 							<PanelBody
-								title={__("Mobile Menu", "rootblox")}
-								opened={openPanel === "mobile-menu"}
-								onToggle={() => setOpenPanel("mobile-menu")}
+								title={__("Responsive Menu Settings", "rootblox")}
+								opened={openPanel === "responsive-menu-settings"}
+								onToggle={() => setOpenPanel("responsive-menu-settings")}
 							>
 								<ToggleGroupControl
 									label={__("Overlay Menu", "rootblox")}
@@ -646,10 +646,6 @@ export const Settings = memo(() => {
 															<ToggleGroupControlLabelOption
 																label={__("Default", "rootblox")}
 																value="default"
-															/>
-															<ToggleGroupControlLabelOption
-																label={__("Post", "rootblox")}
-																value="post"
 															/>
 															<ToggleGroupControlLabelOption
 																label={__("Product", "rootblox")}

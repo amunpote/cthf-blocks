@@ -286,25 +286,26 @@ $block_styles = "
 				color: {$search_styles['color']['icon_hover']};
 			}
 		}
-
-		& form, & form .search__icon {
-			color: {$search_styles['color']['text']};
-		}
-
-		& .cthf__search-overlay {
-			background-color: {$search_styles['color']['overlay']};
-		}
-
-		& .close__icon {
-			color: {$search_styles['color']['close']};
-			background-color: {$search_styles['color']['close_bg']};
-
-			&:hover {
-				color: {$search_styles['color']['close_hover']};
-				background-color: {$search_styles['color']['close_bg_hover']};
-			}
-		}
 	}	
+}
+.cthf-block__wrapper.element-$block_id {
+	& form, & form .search__icon {
+			color: {$search_styles['color']['text']};
+	}
+
+	& .cthf__search-overlay {
+		background-color: {$search_styles['color']['overlay']};
+	}
+
+	& .close__icon {
+		color: {$search_styles['color']['close']};
+		background-color: {$search_styles['color']['close_bg']};
+
+		&:hover {
+			color: {$search_styles['color']['close_hover']};
+			background-color: {$search_styles['color']['close_bg_hover']};
+		}
+	}
 }
 .cthf__mobile-layout-wrapper.element-$block_id.is-sticky.on-scroll__sticky {
 	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
@@ -448,7 +449,7 @@ if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'
 
 		$all_plugins = get_plugins();
 		if ( ( ! isset( $all_plugins['woocommerce/woocommerce.php'] ) || ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) && 'product' === $redirection_post_type ) {
-			$redirection_post_type = 'post';
+			$redirection_post_type = '';
 		}
 
 		if ( empty( $redirection_post_type ) ) {
@@ -510,9 +511,13 @@ add_action(
 
 wp_localize_script( 'cthf-blocks--header--frontend-script', $block_id, $attributes );
 wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEventListener("DOMContentLoaded", function(event) { window.cthfHeader( "' . esc_html( $block_id ) . '" ) }) ' );
+
+$classes   = array();
+$classes[] = 'cthf-block__wrapper';
+$classes[] = 'element-' . $block_id;
 ?>
 
-<div class="cthf-block__wrapper">
+<div class="<?php echo esc_html( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
 	<?php
 	if ( 'off' === $attributes['mobileMenu']['status'] || 'mobile' === $attributes['mobileMenu']['status'] ) {
 		echo $content;
@@ -574,29 +579,29 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 					if ( rootblox_is_premium() ) {
 						if ( $attributes['sidebar']['button'] && is_array( $attributes['sidebar']['btnGroup'] ) ) {
 							?>
-						<div class="cthf__cta-btn-group">
-							<?php
-							foreach ( $attributes['sidebar']['btnGroup'] as $index => $cta_btn ) {
-								$classes   = array();
-								$classes[] = 'cthf__cta-anchor-btn';
-								$classes[] = 'element-' . $block_id;
-								$classes[] = 'sidebar-btn';
-								$classes[] = 'cta-btn-' . ( ++$index );
+							<div class="cthf__cta-btn-group">
+								<?php
+								foreach ( $attributes['sidebar']['btnGroup'] as $index => $cta_btn ) {
+									$classes   = array();
+									$classes[] = 'cthf__cta-anchor-btn';
+									$classes[] = 'element-' . $block_id;
+									$classes[] = 'sidebar-btn';
+									$classes[] = 'cta-btn-' . ( ++$index );
 
-								$btn_label = isset( $cta_btn['label'] ) ? $cta_btn['label'] : '';
-								$btn_link  = isset( $cta_btn['link'] ) && ! empty( $cta_btn['link'] ) ? sanitize_url( $cta_btn['link'] ) : '#';
-								$new_tab   = isset( $cta_btn['openNewTab'] ) && filter_var( $cta_btn['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
-								$nofollow  = isset( $cta_btn['noFollow'] ) && filter_var( $cta_btn['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
-								$color     = array(
-									'text'         => isset( $cta_btn['textColor'] ) ? $cta_btn['textColor'] : '',
-									'text_hover'   => isset( $cta_btn['textHoverColor'] ) ? $cta_btn['textHoverColor'] : '',
-									'bg'           => isset( $cta_btn['bgColor'] ) ? $cta_btn['bgColor'] : '',
-									'bg_hover'     => isset( $cta_btn['bgHoverColor'] ) ? $cta_btn['bgHoverColor'] : '',
-									'border'       => isset( $cta_btn['borderColor'] ) ? $cta_btn['borderColor'] : '',
-									'border_hover' => isset( $cta_btn['borderHoverColor'] ) ? $cta_btn['borderHoverColor'] : '',
-								);
+									$btn_label = isset( $cta_btn['label'] ) ? $cta_btn['label'] : '';
+									$btn_link  = isset( $cta_btn['link'] ) && ! empty( $cta_btn['link'] ) ? sanitize_url( $cta_btn['link'] ) : '#';
+									$new_tab   = isset( $cta_btn['openNewTab'] ) && filter_var( $cta_btn['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
+									$nofollow  = isset( $cta_btn['noFollow'] ) && filter_var( $cta_btn['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
+									$color     = array(
+										'text'         => isset( $cta_btn['textColor'] ) ? $cta_btn['textColor'] : '',
+										'text_hover'   => isset( $cta_btn['textHoverColor'] ) ? $cta_btn['textHoverColor'] : '',
+										'bg'           => isset( $cta_btn['bgColor'] ) ? $cta_btn['bgColor'] : '',
+										'bg_hover'     => isset( $cta_btn['bgHoverColor'] ) ? $cta_btn['bgHoverColor'] : '',
+										'border'       => isset( $cta_btn['borderColor'] ) ? $cta_btn['borderColor'] : '',
+										'border_hover' => isset( $cta_btn['borderHoverColor'] ) ? $cta_btn['borderHoverColor'] : '',
+									);
 
-								$cta_btn_styles = "
+									$cta_btn_styles = "
 									.element-$block_id.cthf__cta-anchor-btn.sidebar-btn.cta-btn-$index {
 										color: {$color['text']} !important;
 										background-color: {$color['bg']} !important;
@@ -608,13 +613,15 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 										border-color: {$color['border_hover']} !important;
 									}
 								";
+									?>
+									<style>
+										<?php echo esc_html( $cta_btn_styles ); ?>
+									</style>
+									<a class="<?php echo esc_html( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>" href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_attr( $new_tab ); ?>" rel="<?php echo esc_attr( $nofollow ); ?>"><?php echo esc_html( $btn_label ); ?></a>
+									<?php
+								}
 								?>
-								<style><?php echo esc_html( $cta_btn_styles ); ?></style>
-								<a class="<?php echo esc_html( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>" href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_attr( $new_tab ); ?>" rel="<?php echo esc_attr( $nofollow ); ?>"><?php echo esc_html( $btn_label ); ?></a>
-								<?php
-							}
-							?>
-						</div>
+							</div>
 							<?php
 						}
 
@@ -732,41 +739,41 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 
 							?>
 							<ul class="cthf__social-icon-group">
-							<?php
-							foreach ( $attributes['sidebarSocial']['elements'] as $social ) {
-								$social_link = '';
-								$new_tab     = isset( $attributes['sidebarSocial']['openNewTab'] ) && filter_var( $attributes['sidebarSocial']['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
-								$nofollow    = isset( $attributes['sidebarSocial']['noFollow'] ) && filter_var( $attributes['sidebarSocial']['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
-								if ( ! in_array( $social, $valid_socials, true ) ) {
-									continue;
-								}
-
-								foreach ( $attributes['sidebarSocial']['links'] as $item ) {
-									if ( $social === $item['label'] ) {
-										$social_link = sanitize_url( $item['url'] );
-										break;
+								<?php
+								foreach ( $attributes['sidebarSocial']['elements'] as $social ) {
+									$social_link = '';
+									$new_tab     = isset( $attributes['sidebarSocial']['openNewTab'] ) && filter_var( $attributes['sidebarSocial']['openNewTab'], FILTER_VALIDATE_BOOLEAN ) ? '_blank' : '';
+									$nofollow    = isset( $attributes['sidebarSocial']['noFollow'] ) && filter_var( $attributes['sidebarSocial']['noFollow'], FILTER_VALIDATE_BOOLEAN ) ? 'nofollow' : '';
+									if ( ! in_array( $social, $valid_socials, true ) ) {
+										continue;
 									}
-								}
 
-								if ( empty( $social_link ) ) {
-									$social_link = '#';
-								}
+									foreach ( $attributes['sidebarSocial']['links'] as $item ) {
+										if ( $social === $item['label'] ) {
+											$social_link = sanitize_url( $item['url'] );
+											break;
+										}
+									}
 
-								$classes   = array();
-								$classes[] = 'cthf__social-icon';
-								$classes[] = 'social-' . strtolower( $social );
-								$classes[] = 'view-' . $attributes['sidebarSocial']['view'];
-								$classes[] = $attributes['sidebarSocial']['useBrandColor'] ? 'has-brand-color' : '';
+									if ( empty( $social_link ) ) {
+										$social_link = '#';
+									}
 
-								?>
+									$classes   = array();
+									$classes[] = 'cthf__social-icon';
+									$classes[] = 'social-' . strtolower( $social );
+									$classes[] = 'view-' . $attributes['sidebarSocial']['view'];
+									$classes[] = $attributes['sidebarSocial']['useBrandColor'] ? 'has-brand-color' : '';
+
+									?>
 									<li class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', array_values( $classes ) ) ) ); ?>">
 										<a href="<?php echo esc_url( $social_link ); ?>" target="<?php echo esc_attr( $new_tab ); ?>" rel="<?php echo esc_attr( $nofollow ); ?>">
 											<?php echo $social_icons[ $social ]; ?>
 										</a>
 									</li>
-								<?php
-							}
-							?>
+									<?php
+								}
+								?>
 							</ul>
 							<?php
 						}
@@ -778,4 +785,28 @@ wp_add_inline_script( 'cthf-blocks--header--frontend-script', 'document.addEvent
 		<?php
 	}
 	?>
+
+	<!-- Search Modal -->
+	<div class="cthf__search-modal">
+		<div class="cthf__search-overlay"></div>
+		<div class="cthf__search-body">
+			<h4 class="search__heading"><?php esc_html_e( 'Looking for Something?', 'rootblox' ); ?></h4>
+			<form method="POST" action="">
+
+				<svg class="search__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.783 16.8277C10.3738 16.8292 11.9294 16.3594 13.2534 15.4775C14.5774 14.5956 15.6104 13.3412 16.222 11.8727C16.8333 10.4039 16.9945 8.78674 16.6852 7.22624C16.376 5.66574 15.6102 4.23226 14.485 3.10766C13.3605 1.98261 11.9277 1.21618 10.3677 0.90522C8.80769 0.594263 7.19052 0.752743 5.72057 1.36063C4.25062 1.96852 2.99387 2.99852 2.10915 4.32047C1.22443 5.64242 0.751452 7.19697 0.75 8.78766C0.75 10.9187 1.596 12.9617 3.102 14.4687C4.60848 15.9758 6.65107 16.8241 8.782 16.8277M14.488 14.4907L19.25 19.2497" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+
+				<input class="cthf__search" type="text" name="search" placeholder="<?php echo esc_html__( 'Search...', 'rootblox' ); ?>" />
+
+				<?php
+				wp_nonce_field();
+				?>
+			</form>
+		</div>
+
+		<svg class="close__icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+			<path d="M4.99999 4.058L8.29999 0.758003L9.24266 1.70067L5.94266 5.00067L9.24266 8.30067L8.29932 9.24334L4.99932 5.94334L1.69999 9.24334L0.757324 8.3L4.05732 5L0.757324 1.7L1.69999 0.75867L4.99999 4.058Z" fill="currentColor" />
+		</svg>
+	</div>
 </div>
