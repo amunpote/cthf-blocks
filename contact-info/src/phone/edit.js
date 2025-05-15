@@ -34,9 +34,11 @@ export default function Edit({
 			<div id={blockID} className="cthf-block__contact-info-phone">
 				{icon && icon.enabled && (
 					<>
-						{attributes.iconVariation === "variation-1" && <IconVariation1 />}
-						{attributes.iconVariation === "variation-2" && <IconVariation2 />}
-						{attributes.iconVariation === "variation-3" && <IconVariation3 />}
+						<div className="icon__wrapper">
+							{attributes.iconVariation === "variation-1" && <IconVariation1 />}
+							{attributes.iconVariation === "variation-2" && <IconVariation2 />}
+							{attributes.iconVariation === "variation-3" && <IconVariation3 />}
+						</div>
 					</>
 				)}
 

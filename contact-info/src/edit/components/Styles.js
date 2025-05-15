@@ -214,13 +214,13 @@ export const Styles = memo(() => {
 						<AttrWrapper styles={{ margin: "0" }}>
 							<ToggleGroupControl
 								label={__("Decoration", "rootblox")}
-								value={attributes.itemStyles.letterCase}
+								value={attributes.itemStyles.decoration}
 								onChange={(newValue) =>
 									setAttributes({
 										...attributes,
 										itemStyles: {
 											...attributes.itemStyles,
-											letterCase: newValue,
+											decoration: newValue,
 										},
 									})
 								}
@@ -434,6 +434,49 @@ export const Styles = memo(() => {
 									__next40pxDefaultSize
 								/>
 							</AttrWrapper>
+
+							<div className="cthf__attr-divider">
+								<AttrWrapper styles={{ marginBottom: "0" }}>
+									<UnitControl
+										label={__("Margin Top", "rootblox")}
+										value={attributes.icon.margin.top}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												icon: {
+													...attributes.icon,
+													margin: {
+														...attributes.icon.margin,
+														top: newValue,
+													},
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+
+								<AttrWrapper styles={{ marginBottom: "0" }}>
+									<UnitControl
+										label={__("Margin Bottom", "rootblox")}
+										value={attributes.icon.margin.bottom}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												icon: {
+													...attributes.icon,
+													margin: {
+														...attributes.icon.margin,
+														bottom: newValue,
+													},
+												},
+											})
+										}
+										__next40
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+							</div>
 
 							<div className="cthf__attr-divider">
 								<AttrWrapper>

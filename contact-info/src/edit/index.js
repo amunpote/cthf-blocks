@@ -27,6 +27,16 @@ const ContactInfo = memo(() => {
 				}}
 			/>
 
+			<style>
+				{attributes.itemStyles.font.family != "" &&
+					attributes.itemStyles.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.itemStyles.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+			</style>
+
 			<div id={blockID} className="cthf-block__contact-info">
 				<InnerBlocks
 					orientation="horizontal"

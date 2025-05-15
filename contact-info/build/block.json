@@ -48,6 +48,10 @@
       "type": "string",
       "default": "16px"
     },
+    "stackLayout": {
+      "type": "boolean",
+      "default": false
+    },
     "itemStyles": {
       "type": "object",
       "default": {
@@ -85,7 +89,8 @@
       "type": "object",
       "default": {
         "enabled": true,
-        "gap": "6px",
+        "gap": "8px",
+        "rowGap": "4px",
         "align": "center",
         "boxWidth": "",
         "boxHeight": "",
@@ -95,6 +100,10 @@
           "right": "",
           "bottom": "",
           "left": ""
+        },
+        "margin": {
+          "top": "",
+          "bottom": ""
         },
         "border": {
           "width": "",

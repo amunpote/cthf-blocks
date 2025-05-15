@@ -17,9 +17,17 @@ export default function Save({ attributes }) {
 				>
 					{attributes.icon.enabled && (
 						<>
-							{attributes.iconVariation === "variation-1" && <IconVariation1 />}
-							{attributes.iconVariation === "variation-2" && <IconVariation2 />}
-							{attributes.iconVariation === "variation-3" && <IconVariation3 />}
+							<div className="icon__wrapper">
+								{attributes.iconVariation === "variation-1" && (
+									<IconVariation1 />
+								)}
+								{attributes.iconVariation === "variation-2" && (
+									<IconVariation2 />
+								)}
+								{attributes.iconVariation === "variation-3" && (
+									<IconVariation3 />
+								)}
+							</div>
 						</>
 					)}
 					<span> {attributes.content}</span>

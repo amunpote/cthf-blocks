@@ -1,6 +1,12 @@
 .cthf-block__contact-info .contact__link {
 	display: flex;
 }
-.cthf-block__contact-info svg {
-	vertical-align: middle;
+.cthf-block__contact-info .icon__wrapper {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	& svg {
+		display: flex;
+	}
 }
