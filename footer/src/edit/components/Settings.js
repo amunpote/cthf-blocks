@@ -5,8 +5,10 @@ import {
 	Panel,
 	PanelBody,
 	TextareaControl,
+	ToggleControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 
@@ -24,6 +26,13 @@ import {
 	AttrWrapper,
 	UpsellAttributeWrapper,
 } from "../../../../../resources/components/utility.js";
+import {
+	BackToTopIcon1,
+	BackToTopIcon2,
+	BackToTopIcon3,
+	BackToTopIcon4,
+	BackToTopIcon5,
+} from "../utils.js";
 
 export const Settings = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
@@ -114,6 +123,145 @@ export const Settings = memo(() => {
 							opened={openPanel === "back-to-top-settings"}
 							onToggle={() => setOpenPanel("back-to-top-settings")}
 						>
+							<ToggleControl
+								label={__("Enable Icon", "rootblox")}
+								checked={attributes.backToTop.enableIcon}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										backToTop: {
+											...attributes.backToTop,
+											enableIcon: newValue,
+										},
+									})
+								}
+							/>
+
+							{attributes.backToTop.enableIcon && (
+								<>
+									<ToggleGroupControl
+										label={__("Icon Variation", "rootblox")}
+										value={attributes.backToTop.iconVariation}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													iconVariation: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									>
+										<ToggleGroupControlIconOption
+											label={__("Variation 1", "rootblox")}
+											value="variation-1"
+											icon={BackToTopIcon1}
+										/>
+										<ToggleGroupControlIconOption
+											label={__("Variation 2", "rootblox")}
+											value="variation-2"
+											icon={BackToTopIcon2}
+										/>
+										<ToggleGroupControlIconOption
+											label={__("Variation 3", "rootblox")}
+											value="variation-3"
+											icon={BackToTopIcon3}
+										/>
+										<ToggleGroupControlIconOption
+											label={__("Variation 4", "rootblox")}
+											value="variation-4"
+											icon={BackToTopIcon4}
+										/>
+										<ToggleGroupControlIconOption
+											label={__("Variation 5", "rootblox")}
+											value="variation-5"
+											icon={BackToTopIcon5}
+										/>
+									</ToggleGroupControl>
+								</>
+							)}
+
+							<ToggleControl
+								label={__("Enable Label", "rootblox")}
+								checked={attributes.backToTop.enableLabel}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+										backToTop: {
+											...attributes.backToTop,
+											enableLabel: newValue,
+										},
+									})
+								}
+							/>
+
+							{attributes.backToTop.enableLabel && (
+								<>
+									<TextareaControl
+										label={__("Label Text", "rootblox")}
+										value={attributes.backToTop.label}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													label: newValue,
+												},
+											})
+										}
+									/>
+
+									<ToggleGroupControl
+										label={__("Layout", "rootblox")}
+										value={attributes.backToTop.display}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													display: newValue,
+												},
+											})
+										}
+										isBlock
+										__next40pxDefaultSize
+									>
+										<ToggleGroupControlOption
+											label={__("Default", "rootblox")}
+											value="column"
+										/>
+										<ToggleGroupControlOption
+											label={__("Inline", "rootblox")}
+											value="row"
+										/>
+									</ToggleGroupControl>
+								</>
+							)}
+
+							{attributes.backToTop.enableIcon &&
+								attributes.backToTop.enableLabel && (
+									<>
+										<AttrWrapper styles={{ maxWidth: "50%" }}>
+											<UnitControl
+												label={__("Gap", "rootblox")}
+												value={attributes.backToTop.gap}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															gap: newValue,
+														},
+													})
+												}
+												isBlock
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+									</>
+								)}
+
 							<ToggleGroupControl
 								label={__("Position", "rootblox")}
 								value={attributes.backToTop.position}

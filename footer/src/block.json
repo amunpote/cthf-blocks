@@ -18,10 +18,16 @@
             "type": "object",
             "default": {
                 "enabled": true,
+                "enableIcon": true,
+                "enableLabel": true,
+                "label": "Top",
+                "gap": "0px",
                 "position": "right",
                 "boxWidth": "60px",
                 "boxHeight": "60px",
                 "iconSize": "26px",
+                "iconVariation": "variation-1",
+                "display": "column",
                 "margin": {
                     "top": "",
                     "right": "16px",
@@ -34,6 +40,15 @@
                     "color": ""
                 },
                 "radius": "100px",
+                "font": {
+                    "size": "14px",
+                    "weight": "",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "",
+                "letterSpacing": "",
                 "color": {
                     "icon": "",
                     "iconHover": "",
@@ -58,11 +73,11 @@
                     "bg": "#5100ff"
                 }
             }
-        }, 
+        },
         "customScript": {
             "type": "object",
             "default": {
-                "enabled": false, 
+                "enabled": false,
                 "content": ""
             }
         }

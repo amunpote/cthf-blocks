@@ -8,13 +8,29 @@ import {
 	__experimentalBoxControl as BoxControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalBorderControl as BorderControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupContrlOptionIcon,
 	TextControl,
+	SelectControl,
 } from "@wordpress/components";
+import {
+	lineSolid,
+	formatUppercase,
+	formatLowercase,
+	formatCapitalize,
+	formatUnderline,
+	formatStrikethrough,
+} from "@wordpress/icons";
 
 import { memo, useContext, useState } from "@wordpress/element";
 import { select } from "@wordpress/data";
+
 import { CTHFBlockContext } from "./InspectorControls.js";
-import { AttrWrapper } from "../../../../../resources/components/utility.js";
+import {
+	AttrWrapper,
+	fontWeights,
+	getFontOptions,
+} from "../../../../../resources/components/utility.js";
 
 export const Styles = memo(() => {
 	const { attributes, setAttributes } = useContext(CTHFBlockContext);
@@ -22,6 +38,8 @@ export const Styles = memo(() => {
 	const themeColorPalette = select("core/editor").getEditorSettings().colors;
 
 	const [openPanel, setOpenPanel] = useState(null);
+
+	const googleFonts = getFontOptions(cthfAssets.googleFonts);
 
 	return (
 		<>
@@ -80,13 +98,13 @@ export const Styles = memo(() => {
 								<AttrWrapper styles={{ marginTop: "0" }}>
 									<UnitControl
 										label={__("Box Height", "rootblox")}
-										value={attributes.backToTop.boxWidth}
+										value={attributes.backToTop.boxHeight}
 										onChange={(newValue) =>
 											setAttributes({
 												...attributes,
 												backToTop: {
 													...attributes.backToTop,
-													boxWidth: newValue,
+													boxHeight: newValue,
 												},
 											})
 										}
@@ -150,13 +168,184 @@ export const Styles = memo(() => {
 								</AttrWrapper>
 							</div>
 
+							{attributes.backToTop.enableLabel && (
+								<>
+									<SelectControl
+										label={__("Font Family", "rootblox")}
+										options={googleFonts}
+										value={attributes.backToTop.font.family}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													font: {
+														...attributes.backToTop.font,
+														family: newValue,
+													},
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+
+									<div className="cthf__attr-divider">
+										<AttrWrapper styles={{ margin: "0" }}>
+											<UnitControl
+												label={__("Font Size", "rootblox")}
+												value={attributes.backToTop.font.size}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															font: {
+																...attributes.backToTop.font,
+																size: newValue,
+															},
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
+										<SelectControl
+											label={__("Font Weight", "rootblox")}
+											options={fontWeights}
+											value={attributes.backToTop.font.weight}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													backToTop: {
+														...attributes.backToTop,
+														font: {
+															...attributes.backToTop.font,
+															weight: newValue,
+														},
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</div>
+
+									<div className="cthf__attr-divider">
+										<AttrWrapper styles={{ marginBottom: "0" }}>
+											<ToggleGroupControl
+												label={__("Letter Case", "rootblox")}
+												value={attributes.backToTop.letterCase}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															letterCase: newValue,
+														},
+													})
+												}
+											>
+												<ToggleGroupContrlOptionIcon
+													label={__("None", "rootblox")}
+													value="none"
+													icon={lineSolid}
+												/>
+												<ToggleGroupContrlOptionIcon
+													label={__("Uppercase", "rootblox")}
+													value="uppercase"
+													icon={formatUppercase}
+												/>
+												<ToggleGroupContrlOptionIcon
+													label={__("Lowercase", "rootblox")}
+													value="lowercase"
+													icon={formatLowercase}
+												/>
+												<ToggleGroupContrlOptionIcon
+													label={__("Capitalize", "rootblox")}
+													value="capitalize"
+													icon={formatCapitalize}
+												/>
+											</ToggleGroupControl>
+										</AttrWrapper>
+
+										<AttrWrapper styles={{ marginBottom: "0" }}>
+											<ToggleGroupControl
+												label={__("Decoration", "rootblox")}
+												value={attributes.backToTop.decoration}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															decoration: newValue,
+														},
+													})
+												}
+											>
+												<ToggleGroupContrlOptionIcon
+													label={__("None", "rootblox")}
+													value="none"
+													icon={lineSolid}
+												/>
+												<ToggleGroupContrlOptionIcon
+													label={__("Underline", "rootblox")}
+													value="underline"
+													icon={formatUnderline}
+												/>
+												<ToggleGroupContrlOptionIcon
+													label={__("Strikethrough", "rootblox")}
+													value="line-through"
+													icon={formatStrikethrough}
+												/>
+											</ToggleGroupControl>
+										</AttrWrapper>
+									</div>
+
+									<div className="cthf__attr-divider">
+										<AttrWrapper styles={{ marginTop: "0" }}>
+											<UnitControl
+												label={__("Line Height", "rootblox")}
+												value={attributes.backToTop.lineHeight}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															lineHeight: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+
+										<AttrWrapper styles={{ marginTop: "0" }}>
+											<UnitControl
+												label={__("Letter Spacing", "rootblox")}
+												value={attributes.backToTop.letterSpacing}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														backToTop: {
+															...attributes.backToTop,
+															letterSpacing: newValue,
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+										</AttrWrapper>
+									</div>
+								</>
+							)}
+
 							<PanelColorSettings
 								className="cthf__color-panel"
 								enableAlpha={true}
 								title={__("Colors", "rootblox")}
 								colorSettings={[
 									{
-										label: __("Icon (Default)", "rootblox"),
+										label: __("Icon/Text (Default)", "rootblox"),
 										value: attributes.backToTop.color.icon,
 										onChange: (newValue) =>
 											setAttributes({
@@ -171,7 +360,7 @@ export const Styles = memo(() => {
 											}),
 									},
 									{
-										label: __("Icon (Hover)", "rootblox"),
+										label: __("Icon/Text (Hover)", "rootblox"),
 										value: attributes.backToTop.color.iconHover,
 										onChange: (newValue) =>
 											setAttributes({

@@ -10,10 +10,22 @@ export function renderBlockStyles(blockID, attributes) {
         height: ${attributes.backToTop.boxHeight};
         background-color: ${attributes.backToTop.color.bg};
         color: ${attributes.backToTop.color.icon};
+        flex-direction: ${attributes.backToTop.display};
+        gap: ${attributes.backToTop.gap};
 
-        & .cthf__back-to-top {
+        & svg {
           width: ${attributes.backToTop.iconSize};
           height: ${attributes.backToTop.iconSize};
+        }
+
+        & .back-to-top__label {
+          font-size: ${attributes.backToTop.font.size};      
+          font-weight: ${attributes.backToTop.font.weight};      
+          font-family: ${attributes.backToTop.font.family};      
+          text-transform: ${attributes.backToTop.letterCase};      
+          text-decoration: ${attributes.backToTop.decoration};      
+          line-height: ${attributes.backToTop.lineHeight};      
+          letter-spacing: ${attributes.backToTop.letterSpacing};      
         }
 
         &:hover {

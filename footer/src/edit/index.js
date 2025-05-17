@@ -18,7 +18,14 @@ import { select, dispatch } from "@wordpress/data";
 
 import { CTHFBlockControls } from "./components/InspectorControls.js";
 import { renderBlockStyles } from "./style.js";
-import { blankTemplate } from "./utils.js";
+import {
+	BackToTopIcon1,
+	BackToTopIcon2,
+	BackToTopIcon3,
+	BackToTopIcon4,
+	BackToTopIcon5,
+	blankTemplate,
+} from "./utils.js";
 import { PatternModal } from "./components/PatternModal.js";
 
 import { replace } from "@wordpress/icons";
@@ -27,6 +34,16 @@ const FooterBuilder = memo(
 	({ blockID, attributes, startBlank, footerContent }) => {
 		return (
 			<>
+				<style>
+					{attributes.backToTop.font.family != "" &&
+						attributes.backToTop.font.family != undefined && (
+							<link
+								rel="stylesheet"
+								href={`https://fonts.googleapis.com/css2?family=${attributes.backToTop.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+							/>
+						)}
+				</style>
+
 				<div id={blockID} className="cthf-block__header">
 					{!startBlank && <InnerBlocks template={footerContent} />}
 
@@ -38,21 +55,32 @@ const FooterBuilder = memo(
 						<div
 							className={`cthf__back-to-top-wrapper position-${attributes.backToTop.position} element-${blockID}`}
 						>
-							<svg
-								className="cthf__back-to-top"
-								width="8"
-								height="18"
-								viewBox="0 0 8 18"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fillRule="evenodd"
-									clipRule="evenodd"
-									d="M0.142488 3.23847L3.23847 0.142488C3.42845 -0.0474959 3.73648 -0.0474959 3.92646 0.142488L7.02245 3.23847C7.21243 3.42845 7.21243 3.73648 7.02245 3.92646C6.83246 4.11645 6.52444 4.11645 6.33445 3.92646L4.06895 1.66097L4.06895 18L3.09598 18L3.09598 1.66097L0.830484 3.92647C0.640499 4.11645 0.332473 4.11645 0.142488 3.92647C-0.0474968 3.73648 -0.0474968 3.42845 0.142488 3.23847Z"
-									fill="currentColor"
-								/>
-							</svg>
+							{attributes.backToTop.enableIcon && (
+								<div className="icon__wrapper">
+									{attributes.backToTop.iconVariation === "variation-1" && (
+										<BackToTopIcon1 />
+									)}
+									{attributes.backToTop.iconVariation === "variation-2" && (
+										<BackToTopIcon2 />
+									)}
+									{attributes.backToTop.iconVariation === "variation-3" && (
+										<BackToTopIcon3 />
+									)}
+									{attributes.backToTop.iconVariation === "variation-4" && (
+										<BackToTopIcon4 />
+									)}
+									{attributes.backToTop.iconVariation === "variation-5" && (
+										<BackToTopIcon5 />
+									)}
+								</div>
+							)}
+
+							{attributes.backToTop.enabled &&
+								attributes.backToTop.enableLabel && (
+									<p className="back-to-top__label">
+										{attributes.backToTop.label}
+									</p>
+								)}
 						</div>
 					</>
 				)}
