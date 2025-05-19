@@ -266,6 +266,65 @@ export const Settings = memo(() => {
 										})
 									}
 								/>
+
+								{attributes.search.ajax.enabled && (
+									<>
+										<RangeControl
+											label={__("Posts per page", "rootblox")}
+											min={1}
+											max={10}
+											step={1}
+											value={attributes.search.ajax.postsPerPage}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													search: {
+														...attributes.search,
+														ajax: {
+															...attributes.search.ajax,
+															postsPerPage: newValue,
+														},
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+
+										<CheckboxControl
+											label={__("Open link in new tab", "rootblox")}
+											checked={attributes.search.ajax.openNewTab}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													search: {
+														...attributes.search,
+														ajax: {
+															...attributes.search.ajax,
+															openNewTab: newValue,
+														},
+													},
+												})
+											}
+										/>
+
+										<CheckboxControl
+											label={__("Mark as no follow", "rootblox")}
+											checked={attributes.search.ajax.noFollow}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													search: {
+														...attributes.search,
+														ajax: {
+															...attributes.search.ajax,
+															noFollow: newValue,
+														},
+													},
+												})
+											}
+										/>
+									</>
+								)}
 							</>
 						)}
 					</PanelBody>
@@ -354,30 +413,6 @@ export const Settings = memo(() => {
 										attributes.mobileMenu.status === "always") && (
 										<>
 											<div className="cthf__mobile-layout-picker">
-												<Button
-													className={`add__icon${
-														attributes.mobileMenu.layout.length >= 3
-															? " cthf__blur"
-															: ""
-													}`}
-													icon={plusCircle}
-													text={__("Add Flex Box", "rootblox")}
-													onClick={() => {
-														if (attributes.mobileMenu.layout.length < 3) {
-															attributes.mobileMenu.layout.push([]);
-															let newArr = attributes.mobileMenu.layout;
-
-															setAttributes({
-																...attributes,
-																mobileMenu: {
-																	...attributes.mobileMenu,
-																	layout: [...newArr],
-																},
-															});
-														}
-													}}
-												/>
-
 												{Array.isArray(attributes.mobileMenu.layout) &&
 													attributes.mobileMenu.layout.map((layout, index) => {
 														let layoutIndex = index + 1;
@@ -527,6 +562,32 @@ export const Settings = memo(() => {
 															</>
 														);
 													})}
+
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<Button
+														className={`add__icon${
+															attributes.mobileMenu.layout.length >= 3
+																? " cthf__blur"
+																: ""
+														}`}
+														icon={plusCircle}
+														text={__("Add Flex Box", "rootblox")}
+														onClick={() => {
+															if (attributes.mobileMenu.layout.length < 3) {
+																attributes.mobileMenu.layout.push([]);
+																let newArr = attributes.mobileMenu.layout;
+
+																setAttributes({
+																	...attributes,
+																	mobileMenu: {
+																		...attributes.mobileMenu,
+																		layout: [...newArr],
+																	},
+																});
+															}
+														}}
+													/>
+												</AttrWrapper>
 											</div>
 										</>
 									)}
@@ -778,7 +839,7 @@ export const Settings = memo(() => {
 										>
 											<Button
 												className="cthf__btn-secondary"
-												style={{ margin: "0 0 22px" }}
+												style={{ margin: "10px 0 22px" }}
 												text={__("Preview Changes", "rootblox")}
 												onClick={() => setSidebarPreview(true)}
 											/>
@@ -797,19 +858,32 @@ export const Settings = memo(() => {
 												}
 											/>
 
-											<ToggleControl
-												label={__("Enable Navigation", "rootblox")}
-												checked={attributes.sidebar.navigation}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														sidebar: {
-															...attributes.sidebar,
-															navigation: newValue,
-														},
-													})
-												}
-											/>
+											<div
+												className={`${
+													attributes.sidebar.navigation
+														? "cthf__light-border-top"
+														: ""
+												}`}
+												style={{
+													paddingTop: attributes.sidebar.navigation
+														? "20px"
+														: 0,
+												}}
+											>
+												<ToggleControl
+													label={__("Enable Navigation", "rootblox")}
+													checked={attributes.sidebar.navigation}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															sidebar: {
+																...attributes.sidebar,
+																navigation: newValue,
+															},
+														})
+													}
+												/>
+											</div>
 
 											{attributes.sidebar.navigation && (
 												<>
@@ -882,41 +956,36 @@ export const Settings = memo(() => {
 											)}
 											{cthfAssets.isPremium && (
 												<>
-													<ToggleControl
-														label={__("Enable CTA Button", "rootblox")}
-														checked={attributes.sidebar.button}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																sidebar: {
-																	...attributes.sidebar,
-																	button: newValue,
-																},
-															})
-														}
-													/>
+													<div
+														className={`${
+															attributes.sidebar.button
+																? "cthf__light-border-top"
+																: ""
+														}`}
+														style={{
+															paddingTop: attributes.sidebar.button
+																? "20px"
+																: 0,
+														}}
+													>
+														<ToggleControl
+															label={__("Enable CTA Button", "rootblox")}
+															checked={attributes.sidebar.button}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	sidebar: {
+																		...attributes.sidebar,
+																		button: newValue,
+																	},
+																})
+															}
+														/>
+													</div>
 
 													{attributes.sidebar.button && (
 														<>
 															<div className="cthf__cta-btn-group">
-																<Button
-																	text={__("Add CTA Button", "rootblox")}
-																	icon={plusCircle}
-																	onClick={() => {
-																		const addGroup = [
-																			...attributes.sidebar.btnGroup,
-																			{},
-																		];
-																		setAttributes({
-																			...attributes,
-																			sidebar: {
-																				...attributes.sidebar,
-																				btnGroup: addGroup,
-																			},
-																		});
-																	}}
-																/>
-
 																{Array.isArray(attributes.sidebar.btnGroup) &&
 																	attributes.sidebar.btnGroup.map(
 																		(btn, index) => {
@@ -1291,29 +1360,41 @@ export const Settings = memo(() => {
 																			);
 																		},
 																	)}
+
+																<AttrWrapper styles={{ marginBottom: "0" }}>
+																	<Button
+																		text={__("Add CTA Button", "rootblox")}
+																		icon={plusCircle}
+																		onClick={() => {
+																			const addGroup = [
+																				...attributes.sidebar.btnGroup,
+																				{
+																					label: "Subscribe",
+																					link: "#",
+																					openNewTab: false,
+																					noFollow: false,
+																					textColor: "",
+																					textHoverColor: "",
+																					bgColor: "",
+																					bgHoverColor: "",
+																					borderColor: "",
+																					borderHoverColor: "",
+																				},
+																			];
+																			setAttributes({
+																				...attributes,
+																				sidebar: {
+																					...attributes.sidebar,
+																					btnGroup: addGroup,
+																				},
+																			});
+																		}}
+																	/>
+																</AttrWrapper>
 															</div>
 
-															<AttrWrapper
-																styles={{ maxWidth: "40%", margin: "0" }}
-															>
-																<UnitControl
-																	label={__("Width", "rootblox")}
-																	value={attributes.sidebarCTA.width}
-																	onChange={(newValue) =>
-																		setAttributes({
-																			...attributes,
-																			sidebarCTA: {
-																				...attributes.sidebarCTA,
-																				width: newValue,
-																			},
-																		})
-																	}
-																	__next40pxDefaultSize
-																/>
-															</AttrWrapper>
-
 															<div className="cthf__attr-divider">
-																<AttrWrapper>
+																<AttrWrapper styles={{ marginTop: "0" }}>
 																	<UnitControl
 																		label={__("HGap", "rootblox")}
 																		value={attributes.sidebarCTA.gap}
@@ -1330,7 +1411,7 @@ export const Settings = memo(() => {
 																	/>
 																</AttrWrapper>
 
-																<AttrWrapper>
+																<AttrWrapper styles={{ marginTop: "0" }}>
 																	<UnitControl
 																		label={__("VGap", "rootblox")}
 																		value={attributes.sidebarCTA.rowGap}
@@ -1348,6 +1429,62 @@ export const Settings = memo(() => {
 																</AttrWrapper>
 															</div>
 
+															<div className="cthf__attr-divider">
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<UnitControl
+																		label={__("Width", "rootblox")}
+																		value={attributes.sidebarCTA.width}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					width: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+
+																<AttrWrapper styles={{ marginTop: "0" }}>
+																	<ToggleGroupControl
+																		label={__("Justification", "rootblox")}
+																		value={attributes.sidebarCTA.justification}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarCTA: {
+																					...attributes.sidebarCTA,
+																					justification: newValue,
+																				},
+																			})
+																		}
+																	>
+																		<ToggleGroupControlIconOption
+																			label={__("Left", "rootblox")}
+																			icon={justifyLeft}
+																			value="left"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Center", "rootblox")}
+																			icon={justifyCenter}
+																			value="center"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Right", "rootblox")}
+																			icon={justifyRight}
+																			value="right"
+																		/>
+																		<ToggleGroupControlIconOption
+																			label={__("Space Between", "rootblox")}
+																			icon={justifySpaceBetween}
+																			value="space-between"
+																		/>
+																	</ToggleGroupControl>
+																</AttrWrapper>
+															</div>
+
 															<ToggleControl
 																label={__("Stack Layout", "rootblox")}
 																checked={attributes.sidebarCTA.stacked}
@@ -1361,44 +1498,6 @@ export const Settings = memo(() => {
 																	})
 																}
 															/>
-
-															<ToggleGroupControl
-																label={__(
-																	"CTA Button Justification",
-																	"rootblox",
-																)}
-																value={attributes.sidebarCTA.justification}
-																onChange={(newValue) =>
-																	setAttributes({
-																		...attributes,
-																		sidebarCTA: {
-																			...attributes.sidebarCTA,
-																			justification: newValue,
-																		},
-																	})
-																}
-															>
-																<ToggleGroupControlIconOption
-																	label={__("Left", "rootblox")}
-																	icon={justifyLeft}
-																	value="left"
-																/>
-																<ToggleGroupControlIconOption
-																	label={__("Center", "rootblox")}
-																	icon={justifyCenter}
-																	value="center"
-																/>
-																<ToggleGroupControlIconOption
-																	label={__("Right", "rootblox")}
-																	icon={justifyRight}
-																	value="right"
-																/>
-																<ToggleGroupControlIconOption
-																	label={__("Space Between", "rootblox")}
-																	icon={justifySpaceBetween}
-																	value="space-between"
-																/>
-															</ToggleGroupControl>
 														</>
 													)}
 												</>
@@ -1417,19 +1516,33 @@ export const Settings = memo(() => {
 											)}
 											{cthfAssets.isPremium && (
 												<>
-													<ToggleControl
-														label={__("Enable Social Icons", "rootblox")}
-														checked={attributes.sidebar.social}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																sidebar: {
-																	...attributes.sidebar,
-																	social: newValue,
-																},
-															})
-														}
-													/>
+													<div
+														className={`${
+															attributes.sidebar.social
+																? "cthf__light-border-top"
+																: ""
+														}`}
+														style={{
+															marginTop: attributes.sidebar.social ? "20px" : 0,
+															paddingTop: attributes.sidebar.social
+																? "20px"
+																: 0,
+														}}
+													>
+														<ToggleControl
+															label={__("Enable Social Icons", "rootblox")}
+															checked={attributes.sidebar.social}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	sidebar: {
+																		...attributes.sidebar,
+																		social: newValue,
+																	},
+																})
+															}
+														/>
+													</div>
 
 													{attributes.sidebar.social && (
 														<>
@@ -1655,32 +1768,43 @@ export const Settings = memo(() => {
 												</>
 											)}
 
-											{!cthfAssets.isPremium && (
-												<>
-													<UpsellAttributeWrapper>
-														<AttrWrapper>
-															<ToggleGroupControl
-																label={__("Sidebar Position", "rootblox")}
-																value="left"
-															>
-																<ToggleGroupControlIconOption
-																	label={__("Left", "rootblox")}
-																	value="left"
-																	icon={justifyLeft}
-																/>
+											<div
+												className="cthf__attr-divider cthf__light-border-top"
+												style={{ marginTop: "22px" }}
+											>
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Content Alignment", "rootblox")}
+														value={attributes.sidebar.contentAlign}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebar: {
+																	...attributes.sidebar,
+																	contentAlign: newValue,
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("Left", "rootblox")}
+															icon={alignLeft}
+															value="left"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Center", "rootblox")}
+															icon={alignCenter}
+															value="center"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Right", "rootblox")}
+															icon={alignRight}
+															value="right"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
 
-																<ToggleGroupControlIconOption
-																	label={__("Right", "rootblox")}
-																	value="right"
-																	icon={justifyRight}
-																/>
-															</ToggleGroupControl>
-														</AttrWrapper>
-													</UpsellAttributeWrapper>
-												</>
-											)}
-											{cthfAssets.isPremium && (
-												<AttrWrapper>
+												<AttrWrapper styles={{ marginBottom: "0" }}>
 													<ToggleGroupControl
 														label={__("Sidebar Position", "rootblox")}
 														value={attributes.sidebar.position}
@@ -1707,37 +1831,14 @@ export const Settings = memo(() => {
 														/>
 													</ToggleGroupControl>
 												</AttrWrapper>
-											)}
+											</div>
 
-											<ToggleGroupControl
-												label={__("Content Alignment", "rootblox")}
-												value={attributes.sidebar.contentAlign}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														sidebar: {
-															...attributes.sidebar,
-															contentAlign: newValue,
-														},
-													})
-												}
-											>
-												<ToggleGroupControlIconOption
-													label={__("Left", "rootblox")}
-													icon={alignLeft}
-													value="left"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Center", "rootblox")}
-													icon={alignCenter}
-													value="center"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Right", "rootblox")}
-													icon={alignRight}
-													value="right"
-												/>
-											</ToggleGroupControl>
+											<Button
+												className="cthf__btn-secondary"
+												style={{ marginTop: "12px" }}
+												text={__("Preview Changes", "rootblox")}
+												onClick={() => setSidebarPreview(true)}
+											/>
 										</PanelBody>
 									</Panel>
 								)}

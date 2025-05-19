@@ -134,14 +134,424 @@ export const Styles = memo(() => {
 						opened={openPanel === "search-styles"}
 						onToggle={() => togglePanel("search-styles")}
 					>
+						<TabPanel
+							title={__("Typography", "rootblox")}
+							className="cthf__tab-panel attr-panel"
+							tabs={[
+								{
+									title: __("Heading", "rootblox"),
+									name: "cthf__tab-1",
+									className: "cthf__tab attr-tab",
+								},
+								{
+									title: __("Post Title", "rootblox"),
+									name: "cthf__tab-2",
+									className: "cthf__tab attr-tab",
+								},
+							]}
+							activeClass="attr-active"
+						>
+							{(tab) => (
+								<>
+									{tab.name === "cthf__tab-1" && (
+										<>
+											<AttrWrapper styles={{ marginBottom: "0" }}>
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={attributes.search.heading.font.family}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															search: {
+																...attributes.search,
+																heading: {
+																	...attributes.search.heading,
+																	font: {
+																		...attributes.search.heading.font,
+																		family: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "0" }}>
+													<UnitControl
+														label={__("Font Size", "rootblox")}
+														value={attributes.search.heading.font.size}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	heading: {
+																		...attributes.search.heading,
+																		font: {
+																			...attributes.search.heading.font,
+																			size: newValue,
+																		},
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Weight", "rootblox")}
+													options={fontWeights}
+													value={attributes.search.heading.font.weight}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															search: {
+																...attributes.search,
+																heading: {
+																	...attributes.search.heading,
+																	font: {
+																		...attributes.search.heading.font,
+																		weight: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Letter Case", "rootblox")}
+														value={attributes.search.heading.letterCase}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	heading: {
+																		...attributes.search.heading,
+																		letterCase: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Uppercase", "rootblox")}
+															icon={formatUppercase}
+															value="uppercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Lowercase", "rootblox")}
+															icon={formatLowercase}
+															value="lowercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Capitalize", "rootblox")}
+															icon={formatCapitalize}
+															value="capitalize"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Decoration", "rootblox")}
+														value={attributes.search.heading.decoration}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	heading: {
+																		...attributes.search.heading,
+																		decoration: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Underline", "rootblox")}
+															icon={formatUnderline}
+															value="underline"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Strikethrough", "rootblox")}
+															icon={formatStrikethrough}
+															value="line-through"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Line Height", "rootblox")}
+														value={attributes.search.heading.lineHeight}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	heading: {
+																		...attributes.search.heading,
+																		lineHeight: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Letter Spacing", "rootblox")}
+														value={attributes.search.heading.letterSpacing}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	heading: {
+																		...attributes.search.heading,
+																		letterSpacing: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+										</>
+									)}
+
+									{tab.name === "cthf__tab-2" && (
+										<>
+											<AttrWrapper styles={{ marginBottom: "0" }}>
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={attributes.search.postTitle.font.family}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															search: {
+																...attributes.search,
+																postTitle: {
+																	...attributes.search.postTitle,
+																	font: {
+																		...attributes.search.postTitle.font,
+																		family: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</AttrWrapper>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "0" }}>
+													<UnitControl
+														label={__("Font Size", "rootblox")}
+														value={attributes.search.postTitle.font.size}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	postTitle: {
+																		...attributes.search.postTitle,
+																		font: {
+																			...attributes.search.postTitle.font,
+																			size: newValue,
+																		},
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Weight", "rootblox")}
+													options={fontWeights}
+													value={attributes.search.postTitle.font.weight}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															search: {
+																...attributes.search,
+																postTitle: {
+																	...attributes.search.postTitle,
+																	font: {
+																		...attributes.search.postTitle.font,
+																		weight: newValue,
+																	},
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Letter Case", "rootblox")}
+														value={attributes.search.postTitle.letterCase}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	postTitle: {
+																		...attributes.search.postTitle,
+																		letterCase: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Uppercase", "rootblox")}
+															icon={formatUppercase}
+															value="uppercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Lowercase", "rootblox")}
+															icon={formatLowercase}
+															value="lowercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Capitalize", "rootblox")}
+															icon={formatCapitalize}
+															value="capitalize"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<ToggleGroupControl
+														label={__("Decoration", "rootblox")}
+														value={attributes.search.postTitle.decoration}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	postTitle: {
+																		...attributes.search.postTitle,
+																		decoration: newValue,
+																	},
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Underline", "rootblox")}
+															icon={formatUnderline}
+															value="underline"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Strikethrough", "rootblox")}
+															icon={formatStrikethrough}
+															value="line-through"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Line Height", "rootblox")}
+														value={attributes.search.postTitle.lineHeight}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	postTitle: {
+																		...attributes.search.postTitle,
+																		lineHeight: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Letter Spacing", "rootblox")}
+														value={attributes.search.postTitle.letterSpacing}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																search: {
+																	...attributes.search,
+																	postTitle: {
+																		...attributes.search.postTitle,
+																		letterSpacing: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+										</>
+									)}
+								</>
+							)}
+						</TabPanel>
+
 						<PanelColorSettings
 							className="cthf__color-panel"
 							enableAlpha={true}
 							title={__("Colors", "rootblox")}
 							colorSettings={[
 								{
-									label: __("Icon (Default)", "rootblox"),
-									value: attributes.search.color.icon,
+									label: __("Heading", "rootblox"),
+									value: attributes.search.color.heading,
 									onChange: (newValue) =>
 										setAttributes({
 											...attributes,
@@ -149,22 +559,7 @@ export const Styles = memo(() => {
 												...attributes.search,
 												color: {
 													...attributes.search.color,
-													icon: newValue,
-												},
-											},
-										}),
-								},
-								{
-									label: __("Icon (Hover)", "rootblox"),
-									value: attributes.search.color.iconHover,
-									onChange: (newValue) =>
-										setAttributes({
-											...attributes,
-											search: {
-												...attributes.search,
-												color: {
-													...attributes.search.color,
-													iconHover: newValue,
+													heading: newValue,
 												},
 											},
 										}),
@@ -185,6 +580,36 @@ export const Styles = memo(() => {
 										}),
 								},
 								{
+									label: __("Link (Default)", "rootblox"),
+									value: attributes.search.color.link,
+									onChange: (newValue) =>
+										setAttributes({
+											...attributes,
+											search: {
+												...attributes.search,
+												color: {
+													...attributes.search.color,
+													link: newValue,
+												},
+											},
+										}),
+								},
+								{
+									label: __("Link (Hover)", "rootblox"),
+									value: attributes.search.color.linkHover,
+									onChange: (newValue) =>
+										setAttributes({
+											...attributes,
+											search: {
+												...attributes.search,
+												color: {
+													...attributes.search.color,
+													linkHover: newValue,
+												},
+											},
+										}),
+								},
+								{
 									label: __("Overlay", "rootblox"),
 									value: attributes.search.color.overlay,
 									onChange: (newValue) =>
@@ -200,7 +625,7 @@ export const Styles = memo(() => {
 										}),
 								},
 								{
-									label: __("Close Icon (Default)", "rootblox"),
+									label: __("Close Icon", "rootblox"),
 									value: attributes.search.color.close,
 									onChange: (newValue) =>
 										setAttributes({
@@ -210,51 +635,6 @@ export const Styles = memo(() => {
 												color: {
 													...attributes.search.color,
 													close: newValue,
-												},
-											},
-										}),
-								},
-								{
-									label: __("Close Icon (Hover)", "rootblox"),
-									value: attributes.search.color.closeHover,
-									onChange: (newValue) =>
-										setAttributes({
-											...attributes,
-											search: {
-												...attributes.search,
-												color: {
-													...attributes.search.color,
-													closeHover: newValue,
-												},
-											},
-										}),
-								},
-								{
-									label: __("Close Icon Background (Default)", "rootblox"),
-									value: attributes.search.color.closeBg,
-									onChange: (newValue) =>
-										setAttributes({
-											...attributes,
-											search: {
-												...attributes.search,
-												color: {
-													...attributes.search.color,
-													closeBg: newValue,
-												},
-											},
-										}),
-								},
-								{
-									label: __("Close Icon Background (Hover)", "rootblox"),
-									value: attributes.search.color.closeBgHover,
-									onChange: (newValue) =>
-										setAttributes({
-											...attributes,
-											search: {
-												...attributes.search,
-												color: {
-													...attributes.search.color,
-													closeBgHover: newValue,
 												},
 											},
 										}),
@@ -1548,7 +1928,9 @@ export const Styles = memo(() => {
 																					"Dropdown Icon (Default)",
 																					"rootblox",
 																				),
-																				value: attributes.navigation.color.submenuIcon,
+																				value:
+																					attributes.navigation.color
+																						.submenuIcon,
 																				onChange: (newValue) =>
 																					setAttributes({
 																						...attributes,
@@ -1567,7 +1949,8 @@ export const Styles = memo(() => {
 																					"rootblox",
 																				),
 																				value:
-																					attributes.navigation.color.submenuIconHover,
+																					attributes.navigation.color
+																						.submenuIconHover,
 																				onChange: (newValue) =>
 																					setAttributes({
 																						...attributes,

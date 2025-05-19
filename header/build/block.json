@@ -73,7 +73,7 @@
       "default": {
         "siteLogo": true,
         "navigation": true,
-        "button": false,
+        "button": true,
         "btnGroup": [
           {
             "label": "Subscribe",
@@ -88,7 +88,7 @@
             "borderHoverColor": ""
           }
         ],
-        "social": false,
+        "social": true,
         "contentAlign": "left",
         "width": "450px",
         "position": "left",
@@ -210,7 +210,12 @@
     "sidebarSocial": {
       "type": "object",
       "default": {
-        "elements": [],
+        "elements": [
+          "Facebook",
+          "X",
+          "Instagram",
+          "Linkedin"
+        ],
         "links": [],
         "stackLayout": true,
         "gap": "10px",
@@ -248,17 +253,41 @@
         "variation": "default",
         "ajax": {
           "enabled": true,
-          "postsPerPage": 3
+          "postsPerPage": 3,
+          "openNewTab": false,
+          "noFollow": false
+        },
+        "heading": {
+          "font": {
+            "size": "",
+            "weight": "",
+            "family": ""
+          },
+          "letterCase": "none",
+          "decoration": "none",
+          "lineHeight": "",
+          "letterSpacing": ""
+        },
+        "postTitle": {
+          "font": {
+            "size": "",
+            "weight": "",
+            "family": ""
+          },
+          "letterCase": "none",
+          "decoration": "none",
+          "lineHeight": "",
+          "letterSpacing": ""
         },
         "color": {
           "icon": "",
           "iconHover": "",
+          "heading": "",
+          "link": "#1c1c1c",
+          "linkHover": "#f90",
           "text": "",
           "overlay": "#fff",
-          "close": "#acacac",
-          "closeHover": "#fff",
-          "closeBg": "",
-          "closeBgHover": "#f90"
+          "close": "#acacac"
         }
       }
     },

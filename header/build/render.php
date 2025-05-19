@@ -148,17 +148,33 @@ $cta_button = array(
 );
 
 $search_styles = array(
-	'color'     => array(
-		'icon'           => isset( $attributes['search']['color']['icon'] ) && ! empty( $attributes['search']['color']['icon'] ) ? $attributes['search']['color']['icon'] : $colors['text'],
-		'icon_hover'     => isset( $attributes['search']['color']['iconHover'] ) && ! empty( $attributes['search']['color']['iconHover'] ) ? $attributes['search']['color']['iconHover'] : $colors['icon_hover'],
-		'text'           => isset( $attributes['search']['color']['text'] ) && ! empty( $attributes['search']['color']['text'] ) ? $attributes['search']['color']['text'] : $colors['text'],
-		'overlay'        => isset( $attributes['search']['color']['overlay'] ) ? $attributes['search']['color']['overlay'] : '',
-		'close'          => isset( $attributes['search']['color']['close'] ) && ! empty( $attributes['search']['color']['close'] ) ? $attributes['search']['color']['close'] : $colors['text'],
-		'close_hover'    => isset( $attributes['search']['color']['closeHover'] ) ? $attributes['search']['color']['closeHover'] : '',
-		'close_bg'       => isset( $attributes['search']['color']['closeBg'] ) ? $attributes['search']['color']['closeBg'] : '',
-		'close_bg_hover' => isset( $attributes['search']['color']['closeBgHover'] ) ? $attributes['search']['color']['closeBgHover'] : '',
+	'heading'    => array(
+		'font'           => array(
+			'size'   => isset( $attributes['search']['heading']['font']['size'] ) ? $attributes['search']['heading']['font']['size'] : '',
+			'family' => isset( $attributes['search']['heading']['font']['family'] ) ? $attributes['search']['heading']['font']['family'] : '',
+		),
+		'line_height'    => isset( $attributes['search']['heading']['lineHeight'] ) ? $attributes['search']['heading']['lineHeight'] : '',
+		'letter_spacing' => isset( $attributes['search']['heading']['letterSpacing'] ) ? $attributes['search']['heading']['letterSpacing'] : '',
 	),
-	'icon_size' => isset( $attributes['search']['iconSize'] ) && ! empty( $attributes['search']['iconSize'] ) ? $attributes['search']['iconSize'] : $mm_styles['icon_size'],
+	'post_title' => array(
+		'font'           => array(
+			'size'   => isset( $attributes['search']['postTitle']['font']['size'] ) ? $attributes['search']['postTitle']['font']['size'] : '',
+			'family' => isset( $attributes['search']['postTitle']['font']['family'] ) ? $attributes['search']['postTitle']['font']['family'] : '',
+		),
+		'line_height'    => isset( $attributes['search']['postTitle']['lineHeight'] ) ? $attributes['search']['postTitle']['lineHeight'] : '',
+		'letter_spacing' => isset( $attributes['search']['postTitle']['letterSpacing'] ) ? $attributes['search']['postTitle']['letterSpacing'] : '',
+	),
+	'color'      => array(
+		'icon'       => isset( $attributes['search']['color']['icon'] ) && ! empty( $attributes['search']['color']['icon'] ) ? $attributes['search']['color']['icon'] : $colors['text'],
+		'icon_hover' => isset( $attributes['search']['color']['iconHover'] ) && ! empty( $attributes['search']['color']['iconHover'] ) ? $attributes['search']['color']['iconHover'] : $colors['icon_hover'],
+		'heading'    => isset( $attributes['search']['color']['heading'] ) && ! empty( $attributes['search']['color']['heading'] ) ? $attributes['search']['color']['heading'] : '',
+		'text'       => isset( $attributes['search']['color']['text'] ) && ! empty( $attributes['search']['color']['text'] ) ? $attributes['search']['color']['text'] : $colors['text'],
+		'link'       => isset( $attributes['search']['color']['link'] ) && ! empty( $attributes['search']['color']['link'] ) ? $attributes['search']['color']['link'] : $colors['text'],
+		'link_hover' => isset( $attributes['search']['color']['linkHover'] ) && ! empty( $attributes['search']['color']['linkHover'] ) ? $attributes['search']['color']['linkHover'] : '',
+		'overlay'    => isset( $attributes['search']['color']['overlay'] ) ? $attributes['search']['color']['overlay'] : '',
+		'close'      => isset( $attributes['search']['color']['close'] ) && ! empty( $attributes['search']['color']['close'] ) ? $attributes['search']['color']['close'] : $colors['text'],
+	),
+	'icon_size'  => isset( $attributes['search']['iconSize'] ) && ! empty( $attributes['search']['iconSize'] ) ? $attributes['search']['iconSize'] : $mm_styles['icon_size'],
 );
 
 $minicart_styles = array(
@@ -289,6 +305,7 @@ $block_styles = "
 		}
 	}	
 }
+
 .cthf-block__wrapper.element-$block_id {
 	& form, & form .search__icon {
 		color: {$search_styles['color']['text']};
@@ -298,19 +315,43 @@ $block_styles = "
 		background-color: {$search_styles['color']['overlay']};
 	}
 
-	& .close__icon {
+	& .cthf__search-modal .close__icon {
 		color: {$search_styles['color']['close']};
-		background-color: {$search_styles['color']['close_bg']};
+	}
 
-		&:hover {
-			color: {$search_styles['color']['close_hover']};
-			background-color: {$search_styles['color']['close_bg_hover']};
+	& .cthf__search-modal .search__heading {
+		font-size: {$search_styles['heading']['font']['size']};
+		font-weight: {$attributes['search']['heading']['font']['family']};
+		font-family: {$search_styles['heading']['font']['family']};
+		text-transform: {$attributes['search']['heading']['letterCase']};
+		text-decoration: {$attributes['search']['heading']['decoration']};
+		line-height: {$search_styles['heading']['line_height']};
+		letter-spacing: {$search_styles['heading']['letter_spacing']};
+		color: {$search_styles['color']['heading']};
+	}
+	& .cthf__search-modal .post__title {
+		font-size: {$search_styles['post_title']['font']['size']};
+		font-weight: {$attributes['search']['postTitle']['font']['family']};
+		font-family: {$search_styles['post_title']['font']['family']};
+		text-transform: {$attributes['search']['postTitle']['letterCase']};
+		text-decoration: {$attributes['search']['postTitle']['decoration']};
+		line-height: {$search_styles['post_title']['line_height']};
+		letter-spacing: {$search_styles['post_title']['letter_spacing']};
+
+		& a {
+			color: {$search_styles['color']['link']};
+
+			&:hover {
+				color: {$search_styles['color']['link_hover']};
+			}
 		}
 	}
 }
+
 .cthf__mobile-layout-wrapper.element-$block_id.is-sticky.on-scroll__sticky {
 	backdrop-filter: blur({$sticky_styles['backdrop_blur']});
 }
+
 .cthf__mobile-layout-wrapper.element-$block_id .cthf__sidebar-panel-wrap .sidebar-panel__body {
 	width: {$sidebar_styles['width']};
 	{$sidebar_styles['padding']}
