@@ -152,7 +152,9 @@
                     "text": "",
                     "textHover": "",
                     "submenu": "",
-                    "submenuHover": ""
+                    "submenuHover": "",
+                    "submenuIcon": "#5100ff",
+                    "submenuIconHover": "#f90"
                 }
             }
         },
@@ -236,10 +238,10 @@
         "search": {
             "type": "object",
             "default": {
-                "iconSize": "",
                 "variation": "default",
                 "ajax": {
-                    "enabled": false
+                    "enabled": true,
+                    "postsPerPage": 3
                 },
                 "color": {
                     "icon": "",

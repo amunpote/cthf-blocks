@@ -197,6 +197,80 @@ export const Settings = memo(() => {
 					</PanelBody>
 				</Panel>
 
+				<Panel>
+					<PanelBody
+						title={__("Search Overlay Settings", "rootblox")}
+						initialOpen={false}
+						opened={openPanel === "search-bar-settings"}
+						onToggle={() => setOpenPanel("search-bar-settings")}
+					>
+						<AttrWrapper styles={{ marginTop: "0" }}>
+							<ToggleGroupControl
+								label={__("Search Variation", "rootblox")}
+								value={attributes.search.variation}
+								onChange={(newValue) =>
+									setAttributes({
+										...attributes,
+
+										search: {
+											...attributes.search,
+
+											variation: newValue,
+										},
+									})
+								}
+								isBlock
+								__next40pxDefaultSize
+								help={__(
+									"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
+									"rootblox",
+								)}
+							>
+								<ToggleGroupControlLabelOption
+									label={__("Default", "rootblox")}
+									value="default"
+								/>
+								<ToggleGroupControlLabelOption
+									label={__("Product", "rootblox")}
+									value="product"
+								/>
+							</ToggleGroupControl>
+						</AttrWrapper>
+
+						{!cthfAssets.isPremium && (
+							<>
+								<UpsellAttributeWrapper>
+									<ToggleControl
+										label={__("Enable Ajax Search", "rootblox")}
+										checked={false}
+										disabled
+									/>
+								</UpsellAttributeWrapper>
+							</>
+						)}
+						{cthfAssets.isPremium && (
+							<>
+								<ToggleControl
+									label={__("Enable Ajax Search", "rootblox")}
+									checked={attributes.search.ajax.enabled}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											search: {
+												...attributes.search,
+												ajax: {
+													...attributes.search.ajax,
+													enabled: newValue,
+												},
+											},
+										})
+									}
+								/>
+							</>
+						)}
+					</PanelBody>
+				</Panel>
+
 				{(deviceType === "Tablet" ||
 					deviceType === "Mobile" ||
 					attributes.mobileMenu.status === "always") && (
@@ -613,71 +687,6 @@ export const Settings = memo(() => {
 
 								{cthfAssets.isPremium && (
 									<>
-										{searchSelected && (
-											<Panel>
-												<PanelBody
-													title={__("Search Bar Settings", "rootblox")}
-													initialOpen={false}
-													opened={openPanel === "search-bar-settings"}
-													onToggle={() => setOpenPanel("search-bar-settings")}
-												>
-													<AttrWrapper styles={{ marginTop: "0" }}>
-														<ToggleGroupControl
-															label={__("Search Variation", "rootblox")}
-															value={attributes.search.variation}
-															onChange={(newValue) =>
-																setAttributes({
-																	...attributes,
-
-																	search: {
-																		...attributes.search,
-
-																		variation: newValue,
-																	},
-																})
-															}
-															isBlock
-															__next40pxDefaultSize
-															help={__(
-																"If 'Product' is selected but WooCommerce is inactive, it will default to 'Post'.",
-																"rootblox",
-															)}
-														>
-															<ToggleGroupControlLabelOption
-																label={__("Default", "rootblox")}
-																value="default"
-															/>
-															<ToggleGroupControlLabelOption
-																label={__("Product", "rootblox")}
-																value="product"
-															/>
-														</ToggleGroupControl>
-													</AttrWrapper>
-
-													{attributes.search.variation !== "default" && (
-														<>
-															<ToggleControl
-																label={__("Enable Ajax Search", "rootblox")}
-																checked={attributes.search.ajax.enabled}
-																onChange={(newValue) =>
-																	setAttributes({
-																		...attributes,
-																		search: {
-																			...attributes.search,
-																			ajax: {
-																				...attributes.search.ajax,
-																				enabled: newValue,
-																			},
-																		},
-																	})
-																}
-															/>
-														</>
-													)}
-												</PanelBody>
-											</Panel>
-										)}
-
 										{btnSelected && (
 											<Panel>
 												<PanelBody

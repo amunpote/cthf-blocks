@@ -8,6 +8,10 @@ $client_id = isset( $attributes['clientId'] ) ? str_replace( '-', '_', sanitize_
 
 $block_id = 'cthf_' . $client_id;
 
+// Necessary variables
+$attributes['ajaxURL']     = admin_url( 'admin-ajax.php' );
+$attributes['searchNonce'] = wp_create_nonce( 'rootblox_ajax_search' );
+
 $sticky_styles = array(
 	'backdrop_blur' => isset( $attributes['stickyHeader']['backdropBlur'] ) ? sanitize_text_field( $attributes['stickyHeader']['backdropBlur'] ) : '',
 );
@@ -63,12 +67,14 @@ $nav_styles = array(
 	'line_height'    => isset( $attributes['navigation']['lineHeight'] ) ? $attributes['navigation']['lineHeight'] : '',
 	'letter_spacing' => isset( $attributes['navigation']['letterSpacing'] ) ? $attributes['navigation']['letterSpacing'] : '',
 	'color'          => array(
-		'icon'          => isset( $attributes['navigation']['color']['icon'] ) && ! empty( $attributes['navigation']['color']['icon'] ) ? $attributes['navigation']['color']['icon'] : $colors['text'],
-		'icon_hover'    => isset( $attributes['navigation']['color']['iconHover'] ) && ! empty( $attributes['navigation']['color']['iconHover'] ) ? $attributes['navigation']['color']['iconHover'] : $colors['icon_hover'],
-		'text'          => isset( $attributes['navigation']['color']['text'] ) && ! empty( $attributes['navigation']['color']['text'] ) ? $attributes['navigation']['color']['text'] : $colors['text'],
-		'text_hover'    => isset( $attributes['navigation']['color']['textHover'] ) ? $attributes['navigation']['color']['textHover'] : '',
-		'submenu'       => isset( $attributes['navigation']['color']['submenu'] ) && ! empty( $attributes['navigation']['color']['submenu'] ) ? $attributes['navigation']['color']['submenu'] : '',
-		'submenu_hover' => isset( $attributes['navigation']['color']['submenuHover'] ) ? $attributes['navigation']['color']['submenuHover'] : '',
+		'icon'               => isset( $attributes['navigation']['color']['icon'] ) && ! empty( $attributes['navigation']['color']['icon'] ) ? $attributes['navigation']['color']['icon'] : $colors['text'],
+		'icon_hover'         => isset( $attributes['navigation']['color']['iconHover'] ) && ! empty( $attributes['navigation']['color']['iconHover'] ) ? $attributes['navigation']['color']['iconHover'] : $colors['icon_hover'],
+		'text'               => isset( $attributes['navigation']['color']['text'] ) && ! empty( $attributes['navigation']['color']['text'] ) ? $attributes['navigation']['color']['text'] : $colors['text'],
+		'text_hover'         => isset( $attributes['navigation']['color']['textHover'] ) ? $attributes['navigation']['color']['textHover'] : '',
+		'submenu'            => isset( $attributes['navigation']['color']['submenu'] ) && ! empty( $attributes['navigation']['color']['submenu'] ) ? $attributes['navigation']['color']['submenu'] : '',
+		'submenu_hover'      => isset( $attributes['navigation']['color']['submenuHover'] ) ? $attributes['navigation']['color']['submenuHover'] : '',
+		'submenu_icon'       => isset( $attributes['navigation']['color']['submenuIcon'] ) && ! empty( $attributes['navigation']['color']['submenuIcon'] ) ? $attributes['navigation']['color']['submenuIcon'] : '',
+		'submenu_icon_hover' => isset( $attributes['navigation']['color']['submenuIconHover'] ) && ! empty( $attributes['navigation']['color']['submenuIconHover'] ) ? $attributes['navigation']['color']['submenuIconHover'] : '',
 	),
 	'icon_size'      => isset( $attributes['navigation']['iconSize'] ) && ! empty( $attributes['navigation']['iconSize'] ) ? $attributes['navigation']['iconSize'] : $mm_styles['icon_size'],
 );
@@ -208,11 +214,6 @@ $block_styles = "
 		}
 	}
 
-	& .cthf__mob-icon.search__icon {
-		width: {$search_styles['icon_size']};
-		height: {$search_styles['icon_size']};
-	}
-
 	& .cthf__mob-icon.user__icon {
 		width: {$acc_styles['icon_size']};
 		height: {$acc_styles['icon_size']};
@@ -290,7 +291,7 @@ $block_styles = "
 }
 .cthf-block__wrapper.element-$block_id {
 	& form, & form .search__icon {
-			color: {$search_styles['color']['text']};
+		color: {$search_styles['color']['text']};
 	}
 
 	& .cthf__search-overlay {
@@ -362,6 +363,14 @@ $block_styles = "
 		& .wp-block-navigation__submenu-container {
 			margin-top: {$nav_styles['submenu_gap']} !important;
 			margin-bottom: 0 !important;
+		}
+
+		& .wp-block-navigation__submenu-icon {
+			color: {$nav_styles['color']['submenu_icon']};
+
+			&:hover {
+				color: {$nav_styles['color']['submenu_icon_hover']};
+			}
 		}
 	}
 
@@ -452,7 +461,7 @@ if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'
 			$redirection_post_type = '';
 		}
 
-		if ( empty( $redirection_post_type ) ) {
+		if ( empty( $redirection_post_type ) || 'default' === $redirection_post_type ) {
 			header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) );
 		} else {
 			header( 'Location: ' . $site_url . '/?s=' . rawurlencode( $search_keyword ) . '&post_type=' . rawurlencode( $redirection_post_type ) );
@@ -788,14 +797,21 @@ $classes[] = 'element-' . $block_id;
 
 	<!-- Search Modal -->
 	<div class="cthf__search-modal">
+		<!-- Overlay -->
 		<div class="cthf__search-overlay"></div>
+
+		<!-- Body -->
 		<div class="cthf__search-body">
 			<h4 class="search__heading"><?php esc_html_e( 'Looking for Something?', 'rootblox' ); ?></h4>
 			<form method="POST" action="">
 
-				<svg class="search__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8.783 16.8277C10.3738 16.8292 11.9294 16.3594 13.2534 15.4775C14.5774 14.5956 15.6104 13.3412 16.222 11.8727C16.8333 10.4039 16.9945 8.78674 16.6852 7.22624C16.376 5.66574 15.6102 4.23226 14.485 3.10766C13.3605 1.98261 11.9277 1.21618 10.3677 0.90522C8.80769 0.594263 7.19052 0.752743 5.72057 1.36063C4.25062 1.96852 2.99387 2.99852 2.10915 4.32047C1.22443 5.64242 0.751452 7.19697 0.75 8.78766C0.75 10.9187 1.596 12.9617 3.102 14.4687C4.60848 15.9758 6.65107 16.8241 8.782 16.8277M14.488 14.4907L19.25 19.2497" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
+				<div class="search__icon">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M21 20.9984L16.65 16.6484" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+
+				</div>
 
 				<input class="cthf__search" type="text" name="search" placeholder="<?php echo esc_html__( 'Search...', 'rootblox' ); ?>" />
 
@@ -803,6 +819,21 @@ $classes[] = 'element-' . $block_id;
 				wp_nonce_field();
 				?>
 			</form>
+
+			<!-- Ajax Search Body -->
+			<?php
+			if ( rootblox_is_premium() && isset( $attributes['search']['ajax']['enabled'] ) && filter_var( $attributes['search']['ajax']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
+				?>
+					<div class="cthf__search-results">
+						<div class="spinner cthf__display-none"></div>
+
+						<ul class="posts__collection">
+
+						</ul>
+					</div>
+					<?php
+			}
+			?>
 		</div>
 
 		<svg class="close__icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">

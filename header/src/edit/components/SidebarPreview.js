@@ -52,6 +52,14 @@ export const NavSidebar = memo(() => {
 					fill: ${attributes.navigation.color.text};
 					text-decoration: ${attributes.navigation.decoration};
 				}
+
+				& .wp-block-navigation__submenu-icon {
+					color: ${attributes.navigation.color.submenuIcon};
+
+					&:hover {
+						color: ${attributes.navigation.color.submenuIconHover};
+					}
+				}
 			}
 
 			& .cthf__cta-btn-group {
@@ -88,7 +96,7 @@ export const NavSidebar = memo(() => {
 			& .cthf__social-icon-group {
 				margin-top: ${attributes.sidebarSocial.margin.top};
 				margin-bottom: ${attributes.sidebarSocial.margin.bottom};
-				flex-wrap: ${attributes.sidebarSocial.stackLayout ? 'wrap' : 'nowrap'};
+				flex-wrap: ${attributes.sidebarSocial.stackLayout ? "wrap" : "nowrap"};
 				gap: ${attributes.sidebarSocial.gap};
 				row-gap: ${attributes.sidebarSocial.rowGap};
 				justify-content: ${attributes.sidebarSocial.justification};
@@ -96,7 +104,7 @@ export const NavSidebar = memo(() => {
 				& .cthf__social-icon.view-stacked {
 					width: ${attributes.sidebarSocial.boxWidth};
 					height: ${attributes.sidebarSocial.boxHeight};
-					${rootbloxRenderTRBL('border', attributes.sidebarSocial.border)}
+					${rootbloxRenderTRBL("border", attributes.sidebarSocial.border)}
 					border-radius: ${attributes.sidebarSocial.radius};
 				}
 
