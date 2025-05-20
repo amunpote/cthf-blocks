@@ -88,38 +88,6 @@ const BusinessHours = memo(() => {
 		return () => clearInterval(interval);
 	}, [attributes.notification, attributes.weekdays]);
 
-	useEffect(() => {
-		/* In order to set whether to show the timer or not if its always open */
-		if (attributes.scheduling.type === "default") {
-			const now = new Date();
-			const weekdayNames = [
-				"sunday",
-				"monday",
-				"tuesday",
-				"wednesday",
-				"thursday",
-				"friday",
-				"saturday",
-			];
-			const todayKey = weekdayNames[now.getDay()];
-			const todayConfig = attributes.weekdays.find(
-				(day) => day.key === todayKey,
-			);
-
-			if (!todayConfig || !todayConfig.opened) {
-				setTodayAlwaysOpen(false);
-				return;
-			}
-
-			if (todayConfig.opened && todayConfig.alwaysOpen) {
-				setTodayAlwaysOpen(true);
-			} else {
-				setTodayAlwaysOpen(false);
-			}
-		} else if (attributes.scheduling.type === "group") {
-		}
-	}, [attributes.scheduling, attributes.weekdays, attributes.groupedWeekdays]);
-
 	const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 	const now = new Date();
 	const timeString = now.toLocaleTimeString("en-GB", {

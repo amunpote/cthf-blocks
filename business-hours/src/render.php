@@ -306,7 +306,7 @@ $weekday_translated_labels = array(
 									<div class="active-hours">
 										<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 										<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
-										<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+										<span class="closing-hour"><?php echo esc_html( ' ' . rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 									</div>
 									<?php
 								}
@@ -353,7 +353,7 @@ $weekday_translated_labels = array(
 								if ( isset( $group['alwaysOpen'] ) && filter_var( $group['alwaysOpen'], FILTER_VALIDATE_BOOLEAN ) ) {
 									$label = isset( $group['alwaysOpenLabel'] ) ? sanitize_text_field( $group['alwaysOpenLabel'] ) : '';
 									?>
-									<div class="always-open"><?php echo esc_html( $time_styles['separator'] ) . esc_html( $label ); ?></div>
+									<div class="always-open"><?php echo esc_html( $time_styles['separator'] . ' ' ) . esc_html( $label ); ?></div>
 									<?php
 								} else {
 									$open_time  = array(
@@ -368,7 +368,7 @@ $weekday_translated_labels = array(
 									<div class="active-hours">
 										<span class="opening-hour"><?php echo esc_html( rootblox_handle_time_format( $open_time['hours'], $open_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 										<span class="time-separator"><?php echo esc_html( $time_styles['separator'] ); ?></span>
-										<span class="closing-hour"><?php echo esc_html( rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
+										<span class="closing-hour"><?php echo esc_html( ' ' . rootblox_handle_time_format( $close_time['hours'], $close_time['minutes'], $attributes['timeFormat'] ) ); ?></span>
 									</div>
 									<?php
 								}
