@@ -249,8 +249,8 @@
                 },
                 "heading": {
                     "font": {
-                        "size": "",
-                        "weight": "",
+                        "size": "28px",
+                        "weight": "600",
                         "family": ""
                     },
                     "letterCase": "none",
@@ -260,8 +260,8 @@
                 },
                 "postTitle": {
                     "font": {
-                        "size": "",
-                        "weight": "",
+                        "size": "16px",
+                        "weight": "500",
                         "family": ""
                     },
                     "letterCase": "none",
@@ -275,7 +275,7 @@
                     "heading": "",
                     "link": "#1c1c1c",
                     "linkHover": "#f90",
-                    "text": "",
+                    "text": "#6e6e6e",
                     "overlay": "#fff",
                     "close": "#acacac"
                 }

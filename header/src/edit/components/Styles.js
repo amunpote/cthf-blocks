@@ -134,56 +134,33 @@ export const Styles = memo(() => {
 						opened={openPanel === "search-styles"}
 						onToggle={() => togglePanel("search-styles")}
 					>
-						<TabPanel
-							title={__("Typography", "rootblox")}
-							className="cthf__tab-panel attr-panel"
-							tabs={[
-								{
-									title: __("Heading", "rootblox"),
-									name: "cthf__tab-1",
-									className: "cthf__tab attr-tab",
-								},
-								{
-									title: __("Post Title", "rootblox"),
-									name: "cthf__tab-2",
-									className: "cthf__tab attr-tab",
-								},
-							]}
-							activeClass="attr-active"
-						>
-							{(tab) => (
-								<>
-									{tab.name === "cthf__tab-1" && (
-										<>
-											<AttrWrapper styles={{ marginBottom: "0" }}>
-												<SelectControl
-													label={__("Font Family", "rootblox")}
-													options={googleFonts}
-													value={attributes.search.heading.font.family}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															search: {
-																...attributes.search,
-																heading: {
-																	...attributes.search.heading,
-																	font: {
-																		...attributes.search.heading.font,
-																		family: newValue,
-																	},
-																},
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-											</AttrWrapper>
-
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ margin: "0" }}>
-													<UnitControl
-														label={__("Font Size", "rootblox")}
-														value={attributes.search.heading.font.size}
+						<div style={{ marginTop: "-9px" }}>
+							<TabPanel
+								title={__("Typography", "rootblox")}
+								className="cthf__tab-panel attr-panel"
+								tabs={[
+									{
+										title: __("Heading", "rootblox"),
+										name: "cthf__tab-1",
+										className: "cthf__tab attr-tab",
+									},
+									{
+										title: __("Post Title", "rootblox"),
+										name: "cthf__tab-2",
+										className: "cthf__tab attr-tab",
+									},
+								]}
+								activeClass="attr-active"
+							>
+								{(tab) => (
+									<>
+										{tab.name === "cthf__tab-1" && (
+											<>
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<SelectControl
+														label={__("Font Family", "rootblox")}
+														options={googleFonts}
+														value={attributes.search.heading.font.family}
 														onChange={(newValue) =>
 															setAttributes({
 																...attributes,
@@ -193,7 +170,7 @@ export const Styles = memo(() => {
 																		...attributes.search.heading,
 																		font: {
 																			...attributes.search.heading.font,
-																			size: newValue,
+																			family: newValue,
 																		},
 																	},
 																},
@@ -203,34 +180,34 @@ export const Styles = memo(() => {
 													/>
 												</AttrWrapper>
 
-												<SelectControl
-													label={__("Font Weight", "rootblox")}
-													options={fontWeights}
-													value={attributes.search.heading.font.weight}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															search: {
-																...attributes.search,
-																heading: {
-																	...attributes.search.heading,
-																	font: {
-																		...attributes.search.heading.font,
-																		weight: newValue,
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ margin: "0" }}>
+														<UnitControl
+															label={__("Font Size", "rootblox")}
+															value={attributes.search.heading.font.size}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		heading: {
+																			...attributes.search.heading,
+																			font: {
+																				...attributes.search.heading.font,
+																				size: newValue,
+																			},
+																		},
 																	},
-																},
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-											</div>
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
 
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ marginBottom: "0" }}>
-													<ToggleGroupControl
-														label={__("Letter Case", "rootblox")}
-														value={attributes.search.heading.letterCase}
+													<SelectControl
+														label={__("Font Weight", "rootblox")}
+														options={fontWeights}
+														value={attributes.search.heading.font.weight}
 														onChange={(newValue) =>
 															setAttributes({
 																...attributes,
@@ -238,146 +215,146 @@ export const Styles = memo(() => {
 																	...attributes.search,
 																	heading: {
 																		...attributes.search.heading,
-																		letterCase: newValue,
-																	},
-																},
-															})
-														}
-													>
-														<ToggleGroupControlIconOption
-															label={__("None", "rootblox")}
-															icon={lineSolid}
-															value="none"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Uppercase", "rootblox")}
-															icon={formatUppercase}
-															value="uppercase"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Lowercase", "rootblox")}
-															icon={formatLowercase}
-															value="lowercase"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Capitalize", "rootblox")}
-															icon={formatCapitalize}
-															value="capitalize"
-														/>
-													</ToggleGroupControl>
-												</AttrWrapper>
-
-												<AttrWrapper styles={{ marginBottom: "0" }}>
-													<ToggleGroupControl
-														label={__("Decoration", "rootblox")}
-														value={attributes.search.heading.decoration}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	heading: {
-																		...attributes.search.heading,
-																		decoration: newValue,
-																	},
-																},
-															})
-														}
-													>
-														<ToggleGroupControlIconOption
-															label={__("None", "rootblox")}
-															icon={lineSolid}
-															value="none"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Underline", "rootblox")}
-															icon={formatUnderline}
-															value="underline"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Strikethrough", "rootblox")}
-															icon={formatStrikethrough}
-															value="line-through"
-														/>
-													</ToggleGroupControl>
-												</AttrWrapper>
-											</div>
-
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ marginTop: "0" }}>
-													<UnitControl
-														label={__("Line Height", "rootblox")}
-														value={attributes.search.heading.lineHeight}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	heading: {
-																		...attributes.search.heading,
-																		lineHeight: newValue,
+																		font: {
+																			...attributes.search.heading.font,
+																			weight: newValue,
+																		},
 																	},
 																},
 															})
 														}
 														__next40pxDefaultSize
 													/>
-												</AttrWrapper>
+												</div>
 
-												<AttrWrapper styles={{ marginTop: "0" }}>
-													<UnitControl
-														label={__("Letter Spacing", "rootblox")}
-														value={attributes.search.heading.letterSpacing}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	heading: {
-																		...attributes.search.heading,
-																		letterSpacing: newValue,
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ marginBottom: "0" }}>
+														<ToggleGroupControl
+															label={__("Letter Case", "rootblox")}
+															value={attributes.search.heading.letterCase}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		heading: {
+																			...attributes.search.heading,
+																			letterCase: newValue,
+																		},
 																	},
-																},
-															})
-														}
-														__next40pxDefaultSize
-													/>
-												</AttrWrapper>
-											</div>
-										</>
-									)}
+																})
+															}
+														>
+															<ToggleGroupControlIconOption
+																label={__("None", "rootblox")}
+																icon={lineSolid}
+																value="none"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Uppercase", "rootblox")}
+																icon={formatUppercase}
+																value="uppercase"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Lowercase", "rootblox")}
+																icon={formatLowercase}
+																value="lowercase"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Capitalize", "rootblox")}
+																icon={formatCapitalize}
+																value="capitalize"
+															/>
+														</ToggleGroupControl>
+													</AttrWrapper>
 
-									{tab.name === "cthf__tab-2" && (
-										<>
-											<AttrWrapper styles={{ marginBottom: "0" }}>
-												<SelectControl
-													label={__("Font Family", "rootblox")}
-													options={googleFonts}
-													value={attributes.search.postTitle.font.family}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															search: {
-																...attributes.search,
-																postTitle: {
-																	...attributes.search.postTitle,
-																	font: {
-																		...attributes.search.postTitle.font,
-																		family: newValue,
+													<AttrWrapper styles={{ marginBottom: "0" }}>
+														<ToggleGroupControl
+															label={__("Decoration", "rootblox")}
+															value={attributes.search.heading.decoration}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		heading: {
+																			...attributes.search.heading,
+																			decoration: newValue,
+																		},
 																	},
-																},
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-											</AttrWrapper>
+																})
+															}
+														>
+															<ToggleGroupControlIconOption
+																label={__("None", "rootblox")}
+																icon={lineSolid}
+																value="none"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Underline", "rootblox")}
+																icon={formatUnderline}
+																value="underline"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Strikethrough", "rootblox")}
+																icon={formatStrikethrough}
+																value="line-through"
+															/>
+														</ToggleGroupControl>
+													</AttrWrapper>
+												</div>
 
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ margin: "0" }}>
-													<UnitControl
-														label={__("Font Size", "rootblox")}
-														value={attributes.search.postTitle.font.size}
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ marginTop: "0" }}>
+														<UnitControl
+															label={__("Line Height", "rootblox")}
+															value={attributes.search.heading.lineHeight}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		heading: {
+																			...attributes.search.heading,
+																			lineHeight: newValue,
+																		},
+																	},
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
+
+													<AttrWrapper styles={{ marginTop: "0" }}>
+														<UnitControl
+															label={__("Letter Spacing", "rootblox")}
+															value={attributes.search.heading.letterSpacing}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		heading: {
+																			...attributes.search.heading,
+																			letterSpacing: newValue,
+																		},
+																	},
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
+												</div>
+											</>
+										)}
+
+										{tab.name === "cthf__tab-2" && (
+											<>
+												<AttrWrapper styles={{ marginBottom: "0" }}>
+													<SelectControl
+														label={__("Font Family", "rootblox")}
+														options={googleFonts}
+														value={attributes.search.postTitle.font.family}
 														onChange={(newValue) =>
 															setAttributes({
 																...attributes,
@@ -387,7 +364,7 @@ export const Styles = memo(() => {
 																		...attributes.search.postTitle,
 																		font: {
 																			...attributes.search.postTitle.font,
-																			size: newValue,
+																			family: newValue,
 																		},
 																	},
 																},
@@ -397,34 +374,34 @@ export const Styles = memo(() => {
 													/>
 												</AttrWrapper>
 
-												<SelectControl
-													label={__("Font Weight", "rootblox")}
-													options={fontWeights}
-													value={attributes.search.postTitle.font.weight}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															search: {
-																...attributes.search,
-																postTitle: {
-																	...attributes.search.postTitle,
-																	font: {
-																		...attributes.search.postTitle.font,
-																		weight: newValue,
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ margin: "0" }}>
+														<UnitControl
+															label={__("Font Size", "rootblox")}
+															value={attributes.search.postTitle.font.size}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		postTitle: {
+																			...attributes.search.postTitle,
+																			font: {
+																				...attributes.search.postTitle.font,
+																				size: newValue,
+																			},
+																		},
 																	},
-																},
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-											</div>
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
 
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ marginBottom: "0" }}>
-													<ToggleGroupControl
-														label={__("Letter Case", "rootblox")}
-														value={attributes.search.postTitle.letterCase}
+													<SelectControl
+														label={__("Font Weight", "rootblox")}
+														options={fontWeights}
+														value={attributes.search.postTitle.font.weight}
 														onChange={(newValue) =>
 															setAttributes({
 																...attributes,
@@ -432,117 +409,142 @@ export const Styles = memo(() => {
 																	...attributes.search,
 																	postTitle: {
 																		...attributes.search.postTitle,
-																		letterCase: newValue,
-																	},
-																},
-															})
-														}
-													>
-														<ToggleGroupControlIconOption
-															label={__("None", "rootblox")}
-															icon={lineSolid}
-															value="none"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Uppercase", "rootblox")}
-															icon={formatUppercase}
-															value="uppercase"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Lowercase", "rootblox")}
-															icon={formatLowercase}
-															value="lowercase"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Capitalize", "rootblox")}
-															icon={formatCapitalize}
-															value="capitalize"
-														/>
-													</ToggleGroupControl>
-												</AttrWrapper>
-
-												<AttrWrapper styles={{ marginBottom: "0" }}>
-													<ToggleGroupControl
-														label={__("Decoration", "rootblox")}
-														value={attributes.search.postTitle.decoration}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	postTitle: {
-																		...attributes.search.postTitle,
-																		decoration: newValue,
-																	},
-																},
-															})
-														}
-													>
-														<ToggleGroupControlIconOption
-															label={__("None", "rootblox")}
-															icon={lineSolid}
-															value="none"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Underline", "rootblox")}
-															icon={formatUnderline}
-															value="underline"
-														/>
-														<ToggleGroupControlIconOption
-															label={__("Strikethrough", "rootblox")}
-															icon={formatStrikethrough}
-															value="line-through"
-														/>
-													</ToggleGroupControl>
-												</AttrWrapper>
-											</div>
-
-											<div className="cthf__attr-divider">
-												<AttrWrapper styles={{ marginTop: "0" }}>
-													<UnitControl
-														label={__("Line Height", "rootblox")}
-														value={attributes.search.postTitle.lineHeight}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	postTitle: {
-																		...attributes.search.postTitle,
-																		lineHeight: newValue,
+																		font: {
+																			...attributes.search.postTitle.font,
+																			weight: newValue,
+																		},
 																	},
 																},
 															})
 														}
 														__next40pxDefaultSize
 													/>
-												</AttrWrapper>
+												</div>
 
-												<AttrWrapper styles={{ marginTop: "0" }}>
-													<UnitControl
-														label={__("Letter Spacing", "rootblox")}
-														value={attributes.search.postTitle.letterSpacing}
-														onChange={(newValue) =>
-															setAttributes({
-																...attributes,
-																search: {
-																	...attributes.search,
-																	postTitle: {
-																		...attributes.search.postTitle,
-																		letterSpacing: newValue,
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ marginBottom: "0" }}>
+														<ToggleGroupControl
+															label={__("Letter Case", "rootblox")}
+															value={attributes.search.postTitle.letterCase}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		postTitle: {
+																			...attributes.search.postTitle,
+																			letterCase: newValue,
+																		},
 																	},
-																},
-															})
-														}
-														__next40pxDefaultSize
-													/>
-												</AttrWrapper>
-											</div>
-										</>
-									)}
-								</>
-							)}
-						</TabPanel>
+																})
+															}
+														>
+															<ToggleGroupControlIconOption
+																label={__("None", "rootblox")}
+																icon={lineSolid}
+																value="none"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Uppercase", "rootblox")}
+																icon={formatUppercase}
+																value="uppercase"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Lowercase", "rootblox")}
+																icon={formatLowercase}
+																value="lowercase"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Capitalize", "rootblox")}
+																icon={formatCapitalize}
+																value="capitalize"
+															/>
+														</ToggleGroupControl>
+													</AttrWrapper>
+
+													<AttrWrapper styles={{ marginBottom: "0" }}>
+														<ToggleGroupControl
+															label={__("Decoration", "rootblox")}
+															value={attributes.search.postTitle.decoration}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		postTitle: {
+																			...attributes.search.postTitle,
+																			decoration: newValue,
+																		},
+																	},
+																})
+															}
+														>
+															<ToggleGroupControlIconOption
+																label={__("None", "rootblox")}
+																icon={lineSolid}
+																value="none"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Underline", "rootblox")}
+																icon={formatUnderline}
+																value="underline"
+															/>
+															<ToggleGroupControlIconOption
+																label={__("Strikethrough", "rootblox")}
+																icon={formatStrikethrough}
+																value="line-through"
+															/>
+														</ToggleGroupControl>
+													</AttrWrapper>
+												</div>
+
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ marginTop: "0" }}>
+														<UnitControl
+															label={__("Line Height", "rootblox")}
+															value={attributes.search.postTitle.lineHeight}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		postTitle: {
+																			...attributes.search.postTitle,
+																			lineHeight: newValue,
+																		},
+																	},
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
+
+													<AttrWrapper styles={{ marginTop: "0" }}>
+														<UnitControl
+															label={__("Letter Spacing", "rootblox")}
+															value={attributes.search.postTitle.letterSpacing}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	search: {
+																		...attributes.search,
+																		postTitle: {
+																			...attributes.search.postTitle,
+																			letterSpacing: newValue,
+																		},
+																	},
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
+												</div>
+											</>
+										)}
+									</>
+								)}
+							</TabPanel>
+						</div>
 
 						<PanelColorSettings
 							className="cthf__color-panel"
@@ -651,7 +653,7 @@ export const Styles = memo(() => {
 						<>
 							<Panel>
 								<PanelBody
-									title={__("Mobile Menu Styles", "rootblox")}
+									title={__("Responsive Menu Styles", "rootblox")}
 									opened={openPanel === "mobile-menu-styles"}
 									onToggle={() => togglePanel("mobile-menu-styles")}
 								>
@@ -1071,91 +1073,71 @@ export const Styles = memo(() => {
 											</PanelBody>
 										</Panel>
 									)}
-								</>
-							)}
 
-							{miniCartSelected && (
-								<Panel>
-									<PanelBody
-										title={__("Mini Cart Icon Styles", "rootblox")}
-										opened={openPanel === "mini-cart-icon-styles"}
-										onToggle={() => togglePanel("mini-cart-icon-styles")}
-									>
-										<AttrWrapper styles={{ marginTop: "0" }}>
-											<ToggleGroupControl
-												label={__("Icon Variation", "rootblox")}
-												value={attributes.miniCart.icon}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														miniCart: {
-															...attributes.miniCart,
-															icon: newValue,
-														},
-													})
-												}
-												isBlock
-												__next40pxDefaultSize
+									{miniCartSelected && (
+										<Panel>
+											<PanelBody
+												title={__("Mini Cart Icon Styles", "rootblox")}
+												opened={openPanel === "mini-cart-icon-styles"}
+												onToggle={() => togglePanel("mini-cart-icon-styles")}
 											>
-												<ToggleGroupControlIconOption
-													label={__("Variation 1", "rootblox")}
-													icon={cartIconVariation1}
-													value="variation-1"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Variation 2", "rootblox")}
-													icon={cartIconVariation2}
-													value="variation-2"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Variation 3", "rootblox")}
-													icon={cartIconVariation3}
-													value="variation-3"
-												/>
-											</ToggleGroupControl>
-										</AttrWrapper>
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<ToggleGroupControl
+														label={__("Icon Variation", "rootblox")}
+														value={attributes.miniCart.icon}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																miniCart: {
+																	...attributes.miniCart,
+																	icon: newValue,
+																},
+															})
+														}
+														isBlock
+														__next40pxDefaultSize
+													>
+														<ToggleGroupControlIconOption
+															label={__("Variation 1", "rootblox")}
+															icon={cartIconVariation1}
+															value="variation-1"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Variation 2", "rootblox")}
+															icon={cartIconVariation2}
+															value="variation-2"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Variation 3", "rootblox")}
+															icon={cartIconVariation3}
+															value="variation-3"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
 
-										<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
-											<UnitControl
-												label={__("Icon Size", "rootblox")}
-												value={attributes.miniCart.iconSize}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														miniCart: {
-															...attributes.miniCart,
-															iconSize: newValue,
-														},
-													})
-												}
-												__next40pxDefaultSize
-											/>
-										</AttrWrapper>
+												<AttrWrapper
+													styles={{ marginTop: "0", maxWidth: "50%" }}
+												>
+													<UnitControl
+														label={__("Icon Size", "rootblox")}
+														value={attributes.miniCart.iconSize}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																miniCart: {
+																	...attributes.miniCart,
+																	iconSize: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
 
-										<SelectControl
-											label={__("Font Family", "rootblox")}
-											options={googleFonts}
-											value={attributes.miniCart.font.family}
-											onChange={(newValue) =>
-												setAttributes({
-													...attributes,
-													miniCart: {
-														...attributes.miniCart,
-														font: {
-															...attributes.miniCart.font,
-															family: newValue,
-														},
-													},
-												})
-											}
-											__next40pxDefaultSize
-										/>
-
-										<div className="cthf__attr-divider">
-											<AttrWrapper styles={{ marginTop: "0" }}>
-												<UnitControl
-													label={__("Font Size", "rootblox")}
-													value={attributes.miniCart.font.size}
+												<SelectControl
+													label={__("Font Family", "rootblox")}
+													options={googleFonts}
+													value={attributes.miniCart.font.family}
 													onChange={(newValue) =>
 														setAttributes({
 															...attributes,
@@ -1163,203 +1145,227 @@ export const Styles = memo(() => {
 																...attributes.miniCart,
 																font: {
 																	...attributes.miniCart.font,
-																	size: newValue,
+																	family: newValue,
 																},
 															},
 														})
 													}
 													__next40pxDefaultSize
 												/>
-											</AttrWrapper>
 
-											<SelectControl
-												label={__("Font Weight", "rootblox")}
-												options={fontWeights}
-												value={attributes.miniCart.font.weight}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														miniCart: {
-															...attributes.miniCart,
-															font: {
-																...attributes.miniCart.font,
-																weight: newValue,
-															},
+												<div className="cthf__attr-divider">
+													<AttrWrapper styles={{ marginTop: "0" }}>
+														<UnitControl
+															label={__("Font Size", "rootblox")}
+															value={attributes.miniCart.font.size}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	miniCart: {
+																		...attributes.miniCart,
+																		font: {
+																			...attributes.miniCart.font,
+																			size: newValue,
+																		},
+																	},
+																})
+															}
+															__next40pxDefaultSize
+														/>
+													</AttrWrapper>
+
+													<SelectControl
+														label={__("Font Weight", "rootblox")}
+														options={fontWeights}
+														value={attributes.miniCart.font.weight}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																miniCart: {
+																	...attributes.miniCart,
+																	font: {
+																		...attributes.miniCart.font,
+																		weight: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</div>
+
+												<PanelColorSettings
+													className="cthf__color-panel"
+													enableAlpha={true}
+													title={__("Color", "rootblox")}
+													colorSettings={[
+														{
+															label: __("Icon (Default)", "rootblox"),
+															value: attributes.miniCart.color.icon,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	miniCart: {
+																		...attributes.miniCart,
+																		color: {
+																			...attributes.miniCart.color,
+																			icon: newValue,
+																		},
+																	},
+																}),
 														},
-													})
-												}
-												__next40pxDefaultSize
-											/>
-										</div>
-
-										<PanelColorSettings
-											className="cthf__color-panel"
-											enableAlpha={true}
-											title={__("Color", "rootblox")}
-											colorSettings={[
-												{
-													label: __("Icon (Default)", "rootblox"),
-													value: attributes.miniCart.color.icon,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															miniCart: {
-																...attributes.miniCart,
-																color: {
-																	...attributes.miniCart.color,
-																	icon: newValue,
-																},
-															},
-														}),
-												},
-												{
-													label: __("Icon (Hover)", "rootblox"),
-													value: attributes.miniCart.color.iconHover,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															miniCart: {
-																...attributes.miniCart,
-																color: {
-																	...attributes.miniCart.color,
-																	iconHover: newValue,
-																},
-															},
-														}),
-												},
-												{
-													label: __("Text", "rootblox"),
-													value: attributes.miniCart.color.text,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															miniCart: {
-																...attributes.miniCart,
-																color: {
-																	...attributes.miniCart.color,
-																	text: newValue,
-																},
-															},
-														}),
-												},
-												{
-													label: __("Text Background", "rootblox"),
-													value: attributes.miniCart.color.textBg,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															miniCart: {
-																...attributes.miniCart,
-																color: {
-																	...attributes.miniCart.color,
-																	textBg: newValue,
-																},
-															},
-														}),
-												},
-											]}
-										/>
-									</PanelBody>
-								</Panel>
-							)}
-
-							{accSelected && (
-								<Panel>
-									<PanelBody
-										title={__("Account Icon Styles", "rootblox")}
-										opened={openPanel === "account-icon-styles"}
-										onToggle={() => togglePanel("account-icon-styles")}
-									>
-										<AttrWrapper styles={{ marginTop: "0" }}>
-											<ToggleGroupControl
-												label={__("Icon Variation", "rootblox")}
-												value={attributes.acc.icon}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														acc: {
-															...attributes.acc,
-															icon: newValue,
+														{
+															label: __("Icon (Hover)", "rootblox"),
+															value: attributes.miniCart.color.iconHover,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	miniCart: {
+																		...attributes.miniCart,
+																		color: {
+																			...attributes.miniCart.color,
+																			iconHover: newValue,
+																		},
+																	},
+																}),
 														},
-													})
-												}
-												isBlock
-												__next40pxDefaultSize
+														{
+															label: __("Text", "rootblox"),
+															value: attributes.miniCart.color.text,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	miniCart: {
+																		...attributes.miniCart,
+																		color: {
+																			...attributes.miniCart.color,
+																			text: newValue,
+																		},
+																	},
+																}),
+														},
+														{
+															label: __("Text Background", "rootblox"),
+															value: attributes.miniCart.color.textBg,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	miniCart: {
+																		...attributes.miniCart,
+																		color: {
+																			...attributes.miniCart.color,
+																			textBg: newValue,
+																		},
+																	},
+																}),
+														},
+													]}
+												/>
+											</PanelBody>
+										</Panel>
+									)}
+
+									{accSelected && (
+										<Panel>
+											<PanelBody
+												title={__("Account Icon Styles", "rootblox")}
+												opened={openPanel === "account-icon-styles"}
+												onToggle={() => togglePanel("account-icon-styles")}
 											>
-												<ToggleGroupControlIconOption
-													label={__("Variation 1", "rootblox")}
-													icon={accIconVariation1}
-													value="variation-1"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Variation 2", "rootblox")}
-													icon={accIconVariation2}
-													value="variation-2"
-												/>
-												<ToggleGroupControlIconOption
-													label={__("Variation 3", "rootblox")}
-													icon={accIconVariation3}
-													value="variation-3"
-												/>
-											</ToggleGroupControl>
-										</AttrWrapper>
-
-										<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
-											<UnitControl
-												label={__("Icon Size", "rootblox")}
-												value={attributes.acc.iconSize}
-												onChange={(newValue) =>
-													setAttributes({
-														...attributes,
-														acc: {
-															...attributes.acc,
-															iconSize: newValue,
-														},
-													})
-												}
-												__next40pxDefaultSize
-											/>
-										</AttrWrapper>
-
-										<PanelColorSettings
-											className="cthf__color-panel"
-											enableAlpha={true}
-											title={__("Color", "rootblox")}
-											colorSettings={[
-												{
-													label: __("Icon (Default)", "rootblox"),
-													value: attributes.acc.color.icon,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															acc: {
-																...attributes.acc,
-																color: {
-																	...attributes.acc.color,
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<ToggleGroupControl
+														label={__("Icon Variation", "rootblox")}
+														value={attributes.acc.icon}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																acc: {
+																	...attributes.acc,
 																	icon: newValue,
 																},
-															},
-														}),
-												},
-												{
-													label: __("Icon (Hover)", "rootblox"),
-													value: attributes.acc.color.iconHover,
-													onChange: (newValue) =>
-														setAttributes({
-															...attributes,
-															acc: {
-																...attributes.acc,
-																color: {
-																	...attributes.acc.color,
-																	iconHover: newValue,
+															})
+														}
+														isBlock
+														__next40pxDefaultSize
+													>
+														<ToggleGroupControlIconOption
+															label={__("Variation 1", "rootblox")}
+															icon={accIconVariation1}
+															value="variation-1"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Variation 2", "rootblox")}
+															icon={accIconVariation2}
+															value="variation-2"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Variation 3", "rootblox")}
+															icon={accIconVariation3}
+															value="variation-3"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper
+													styles={{ marginTop: "0", maxWidth: "50%" }}
+												>
+													<UnitControl
+														label={__("Icon Size", "rootblox")}
+														value={attributes.acc.iconSize}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																acc: {
+																	...attributes.acc,
+																	iconSize: newValue,
 																},
-															},
-														}),
-												},
-											]}
-										/>
-									</PanelBody>
-								</Panel>
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<PanelColorSettings
+													className="cthf__color-panel"
+													enableAlpha={true}
+													title={__("Color", "rootblox")}
+													colorSettings={[
+														{
+															label: __("Icon (Default)", "rootblox"),
+															value: attributes.acc.color.icon,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	acc: {
+																		...attributes.acc,
+																		color: {
+																			...attributes.acc.color,
+																			icon: newValue,
+																		},
+																	},
+																}),
+														},
+														{
+															label: __("Icon (Hover)", "rootblox"),
+															value: attributes.acc.color.iconHover,
+															onChange: (newValue) =>
+																setAttributes({
+																	...attributes,
+																	acc: {
+																		...attributes.acc,
+																		color: {
+																			...attributes.acc.color,
+																			iconHover: newValue,
+																		},
+																	},
+																}),
+														},
+													]}
+												/>
+											</PanelBody>
+										</Panel>
+									)}
+								</>
 							)}
 
 							{navigationSelected && (
@@ -1539,7 +1545,7 @@ export const Styles = memo(() => {
 															<>
 																<fieldset className="cthf__attr-group">
 																	<legend>{__("Container", "rootblox")}</legend>
-																	<AttrWrapper styles={{ marginBottom: "0" }}>
+																	<AttrWrapper styles={{ margin: "0" }}>
 																		<BoxControl
 																			label={__("Padding", "rootblox")}
 																			resetValues={[
@@ -1631,7 +1637,7 @@ export const Styles = memo(() => {
 																<fieldset className="cthf__attr-group">
 																	<legend>{__("Item", "rootblox")}</legend>
 
-																	<AttrWrapper>
+																	<AttrWrapper styles={{ marginTop: "0" }}>
 																		<BoxControl
 																			label={__("Padding", "rootblox")}
 																			resetValues={[

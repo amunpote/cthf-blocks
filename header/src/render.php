@@ -11,6 +11,7 @@ $block_id = 'cthf_' . $client_id;
 // Necessary variables
 $attributes['ajaxURL']     = admin_url( 'admin-ajax.php' );
 $attributes['searchNonce'] = wp_create_nonce( 'rootblox_ajax_search' );
+$attributes['isPremium']   = rootblox_is_premium();
 
 $sticky_styles = array(
 	'backdrop_blur' => isset( $attributes['stickyHeader']['backdropBlur'] ) ? sanitize_text_field( $attributes['stickyHeader']['backdropBlur'] ) : '',
@@ -334,17 +335,28 @@ $block_styles = "
 		font-weight: {$attributes['search']['postTitle']['font']['family']};
 		font-family: {$search_styles['post_title']['font']['family']};
 		text-transform: {$attributes['search']['postTitle']['letterCase']};
-		text-decoration: {$attributes['search']['postTitle']['decoration']};
 		line-height: {$search_styles['post_title']['line_height']};
 		letter-spacing: {$search_styles['post_title']['letter_spacing']};
-
+		
 		& a {
+			text-decoration: {$attributes['search']['postTitle']['decoration']};
 			color: {$search_styles['color']['link']};
 
 			&:hover {
 				color: {$search_styles['color']['link_hover']};
 			}
 		}
+	}
+	& .cthf__search-modal .post.search__redirection a {
+		text-decoration: {$attributes['search']['postTitle']['decoration']};
+		color: {$search_styles['color']['link']};
+
+		&:hover {
+			color: {$search_styles['color']['link_hover']};
+		}
+	}
+	& .cthf__search-modal .post.empty-result {
+		color: {$search_styles['color']['text']};
 	}
 }
 
