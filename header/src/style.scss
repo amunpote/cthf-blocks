@@ -370,7 +370,7 @@
 
 		/* Ajax Search */
 		& .cthf__search-results {
-			margin-top: 36px;
+			margin-top: 48px;
 			position: relative;
 		}
 		& .cthf__search-results .posts__collection {
@@ -381,10 +381,27 @@
 			& .post {
 				display: flex;
 				gap: 10px;
-				align-items: center;
+				align-items: start;
 
 				&:not(:first-child) {
 					margin-top: 16px;
+				}
+
+				&.search__redirection {
+					text-align: right;
+					display: inherit;
+					font-size: 15px;
+					font-weight: 500;
+					text-decoration: underline;
+					// padding-right: 22px;
+					position: absolute;
+					top: -56px;
+					right: 0;
+				}
+				&.empty-result {
+					font-size: 16px;
+					justify-content: center;
+					opacity: 0.6;
 				}
 			}
 
@@ -394,6 +411,7 @@
 				max-height: 60px;
 				margin: 0;
 				overflow: hidden;
+				margin-top: 5px;
 
 				& img {
 					height: auto;
