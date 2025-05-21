@@ -7,7 +7,7 @@ import "./style.scss";
 import Edit from "./edit/index.js";
 import Save from "./save.js";
 import metadata from "./block.json";
-// import blockIcon from "./icon.js";
+import blockIcon from "./icon.js";
 
 if (cthfAssets.isPremium) {
 	registerBlockType(metadata.name, {
@@ -15,9 +15,9 @@ if (cthfAssets.isPremium) {
 
 		description: __(metadata.description, "rootblox"),
 
-		// icon: {
-		//     src: blockIcon,
-		// },
+		icon: {
+			src: blockIcon,
+		},
 
 		edit: Edit,
 

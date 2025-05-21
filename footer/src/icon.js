@@ -12,11 +12,11 @@ export default (
 				y="1"
 				width="26"
 				height="20"
-				stroke="#0C50FF"
-				strokeWidth="2"
+				stroke="#673BF0"
+				stroke-width="2"
 				fill="none"
 			/>
-			<rect x="4" y="11" width="20" height="7" fill="#0C50FF" />
+			<rect x="4" y="11" width="20" height="7" fill="#673BF0" />
 		</svg>
 	</>
 );

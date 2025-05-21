@@ -7,20 +7,20 @@ import "./style.scss";
 import Edit from "./edit/index.js";
 import Save from "./save.js";
 import metadata from "./block.json";
-// import blockIcon from "./icon.js";
+import blockIcon from "./icon.js";
 
-import "../../../resources/components/utility.js";
+if (cthfAssets.isPremium) {
+	registerBlockType(metadata.name, {
+		title: __(metadata.title, "rootblox"),
 
-registerBlockType(metadata.name, {
-    title: __(metadata.title, "rootblox"),
+		description: __(metadata.description, "rootblox"),
 
-    description: __(metadata.description, "rootblox"),
+		icon: {
+			src: blockIcon,
+		},
 
-    // icon: {
-    //     src: blockIcon,
-    // },
+		edit: Edit,
 
-    edit: Edit,
-
-    save: Save,
-});
+		save: Save,
+	});
+}

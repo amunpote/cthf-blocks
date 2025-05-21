@@ -106,7 +106,7 @@ export const freeFooterPattern = [
 						"core/paragraph",
 						{
 							content:
-								"Proudly powered by WordPress | Header Footer Blocks by CozyThemes",
+								"Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 							style: {
 								typography: { fontSize: "14px" },
@@ -413,7 +413,7 @@ export const freeFooterPattern2 = [
 						"core/paragraph",
 						{
 							content:
-								"Proudly powered by WordPress | Header Footer Blocks by CozyThemes",
+								"Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 						},
 					],
@@ -628,7 +628,7 @@ export const freeFooterPattern3 = [
 						"core/paragraph",
 						{
 							content:
-								"Proudly powered by WordPress | Header Footer Blocks by CozyThemes",
+								"Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 						},
 					],
@@ -783,7 +783,7 @@ export const freeFooterPattern4 = [
 				"core/paragraph",
 				{
 					content:
-						"Proudly powered by WordPress | Header Footer Blocks by CozyThemes",
+						"Proudly powered by WordPress | Rootblox by CozyThemes",
 				},
 			],
 		],
