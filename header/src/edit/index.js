@@ -97,27 +97,47 @@ const HeaderBuilder = memo(() => {
 											{layout.map((item) => {
 												switch (item) {
 													case "Site Logo":
+														const TitleTag = attributes.siteLogo.titleTag;
+
 														return (
 															<>
-																{attributes.siteLogo.useDefaultLogo && (
-																	<a className="custom-logo-link">
-																		<img
-																			className="custom-logo"
-																			src={cthfAssets.siteLogoURL}
-																		/>
-																	</a>
-																)}
-																{cthfAssets.isPremium &&
-																	!attributes.siteLogo.useDefaultLogo && (
+																<div className="cthf__site-identity-wrap">
+																	{attributes.siteLogo.enableLogo && (
 																		<>
-																			<a className="custom-logo-link">
-																				<img
-																					className="custom-logo"
-																					src={attributes.siteLogo.custom.url}
-																				/>
-																			</a>
+																			{attributes.siteLogo.useDefaultLogo && (
+																				<a className="custom-logo-link">
+																					<img
+																						className="custom-logo"
+																						src={cthfAssets.siteLogoURL}
+																					/>
+																				</a>
+																			)}
+																			{cthfAssets.isPremium &&
+																				!attributes.siteLogo.useDefaultLogo && (
+																					<div>
+																						<a className="custom-logo-link">
+																							<img
+																								className="custom-logo"
+																								src={
+																									attributes.siteLogo.custom.url
+																								}
+																							/>
+																						</a>
+																					</div>
+																				)}
 																		</>
 																	)}
+
+																	{attributes.siteLogo.enableTitle && (
+																		<div className="site-title">
+																			<TitleTag>
+																				<a className="site-title__link">
+																					{cthfAssets.siteTitle}
+																				</a>
+																			</TitleTag>
+																		</div>
+																	)}
+																</div>
 															</>
 														);
 

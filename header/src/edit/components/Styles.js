@@ -54,6 +54,7 @@ export const Styles = memo(() => {
 		attributes,
 		setAttributes,
 		deviceType,
+		logoSelected,
 		navigationSelected,
 		searchSelected,
 		btnSelected,
@@ -761,6 +762,223 @@ export const Styles = memo(() => {
 									/>
 								</PanelBody>
 							</Panel>
+
+							{logoSelected && attributes.siteLogo.enableTitle && (
+								<>
+									<Panel>
+										<PanelBody
+											title={__("Site Identity Styles", "rootblox")}
+											opened={openPanel === "site-identity-styles"}
+											onToggle={() => togglePanel("site-identity-styles")}
+										>
+											<SelectControl
+												label={__("Font Family", "rootblox")}
+												options={googleFonts}
+												value={attributes.siteLogo.font.family}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														siteLogo: {
+															...attributes.siteLogo,
+															font: {
+																...attributes.siteLogo.font,
+																family: newValue,
+															},
+														},
+													})
+												}
+												__next40pxDefaultSize
+											/>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "0" }}>
+													<UnitControl
+														label={__("Font Size", "rootblox")}
+														value={attributes.siteLogo.font.size}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	font: {
+																		...attributes.siteLogo.font,
+																		size: newValue,
+																	},
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<SelectControl
+													label={__("Font Weight", "rootblox")}
+													options={fontWeights}
+													value={attributes.siteLogo.font.weight}
+													onChange={(newValue) =>
+														setAttributes({
+															...attributes,
+															siteLogo: {
+																...attributes.siteLogo,
+																font: {
+																	...attributes.siteLogo.font,
+																	weight: newValue,
+																},
+															},
+														})
+													}
+													__next40pxDefaultSize
+												/>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ margin: "10px 0" }}>
+													<ToggleGroupControl
+														label={__("Letter Case", "rootblox")}
+														value={attributes.siteLogo.letterCase}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	letterCase: newValue,
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Lowercase", "rootblox")}
+															icon={formatUppercase}
+															value="uppercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Uppercase", "rootblox")}
+															icon={formatLowercase}
+															value="lowercase"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Capitalize", "rootblox")}
+															icon={formatCapitalize}
+															value="capitalize"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ margin: "10px 0" }}>
+													<ToggleGroupControl
+														label={__("Decoration", "rootblox")}
+														value={attributes.siteLogo.decoration}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	decoration: newValue,
+																},
+															})
+														}
+													>
+														<ToggleGroupControlIconOption
+															label={__("None", "rootblox")}
+															icon={lineSolid}
+															value="none"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Underline", "rootblox")}
+															icon={formatUnderline}
+															value="underline"
+														/>
+														<ToggleGroupControlIconOption
+															label={__("Strikethrough", "rootblox")}
+															icon={formatStrikethrough}
+															value="line-through"
+														/>
+													</ToggleGroupControl>
+												</AttrWrapper>
+											</div>
+
+											<div className="cthf__attr-divider">
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Line Height", "rootblox")}
+														value={attributes.siteLogo.lineHeight}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	lineHeight: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+
+												<AttrWrapper styles={{ marginTop: "0" }}>
+													<UnitControl
+														label={__("Letter Spacing", "rootblox")}
+														value={attributes.siteLogo.letterSpacing}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	letterSpacing: newValue,
+																},
+															})
+														}
+														__next40pxDefaultSize
+													/>
+												</AttrWrapper>
+											</div>
+
+											<PanelColorSettings
+												className="cthf__color-panel"
+												title={__("Colors", "rootblox")}
+												enableAlpha={true}
+												colorSettings={[
+													{
+														label: __("Text (Default)", "rootblox"),
+														value: attributes.siteLogo.color.text,
+														onChange: (newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	color: {
+																		...attributes.siteLogo.color,
+																		text: newValue,
+																	},
+																},
+															}),
+													},
+													{
+														label: __("Text (Hover)", "rootblox"),
+														value: attributes.siteLogo.color.textHover,
+														onChange: (newValue) =>
+															setAttributes({
+																...attributes,
+																siteLogo: {
+																	...attributes.siteLogo,
+																	color: {
+																		...attributes.siteLogo.color,
+																		textHover: newValue,
+																	},
+																},
+															}),
+													},
+												]}
+											/>
+										</PanelBody>
+									</Panel>
+								</>
+							)}
 
 							{cthfAssets.isPremium && (
 								<>

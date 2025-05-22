@@ -16,6 +16,7 @@ import {
 import { Settings } from "./Settings.js";
 import { Styles } from "./Styles.js";
 import { CTHFBlockContext } from "../index.js";
+import { BlockUpsellNotice } from "../../../../../resources/components/utility.js";
 
 export const CTHFBlockControlsContext = createContext(null);
 
@@ -132,6 +133,8 @@ export const CTHFBlockControls = memo(() => {
 						</>
 					)}
 				</TabPanel>
+
+				{!cthfAssets.isPremium && <BlockUpsellNotice />}
 			</InspectorControls>
 		</>
 	);

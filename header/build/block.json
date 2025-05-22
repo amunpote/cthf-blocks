@@ -108,12 +108,28 @@
     "siteLogo": {
       "type": "object",
       "default": {
+        "enableLogo": true,
         "useDefaultLogo": true,
         "custom": {
           "id": "",
           "url": ""
         },
-        "width": "200px"
+        "width": "200px",
+        "enableTitle": true,
+        "titleTag": "h1",
+        "font": {
+          "size": "",
+          "weight": "",
+          "family": ""
+        },
+        "letterCase": "none",
+        "decoration": "none",
+        "lineHeight": "",
+        "letterSpacing": "",
+        "color": {
+          "text": "",
+          "textHover": ""
+        }
       }
     },
     "navigation": {

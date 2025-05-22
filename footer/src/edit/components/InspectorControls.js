@@ -9,11 +9,11 @@ import { cog, styles } from "@wordpress/icons";
 import { memo, createContext } from "@wordpress/element";
 import { Settings } from "./Settings.js";
 import { Styles } from "./Styles.js";
+import { BlockUpsellNotice } from "../../../../../resources/components/utility.js";
 
 export const CTHFBlockContext = createContext(null);
 
 export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
-
 	return (
 		<>
 			<InspectorControls>
@@ -49,6 +49,8 @@ export const CTHFBlockControls = memo(({ attributes, setAttributes }) => {
 						</>
 					)}
 				</TabPanel>
+
+				{!cthfAssets.isPremium && <BlockUpsellNotice />}
 			</InspectorControls>
 		</>
 	);

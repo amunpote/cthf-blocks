@@ -56,7 +56,7 @@ export const freeHeaderPattern = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									width: 100,
 									widthUnit: "%",
@@ -308,7 +308,7 @@ export const freeHeaderPattern2 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									width: 100,
 									widthUnit: "%",
@@ -709,7 +709,7 @@ export const freeHeaderPattern3 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									width: 100,
 									widthUnit: "%",
@@ -1316,7 +1316,7 @@ export const proHeaderPattern = [
 						"core/search",
 						{
 							label: "Search",
-							className: "cthf__search-modal-overlay",
+							className: "is-style-cthf__search-modal-overlay",
 							showLabel: false,
 							buttonText: "Search",
 							buttonPosition: "button-only",
@@ -1384,7 +1384,7 @@ export const proHeaderPattern2 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									placeholder: "Search for Products...",
 									width: 100,
@@ -1678,7 +1678,7 @@ export const proHeaderPattern3 = [
 						"core/search",
 						{
 							label: "Search",
-							className: "cthf__search-modal-overlay",
+							className: "is-style-cthf__search-modal-overlay",
 							showLabel: false,
 							width: 100,
 							widthUnit: "%",
@@ -1843,7 +1843,7 @@ export const proHeaderPattern4 = [
 						"core/search",
 						{
 							label: "Search",
-							className: "cthf__search-modal-overlay",
+							className: "is-style-cthf__search-modal-overlay",
 							showLabel: false,
 							width: 100,
 							widthUnit: "%",
@@ -2064,7 +2064,7 @@ export const proHeaderPattern5 = [
 						"core/search",
 						{
 							label: "Search",
-							className: "cthf__search-modal-overlay",
+							className: "is-style-cthf__search-modal-overlay",
 							showLabel: false,
 							buttonText: "Search",
 							buttonPosition: "button-inside",
@@ -2333,7 +2333,7 @@ export const proHeaderPattern6 = [
 						"core/search",
 						{
 							label: "Search",
-							className: "cthf__search-modal-overlay",
+							className: "is-style-cthf__search-modal-overlay",
 							showLabel: false,
 							width: 100,
 							widthUnit: "%",
@@ -2513,7 +2513,7 @@ export const proHeaderPattern7 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									width: 100,
 									widthUnit: "%",
@@ -2578,7 +2578,7 @@ export const proHeaderPattern8 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									placeholder: "Search for Products",
 									width: 100,
@@ -2894,7 +2894,7 @@ export const proHeaderPattern10 = [
 										"core/search",
 										{
 											label: "Search",
-											className: "cthf__search-modal-overlay",
+											className: "is-style-cthf__search-modal-overlay",
 											showLabel: false,
 											placeholder: "Search For Products…",
 											buttonText: "Search",
@@ -3361,7 +3361,7 @@ export const proHeaderPattern11 = [
 										"core/search",
 										{
 											label: "Search",
-											className: "cthf__search-modal-overlay",
+											className: "is-style-cthf__search-modal-overlay",
 											showLabel: false,
 											buttonText: "Search",
 											buttonPosition: "button-only",
@@ -3749,7 +3749,7 @@ export const proHeaderPattern12 = [
 										"core/search",
 										{
 											label: "Search",
-											className: "cthf__search-modal-overlay",
+											className: "is-style-cthf__search-modal-overlay",
 											showLabel: false,
 											buttonText: "Search",
 											buttonPosition: "button-only",
@@ -4112,7 +4112,7 @@ export const proHeaderPattern14 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									placeholder: "Search products…",
 									buttonText: "Search",
@@ -4320,7 +4320,7 @@ export const proHeaderPattern16 = [
 								"core/search",
 								{
 									label: "Search",
-									className: "cthf__search-modal-overlay",
+									className: "is-style-cthf__search-modal-overlay",
 									showLabel: false,
 									placeholder: "Search For Products…",
 									buttonText: "Search",

@@ -79,6 +79,20 @@ export function renderBlockStyles(blockID, attributes) {
         & .custom-logo {
           max-width: ${attributes.siteLogo.width};
         }
+        & .site-logo a {
+          font-size: ${attributes.siteLogo.font.size};
+          font-weight: ${attributes.siteLogo.font.weight};
+          font-family: ${attributes.siteLogo.font.family};
+          text-transform: ${attributes.siteLogo.letterCase};
+          text-decoration: ${attributes.siteLogo.decoration};
+          line-height: ${attributes.siteLogo.lineHeight};
+          letter-spacing: ${attributes.siteLogo.letterSpacing};
+          color: ${attributes.siteLogo.color.text};
+
+          &:hover {
+            color: ${attributes.siteLogo.color.textHover};
+          }
+        }
 
         & .cthf__responsive-navigation .cthf__cta-anchor-btn {
           ${rootbloxRenderTRBL("padding", attributes.ctaButton.padding)}

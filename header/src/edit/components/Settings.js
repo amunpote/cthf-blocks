@@ -17,8 +17,8 @@ import {
 	FormTokenField,
 	__experimentalUnitControl as UnitControl,
 	__experimentalToggleGroupControl as ToggleGroupControl,
-	__experimentalToggleGroupControlOption as ToggleGroupControlLabelOption,
-	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlIconOption,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 	TextControl,
 	CheckboxControl,
 } from "@wordpress/components";
@@ -30,6 +30,13 @@ import {
 	alignLeft,
 	alignCenter,
 	alignRight,
+	headingLevel1,
+	headingLevel2,
+	headingLevel3,
+	headingLevel4,
+	headingLevel5,
+	headingLevel6,
+	paragraph,
 } from "@wordpress/icons";
 
 import { memo, useState, useEffect, useContext } from "@wordpress/element";
@@ -226,11 +233,11 @@ export const Settings = memo(() => {
 									"rootblox",
 								)}
 							>
-								<ToggleGroupControlLabelOption
+								<ToggleGroupControlOption
 									label={__("Default", "rootblox")}
 									value="default"
 								/>
-								<ToggleGroupControlLabelOption
+								<ToggleGroupControlOption
 									label={__("Product", "rootblox")}
 									value="product"
 								/>
@@ -355,15 +362,15 @@ export const Settings = memo(() => {
 									isBlock
 									__next40pxDefaultSize
 								>
-									<ToggleGroupControlLabelOption
+									<ToggleGroupControlOption
 										label={__("Off", "rootblox")}
 										value="off"
 									/>
-									<ToggleGroupControlLabelOption
+									<ToggleGroupControlOption
 										label={__("Mobile", "rootblox")}
 										value="mobile"
 									/>
-									<ToggleGroupControlLabelOption
+									<ToggleGroupControlOption
 										label={__("Always", "rootblox")}
 										value="always"
 									/>
@@ -599,149 +606,253 @@ export const Settings = memo(() => {
 								{logoSelected && (
 									<Panel>
 										<PanelBody
-											title={__("Site Logo Settings", "rootblox")}
+											title={__("Site Identity Settings", "rootblox")}
 											initialOpen={false}
 											opened={openPanel === "site-logo-settings"}
 											onToggle={() => setOpenPanel("site-logo-settings")}
 										>
-											{!cthfAssets.isPremium && (
+											<ToggleControl
+												label={__("Enable Site Logo", "rootblox")}
+												checked={attributes.siteLogo.enableLogo}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														siteLogo: {
+															...attributes.siteLogo,
+															enableLogo: newValue,
+														},
+													})
+												}
+											/>
+
+											{attributes.siteLogo.enableLogo && (
 												<>
-													<UpsellAttributeWrapper>
-														<ToggleControl
-															label={__("Use Default Logo", "rootblox")}
-															checked={true}
-															disabled
+													{!cthfAssets.isPremium && (
+														<>
+															<UpsellAttributeWrapper>
+																<ToggleControl
+																	label={__("Use Default Logo", "rootblox")}
+																	checked={true}
+																	disabled
+																/>
+															</UpsellAttributeWrapper>
+														</>
+													)}
+													{cthfAssets.isPremium && (
+														<>
+															<ToggleControl
+																label={__("Default Logo", "rootblox")}
+																checked={attributes.siteLogo.useDefaultLogo}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		siteLogo: {
+																			...attributes.siteLogo,
+																			useDefaultLogo: newValue,
+																		},
+																	})
+																}
+															/>
+
+															{!attributes.siteLogo.useDefaultLogo && (
+																<>
+																	{attributes.siteLogo.custom.url.length <=
+																		0 && (
+																		<>
+																			<MediaUploadCheck>
+																				<MediaUpload
+																					onSelect={(media) =>
+																						setAttributes({
+																							...attributes,
+																							siteLogo: {
+																								...attributes.siteLogo,
+																								custom: {
+																									...attributes.siteLogo.custom,
+																									id: media.id,
+																									url: media.url,
+																								},
+																							},
+																						})
+																					}
+																					allowedTypes={["image"]}
+																					value={attributes.siteLogo.custom.id}
+																					render={({ open }) => (
+																						<Button
+																							className="cthf__btn-secondary"
+																							onClick={open}
+																							text={__("Open Media Library")}
+																						/>
+																					)}
+																				/>
+																			</MediaUploadCheck>
+																		</>
+																	)}
+																	{attributes.siteLogo.custom.url.length >
+																		0 && (
+																		<>
+																			<figure
+																				style={{
+																					maxWidth: "100%",
+																					textAlign: "center",
+																				}}
+																			>
+																				<img
+																					src={attributes.siteLogo.custom.url}
+																				/>
+																			</figure>
+
+																			<MediaUploadCheck>
+																				<MediaUpload
+																					onSelect={(media) =>
+																						setAttributes({
+																							...attributes,
+																							siteLogo: {
+																								...attributes.siteLogo,
+																								custom: {
+																									...attributes.siteLogo.custom,
+																									id: media.id,
+																									url: media.url,
+																								},
+																							},
+																						})
+																					}
+																					allowedTypes={["image"]}
+																					value={attributes.siteLogo.custom.id}
+																					render={({ open }) => (
+																						<Button
+																							className="cthf__btn-secondary"
+																							style={{ margin: "0 6px 10px 0" }}
+																							onClick={open}
+																							text={__("Replace Logo")}
+																						/>
+																					)}
+																				/>
+																			</MediaUploadCheck>
+
+																			<Button
+																				className="cthf__btn-remove"
+																				text={__("Clear Selection", "rootblox")}
+																				onClick={() =>
+																					setAttributes({
+																						...attributes,
+																						siteLogo: {
+																							...attributes.siteLogo,
+																							custom: {
+																								...attributes.siteLogo.custom,
+																								id: "",
+																								url: "",
+																							},
+																						},
+																					})
+																				}
+																			/>
+																		</>
+																	)}
+																</>
+															)}
+														</>
+													)}
+
+													<AttrWrapper styles={{ maxWidth: "50%" }}>
+														<UnitControl
+															label={__("Site Logo Width", "rootblox")}
+															value={attributes.siteLogo.width}
+															onChange={(newValue) =>
+																setAttributes({
+																	...attributes,
+																	siteLogo: {
+																		...attributes.siteLogo,
+																		width: newValue,
+																	},
+																})
+															}
+															__next40pxDefaultSize
 														/>
-													</UpsellAttributeWrapper>
+													</AttrWrapper>
 												</>
 											)}
-											{cthfAssets.isPremium && (
+
+											<ToggleControl
+												label={__("Enable Site Title", "rootblox")}
+												checked={attributes.siteLogo.enableTitle}
+												onChange={(newValue) =>
+													setAttributes({
+														...attributes,
+														siteLogo: {
+															...attributes.siteLogo,
+															enableTitle: newValue,
+														},
+													})
+												}
+											/>
+
+											{attributes.siteLogo.enableTitle && (
 												<>
-													<ToggleControl
-														label={__("Default Logo", "rootblox")}
-														checked={attributes.siteLogo.useDefaultLogo}
+													{/* <SelectControl
+														label={__("Title Tag", "rootblox")}
+														options={[
+															{
+																label: __("H1 Heading 1", "rootblox"),
+																value: "h1",
+															},
+															{
+																label: __("H1 Heading 1", "rootblox"),
+																value: "h1",
+															},
+														]}
+													/> */}
+													<ToggleGroupControl
+														label={__("Title Tag", "rootblox")}
+														value={attributes.siteLogo.titleTag}
 														onChange={(newValue) =>
 															setAttributes({
 																...attributes,
 																siteLogo: {
 																	...attributes.siteLogo,
-																	useDefaultLogo: newValue,
+																	titleTag: newValue,
 																},
 															})
 														}
-													/>
-
-													{!attributes.siteLogo.useDefaultLogo && (
-														<>
-															{attributes.siteLogo.custom.url.length <= 0 && (
-																<>
-																	<MediaUploadCheck>
-																		<MediaUpload
-																			onSelect={(media) =>
-																				setAttributes({
-																					...attributes,
-																					siteLogo: {
-																						...attributes.siteLogo,
-																						custom: {
-																							...attributes.siteLogo.custom,
-																							id: media.id,
-																							url: media.url,
-																						},
-																					},
-																				})
-																			}
-																			allowedTypes={["image"]}
-																			value={attributes.siteLogo.custom.id}
-																			render={({ open }) => (
-																				<Button
-																					className="cthf__btn-secondary"
-																					onClick={open}
-																					text={__("Open Media Library")}
-																				/>
-																			)}
-																		/>
-																	</MediaUploadCheck>
-																</>
-															)}
-															{attributes.siteLogo.custom.url.length > 0 && (
-																<>
-																	<figure
-																		style={{
-																			maxWidth: "100%",
-																			textAlign: "center",
-																		}}
-																	>
-																		<img src={attributes.siteLogo.custom.url} />
-																	</figure>
-
-																	<MediaUploadCheck>
-																		<MediaUpload
-																			onSelect={(media) =>
-																				setAttributes({
-																					...attributes,
-																					siteLogo: {
-																						...attributes.siteLogo,
-																						custom: {
-																							...attributes.siteLogo.custom,
-																							id: media.id,
-																							url: media.url,
-																						},
-																					},
-																				})
-																			}
-																			allowedTypes={["image"]}
-																			value={attributes.siteLogo.custom.id}
-																			render={({ open }) => (
-																				<Button
-																					className="cthf__btn-secondary"
-																					style={{ margin: "0 6px 10px 0" }}
-																					onClick={open}
-																					text={__("Replace Logo")}
-																				/>
-																			)}
-																		/>
-																	</MediaUploadCheck>
-
-																	<Button
-																		className="cthf__btn-remove"
-																		text={__("Clear Selection", "rootblox")}
-																		onClick={() =>
-																			setAttributes({
-																				...attributes,
-																				siteLogo: {
-																					...attributes.siteLogo,
-																					custom: {
-																						...attributes.siteLogo.custom,
-																						id: "",
-																						url: "",
-																					},
-																				},
-																			})
-																		}
-																	/>
-																</>
-															)}
-														</>
-													)}
+														__next40pxDefaultSize
+													>
+														<ToggleGroupControlOptionIcon
+															label={__("Paragraph", "rootblox")}
+															value="p"
+															icon={paragraph}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 1", "rootblox")}
+															value="h1"
+															icon={headingLevel1}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 2", "rootblox")}
+															value="h2"
+															icon={headingLevel2}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 3", "rootblox")}
+															value="h3"
+															icon={headingLevel3}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 4", "rootblox")}
+															value="h4"
+															icon={headingLevel4}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 5", "rootblox")}
+															value="h5"
+															icon={headingLevel5}
+														/>
+														<ToggleGroupControlOptionIcon
+															label={__("Heading 6", "rootblox")}
+															value="h6"
+															icon={headingLevel6}
+														/>
+													</ToggleGroupControl>
 												</>
 											)}
-
-											<AttrWrapper styles={{ maxWidth: "50%" }}>
-												<UnitControl
-													label={__("Site Logo Width", "rootblox")}
-													value={attributes.siteLogo.width}
-													onChange={(newValue) =>
-														setAttributes({
-															...attributes,
-															siteLogo: {
-																...attributes.siteLogo,
-																width: newValue,
-															},
-														})
-													}
-													__next40pxDefaultSize
-												/>
-											</AttrWrapper>
 										</PanelBody>
 									</Panel>
 								)}
@@ -1461,22 +1572,22 @@ export const Settings = memo(() => {
 																			})
 																		}
 																	>
-																		<ToggleGroupControlIconOption
+																		<ToggleGroupControlOptionIcon
 																			label={__("Left", "rootblox")}
 																			icon={justifyLeft}
 																			value="left"
 																		/>
-																		<ToggleGroupControlIconOption
+																		<ToggleGroupControlOptionIcon
 																			label={__("Center", "rootblox")}
 																			icon={justifyCenter}
 																			value="center"
 																		/>
-																		<ToggleGroupControlIconOption
+																		<ToggleGroupControlOptionIcon
 																			label={__("Right", "rootblox")}
 																			icon={justifyRight}
 																			value="right"
 																		/>
-																		<ToggleGroupControlIconOption
+																		<ToggleGroupControlOptionIcon
 																			label={__("Space Between", "rootblox")}
 																			icon={justifySpaceBetween}
 																			value="space-between"
@@ -1679,17 +1790,17 @@ export const Settings = memo(() => {
 																	})
 																}
 															>
-																<ToggleGroupControlIconOption
+																<ToggleGroupControlOptionIcon
 																	label={__("Left", "rootblox")}
 																	icon={justifyLeft}
 																	value="left"
 																/>
-																<ToggleGroupControlIconOption
+																<ToggleGroupControlOptionIcon
 																	label={__("Center", "rootblox")}
 																	icon={justifyCenter}
 																	value="center"
 																/>
-																<ToggleGroupControlIconOption
+																<ToggleGroupControlOptionIcon
 																	label={__("Right", "rootblox")}
 																	icon={justifyRight}
 																	value="right"
@@ -1786,17 +1897,17 @@ export const Settings = memo(() => {
 															})
 														}
 													>
-														<ToggleGroupControlIconOption
+														<ToggleGroupControlOptionIcon
 															label={__("Left", "rootblox")}
 															icon={alignLeft}
 															value="left"
 														/>
-														<ToggleGroupControlIconOption
+														<ToggleGroupControlOptionIcon
 															label={__("Center", "rootblox")}
 															icon={alignCenter}
 															value="center"
 														/>
-														<ToggleGroupControlIconOption
+														<ToggleGroupControlOptionIcon
 															label={__("Right", "rootblox")}
 															icon={alignRight}
 															value="right"
@@ -1818,13 +1929,13 @@ export const Settings = memo(() => {
 															})
 														}
 													>
-														<ToggleGroupControlIconOption
+														<ToggleGroupControlOptionIcon
 															label={__("Left", "rootblox")}
 															value="left"
 															icon={justifyLeft}
 														/>
 
-														<ToggleGroupControlIconOption
+														<ToggleGroupControlOptionIcon
 															label={__("Right", "rootblox")}
 															value="right"
 															icon={justifyRight}

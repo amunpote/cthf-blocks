@@ -13,6 +13,16 @@ $attributes['ajaxURL']     = admin_url( 'admin-ajax.php' );
 $attributes['searchNonce'] = wp_create_nonce( 'rootblox_ajax_search' );
 $attributes['isPremium']   = rootblox_is_premium();
 
+$allowed_tags = array(
+	'h1',
+	'h2',
+	'h3',
+	'h4',
+	'h5',
+	'h6',
+	'p',
+);
+
 $sticky_styles = array(
 	'backdrop_blur' => isset( $attributes['stickyHeader']['backdropBlur'] ) ? sanitize_text_field( $attributes['stickyHeader']['backdropBlur'] ) : '',
 );
@@ -29,7 +39,6 @@ $colors = array(
 $mm_styles      = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
 	'wrapper_border'  => isset( $attributes['mobileMenu']['wrapperBorder'] ) ? rootblox_render_trbl( 'border', $attributes['mobileMenu']['wrapperBorder'] ) : '',
-	'logo_width'      => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
 	'layout_attr'     => array(
 		'0' => array(
 			'gap'       => isset( $attributes['mobileMenu']['layoutAttr'][0]['gap'] ) ? $attributes['mobileMenu']['layoutAttr'][0]['gap'] : '',
@@ -49,6 +58,17 @@ $mm_styles      = array(
 $sidebar_styles = array(
 	'width'   => isset( $attributes['sidebar']['width'] ) ? $attributes['sidebar']['width'] : '',
 	'padding' => isset( $attributes['sidebar']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['sidebar']['padding'] ) : '',
+);
+
+$site_logo_styles = array(
+	'logo_width'     => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
+	'title_tag'      => isset( $attributes['siteLogo']['titleTag'] ) && in_array( $attributes['siteLogo']['titleTag'], $allowed_tags, true ) ? $attributes['siteLogo']['titleTag'] : 'p',
+	'font'           => array(
+		'size'   => isset( $attributes['siteLogo']['font']['size'] ) ? $attributes['siteLogo']['font']['size'] : '',
+		'family' => isset( $attributes['siteLogo']['font']['family'] ) ? $attributes['siteLogo']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['siteLogo']['lineHeight'] ) ? $attributes['siteLogo']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['siteLogo']['letterSpacing'] ) ? $attributes['siteLogo']['letterSpacing'] : '',
 );
 
 $nav_styles = array(
@@ -274,7 +294,7 @@ $block_styles = "
 	}
 
 	& .custom-logo {
-		max-width: {$mm_styles['logo_width']};
+		max-width: {$site_logo_styles['logo_width']};
 	}
 
 	& .cthf__responsive-navigation .cthf__cta-anchor-btn {
@@ -619,15 +639,30 @@ $classes[] = 'element-' . $block_id;
 
 					<?php
 					if ( $attributes['sidebar']['siteLogo'] ) {
-						if ( rootblox_is_premium() && ! filter_var( $attributes['siteLogo']['useDefaultLogo'] ) ) {
-							?>
-							<a class="custom-logo-link" href="<?php echo esc_url( home_url() ); ?>" rel="home">
-								<img class="custom-logo" src="<?php echo esc_url( $attributes['siteLogo']['custom']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-							</a>
+						?>
+						<div class="cthf__site-identity-wrap">
 							<?php
-						} else {
-							the_custom_logo();
-						}
+							if ( filter_var( $attributes['siteLogo']['enableLogo'] ) ) {
+								if ( rootblox_is_premium() && ! filter_var( $attributes['siteLogo']['useDefaultLogo'] ) ) {
+									?>
+									<a class="custom-logo-link" href="<?php echo esc_url( home_url() ); ?>" rel="home">
+										<img class="custom-logo" src="<?php echo esc_url( $attributes['siteLogo']['custom']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+									</a>
+									<?php
+								} else {
+									the_custom_logo();
+								}
+							}
+
+							if ( filter_var( $attributes['siteLogo']['enableTitle'] ) ) {
+								$home_url = home_url();
+								$output   = sprintf( '<%1$s><a href="' . esc_url( $home_url ) . '">%2$s</a></%1$s>', esc_attr( $site_logo_styles['title_tag'] ), esc_html( get_bloginfo( 'name' ) ) );
+								echo $output;
+							}
+							?>
+						</div>
+						<?php
+
 					}
 
 					if ( $attributes['sidebar']['navigation'] && isset( $attributes['mobileMenu']['menuID'] ) && ! empty( $attributes['mobileMenu']['menuID'] ) ) {
@@ -879,14 +914,14 @@ $classes[] = 'element-' . $block_id;
 			<?php
 			if ( rootblox_is_premium() && isset( $attributes['search']['ajax']['enabled'] ) && filter_var( $attributes['search']['ajax']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
 				?>
-					<div class="cthf__search-results">
-						<div class="spinner cthf__display-none"></div>
+				<div class="cthf__search-results">
+					<div class="spinner cthf__display-none"></div>
 
-						<ul class="posts__collection">
+					<ul class="posts__collection">
 
-						</ul>
-					</div>
-					<?php
+					</ul>
+				</div>
+				<?php
 			}
 			?>
 		</div>
