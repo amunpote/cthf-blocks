@@ -531,8 +531,13 @@
 
 		& .wp-block-navigation__submenu-icon {
 			float: right;
-			width: 16px;
-			height: 16px;
+			width: 30px;
+			height: 30px;
+			margin: 0;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-top: -4px;
+			margin-right: 0 !important;
 
 			& svg {
 				width: 16px;
@@ -668,7 +673,7 @@
 		position: initial;
 		width: auto;
 		height: auto;
-		margin: 10px !important;
+		margin: 0 !important;
 		background-color: transparent !important;
 		box-shadow: none;
 	}
@@ -685,6 +690,7 @@
 	& .wp-block-navigation__submenu-container.wp-block-navigation-submenu {
 		padding-left: 0 !important;
 		box-sizing: border-box;
+		width: 100%;
 	}
 
 	& .wp-block-navigation__submenu-container li:hover {
@@ -696,6 +702,16 @@
 		background-color: transparent;
 		border: none;
 		outline: none;
+	}
+	// Icon border Style
+	&
+		> li.wp-block-navigation-submenu.has-child
+		> .wp-block-navigation__submenu-icon {
+		border-left: 1px solid #ebe6fb;
+		margin-top: -12px;
+		margin-right: 12px !important;
+		padding-left: 16px;
+		height: 48px;
 	}
 
 	&

@@ -28,6 +28,7 @@ $colors = array(
 
 $mm_styles      = array(
 	'wrapper_padding' => isset( $attributes['mobileMenu']['wrapperPadding'] ) ? rootblox_render_trbl( 'padding', $attributes['mobileMenu']['wrapperPadding'] ) : '',
+	'wrapper_border'  => isset( $attributes['mobileMenu']['wrapperBorder'] ) ? rootblox_render_trbl( 'border', $attributes['mobileMenu']['wrapperBorder'] ) : '',
 	'logo_width'      => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
 	'layout_attr'     => array(
 		'0' => array(
@@ -211,6 +212,7 @@ $block_styles = "
 
 .cthf__mobile-layout-wrapper.element-$block_id {
 	{$mm_styles['wrapper_padding']}
+	{$mm_styles['wrapper_border']}
 	background-color: {$colors['mobile_bg']};
 
 	& .wc-block-mini-cart__icon, & .cthf__mob-icon, & .cthf__cta-anchor-btn {

@@ -680,6 +680,25 @@ export const Styles = memo(() => {
 										/>
 									</AttrWrapper>
 
+									<AttrWrapper styles={{ marginTop: "0" }}>
+										<BorderBoxControl
+											label={__("Wrapper Border", "rootblox")}
+											enableAlpha={true}
+											colors={themeColorPalette}
+											value={attributes.mobileMenu.wrapperBorder}
+											onChange={(newValue) =>
+												setAttributes({
+													...attributes,
+													mobileMenu: {
+														...attributes.mobileMenu,
+														wrapperBorder: newValue,
+													},
+												})
+											}
+											__next40pxDefaultSize
+										/>
+									</AttrWrapper>
+
 									<AttrWrapper styles={{ marginTop: "0", maxWidth: "50%" }}>
 										<UnitControl
 											label={__("Icon Size", "rootblox")}

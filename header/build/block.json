@@ -64,6 +64,11 @@
           "bottom": "26px",
           "left": "26px"
         },
+        "wrapperBorder": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
         "menuID": "",
         "iconSize": "20px"
       }
@@ -116,8 +121,8 @@
       "default": {
         "iconSize": "",
         "icon": "variation-1",
-        "menuGap": "16px",
-        "submenuGap": "6px",
+        "menuGap": "0",
+        "submenuGap": "10px",
         "padding": {
           "top": "",
           "right": "",
@@ -129,20 +134,24 @@
           "bottom": "26px"
         },
         "border": {
-          "width": "",
-          "style": "",
-          "color": ""
+          "top": {
+            "width": "1px",
+            "style": "solid",
+            "color": "#ebe6fb"
+          }
         },
         "itemPadding": {
-          "top": "",
+          "top": "12px",
           "right": "",
-          "bottom": "",
+          "bottom": "12px",
           "left": ""
         },
         "itemBorder": {
-          "width": "",
-          "style": "",
-          "color": ""
+          "bottom": {
+            "width": "1px",
+            "style": "solid",
+            "color": "#ebe6fb"
+          }
         },
         "font": {
           "size": "16px",

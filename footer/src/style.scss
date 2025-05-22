@@ -17,6 +17,7 @@
 	cursor: pointer;
 	visibility: hidden;
 	opacity: 0;
+	text-align: center;
 	transition: all 0.3s ease-in-out;
 
 	&.is-visible {

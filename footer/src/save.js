@@ -5,8 +5,10 @@ export default function Save({ attributes }) {
 
 	return (
 		<>
-			<div id={blockID} className="cthf-block__footer">
-				<InnerBlocks.Content />
+			<div {...useBlockProps.save()}>
+				<div id={blockID} className="cthf-block__footer">
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		</>
 	);

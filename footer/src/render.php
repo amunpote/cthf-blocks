@@ -16,6 +16,8 @@ $btt_styles = array(
 	'radius'         => isset( $attributes['backToTop']['radius'] ) ? $attributes['backToTop']['radius'] : '',
 	'box_width'      => isset( $attributes['backToTop']['boxWidth'] ) ? $attributes['backToTop']['boxWidth'] : '',
 	'box_height'     => isset( $attributes['backToTop']['boxHeight'] ) ? $attributes['backToTop']['boxHeight'] : '',
+	'h_padding'      => isset( $attributes['backToTop']['hPadding'] ) ? $attributes['backToTop']['hPadding'] : '',
+	'v_padding'      => isset( $attributes['backToTop']['vPadding'] ) ? $attributes['backToTop']['vPadding'] : '',
 	'icon_size'      => isset( $attributes['backToTop']['iconSize'] ) ? $attributes['backToTop']['iconSize'] : '',
 	'font'           => array(
 		'size'   => isset( $attributes['backToTop']['font']['size'] ) ? $attributes['backToTop']['font']['size'] : '',
@@ -141,6 +143,10 @@ $block_styles = "
 	border-radius: {$btt_styles['radius']};
 	width: {$btt_styles['box_width']};
 	height: {$btt_styles['box_height']};
+	padding-left: {$btt_styles['h_padding']};
+	padding-right: {$btt_styles['h_padding']};
+	padding-top: {$btt_styles['v_padding']};
+	padding-bottom: {$btt_styles['v_padding']};
 	background-color: {$btt_styles['color']['bg']};
 	color: {$btt_styles['color']['icon']};
 	flex-direction: {$attributes['backToTop']['display']};

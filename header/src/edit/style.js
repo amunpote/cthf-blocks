@@ -9,6 +9,7 @@ export function renderBlockStyles(blockID, attributes) {
 
       .cthf__mobile-layout-wrapper.element-${blockID} {
         ${rootbloxRenderTRBL("padding", attributes.mobileMenu.wrapperPadding)}
+        ${rootbloxRenderTRBL("border", attributes.mobileMenu.wrapperBorder)}
         background-color: ${attributes.color.mobileBg};
 
         & .wc-block-mini-cart__icon, & .cthf__mob-icon, & .cthf__cta-anchor-btn {

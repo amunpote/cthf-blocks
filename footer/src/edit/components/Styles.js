@@ -80,7 +80,7 @@ export const Styles = memo(() => {
 							<div className="cthf__attr-divider">
 								<AttrWrapper styles={{ marginTop: "0" }}>
 									<UnitControl
-										label={__("Box Width", "rootblox")}
+										label={__("Width", "rootblox")}
 										value={attributes.backToTop.boxWidth}
 										onChange={(newValue) =>
 											setAttributes({
@@ -97,7 +97,7 @@ export const Styles = memo(() => {
 
 								<AttrWrapper styles={{ marginTop: "0" }}>
 									<UnitControl
-										label={__("Box Height", "rootblox")}
+										label={__("Height", "rootblox")}
 										value={attributes.backToTop.boxHeight}
 										onChange={(newValue) =>
 											setAttributes({
@@ -105,6 +105,42 @@ export const Styles = memo(() => {
 												backToTop: {
 													...attributes.backToTop,
 													boxHeight: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+							</div>
+
+							<div className="cthf__attr-divider">
+								<AttrWrapper styles={{ marginTop: "0" }}>
+									<UnitControl
+										label={__("H. Padding", "rootblox")}
+										value={attributes.backToTop.hPadding}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													hPadding: newValue,
+												},
+											})
+										}
+										__next40pxDefaultSize
+									/>
+								</AttrWrapper>
+
+								<AttrWrapper styles={{ marginTop: "0" }}>
+									<UnitControl
+										label={__("V. Padding", "rootblox")}
+										value={attributes.backToTop.vPadding}
+										onChange={(newValue) =>
+											setAttributes({
+												...attributes,
+												backToTop: {
+													...attributes.backToTop,
+													vPadding: newValue,
 												},
 											})
 										}

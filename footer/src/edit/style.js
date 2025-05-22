@@ -8,6 +8,10 @@ export function renderBlockStyles(blockID, attributes) {
         border-radius: ${attributes.backToTop.radius};
         width: ${attributes.backToTop.boxWidth};
         height: ${attributes.backToTop.boxHeight};
+        padding-left: ${attributes.backToTop.hPadding};
+        padding-right: ${attributes.backToTop.hPadding};
+        padding-top: ${attributes.backToTop.vPadding};
+        padding-bottom: ${attributes.backToTop.vPadding};
         background-color: ${attributes.backToTop.color.bg};
         color: ${attributes.backToTop.color.icon};
         flex-direction: ${attributes.backToTop.display};
