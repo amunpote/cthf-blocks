@@ -76,6 +76,10 @@
 	}
 
 	/* Site Logo */
+	& .cthf__site-identity-wrap {
+		display: flex;
+		align-items: center;
+	}
 	& .custom-logo-link {
 		display: flex;
 		width: fit-content;
@@ -90,6 +94,16 @@
 	}
 	& .content-align-right .custom-logo-link {
 		margin: 0 0 0 auto;
+	}
+	/* Site Title */
+	& .site-title h1,
+	& .site-title h2,
+	& .site-title h3,
+	& .site-title h4,
+	& .site-title h5,
+	& .site-title h6,
+	& .site-title p {
+		margin: 0;
 	}
 
 	/* Navigation */

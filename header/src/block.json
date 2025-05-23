@@ -126,6 +126,29 @@
                 }
             }
         },
+        "sidebarSiteLogo": {
+            "type": "object",
+            "default": {
+                "enableLogo": true,
+                "width": "120px",
+                "enableTitle": true,
+                "titleTag": "h1",
+                "gap": "5px",
+                "font": {
+                    "size": "32px",
+                    "weight": "600",
+                    "family": ""
+                },
+                "letterCase": "none",
+                "decoration": "none",
+                "lineHeight": "1.2em",
+                "letterSpacing": "",
+                "color": {
+                    "text": "",
+                    "textHover": ""
+                }
+            }
+        },
         "navigation": {
             "type": "object",
             "default": {
@@ -166,7 +189,7 @@
                 "font": {
                     "size": "16px",
                     "weight": "500",
-                    "family": ""
+                    "family": "Inter"
                 },
                 "letterCase": "none",
                 "decoration": "none",

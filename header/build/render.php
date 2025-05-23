@@ -76,6 +76,22 @@ $site_logo_styles = array(
 	),
 );
 
+$sidebar_logo_styles = array(
+	'logo_width'     => isset( $attributes['sidebarSiteLogo']['width'] ) ? $attributes['sidebarSiteLogo']['width'] : '',
+	'title_tag'      => isset( $attributes['sidebarSiteLogo']['titleTag'] ) && in_array( $attributes['sidebarSiteLogo']['titleTag'], $allowed_tags, true ) ? $attributes['sidebarSiteLogo']['titleTag'] : 'p',
+	'gap'            => isset( $attributes['sidebarSiteLogo']['gap'] ) ? $attributes['sidebarSiteLogo']['gap'] : '',
+	'font'           => array(
+		'size'   => isset( $attributes['sidebarSiteLogo']['font']['size'] ) ? $attributes['sidebarSiteLogo']['font']['size'] : '',
+		'family' => isset( $attributes['sidebarSiteLogo']['font']['family'] ) ? $attributes['sidebarSiteLogo']['font']['family'] : '',
+	),
+	'line_height'    => isset( $attributes['sidebarSiteLogo']['lineHeight'] ) ? $attributes['sidebarSiteLogo']['lineHeight'] : '',
+	'letter_spacing' => isset( $attributes['sidebarSiteLogo']['letterSpacing'] ) ? $attributes['sidebarSiteLogo']['letterSpacing'] : '',
+	'color'          => array(
+		'text'       => isset( $attributes['sidebarSiteLogo']['color']['text'] ) ? $attributes['sidebarSiteLogo']['color']['text'] : '',
+		'text_hover' => isset( $attributes['sidebarSiteLogo']['color']['textHover'] ) ? $attributes['sidebarSiteLogo']['color']['textHover'] : '',
+	),
+);
+
 $nav_styles = array(
 	'padding'        => isset( $attributes['navigation']['padding'] ) ? rootblox_render_trbl( 'padding', $attributes['navigation']['padding'] ) : '',
 	'margin'         => array(
@@ -420,6 +436,30 @@ $block_styles = "
 		color: {$colors['sidebar_close_icon']};
 	}
 
+	& .cthf__site-identity-wrap {
+		gap: {$sidebar_logo_styles['gap']};
+	}
+	& .custom-logo {
+		max-width: {$sidebar_logo_styles['logo_width']};
+	}
+	& .site-title {
+		line-height: {$sidebar_logo_styles['line_height']};
+		letter-spacing: {$sidebar_logo_styles['letter_spacing']};
+	}
+	& .site-title a {
+		font-size: {$sidebar_logo_styles['font']['size']};
+		font-weight: {$attributes['sidebarSiteLogo']['font']['weight']};
+		font-family: {$sidebar_logo_styles['font']['family']};
+		text-transform: {$attributes['sidebarSiteLogo']['letterCase']};
+		text-decoration: {$attributes['sidebarSiteLogo']['decoration']};
+		line-height: {$sidebar_logo_styles['line_height']};
+		color: {$sidebar_logo_styles['color']['text']};
+		
+		&:hover {
+			color: {$sidebar_logo_styles['color']['text_hover']};
+		}
+	}
+
 	& .wp-block-navigation__container {
 		{$nav_styles['padding']}
 		margin-top: {$nav_styles['margin']['top']};
@@ -576,6 +616,10 @@ if ( isset( $attributes['siteLogo']['font']['family'] ) && ! empty( $attributes[
 	$font_families[] = $attributes['siteLogo']['font']['family'];
 }
 
+if ( isset( $attributes['sidebarSiteLogo']['font']['family'] ) && ! empty( $attributes['sidebarSiteLogo']['font']['family'] ) ) {
+	$font_families[] = $attributes['sidebarSiteLogo']['font']['family'];
+}
+
 if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attributes['navigation']['font']['family'] ) ) {
 	$font_families[] = $attributes['navigation']['font']['family'];
 }
@@ -671,7 +715,7 @@ $classes[] = 'element-' . $block_id;
 						?>
 						<div class="cthf__site-identity-wrap">
 							<?php
-							if ( filter_var( $attributes['siteLogo']['enableLogo'] ) ) {
+							if ( filter_var( $attributes['sidebarSiteLogo']['enableLogo'] ) ) {
 								if ( rootblox_is_premium() && ! filter_var( $attributes['siteLogo']['useDefaultLogo'] ) ) {
 									?>
 									<a class="custom-logo-link" href="<?php echo esc_url( home_url() ); ?>" rel="home">
@@ -683,12 +727,12 @@ $classes[] = 'element-' . $block_id;
 								}
 							}
 
-							if ( filter_var( $attributes['siteLogo']['enableTitle'] ) ) {
+							if ( filter_var( $attributes['sidebarSiteLogo']['enableTitle'] ) ) {
 								?>
 								<div class="site-title">
 									<?php
 									$home_url = home_url();
-									printf( '<%1$s><a href="' . esc_url( $home_url ) . '">%2$s</a></%1$s>', esc_attr( $site_logo_styles['title_tag'] ), esc_html( get_bloginfo( 'name' ) ) );
+									printf( '<%1$s><a href="' . esc_url( $home_url ) . '">%2$s</a></%1$s>', esc_attr( $sidebar_logo_styles['title_tag'] ), esc_html( get_bloginfo( 'name' ) ) );
 									?>
 								</div>
 								<?php

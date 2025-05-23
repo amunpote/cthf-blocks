@@ -17,9 +17,29 @@ export const NavSidebar = memo(() => {
 
 	const sidebarStyles = `
         .cthf__sidebar-panel-modal .cthf__sidebar-panel-wrap.element-${blockID} {
-            & .custom-logo {
-                max-width: ${attributes.siteLogo.width};
-            }
+           & .cthf__site-identity-wrap {
+				gap: ${attributes.sidebarSiteLogo.gap};
+			}
+			& .custom-logo {
+				max-width: ${attributes.sidebarSiteLogo.width};
+			}
+			& .site-title {
+				line-height: ${attributes.sidebarSiteLogo.lineHeight};
+				letter-spacing: ${attributes.sidebarSiteLogo.letterSpacing};
+			}
+			& .site-title a {
+				font-size: ${attributes.sidebarSiteLogo.font.size};
+				font-weight: ${attributes.sidebarSiteLogo.font.weight};
+				font-family: ${attributes.sidebarSiteLogo.font.family};
+				text-transform: ${attributes.sidebarSiteLogo.letterCase};
+				text-decoration: ${attributes.sidebarSiteLogo.decoration};
+				line-height: ${attributes.sidebarSiteLogo.lineHeight};
+				color: ${attributes.sidebarSiteLogo.color.text};
+
+				&:hover {
+					color: ${attributes.sidebarSiteLogo.color.textHover};
+				}
+			}
 
 			& .close__icon {
 				color: ${attributes.color.sidebarCloseIcon};
@@ -279,6 +299,8 @@ export const NavSidebar = memo(() => {
 		},
 	];
 
+	const TitleTag = attributes.sidebarSiteLogo.titleTag;
+
 	return (
 		<>
 			<Modal
@@ -308,22 +330,39 @@ export const NavSidebar = memo(() => {
 						</svg>
 
 						{attributes.sidebar.siteLogo && (
-							<figure>
-								<a className="custom-logo-link">
-									{cthfAssets.isPremium &&
-										!attributes.siteLogo.useDefaultLogo && (
-											<img
-												className="custom-logo"
-												src={attributes.siteLogo.custom.url}
-											/>
+							<div className="cthf__site-identity-wrap">
+								{attributes.sidebarSiteLogo.enableLogo && (
+									<>
+										{attributes.siteLogo.useDefaultLogo && (
+											<a className="custom-logo-link">
+												<img
+													className="custom-logo"
+													src={cthfAssets.siteLogoURL}
+												/>
+											</a>
 										)}
+										{cthfAssets.isPremium &&
+											!attributes.siteLogo.useDefaultLogo && (
+												<div>
+													<a className="custom-logo-link">
+														<img
+															className="custom-logo"
+															src={attributes.siteLogo.custom.url}
+														/>
+													</a>
+												</div>
+											)}
+									</>
+								)}
 
-									{(!cthfAssets.isPremium ||
-										attributes.siteLogo.useDefaultLogo) && (
-										<img className="custom-logo" src={cthfAssets.siteLogoURL} />
-									)}
-								</a>
-							</figure>
+								{attributes.sidebarSiteLogo.enableTitle && (
+									<div className="site-title">
+										<TitleTag>
+											<a className="site-title__link">{cthfAssets.siteTitle}</a>
+										</TitleTag>
+									</div>
+								)}
+							</div>
 						)}
 
 						{attributes.sidebar.navigation && (

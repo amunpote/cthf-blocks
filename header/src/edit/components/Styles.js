@@ -16,6 +16,8 @@ import {
 	SelectControl,
 	Button,
 	CheckboxControl,
+	SVG,
+	Path,
 } from "@wordpress/components";
 
 import {
@@ -25,6 +27,8 @@ import {
 	formatCapitalize,
 	formatUnderline,
 	formatStrikethrough,
+	button,
+	siteLogo,
 } from "@wordpress/icons";
 
 import { memo, useContext, useState } from "@wordpress/element";
@@ -1759,25 +1763,307 @@ export const Styles = memo(() => {
 												className="cthf__tab-panel attr-panel"
 												tabs={[
 													{
+														title: __("Site Info", "rootblox"),
+														name: "cthf__tab-4",
+														className: "cthf__tab attr-tab",
+														icon: siteLogo,
+													},
+													{
 														title: __("Menu", "rootblox"),
 														name: "cthf__tab-1",
 														className: "cthf__tab attr-tab",
+														icon: (
+															<SVG
+																width="24"
+																height="24"
+																viewBox="0 0 24 24"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg"
+															>
+																<Path
+																	d="M3 12H21"
+																	stroke="currentColor"
+																	strokeWidth="1.25"
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																/>
+																<Path
+																	d="M3 6H21"
+																	stroke="currentColor"
+																	strokeWidth="1.25"
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																/>
+																<Path
+																	d="M3 18H21"
+																	stroke="currentColor"
+																	strokeWidth="1.25"
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																/>
+															</SVG>
+														),
 													},
 													{
 														title: __("Buttons", "rootblox"),
 														name: "cthf__tab-2",
 														className: "cthf__tab attr-tab",
+														icon: button,
 													},
 													{
 														title: __("Socials", "rootblox"),
 														name: "cthf__tab-3",
 														className: "cthf__tab attr-tab",
+														icon: (
+															<SVG
+																width="24"
+																height="24"
+																viewBox="0 0 24 24"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg"
+															>
+																<Path
+																	d="M7 11L11 2C11.7956 2 12.5587 2.31607 13.1213 2.87868C13.6839 3.44129 14 4.20435 14 5V9H19.66C19.9499 8.99672 20.2371 9.0565 20.5016 9.17522C20.7661 9.29393 21.0016 9.46873 21.1919 9.68751C21.3821 9.90629 21.5225 10.1638 21.6033 10.4423C21.6842 10.7207 21.7035 11.0134 21.66 11.3L20.28 20.3C20.2077 20.7769 19.9654 21.2116 19.5979 21.524C19.2304 21.8364 18.7623 22.0055 18.28 22H7M7 11V22M7 11H4C3.46957 11 2.96086 11.2107 2.58579 11.5858C2.21071 11.9609 2 12.4696 2 13V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H7"
+																	stroke="currentColor"
+																	strokeWidth="1.25"
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																/>
+															</SVG>
+														),
 													},
 												]}
 												activeClass="attr-active"
 											>
 												{(tab) => (
 													<>
+														{tab.name === "cthf__tab-4" && (
+															<>
+																<SelectControl
+																	label={__("Font Family", "rootblox")}
+																	options={googleFonts}
+																	value={attributes.sidebarSiteLogo.font.family}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarSiteLogo: {
+																				...attributes.sidebarSiteLogo,
+																				font: {
+																					...attributes.sidebarSiteLogo.font,
+																					family: newValue,
+																				},
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+
+																<div className="cthf__attr-divider">
+																	<AttrWrapper styles={{ margin: "0" }}>
+																		<UnitControl
+																			label={__("Font Size", "rootblox")}
+																			value={
+																				attributes.sidebarSiteLogo.font.size
+																			}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						font: {
+																							...attributes.sidebarSiteLogo
+																								.font,
+																							size: newValue,
+																						},
+																					},
+																				})
+																			}
+																			__next40pxDefaultSize
+																		/>
+																	</AttrWrapper>
+
+																	<SelectControl
+																		label={__("Font Weight", "rootblox")}
+																		options={fontWeights}
+																		value={
+																			attributes.sidebarSiteLogo.font.weight
+																		}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarSiteLogo: {
+																					...attributes.sidebarSiteLogo,
+																					font: {
+																						...attributes.sidebarSiteLogo.font,
+																						weight: newValue,
+																					},
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</div>
+
+																<div className="cthf__attr-divider">
+																	<AttrWrapper styles={{ margin: "10px 0" }}>
+																		<ToggleGroupControl
+																			label={__("Letter Case", "rootblox")}
+																			value={
+																				attributes.sidebarSiteLogo.letterCase
+																			}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						letterCase: newValue,
+																					},
+																				})
+																			}
+																		>
+																			<ToggleGroupControlIconOption
+																				label={__("None", "rootblox")}
+																				icon={lineSolid}
+																				value="none"
+																			/>
+																			<ToggleGroupControlIconOption
+																				label={__("Lowercase", "rootblox")}
+																				icon={formatUppercase}
+																				value="uppercase"
+																			/>
+																			<ToggleGroupControlIconOption
+																				label={__("Uppercase", "rootblox")}
+																				icon={formatLowercase}
+																				value="lowercase"
+																			/>
+																			<ToggleGroupControlIconOption
+																				label={__("Capitalize", "rootblox")}
+																				icon={formatCapitalize}
+																				value="capitalize"
+																			/>
+																		</ToggleGroupControl>
+																	</AttrWrapper>
+
+																	<AttrWrapper styles={{ margin: "10px 0" }}>
+																		<ToggleGroupControl
+																			label={__("Decoration", "rootblox")}
+																			value={
+																				attributes.sidebarSiteLogo.decoration
+																			}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						decoration: newValue,
+																					},
+																				})
+																			}
+																		>
+																			<ToggleGroupControlIconOption
+																				label={__("None", "rootblox")}
+																				icon={lineSolid}
+																				value="none"
+																			/>
+																			<ToggleGroupControlIconOption
+																				label={__("Underline", "rootblox")}
+																				icon={formatUnderline}
+																				value="underline"
+																			/>
+																			<ToggleGroupControlIconOption
+																				label={__("Strikethrough", "rootblox")}
+																				icon={formatStrikethrough}
+																				value="line-through"
+																			/>
+																		</ToggleGroupControl>
+																	</AttrWrapper>
+																</div>
+
+																<div className="cthf__attr-divider">
+																	<AttrWrapper styles={{ marginTop: "0" }}>
+																		<UnitControl
+																			label={__("Line Height", "rootblox")}
+																			value={
+																				attributes.sidebarSiteLogo.lineHeight
+																			}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						lineHeight: newValue,
+																					},
+																				})
+																			}
+																			__next40pxDefaultSize
+																		/>
+																	</AttrWrapper>
+
+																	<AttrWrapper styles={{ marginTop: "0" }}>
+																		<UnitControl
+																			label={__("Letter Spacing", "rootblox")}
+																			value={
+																				attributes.sidebarSiteLogo.letterSpacing
+																			}
+																			onChange={(newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						letterSpacing: newValue,
+																					},
+																				})
+																			}
+																			__next40pxDefaultSize
+																		/>
+																	</AttrWrapper>
+																</div>
+
+																<PanelColorSettings
+																	className="cthf__color-panel"
+																	title={__("Colors", "rootblox")}
+																	enableAlpha={true}
+																	colorSettings={[
+																		{
+																			label: __("Text (Default)", "rootblox"),
+																			value:
+																				attributes.sidebarSiteLogo.color.text,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						color: {
+																							...attributes.sidebarSiteLogo
+																								.color,
+																							text: newValue,
+																						},
+																					},
+																				}),
+																		},
+																		{
+																			label: __("Text (Hover)", "rootblox"),
+																			value:
+																				attributes.sidebarSiteLogo.color
+																					.textHover,
+																			onChange: (newValue) =>
+																				setAttributes({
+																					...attributes,
+																					sidebarSiteLogo: {
+																						...attributes.sidebarSiteLogo,
+																						color: {
+																							...attributes.sidebarSiteLogo
+																								.color,
+																							textHover: newValue,
+																						},
+																					},
+																				}),
+																		},
+																	]}
+																/>
+															</>
+														)}
+
 														{tab.name === "cthf__tab-1" && (
 															<>
 																<fieldset className="cthf__attr-group">

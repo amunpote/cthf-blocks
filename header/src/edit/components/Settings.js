@@ -967,7 +967,7 @@ export const Settings = memo(() => {
 											/>
 
 											<ToggleControl
-												label={__("Enable Site Logo", "rootblox")}
+												label={__("Enable Site Details", "rootblox")}
 												checked={attributes.sidebar.siteLogo}
 												onChange={(newValue) =>
 													setAttributes({
@@ -979,6 +979,139 @@ export const Settings = memo(() => {
 													})
 												}
 											/>
+
+											{attributes.sidebar.siteLogo && (
+												<>
+													<ToggleControl
+														label={__("Enable Site Logo", "rootblox")}
+														checked={attributes.sidebarSiteLogo.enableLogo}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebarSiteLogo: {
+																	...attributes.sidebarSiteLogo,
+																	enableLogo: newValue,
+																},
+															})
+														}
+													/>
+													{attributes.sidebarSiteLogo.enableLogo && (
+														<>
+															<AttrWrapper styles={{ maxWidth: "50%" }}>
+																<UnitControl
+																	label={__("Logo Width", "rootblox")}
+																	value={attributes.sidebarSiteLogo.width}
+																	onChange={(newValue) =>
+																		setAttributes({
+																			...attributes,
+																			sidebarSiteLogo: {
+																				...attributes.sidebarSiteLogo,
+																				width: newValue,
+																			},
+																		})
+																	}
+																	__next40pxDefaultSize
+																/>
+															</AttrWrapper>
+														</>
+													)}
+
+													<ToggleControl
+														label={__("Enable Site Title", "rootblox")}
+														checked={attributes.sidebarSiteLogo.enableTitle}
+														onChange={(newValue) =>
+															setAttributes({
+																...attributes,
+																sidebarSiteLogo: {
+																	...attributes.sidebarSiteLogo,
+																	enableTitle: newValue,
+																},
+															})
+														}
+													/>
+
+													{attributes.sidebarSiteLogo.enableTitle && (
+														<>
+															<ToggleGroupControl
+																label={__("Title Tag", "rootblox")}
+																value={attributes.sidebarSiteLogo.titleTag}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		sidebarSiteLogo: {
+																			...attributes.sidebarSiteLogo,
+																			titleTag: newValue,
+																		},
+																	})
+																}
+																__next40pxDefaultSize
+															>
+																<ToggleGroupControlOptionIcon
+																	label={__("Paragraph", "rootblox")}
+																	value="p"
+																	icon={paragraph}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 1", "rootblox")}
+																	value="h1"
+																	icon={headingLevel1}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 2", "rootblox")}
+																	value="h2"
+																	icon={headingLevel2}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 3", "rootblox")}
+																	value="h3"
+																	icon={headingLevel3}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 4", "rootblox")}
+																	value="h4"
+																	icon={headingLevel4}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 5", "rootblox")}
+																	value="h5"
+																	icon={headingLevel5}
+																/>
+																<ToggleGroupControlOptionIcon
+																	label={__("Heading 6", "rootblox")}
+																	value="h6"
+																	icon={headingLevel6}
+																/>
+															</ToggleGroupControl>
+														</>
+													)}
+
+													{attributes.sidebarSiteLogo.enableLogo &&
+														attributes.sidebarSiteLogo.enableTitle && (
+															<>
+																<AttrWrapper
+																	styles={{
+																		maxWidth: "50%",
+																	}}
+																>
+																	<UnitControl
+																		label={__("Gap", "rootblox")}
+																		value={attributes.sidebarSiteLogo.gap}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarSiteLogo: {
+																					...attributes.sidebarSiteLogo,
+																					gap: newValue,
+																				},
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
+															</>
+														)}
+												</>
+											)}
 
 											<div
 												className={`${

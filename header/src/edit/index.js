@@ -45,6 +45,13 @@ const HeaderBuilder = memo(() => {
 						href={`https://fonts.googleapis.com/css2?family=${attributes.siteLogo.font.family}:wght@100;200;300;400;500;600;700;800;900`}
 					/>
 				)}
+			{attributes.sidebarSiteLogo.font.family != "" &&
+				attributes.sidebarSiteLogo.font.family != undefined && (
+					<link
+						rel="stylesheet"
+						href={`https://fonts.googleapis.com/css2?family=${attributes.sidebarSiteLogo.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+					/>
+				)}
 			{attributes.navigation.font.family != "" &&
 				attributes.navigation.font.family != undefined && (
 					<link
