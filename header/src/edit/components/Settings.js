@@ -788,19 +788,6 @@ export const Settings = memo(() => {
 
 											{attributes.siteLogo.enableTitle && (
 												<>
-													{/* <SelectControl
-														label={__("Title Tag", "rootblox")}
-														options={[
-															{
-																label: __("H1 Heading 1", "rootblox"),
-																value: "h1",
-															},
-															{
-																label: __("H1 Heading 1", "rootblox"),
-																value: "h1",
-															},
-														]}
-													/> */}
 													<ToggleGroupControl
 														label={__("Title Tag", "rootblox")}
 														value={attributes.siteLogo.titleTag}
@@ -853,6 +840,30 @@ export const Settings = memo(() => {
 													</ToggleGroupControl>
 												</>
 											)}
+
+											{attributes.siteLogo.enableLogo &&
+												attributes.siteLogo.enableTitle && (
+													<>
+														<AttrWrapper
+															styles={{ maxWidth: "50%", marginBottom: "0" }}
+														>
+															<UnitControl
+																label={__("Gap", "rootblox")}
+																value={attributes.siteLogo.gap}
+																onChange={(newValue) =>
+																	setAttributes({
+																		...attributes,
+																		siteLogo: {
+																			...attributes.siteLogo,
+																			gap: newValue,
+																		},
+																	})
+																}
+																__next40pxDefaultSize
+															/>
+														</AttrWrapper>
+													</>
+												)}
 										</PanelBody>
 									</Panel>
 								)}

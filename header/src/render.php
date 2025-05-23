@@ -63,12 +63,17 @@ $sidebar_styles = array(
 $site_logo_styles = array(
 	'logo_width'     => isset( $attributes['siteLogo']['width'] ) ? $attributes['siteLogo']['width'] : '',
 	'title_tag'      => isset( $attributes['siteLogo']['titleTag'] ) && in_array( $attributes['siteLogo']['titleTag'], $allowed_tags, true ) ? $attributes['siteLogo']['titleTag'] : 'p',
+	'gap'            => isset( $attributes['siteLogo']['gap'] ) ? $attributes['siteLogo']['gap'] : '',
 	'font'           => array(
 		'size'   => isset( $attributes['siteLogo']['font']['size'] ) ? $attributes['siteLogo']['font']['size'] : '',
 		'family' => isset( $attributes['siteLogo']['font']['family'] ) ? $attributes['siteLogo']['font']['family'] : '',
 	),
 	'line_height'    => isset( $attributes['siteLogo']['lineHeight'] ) ? $attributes['siteLogo']['lineHeight'] : '',
 	'letter_spacing' => isset( $attributes['siteLogo']['letterSpacing'] ) ? $attributes['siteLogo']['letterSpacing'] : '',
+	'color'          => array(
+		'text'       => isset( $attributes['siteLogo']['color']['text'] ) ? $attributes['siteLogo']['color']['text'] : '',
+		'text_hover' => isset( $attributes['siteLogo']['color']['textHover'] ) ? $attributes['siteLogo']['color']['textHover'] : '',
+	),
 );
 
 $nav_styles = array(
@@ -293,8 +298,28 @@ $block_styles = "
 		flex-wrap: {$mm_styles['layout_attr']['2']['flex_wrap']};
 	}
 
+	& .cthf__site-identity-wrap {
+		gap: {$site_logo_styles['gap']};
+	}
 	& .custom-logo {
 		max-width: {$site_logo_styles['logo_width']};
+	}
+	& .site-title {
+		line-height: {$site_logo_styles['line_height']};
+		letter-spacing: {$site_logo_styles['letter_spacing']};
+	}
+	& .site-title a {
+		font-size: {$site_logo_styles['font']['size']};
+		font-weight: {$attributes['siteLogo']['font']['weight']};
+		font-family: {$site_logo_styles['font']['family']};
+		text-transform: {$attributes['siteLogo']['letterCase']};
+		text-decoration: {$attributes['siteLogo']['decoration']};
+		line-height: {$site_logo_styles['line_height']};
+		color: {$site_logo_styles['color']['text']};
+		
+		&:hover {
+			color: {$site_logo_styles['color']['text_hover']};
+		}
 	}
 
 	& .cthf__responsive-navigation .cthf__cta-anchor-btn {
@@ -547,12 +572,8 @@ if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'
 
 $font_families = array();
 
-if ( isset( $attributes['ctaButton']['font']['family'] ) && ! empty( $attributes['ctaButton']['font']['family'] ) ) {
-	$font_families[] = $attributes['ctaButton']['font']['family'];
-}
-
-if ( isset( $attributes['miniCart']['font']['family'] ) && ! empty( $attributes['miniCart']['font']['family'] ) ) {
-	$font_families[] = $attributes['miniCart']['font']['family'];
+if ( isset( $attributes['siteLogo']['font']['family'] ) && ! empty( $attributes['siteLogo']['font']['family'] ) ) {
+	$font_families[] = $attributes['siteLogo']['font']['family'];
 }
 
 if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attributes['navigation']['font']['family'] ) ) {
@@ -561,6 +582,14 @@ if ( isset( $attributes['navigation']['font']['family'] ) && ! empty( $attribute
 
 if ( isset( $attributes['sidebarCTA']['font']['family'] ) && ! empty( $attributes['sidebarCTA']['font']['family'] ) ) {
 	$font_families[] = $attributes['sidebarCTA']['font']['family'];
+}
+
+if ( isset( $attributes['ctaButton']['font']['family'] ) && ! empty( $attributes['ctaButton']['font']['family'] ) ) {
+	$font_families[] = $attributes['ctaButton']['font']['family'];
+}
+
+if ( isset( $attributes['miniCart']['font']['family'] ) && ! empty( $attributes['miniCart']['font']['family'] ) ) {
+	$font_families[] = $attributes['miniCart']['font']['family'];
 }
 
 
@@ -655,9 +684,14 @@ $classes[] = 'element-' . $block_id;
 							}
 
 							if ( filter_var( $attributes['siteLogo']['enableTitle'] ) ) {
-								$home_url = home_url();
-								$output   = sprintf( '<%1$s><a href="' . esc_url( $home_url ) . '">%2$s</a></%1$s>', esc_attr( $site_logo_styles['title_tag'] ), esc_html( get_bloginfo( 'name' ) ) );
-								echo $output;
+								?>
+								<div class="site-title">
+									<?php
+									$home_url = home_url();
+									printf( '<%1$s><a href="' . esc_url( $home_url ) . '">%2$s</a></%1$s>', esc_attr( $site_logo_styles['title_tag'] ), esc_html( get_bloginfo( 'name' ) ) );
+									?>
+								</div>
+								<?php
 							}
 							?>
 						</div>

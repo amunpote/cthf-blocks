@@ -76,17 +76,23 @@ export function renderBlockStyles(blockID, attributes) {
           background: ${attributes.miniCart.color.textBg};
         }
 
+        & .cthf__site-identity-wrap {
+          gap: ${attributes.siteLogo.gap};
+        }
         & .custom-logo {
           max-width: ${attributes.siteLogo.width};
         }
-        & .site-logo a {
+        & .site-title {
+          line-height: ${attributes.siteLogo.lineHeight};
+          letter-spacing: ${attributes.siteLogo.letterSpacing};
+        }
+        & .site-title a {
           font-size: ${attributes.siteLogo.font.size};
           font-weight: ${attributes.siteLogo.font.weight};
           font-family: ${attributes.siteLogo.font.family};
           text-transform: ${attributes.siteLogo.letterCase};
           text-decoration: ${attributes.siteLogo.decoration};
           line-height: ${attributes.siteLogo.lineHeight};
-          letter-spacing: ${attributes.siteLogo.letterSpacing};
           color: ${attributes.siteLogo.color.text};
 
           &:hover {

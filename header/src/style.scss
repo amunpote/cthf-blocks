@@ -57,6 +57,10 @@
 /* Mobile Layout */
 .cthf__mobile-layout-wrapper {
 	/* Site Logo */
+	& .cthf__site-identity-wrap {
+		display: flex;
+		align-items: center;
+	}
 	& .custom-logo-link {
 		display: flex;
 		width: fit-content;

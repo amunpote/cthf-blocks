@@ -114,17 +114,18 @@
           "id": "",
           "url": ""
         },
-        "width": "200px",
+        "width": "120px",
         "enableTitle": true,
         "titleTag": "h1",
+        "gap": "5px",
         "font": {
-          "size": "",
-          "weight": "",
+          "size": "32px",
+          "weight": "600",
           "family": ""
         },
         "letterCase": "none",
         "decoration": "none",
-        "lineHeight": "",
+        "lineHeight": "1.2em",
         "letterSpacing": "",
         "color": {
           "text": "",
