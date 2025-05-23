@@ -1839,24 +1839,28 @@ export const Styles = memo(() => {
 													<>
 														{tab.name === "cthf__tab-4" && (
 															<>
-																<SelectControl
-																	label={__("Font Family", "rootblox")}
-																	options={googleFonts}
-																	value={attributes.sidebarSiteLogo.font.family}
-																	onChange={(newValue) =>
-																		setAttributes({
-																			...attributes,
-																			sidebarSiteLogo: {
-																				...attributes.sidebarSiteLogo,
-																				font: {
-																					...attributes.sidebarSiteLogo.font,
-																					family: newValue,
+																<AttrWrapper styles={{ marginBottom: "0" }}>
+																	<SelectControl
+																		label={__("Font Family", "rootblox")}
+																		options={googleFonts}
+																		value={
+																			attributes.sidebarSiteLogo.font.family
+																		}
+																		onChange={(newValue) =>
+																			setAttributes({
+																				...attributes,
+																				sidebarSiteLogo: {
+																					...attributes.sidebarSiteLogo,
+																					font: {
+																						...attributes.sidebarSiteLogo.font,
+																						family: newValue,
+																					},
 																				},
-																			},
-																		})
-																	}
-																	__next40pxDefaultSize
-																/>
+																			})
+																		}
+																		__next40pxDefaultSize
+																	/>
+																</AttrWrapper>
 
 																<div className="cthf__attr-divider">
 																	<AttrWrapper styles={{ margin: "0" }}>
@@ -2018,49 +2022,55 @@ export const Styles = memo(() => {
 																		/>
 																	</AttrWrapper>
 																</div>
-
-																<PanelColorSettings
-																	className="cthf__color-panel"
-																	title={__("Colors", "rootblox")}
-																	enableAlpha={true}
-																	colorSettings={[
-																		{
-																			label: __("Text (Default)", "rootblox"),
-																			value:
-																				attributes.sidebarSiteLogo.color.text,
-																			onChange: (newValue) =>
-																				setAttributes({
-																					...attributes,
-																					sidebarSiteLogo: {
-																						...attributes.sidebarSiteLogo,
-																						color: {
-																							...attributes.sidebarSiteLogo
-																								.color,
-																							text: newValue,
+																<AttrWrapper
+																	styles={{ margin: "-20px 0 22px" }}
+																>
+																	<PanelColorSettings
+																		className="cthf__color-panel cthf__border-none"
+																		title={__(
+																			"Site Info Color Palette",
+																			"rootblox",
+																		)}
+																		enableAlpha={true}
+																		colorSettings={[
+																			{
+																				label: __("Text (Default)", "rootblox"),
+																				value:
+																					attributes.sidebarSiteLogo.color.text,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSiteLogo: {
+																							...attributes.sidebarSiteLogo,
+																							color: {
+																								...attributes.sidebarSiteLogo
+																									.color,
+																								text: newValue,
+																							},
 																						},
-																					},
-																				}),
-																		},
-																		{
-																			label: __("Text (Hover)", "rootblox"),
-																			value:
-																				attributes.sidebarSiteLogo.color
-																					.textHover,
-																			onChange: (newValue) =>
-																				setAttributes({
-																					...attributes,
-																					sidebarSiteLogo: {
-																						...attributes.sidebarSiteLogo,
-																						color: {
-																							...attributes.sidebarSiteLogo
-																								.color,
-																							textHover: newValue,
+																					}),
+																			},
+																			{
+																				label: __("Text (Hover)", "rootblox"),
+																				value:
+																					attributes.sidebarSiteLogo.color
+																						.textHover,
+																				onChange: (newValue) =>
+																					setAttributes({
+																						...attributes,
+																						sidebarSiteLogo: {
+																							...attributes.sidebarSiteLogo,
+																							color: {
+																								...attributes.sidebarSiteLogo
+																									.color,
+																								textHover: newValue,
+																							},
 																						},
-																					},
-																				}),
-																		},
-																	]}
-																/>
+																					}),
+																			},
+																		]}
+																	/>
+																</AttrWrapper>
 															</>
 														)}
 
