@@ -50,7 +50,7 @@
                         "gap": "20px"
                     }
                 ],
-                "breakpoint": 980,
+                "breakpoint": 767,
                 "wrapperPadding": {
                     "top": "26px",
                     "right": "26px",

@@ -494,6 +494,7 @@
 		width: 35%;
 		padding: 40px 26px;
 		box-sizing: border-box;
+		overflow-y: scroll;
 
 		@media only screen and (width <= 1024px) {
 			& {
