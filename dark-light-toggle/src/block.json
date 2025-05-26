@@ -1,0 +1,41 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "cthf-blocks/dark-light-toggle",
+    "title": "Dark/Light Toggle",
+    "description": "This block allows you to switch between dark/light mode.",
+    "category": "rootblox-header",
+    "attributes": {
+        "cover": {
+            "type": "string",
+            "default": ""
+        },
+        "clientId": {
+            "type": "string",
+            "default": ""
+        },
+        "mode": {
+            "type": "string",
+            "default": "light"
+        },
+        "icon": {
+            "type": "object",
+            "default": {
+                "enabled": true
+
+            }
+        },
+        "label": {
+            "type": "object",
+            "default": {
+                "enabled": false
+
+            }
+        }
+    },
+    "editorScript": ["cthf-blocks--dark-light-toggle"],
+    "editorStyle": ["cthf-blocks--dark-light-toggle--editor-style"],
+    "style": ["cthf-blocks--dark-light-toggle--style"],
+    "viewScript": ["cthf-blocks--dark-light-toggle--frontend-script"],
+    "render": "file:./render.php"
+}
