@@ -9,9 +9,25 @@
 	}
 }
 
-.cthf__dark-light-toggle .toggle__wrap,
+.cthf__dark-light-toggle .toggle__wrap {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+}
+
 .cthf__dark-light-toggle .toggle__item,
 .cthf__dark-light-toggle .icon__wrapper {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+}
+
+/* Slide toggle knob */
+.cthf__dark-light-toggle .toggle__item {
+	position: relative;
+	z-index: 2;
+}
+.cthf__dark-light-toggle .toggle__knob {
+	position: absolute;
+	z-index: 1;
 }

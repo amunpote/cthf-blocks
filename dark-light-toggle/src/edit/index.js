@@ -20,9 +20,25 @@ const DarkLightToggle = memo(() => {
 
 	return (
 		<>
+			<style
+				dangerouslySetInnerHTML={{
+					__html: renderBlockStyles(blockID, attributes),
+				}}
+			/>
+
+			<style>
+				{attributes.label.font.family != "" &&
+					attributes.label.font.family != undefined && (
+						<link
+							rel="stylesheet"
+							href={`https://fonts.googleapis.com/css2?family=${attributes.label.font.family}:wght@100;200;300;400;500;600;700;800;900`}
+						/>
+					)}
+			</style>
+
 			<div id={blockID} className="cthf__dark-light-toggle">
 				<ul className="toggle__wrap">
-					<li className="toggle__item">
+					<li className={`toggle__item`}>
 						{attributes.icon.enabled && (
 							<div className="icon__wrapper">
 								<SVG
@@ -78,7 +94,7 @@ const DarkLightToggle = memo(() => {
 						)}
 					</li>
 
-					<li className="toggle__item">
+					<li className={`toggle__item`}>
 						{attributes.icon.enabled && (
 							<div className="icon__wrapper">
 								<SVG
@@ -105,6 +121,12 @@ const DarkLightToggle = memo(() => {
 							</>
 						)}
 					</li>
+
+					<li
+						className={`toggle__knob${
+							attributes.mode === "dark" ? " active" : ""
+						}`}
+					></li>
 				</ul>
 			</div>
 		</>
