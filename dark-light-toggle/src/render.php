@@ -12,10 +12,10 @@ $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 <div class="cthf-block__wrapper">
 	<div <?php echo $wrapper_attributes; ?>>
-        <div id="<?php echo esc_attr($block_id) ?>" class="cthf__dark-light-toggle">
-            <ul class="toggle__wrap">
-                <li class="toggle__item"></li>
-            </ul>
-        </div>
+		<div id="<?php echo esc_attr( $block_id ); ?>" class="cthf__dark-light-toggle">
+			<ul class="toggle__wrap">
+				<li class="toggle__item"></li>
+			</ul>
+		</div>
 	</div>
 </div>
