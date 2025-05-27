@@ -307,6 +307,8 @@
           "noFollow": false
         },
         "heading": {
+          "enabled": true,
+          "content": "Looking for Something?",
           "font": {
             "size": "28px",
             "weight": "600",
