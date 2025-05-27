@@ -21,6 +21,7 @@ import {
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 	TextControl,
 	CheckboxControl,
+	TextareaControl,
 } from "@wordpress/components";
 import {
 	justifyLeft,
@@ -243,6 +244,44 @@ export const Settings = memo(() => {
 								/>
 							</ToggleGroupControl>
 						</AttrWrapper>
+
+						<ToggleControl
+							label={__("Enable Heading", "rootblox")}
+							checked={attributes.search.heading.enabled}
+							onChange={(newValue) =>
+								setAttributes({
+									...attributes,
+									search: {
+										...attributes.search,
+										heading: {
+											...attributes.search.heading,
+											enabled: newValue,
+										},
+									},
+								})
+							}
+						/>
+
+						{attributes.search.heading.enabled && (
+							<>
+								<TextareaControl
+									label={__("Heading Content", "rootblox")}
+									value={attributes.search.heading.content}
+									onChange={(newValue) =>
+										setAttributes({
+											...attributes,
+											search: {
+												...attributes.search,
+												heading: {
+													...attributes.search.heading,
+													content: newValue,
+												},
+											},
+										})
+									}
+								/>
+							</>
+						)}
 
 						{!cthfAssets.isPremium && (
 							<>

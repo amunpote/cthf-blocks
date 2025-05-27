@@ -192,6 +192,7 @@ $cta_button = array(
 
 $search_styles = array(
 	'heading'    => array(
+		'content'        => isset( $attributes['search']['heading']['content'] ) ? sanitize_text_field( $attributes['search']['heading']['content'] ) : '',
 		'font'           => array(
 			'size'   => isset( $attributes['search']['heading']['font']['size'] ) ? $attributes['search']['heading']['font']['size'] : '',
 			'family' => isset( $attributes['search']['heading']['font']['family'] ) ? $attributes['search']['heading']['font']['family'] : '',
@@ -970,7 +971,13 @@ $classes[] = 'element-' . $block_id;
 
 		<!-- Body -->
 		<div class="cthf__search-body">
-			<h4 class="search__heading"><?php esc_html_e( 'Looking for Something?', 'rootblox' ); ?></h4>
+			<?php
+			if ( isset( $attributes['search']['heading']['enabled'] ) && filter_var( $attributes['search']['heading']['enabled'], FILTER_VALIDATE_BOOLEAN ) ) {
+				?>
+				<h4 class="search__heading"><?php echo esc_html( $search_styles['heading']['content'] ); ?></h4>
+				<?php
+			}
+			?>
 			<form method="POST" action="">
 
 				<div class="search__icon">
