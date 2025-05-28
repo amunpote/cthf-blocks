@@ -453,7 +453,7 @@ export const freeHeaderPattern3 = [
 							},
 						},
 						[
-							["core/site-logo", { width: 160 }],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/group",
 								{
@@ -472,7 +472,7 @@ export const freeHeaderPattern3 = [
 										{
 											style: {
 												spacing: {
-													blockGap: "0",
+													blockGap: "10px",
 													margin: { top: "0", bottom: "0" },
 													padding: {
 														right: "0",
@@ -494,9 +494,7 @@ export const freeHeaderPattern3 = [
 												{
 													url: `${cthfAssets.img}header-3-1.png`,
 													lightbox: { enabled: false },
-													width: "72px",
-													height: "72px",
-													scale: "cover",
+													width: "40px",
 													sizeSlug: "full",
 													linkDestination: "custom",
 												},
@@ -549,7 +547,7 @@ export const freeHeaderPattern3 = [
 										{
 											style: {
 												spacing: {
-													blockGap: "0",
+													blockGap: "10px",
 													margin: { top: "0", bottom: "0" },
 													padding: {
 														right: "0",
@@ -571,9 +569,7 @@ export const freeHeaderPattern3 = [
 												{
 													url: `${cthfAssets.img}header-3-2.png`,
 													lightbox: { enabled: false },
-													width: "72px",
-													height: "72px",
-													scale: "cover",
+													width: "40px",
 													sizeSlug: "full",
 													linkDestination: "custom",
 												},
