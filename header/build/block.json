@@ -114,13 +114,13 @@
           "id": "",
           "url": ""
         },
-        "width": "120px",
+        "width": "40px",
         "enableTitle": true,
-        "titleTag": "h1",
-        "gap": "5px",
+        "titleTag": "h3",
+        "gap": "10px",
         "font": {
-          "size": "32px",
-          "weight": "600",
+          "size": "24px",
+          "weight": "500",
           "family": ""
         },
         "letterCase": "none",
@@ -137,13 +137,13 @@
       "type": "object",
       "default": {
         "enableLogo": true,
-        "width": "120px",
+        "width": "40px",
         "enableTitle": true,
-        "titleTag": "h1",
-        "gap": "5px",
+        "titleTag": "h3",
+        "gap": "10px",
         "font": {
-          "size": "32px",
-          "weight": "600",
+          "size": "24px",
+          "weight": "500",
           "family": ""
         },
         "letterCase": "none",

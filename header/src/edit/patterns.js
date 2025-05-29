@@ -1079,53 +1079,11 @@ export const freeHeaderPattern5 = [
 					},
 				},
 				[
-					[
-						"core/group",
-						{
-							style: { spacing: { blockGap: "0" } },
-							layout: { type: "constrained" },
-						},
-						[
-							[
-								"core/post-date",
-								{
-									format: "l",
-									style: {
-										color: { text: "#030821" },
-										elements: { link: { color: { text: "#030821" } } },
-										typography: {
-											fontStyle: "normal",
-											fontWeight: "500",
-											fontSize: "16px",
-											textTransform: "uppercase",
-											lineHeight: "1.2",
-										},
-									},
-								},
-							],
-							[
-								"core/post-date",
-								{
-									format: "F d, Y",
-									style: {
-										color: { text: "#030821" },
-										elements: { link: { color: { text: "#030821" } } },
-										typography: {
-											fontStyle: "normal",
-											fontWeight: "500",
-											fontSize: "14px",
-											lineHeight: "1.2",
-										},
-									},
-								},
-							],
-						],
-					],
 					["core/site-logo", { width: 160 }],
 					[
 						"core/social-links",
 						{
-							size: "has-small-icon-size",
+							size: "has-normal-icon-size",
 							style: { spacing: { blockGap: { top: "8px", left: "8px" } } },
 						},
 						[
@@ -1917,10 +1875,6 @@ export const proHeaderPattern5 = [
 								},
 								[
 									[
-										"core/post-date",
-										{ format: "l, j F Y", className: "cthf-date__has-icon" },
-									],
-									[
 										"core/group",
 										{
 											style: { spacing: { blockGap: "10px" } },
@@ -2390,29 +2344,6 @@ export const proHeaderPattern7 = [
 							},
 						},
 						[
-							[
-								"core/group",
-								{
-									style: { spacing: { blockGap: "20px" } },
-									layout: { type: "flex", flexWrap: "wrap" },
-								},
-								[
-									[
-										"core/post-date",
-										{
-											format: "l, F j, Y",
-											className: "cthf_date__has-calendar-white-icon",
-										},
-									],
-									[
-										"core/post-date",
-										{
-											format: "H:i:s",
-											className: "cthf-date__has-time-white-icon",
-										},
-									],
-								],
-							],
 							[
 								"core/social-links",
 								{
@@ -3846,46 +3777,6 @@ export const proHeaderPattern13 = [
 									},
 								},
 								[
-									[
-										"core/group",
-										{
-											style: {
-												color: { text: "#030821" },
-												elements: { link: { color: { text: "#030821" } } },
-												spacing: { blockGap: "0" },
-											},
-											layout: { type: "constrained" },
-										},
-										[
-											[
-												"core/post-date",
-												{
-													format: "l",
-													style: {
-														typography: {
-															fontSize: "18px",
-															fontStyle: "normal",
-															fontWeight: "600",
-															textTransform: "uppercase",
-														},
-													},
-												},
-											],
-											[
-												"core/post-date",
-												{
-													format: null,
-													style: {
-														typography: {
-															fontSize: "13px",
-															fontStyle: "normal",
-															fontWeight: "500",
-														},
-													},
-												},
-											],
-										],
-									],
 									["core/site-logo"],
 									[
 										"core/social-links",
