@@ -154,10 +154,10 @@
             "default": {
                 "iconSize": "",
                 "icon": "variation-1",
-                "menuGap": "0",
+                "menuGap": "10px",
                 "submenuGap": "10px",
                 "padding": {
-                    "top": "",
+                    "top": "16px",
                     "right": "",
                     "bottom": "",
                     "left": ""
