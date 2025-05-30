@@ -1,5 +1,7 @@
 */node_modules
 */.editorconfig
 
+node_modules
+
 *.sh
 *.bat
