@@ -748,9 +748,9 @@ $classes[] = 'element-' . $block_id;
 						$menu_id = intval( $attributes['mobileMenu']['menuID'] );
 
 						if ( $menu_id && 'publish' === get_post_status( $menu_id ) ) {
-							echo do_blocks( '<!-- wp:navigation {"ref":' . $menu_id . ', "overlayMenu": "never"} /-->' );
+							echo do_blocks( '<!-- wp:navigation {"ref":' . $menu_id . ', "overlayMenu": "never", "layout": {"type": "flex", "orientation":"vertical"}} /-->' );
 						} else {
-							echo do_blocks( '<!-- wp:navigation {"overlayMenu": "never"} /-->' );
+							echo do_blocks( '<!-- wp:navigation {"overlayMenu": "never", "layout": {"type": "flex", "orientation":"vertical"}} /-->' );
 						}
 					}
 
