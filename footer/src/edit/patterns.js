@@ -105,8 +105,7 @@ export const freeFooterPattern = [
 					[
 						"core/paragraph",
 						{
-							content:
-								"Proudly powered by WordPress | Rootblox by CozyThemes",
+							content: "Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 							style: {
 								typography: { fontSize: "14px" },
@@ -135,7 +134,7 @@ export const freeFooterPattern = [
 					},
 				},
 				[
-					["core/site-logo"],
+					["core/site-logo", { width: 80 }],
 					[
 						"core/navigation",
 						{
@@ -155,6 +154,7 @@ export const freeFooterPattern = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -203,7 +203,7 @@ export const freeFooterPattern2 = [
 						"core/column",
 						{ width: "30%", style: { spacing: { blockGap: "0" } } },
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -218,7 +218,7 @@ export const freeFooterPattern2 = [
 							[
 								"core/social-links",
 								{
-									size: "has-small-icon-size",
+									size: "has-normal-icon-size",
 									style: { spacing: { blockGap: { top: "6px", left: "8px" } } },
 								},
 								[
@@ -412,8 +412,7 @@ export const freeFooterPattern2 = [
 					[
 						"core/paragraph",
 						{
-							content:
-								"Proudly powered by WordPress | Rootblox by CozyThemes",
+							content: "Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 						},
 					],
@@ -589,6 +588,7 @@ export const freeFooterPattern3 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -627,8 +627,7 @@ export const freeFooterPattern3 = [
 					[
 						"core/paragraph",
 						{
-							content:
-								"Proudly powered by WordPress | Rootblox by CozyThemes",
+							content: "Proudly powered by WordPress | Rootblox by CozyThemes",
 							align: "center",
 						},
 					],
@@ -744,6 +743,7 @@ export const freeFooterPattern4 = [
 								"core/social-links",
 								{
 									customIconColor: "#fffffe",
+									size: "has-normal-icon-size",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
 									iconBackgroundColorValue: "#fffffe00",
@@ -782,8 +782,7 @@ export const freeFooterPattern4 = [
 			[
 				"core/paragraph",
 				{
-					content:
-						"Proudly powered by WordPress | Rootblox by CozyThemes",
+					content: "Proudly powered by WordPress | Rootblox by CozyThemes",
 				},
 			],
 		],
@@ -1145,7 +1144,7 @@ export const freeFooterPattern6 = [
 					},
 				},
 				[
-					["core/site-logo"],
+					["core/site-logo", { width: 80 }],
 					[
 						"core/group",
 						{
@@ -1169,6 +1168,7 @@ export const freeFooterPattern6 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#170122",
 							iconColorValue: "#170122",
 							customIconBackgroundColor: "#fffffe00",
@@ -1264,7 +1264,7 @@ export const freeFooterPattern7 = [
 								"core/column",
 								{ width: "33%", style: { spacing: { blockGap: "0" } } },
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -1458,6 +1458,7 @@ export const freeFooterPattern7 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -1545,7 +1546,7 @@ export const freeFooterPattern8 = [
 			layout: { type: "constrained", contentSize: "1180px" },
 		},
 		[
-			["core/site-logo", { align: "center" }],
+			["core/site-logo", { width: 80, align: "center" }],
 			[
 				"core/columns",
 				{
@@ -1897,6 +1898,7 @@ export const freeFooterPattern9 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#040c36",
 							iconColorValue: "#040c36",
 							customIconBackgroundColor: "#fffffe00",
@@ -1956,7 +1958,7 @@ export const freeFooterPattern10 = [
 							},
 							layout: { type: "default" },
 						},
-						[["core/site-logo"]],
+						[["core/site-logo", { width: 80 }]],
 					],
 					[
 						"core/column",
@@ -2164,6 +2166,7 @@ export const freeFooterPattern10 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -2775,7 +2778,7 @@ export const proFooterPattern2 = [
 									layout: { type: "default" },
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -2789,6 +2792,7 @@ export const proFooterPattern2 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#3450e6",
@@ -3247,6 +3251,7 @@ export const proFooterPattern3 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#170122",
 											iconColorValue: "#170122",
 											customIconBackgroundColor: "#fffffe",
@@ -3380,7 +3385,7 @@ export const proFooterPattern4 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -3408,6 +3413,7 @@ export const proFooterPattern4 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -3708,7 +3714,7 @@ export const proFooterPattern5 = [
 							[
 								"core/column",
 								{ verticalAlignment: "center" },
-								[["core/site-logo"]],
+								[["core/site-logo", { width: 80 }], { width: 80 }],
 							],
 							[
 								"core/column",
@@ -3802,6 +3808,7 @@ export const proFooterPattern5 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -4214,6 +4221,7 @@ export const proFooterPattern6 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#ac0cff",
@@ -4365,7 +4373,7 @@ export const proFooterPattern7 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -4380,11 +4388,11 @@ export const proFooterPattern7 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#434343",
 									iconBackgroundColorValue: "#434343",
-									size: "has-small-icon-size",
 									className: "cthf__pro-footer-7",
 									style: {
 										spacing: {
@@ -4753,7 +4761,7 @@ export const proFooterPattern8 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -5231,6 +5239,7 @@ export const proFooterPattern9 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#000316",
 									iconColorValue: "#000316",
 									customIconBackgroundColor: "#fffffe00",
@@ -5306,6 +5315,7 @@ export const proFooterPattern10 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -5427,7 +5437,7 @@ export const proFooterPattern11 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -5443,6 +5453,7 @@ export const proFooterPattern11 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -5774,7 +5785,7 @@ export const proFooterPattern12 = [
 								justifyContent: "left",
 							},
 						},
-						[["core/site-logo"]],
+						[["core/site-logo", { width: 80 }]],
 					],
 					[
 						"core/column",
@@ -6002,6 +6013,7 @@ export const proFooterPattern12 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#434343",
@@ -6444,7 +6456,7 @@ export const proFooterPattern13 = [
 					},
 				},
 				[
-					["core/site-logo"],
+					["core/site-logo", { width: 80 }],
 					[
 						"core/paragraph",
 						{
@@ -6454,6 +6466,7 @@ export const proFooterPattern13 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -6641,7 +6654,7 @@ export const proFooterPattern14 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -6707,6 +6720,7 @@ export const proFooterPattern14 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -6926,6 +6940,7 @@ export const proFooterPattern15 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -7174,6 +7189,7 @@ export const proFooterPattern16 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#040c36",
 							iconColorValue: "#040c36",
 							customIconBackgroundColor: "#fffffe",
@@ -7532,10 +7548,11 @@ export const proFooterPattern17 = [
 								"core/column",
 								{ width: "30%", style: { spacing: { blockGap: "0" } } },
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#262626",
@@ -8013,6 +8030,7 @@ export const proFooterPattern19 = [
 									[
 										"core/site-logo",
 										{
+											width: 80,
 											style: {
 												spacing: { margin: { top: "6px", bottom: "0px" } },
 											},
@@ -8264,6 +8282,7 @@ export const proFooterPattern20 = [
 			[
 				"core/social-links",
 				{
+					size: "has-normal-icon-size",
 					customIconColor: "#fffffe",
 					iconColorValue: "#fffffe",
 					customIconBackgroundColor: "#fffffe00",
@@ -8451,7 +8470,7 @@ export const proFooterPattern20 = [
 							layout: { type: "flex", flexWrap: "wrap" },
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/group",
 								{
@@ -8482,6 +8501,7 @@ export const proFooterPattern20 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -8631,6 +8651,7 @@ export const proFooterPattern21 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#3450e6",
@@ -9167,6 +9188,7 @@ export const proFooterPattern23 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#434343",
 							iconColorValue: "#434343",
 							customIconBackgroundColor: "#fffffe00",
@@ -9241,7 +9263,7 @@ export const proFooterPattern24 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -9263,6 +9285,7 @@ export const proFooterPattern24 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#040c36",
 											iconColorValue: "#040c36",
 											customIconBackgroundColor: "#fffffe",
@@ -9957,10 +9980,11 @@ export const proFooterPattern25 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#040c36",
 									iconColorValue: "#040c36",
 									customIconBackgroundColor: "#fffffe00",
@@ -10043,7 +10067,7 @@ export const proFooterPattern26 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -10382,6 +10406,7 @@ export const proFooterPattern26 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#040c36",
 							iconColorValue: "#040c36",
 							customIconBackgroundColor: "#fffffe00",
@@ -10451,7 +10476,7 @@ export const proFooterPattern27 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -10471,6 +10496,7 @@ export const proFooterPattern27 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#040b2e",
 									iconColorValue: "#040b2e",
 									customIconBackgroundColor: "#fffffe",
@@ -10964,7 +10990,7 @@ export const proFooterPattern28 = [
 										justifyContent: "left",
 									},
 								},
-								[["core/site-logo"]],
+								[["core/site-logo", { width: 80 }]],
 							],
 							[
 								"core/column",
@@ -11602,6 +11628,7 @@ export const proFooterPattern29 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -11646,7 +11673,7 @@ export const proFooterPattern30 = [
 						"core/column",
 						{ width: "35%", style: { spacing: { blockGap: "0" } } },
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -11660,6 +11687,7 @@ export const proFooterPattern30 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#040c36",
 									iconColorValue: "#040c36",
 									customIconBackgroundColor: "#fffffe00",
@@ -11938,7 +11966,7 @@ export const proFooterPattern31 = [
 			layout: { type: "constrained", contentSize: "1180px" },
 		},
 		[
-			["core/site-logo"],
+			["core/site-logo", { width: 80 }],
 			[
 				"core/columns",
 				{
@@ -12081,6 +12109,7 @@ export const proFooterPattern31 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -12412,6 +12441,7 @@ export const proFooterPattern32 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#040b2e",
 									iconColorValue: "#040b2e",
 									customIconBackgroundColor: "#fffffe00",
@@ -12444,7 +12474,7 @@ export const proFooterPattern32 = [
 					},
 				},
 				[
-					["core/site-logo"],
+					["core/site-logo", { width: 80 }],
 					[
 						"core/paragraph",
 						{ content: "Proudly powered by WordPress | Theme by CozyThemes" },
@@ -13228,6 +13258,7 @@ export const proFooterPattern34 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#040c36",
 							iconColorValue: "#040c36",
 							customIconBackgroundColor: "#fffffe00",
@@ -13335,7 +13366,7 @@ export const proFooterPattern35 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -13365,6 +13396,7 @@ export const proFooterPattern35 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -14111,6 +14143,7 @@ export const proFooterPattern36 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -14510,6 +14543,7 @@ export const proFooterPattern37 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -14562,7 +14596,7 @@ export const proFooterPattern38 = [
 					},
 				},
 				[
-					["core/column", {}, [["core/site-logo"]]],
+					["core/column", {}, [["core/site-logo", { width: 80 }]]],
 					[
 						"core/column",
 						{
@@ -14673,6 +14707,7 @@ export const proFooterPattern38 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",
@@ -14745,7 +14780,7 @@ export const proFooterPattern39 = [
 			layout: { type: "constrained", contentSize: "1180px" },
 		},
 		[
-			["core/site-logo"],
+			["core/site-logo", { width: 80 }],
 			[
 				"core/columns",
 				{
@@ -14927,6 +14962,7 @@ export const proFooterPattern39 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#fffffe",
 							iconColorValue: "#fffffe",
 							customIconBackgroundColor: "#fffffe00",
@@ -14984,7 +15020,7 @@ export const proFooterPattern40 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/paragraph",
 								{
@@ -15290,11 +15326,11 @@ export const proFooterPattern40 = [
 					[
 						"core/social-links",
 						{
+							size: "has-normal-icon-size",
 							customIconColor: "#040c36",
 							iconColorValue: "#040c36",
 							customIconBackgroundColor: "#fffffe00",
 							iconBackgroundColorValue: "#fffffe00",
-							size: "has-normal-icon-size",
 							className: "cthf__pro-footer-24",
 							style: {
 								spacing: { blockGap: { top: "12px", left: "12px" } },
@@ -15432,7 +15468,7 @@ export const proFooterPattern41 = [
 										justifyContent: "left",
 									},
 								},
-								[["core/site-logo"]],
+								[["core/site-logo", { width: 80 }]],
 							],
 							[
 								"core/column",
@@ -15632,7 +15668,7 @@ export const proFooterPattern42 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -15898,7 +15934,7 @@ export const proFooterPattern43 = [
 							},
 						},
 						[
-							["core/site-logo"],
+							["core/site-logo", { width: 80 }],
 							[
 								"core/navigation",
 								{
@@ -16065,6 +16101,7 @@ export const proFooterPattern44 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#fffffe",
 											iconColorValue: "#fffffe",
 											customIconBackgroundColor: "#fffffe00",
@@ -16442,7 +16479,7 @@ export const proFooterPattern45 = [
 									},
 								},
 								[
-									["core/site-logo"],
+									["core/site-logo", { width: 80 }],
 									[
 										"core/paragraph",
 										{
@@ -16456,6 +16493,7 @@ export const proFooterPattern45 = [
 									[
 										"core/social-links",
 										{
+											size: "has-normal-icon-size",
 											customIconColor: "#040c36",
 											iconColorValue: "#040c36",
 											customIconBackgroundColor: "#fffffe00",
@@ -17009,6 +17047,7 @@ export const proFooterPattern46 = [
 							[
 								"core/social-links",
 								{
+									size: "has-normal-icon-size",
 									customIconColor: "#fffffe",
 									iconColorValue: "#fffffe",
 									customIconBackgroundColor: "#fffffe00",

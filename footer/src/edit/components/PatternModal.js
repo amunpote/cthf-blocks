@@ -156,7 +156,7 @@ export const PatternModal = memo(
 						{patternLoader && <Spinner />}
 						{!patternLoader && __("Import Pattern", "rootblox")}
 					</div>
-				</figure>,
+				</figure>
 			);
 		}
 
@@ -195,9 +195,16 @@ export const PatternModal = memo(
 						</div>
 					)}
 					{!cthfAssets.isPremium && (
-						<a className="cthf__upsell-btn">{__("Checkout Pro", "rootblox")}</a>
+						<a
+							className="cthf__upsell-btn"
+							href={cthfAssets.upsellURL}
+							target="_blank"
+							rel="nofollow"
+						>
+							{__("Checkout Pro", "rootblox")}
+						</a>
 					)}
-				</figure>,
+				</figure>
 			);
 		}
 
@@ -217,5 +224,5 @@ export const PatternModal = memo(
 				</Modal>
 			</>
 		);
-	},
+	}
 );
