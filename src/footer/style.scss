@@ -1,0 +1,77 @@
+.cthf-block__wrapper.footer__wrap {
+	position: relative;
+}
+
+/* Back to Top */
+.cthf__back-to-top-wrapper {
+	width: 16px;
+	height: 16px;
+	border-radius: 100px;
+	background-color: #5100ff;
+	color: #fff;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.5s ease;
+	}
+
+	&.position-left {
+		left: 0;
+	}
+	&.position-right {
+		right: 0;
+	}
+
+	& svg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	& p {
+		margin: 0;
+	}
+}
+
+/* Scroll Progress Bar */
+.cthf__scroll-progress-bar {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+
+	&.position-top {
+		top: 0;
+	}
+	&.position-bottom {
+		bottom: 0;
+	}
+
+	& .progress-bar {
+		width: 0;
+		transition: all 0.3s ease;
+	}
+}
+.logged-in .cthf__scroll-progress-bar {
+	&.position-top {
+		top: 32px;
+
+		@media only screen and (max-width: 767px) {
+			top: 46px;
+		}
+
+		@media only screen and (max-width: 600px) {
+			top: 0;
+		}
+	}
+}

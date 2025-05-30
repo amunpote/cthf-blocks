@@ -1,0 +1,124 @@
+.cthf__mobile-layout-picker,
+.cthf__cta-btn-group {
+	& .flex-wrap {
+		padding: 22px 10px;
+		border: 1px solid #acacac;
+		margin-top: 10px;
+
+		&:not(.flex-1) {
+			margin-top: 16px;
+			position: relative;
+		}
+	}
+
+	& #clear-flex {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 4px 6px 0 0;
+
+		& svg {
+			width: 14px;
+			height: 14px;
+		}
+	}
+}
+.cthf__cta-btn-group {
+	margin-bottom: 22px;
+}
+
+.cthf__blur {
+	opacity: 0.5;
+}
+
+.cthf__attr-divider {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+
+	& > div {
+		width: 100%;
+	}
+}
+
+.cthf__nav-icon-variation {
+	width: 18px;
+	height: 16px;
+}
+
+.cthf__mobile-layout-wrapper .cthf__responsive-navigation .mini-cart__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cthf__sidebar-panel-wrap {
+	position: relative;
+}
+
+/* Sidebar Modal */
+.cthf__sidebar-panel-modal {
+	height: 100%;
+	overflow-y: scroll;
+
+	& .components-modal__content.hide-header {
+		padding: 0 !important;
+	}
+
+	& .sidebar-panel__body {
+		width: 100%;
+		height: auto;
+
+		& .wp-block-navigation__container a {
+			pointer-events: none;
+		}
+	}
+
+	/* Site Logo */
+	& .cthf__site-identity-wrap {
+		display: flex;
+		align-items: center;
+	}
+	& .custom-logo-link {
+		display: flex;
+		width: fit-content;
+
+		& .custom-logo {
+			width: 100%;
+			height: auto;
+		}
+	}
+	& .content-align-center .custom-logo-link {
+		margin: 0 auto;
+	}
+	& .content-align-right .custom-logo-link {
+		margin: 0 0 0 auto;
+	}
+	/* Site Title */
+	& .site-title h1,
+	& .site-title h2,
+	& .site-title h3,
+	& .site-title h4,
+	& .site-title h5,
+	& .site-title h6,
+	& .site-title p {
+		margin: 0;
+	}
+
+	/* Navigation */
+	& .content-align-center .wp-block-navigation__container {
+		text-align: center;
+
+		& .wp-block-navigation__submenu-container {
+			width: auto !important;
+		}
+	}
+	& .content-align-right .wp-block-navigation__container {
+		text-align: right;
+
+		& .wp-block-navigation__submenu-container {
+			width: auto !important;
+		}
+	}
+}
