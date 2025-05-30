@@ -84,9 +84,9 @@
             }
         }
     },
-    "editorScript": ["cthf-blocks--footer"],
-    "editorStyle": ["cthf-blocks--footer--editor-style"],
-    "style": ["cthf-blocks--footer--style"],
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
     "viewScript": ["cthf-blocks--footer--frontend-script"],
     "render": "file:./render.php"
 }

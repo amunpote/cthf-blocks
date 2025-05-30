@@ -356,9 +356,9 @@
         }
 
     },
-    "editorScript": ["cthf-blocks--business-hours"],
-    "editorStyle": ["cthf-blocks--business-hours--editor-style"],
-    "style": ["cthf-blocks--business-hours--style"],
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
     "viewScript": [
         "cthf-blocks--business-hours--frontend-script", "rootblox--luxon"
     ],

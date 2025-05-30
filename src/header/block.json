@@ -414,9 +414,9 @@
             }
         }
     },
-    "editorScript": ["cthf-blocks--header"],
-    "editorStyle": ["cthf-blocks--header--editor-style"],
-    "style": ["cthf-blocks--header--style"],
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
     "script": ["cthf-blocks--header--frontend-script"],
     "render": "file:./render.php"
 }
