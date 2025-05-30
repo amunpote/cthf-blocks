@@ -161,10 +161,10 @@
       "default": {
         "iconSize": "",
         "icon": "variation-1",
-        "menuGap": "10px",
+        "menuGap": "0",
         "submenuGap": "10px",
         "padding": {
-          "top": "16px",
+          "top": "",
           "right": "",
           "bottom": "",
           "left": ""

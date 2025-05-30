@@ -473,7 +473,7 @@ $block_styles = "
 		line-height: {$nav_styles['line_height']};
 		letter-spacing: {$nav_styles['letter_spacing']};
 
-		& > li {
+		& > li, .wp-block-page-list li {
 			{$nav_styles['item_padding']}
 			{$nav_styles['item_border']}
 		}

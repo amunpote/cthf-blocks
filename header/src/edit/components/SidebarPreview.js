@@ -58,7 +58,7 @@ export const NavSidebar = memo(() => {
 				letter-spacing: ${attributes.navigation.letterSpacing};
 				color: ${attributes.navigation.color.text};
 
-				& > li {
+				& > li, .wp-block-page-list li {
 					${rootbloxRenderTRBL("padding", attributes.navigation.itemPadding)}
 					${rootbloxRenderTRBL("border", attributes.navigation.itemBorder)}
 				}

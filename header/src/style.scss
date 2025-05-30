@@ -545,6 +545,15 @@
 			}
 		}
 
+		& .wp-block-page-list {
+			gap: 0;
+
+			& li {
+				width: 100%;
+				margin-bottom: 0;
+			}
+		}
+
 		& .wp-block-navigation__submenu-icon {
 			float: right;
 			width: 30px;
