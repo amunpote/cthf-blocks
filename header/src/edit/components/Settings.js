@@ -422,10 +422,10 @@ export const Settings = memo(() => {
 												<UpsellAttributeWrapper>
 													<RangeControl
 														label={__("Breakpoint", "rootblox")}
-														min={768}
+														min={767}
 														max={1440}
 														step={1}
-														value={1280}
+														value={767}
 														disabled
 													/>
 												</UpsellAttributeWrapper>
@@ -435,7 +435,7 @@ export const Settings = memo(() => {
 											<>
 												<RangeControl
 													label={__("Breakpoint", "rootblox")}
-													min={768}
+													min={767}
 													max={1440}
 													step={1}
 													value={attributes.mobileMenu.breakpoint}

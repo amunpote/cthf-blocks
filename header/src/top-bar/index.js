@@ -10,7 +10,7 @@ registerBlockType("cthf-blocks/header-top-bar", {
 	title: __("Top Bar", "rootblox"),
 	description: __("Top bar element for Header block.", "rootblox"),
 
-	category: "ct-header-footer",
+	category: "rootblox-header",
 
 	icon: {
 		src: blockIcon,
