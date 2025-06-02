@@ -266,7 +266,10 @@ const BusinessHours = memo(() => {
 
               return (
                 <>
-                  <li className="business-hour__item">
+                  <li
+                    className="business-hour__item"
+                    key={`business-hour-group-${_i}`}
+                  >
                     <span className="weekday">
                       {String(startLabel).trim() +
                         " " +
